@@ -14,16 +14,14 @@ class Teacher extends CI_Controller {
 		}else{
 
 			$acc_id = $this->session->userdata('acc_id');
-			$acc_type = $this->session->userdata('acc_type');
 
-			$this->db->where('id',$this->session->userdata('acc_id'));
-			$check_query = $this->db->get('accounts');
+			$check_query = $this->db->where('id',$acc_id)->get('teachers');
 
 			if ($check_query->num_rows() == 1) {
-
+				
 				$account = $check_query->row();
 
-				if ($account->active == 1 && $acc_type == $account->type) {
+				if ($account->active == 1) {
 					$this->acc_id = $account->id;
 					$this->acc_name = $account->firstname." ".$account->lastname;
 				}else{

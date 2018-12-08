@@ -4,28 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class StudentSignup extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-
-		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
-
-		if ($signed_in) {
-
-			$acc_id = $this->session->userdata('acc_id');
-			$acc_type = $this->session->userdata('acc_type');
-
-			$this->db->where('id',$this->session->userdata('acc_id'));
-			$check_query = $this->db->get('accounts');
-
-			if ($check_query->num_rows() == 1) {
-				if ($check_query->row()->active == 1) {
-					redirect($acc_type);
-				}else{
-					$this->session->sess_destroy();
-				}
-			}else{
-				$this->session->sess_destroy();
-			}
-
-		}
 	}
 
 	public function index()
@@ -38,7 +16,7 @@ class StudentSignup extends CI_Controller {
 		$input = $this->input->post();
 		$this->form_validation->set_rules('firstname', 'FirstName', 'trim|required|min_length[4]|max_length[75]');
 		$this->form_validation->set_rules('lastname', 'LastName', 'trim|required|min_length[4]|max_length[75]');
-		$this->form_validation->set_rules('username', 'UserName', 'trim|required|min_length[4]|max_length[75]|regex_match[/[A-Za-z]+\w/]|is_unique[accounts.username]',array(
+		$this->form_validation->set_rules('username', 'UserName', 'trim|required|min_length[4]|max_length[75]|regex_match[/[A-Za-z]+\w/]|is_unique[students.username]',array(
 			'is_unique' => 'This username is already exist. please choose another one',
 			'regex_match' => 'Username can have only latin characters, numbers or underscores. and must start with a letter. for example john_10',
 		));
@@ -74,8 +52,7 @@ class StudentSignup extends CI_Controller {
         	
         	$this->db->trans_start();
         	$input['password'] = sha1($input['password']);
-        	$input['type'] = "Student";
-			$this->db->insert('accounts',$input);
+			$this->db->insert('students',$input);
 
 			$acc_id = $this->db->insert_id();
 
@@ -84,7 +61,7 @@ class StudentSignup extends CI_Controller {
 			if ($this->db->trans_status() === true) {
 				$this->session->set_userdata('acc_id',$acc_id);
 				$this->session->set_userdata('signed_in',true);
-				$this->session->set_userdata('acc_type',"Student");
+				$this->session->set_userdata('acc_type',"student");
 				redirect('student');
 			}else{
 				$data['message'] = 'Error happened, try again later';

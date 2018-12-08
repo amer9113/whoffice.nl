@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-
+		
 		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
 
 		if ($signed_in) {
@@ -12,8 +12,12 @@ class Login extends CI_Controller {
 			$acc_id = $this->session->userdata('acc_id');
 			$acc_type = $this->session->userdata('acc_type');
 
-			$this->db->where('id',$this->session->userdata('acc_id'));
-			$check_query = $this->db->get('accounts');
+
+			if ($acc_type == "student") {
+				$check_query = $this->db->where('id',$acc_id)->get('students');
+			}else{
+				$check_query = $this->db->where('id',$acc_id)->get('teachers');
+			}
 
 			if ($check_query->num_rows() == 1) {
 				if ($check_query->row()->active == 1) {
@@ -36,11 +40,19 @@ class Login extends CI_Controller {
 	public function validate_credential()
 	{
 		$data = $this->input->post();
+
 		$match = array(
 			'username' => $data['username'],
 			'password' => sha1($data['password'])
 			);
-		$query = $this->db->where($match)->get('accounts');
+
+
+		if ($data['type'] == "student") {
+			$query = $this->db->where($match)->get('students');
+		}else{
+			$query = $this->db->where($match)->get('teachers');
+		}
+
 
 		if ($query->num_rows() == 1) {
 			if ($query->row()->active == 0) {
@@ -48,24 +60,15 @@ class Login extends CI_Controller {
 				$this->load->view('login',$data);
 			} else {
 				$acc_id = $query->row()->id;
-				$acc_type = $query->row()->type;
 				$this->session->set_userdata('acc_id',$acc_id);
 				$this->session->set_userdata('signed_in',true);
-				$this->session->set_userdata('acc_type',$acc_type);
+				$this->session->set_userdata('acc_type',$data['type']);
 				redirect('login');
 			}
 			
-		}else if($query->num_rows() === 0){
+		}else if($query->num_rows() == 0){
 			$data['message'] = 'Invalid username or password.';
 			$this->load->view('login',$data);
 		}
-	}
-
-	public function write_session(){
-		$_SESSION["test"] = "Test";
-	}
-
-	public function read_session(){
-		echo $_SESSION["test"];
 	}
 }
