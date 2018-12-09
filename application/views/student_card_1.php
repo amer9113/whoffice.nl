@@ -10,15 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Card 1</h1>
 	<?php if (isset($message)): ?>
 		<p><b><?= $message; ?></b></p>
-		<script>
-			window.onload = function() {
-				if ( window.history.replaceState ) {
-			        window.history.replaceState( null, null, window.location.href );
-			    }
-			}
-		</script>
 	<?php endif ?>
-	<form method="POST" action="<?= base_url().'student/card_1'; ?>" enctype="multipart/form-data">
+	<form method="POST" enctype="multipart/form-data">
 		<p>Question No. 1</p>
 
 		<div style="margin-left: 25px;">

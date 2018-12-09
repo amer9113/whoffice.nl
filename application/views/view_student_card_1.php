@@ -8,10 +8,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<h1>Card 1</h1>
+	<a href="<?= base_url().'student'; ?>">Close</a>
 	<?php if (isset($message)): ?>
 		<p><b><?= $message; ?></b></p>
+		<script>
+			window.onload = function() {
+				if ( window.history.replaceState ) {
+			        window.history.replaceState( null, null, window.location.href );
+			    }
+			}
+		</script>
 	<?php endif ?>
-	<form method="POST" action="<?= base_url().'student/card_1'; ?>" enctype="multipart/form-data">
+	<form method="POST" enctype="multipart/form-data">
 		<p>Question No. 1</p>
 
 		<div style="margin-left: 25px;">
@@ -35,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php endif ?>>have_certificate
 
 			<?php if ($data->have_certificate == 1): ?>
-				<a href="<?= base_url().'ext/student_certificates/'.$data->certificate_name; ?>" target="_blank">View file</a>
+				<a href="<?= base_url().'ext/student_documents/'.$data->certificate_name; ?>" target="_blank">View file</a>
 			<?php endif ?>
 
 			<input type="file" name="certificate_file">
@@ -48,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 			<?php if ($data->another_certificate == 1): ?>
-				<a href="<?= base_url().'ext/student_certificates/'.$data->another_certificate_name; ?>" target="_blank">View file</a>
+				<a href="<?= base_url().'ext/student_documents/'.$data->another_certificate_name; ?>" target="_blank">View file</a>
 			<?php endif ?>
 
 			<input type="file" name="another_certificate_file">
@@ -67,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<input type="text" name="ion_certificate_name" placeholder="ion_certificate_name" value="<?= $data->ion_certificate_name; ?>">
 
 			<?php if ($data->ion_certificate == 1): ?>
-				<a href="<?= base_url().'ext/student_certificates/'.$data->ion_certificate_file; ?>" target="_blank">View file</a>
+				<a href="<?= base_url().'ext/student_documents/'.$data->ion_certificate_file; ?>" target="_blank">View file</a>
 			<?php endif ?>
 
 			<input type="file" name="ion_certificate_file">
@@ -87,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php endif ?>>experience_certificate
 
 			<?php if ($data->experience_certificate == 1): ?>
-				<a href="<?= base_url().'ext/student_certificates/'.$data->experience_certificate_file; ?>" target="_blank">View file</a>
+				<a href="<?= base_url().'ext/student_documents/'.$data->experience_certificate_file; ?>" target="_blank">View file</a>
 			<?php endif ?>
 			
 			<input type="file" name="experience_certificate_file" value="<?= $data->experience_certificate_file; ?>">

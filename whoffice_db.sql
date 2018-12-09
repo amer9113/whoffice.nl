@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2018 at 03:54 AM
+-- Generation Time: Dec 09, 2018 at 10:24 PM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -99,6 +99,72 @@ CREATE TABLE `card_2` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `card_3`
+--
+
+CREATE TABLE `card_3` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `properties_1` varchar(255) DEFAULT NULL,
+  `have_properties_1` tinyint(1) NOT NULL DEFAULT '0',
+  `properties_2` varchar(255) DEFAULT NULL,
+  `have_properties_2` tinyint(1) NOT NULL DEFAULT '0',
+  `properties_3` varchar(255) DEFAULT NULL,
+  `why_properties_3` varchar(255) DEFAULT NULL,
+  `have_properties_3` tinyint(1) NOT NULL DEFAULT '0',
+  `properties_4` varchar(255) DEFAULT NULL,
+  `why_properties_4` varchar(255) DEFAULT NULL,
+  `have_properties_4` tinyint(1) NOT NULL DEFAULT '0',
+  `properties_5` varchar(255) DEFAULT NULL,
+  `why_properties_5` varchar(255) DEFAULT NULL,
+  `have_properties_5` tinyint(1) NOT NULL DEFAULT '0',
+  `properties_6` varchar(255) DEFAULT NULL,
+  `why_properties_6` varchar(255) DEFAULT NULL,
+  `have_properties_6` tinyint(1) NOT NULL DEFAULT '0',
+  `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `card_4`
+--
+
+CREATE TABLE `card_4` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `place_vacancies_find_1` varchar(255) DEFAULT NULL,
+  `place_vacancies_find_2` varchar(255) DEFAULT NULL,
+  `place_vacancies_find_3` varchar(255) DEFAULT NULL,
+  `num_vacancies_find` int(11) NOT NULL DEFAULT '0',
+  `chance_work` int(11) NOT NULL,
+  `job_offer_1_date` varchar(100) DEFAULT NULL,
+  `job_offer_1_profession` varchar(100) DEFAULT NULL,
+  `job_offer_1_company` varchar(100) DEFAULT NULL,
+  `job_offer_1_place` varchar(100) DEFAULT NULL,
+  `job_offer_1_file` varchar(100) DEFAULT NULL,
+  `job_offer_1_yes_no` tinyint(1) NOT NULL DEFAULT '0',
+  `job_offer_1_reason` varchar(255) DEFAULT NULL,
+  `job_offer_2_date` date DEFAULT NULL,
+  `job_offer_2_profession` varchar(100) DEFAULT NULL,
+  `job_offer_2_company` varchar(100) DEFAULT NULL,
+  `job_offer_2_place` varchar(100) DEFAULT NULL,
+  `job_offer_2_file` varchar(100) DEFAULT NULL,
+  `job_offer_2_yes_no` tinyint(1) NOT NULL DEFAULT '0',
+  `job_offer_2_reason` varchar(255) DEFAULT NULL,
+  `is_enough_work` tinyint(1) NOT NULL DEFAULT '0',
+  `is_little_work` varchar(255) DEFAULT NULL,
+  `another_work` varchar(255) DEFAULT NULL,
+  `go_first` varchar(255) DEFAULT NULL,
+  `go_first_reason` varchar(255) DEFAULT NULL,
+  `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -167,6 +233,18 @@ ALTER TABLE `card_2`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `card_3`
+--
+ALTER TABLE `card_3`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `card_4`
+--
+ALTER TABLE `card_4`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -186,11 +264,21 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `card_1`
 --
 ALTER TABLE `card_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `card_2`
 --
 ALTER TABLE `card_2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `card_3`
+--
+ALTER TABLE `card_3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `card_4`
+--
+ALTER TABLE `card_4`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `students`

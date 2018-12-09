@@ -8,16 +8,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<h1>Card 2</h1>
+	<a href="<?= base_url().'student'; ?>">Close</a>
 	<?php if (isset($message)): ?>
 		<p><b><?= $message; ?></b></p>
+		<script>
+			window.onload = function() {
+				if ( window.history.replaceState ) {
+			        window.history.replaceState( null, null, window.location.href );
+			    }
+			}
+		</script>
 	<?php endif ?>
-	<script>
-		window.onload = function() {
-			if ( window.history.replaceState ) {
-		        window.history.replaceState( null, null, window.location.href );
-		    }
-		}
-	</script>
 	<form method="POST">
 		<p>Question No. 1</p>
 

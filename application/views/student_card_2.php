@@ -10,13 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Card 2</h1>
 	<?php if (isset($message)): ?>
 		<p><b><?= $message; ?></b></p>
-		<script>
-			window.onload = function() {
-				if ( window.history.replaceState ) {
-			        window.history.replaceState( null, null, window.location.href );
-			    }
-			}
-		</script>
 	<?php endif ?>
 	<form method="POST">
 		<p>Question No. 1</p>

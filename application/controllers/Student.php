@@ -56,7 +56,7 @@ class Student extends CI_Controller {
 				if (isset($_FILES["certificate_file"]["name"]) && !empty($_FILES["certificate_file"]["name"]) )
 				{
 			        $config = array(
-			    		'upload_path' => './ext/student_certificates/',
+			    		'upload_path' => './ext/student_documents/',
 			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
@@ -82,7 +82,7 @@ class Student extends CI_Controller {
 				if (isset($_FILES["another_certificate_file"]["name"]) && !empty($_FILES["another_certificate_file"]["name"]) )
 				{
 			        $config = array(
-			    		'upload_path' => './ext/student_certificates/',
+			    		'upload_path' => './ext/student_documents/',
 			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
@@ -109,7 +109,7 @@ class Student extends CI_Controller {
 				if (isset($_FILES["ion_certificate_file"]["name"]) && !empty($_FILES["ion_certificate_file"]["name"]) )
 				{
 			        $config = array(
-			    		'upload_path' => './ext/student_certificates/',
+			    		'upload_path' => './ext/student_documents/',
 			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
@@ -137,7 +137,7 @@ class Student extends CI_Controller {
 				if (isset($_FILES["experience_certificate_file"]["name"]) && !empty($_FILES["experience_certificate_file"]["name"]) )
 				{
 			        $config = array(
-			    		'upload_path' => './ext/student_certificates/',
+			    		'upload_path' => './ext/student_documents/',
 			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
@@ -325,6 +325,120 @@ class Student extends CI_Controller {
 			$this->load->view("view_student_card_2",$data);
 		}else{
 			$this->load->view("student_card_2");
+		}
+	}
+
+	public function card_3(){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$input = $this->input->post();
+			$input['user_id'] = $this->acc_id;
+
+			$this->db->trans_start();
+
+			$check_exist = $this->db->where('user_id',$this->acc_id)->get('card_3');
+
+			if ($check_exist->num_rows() == 0) {
+				$this->db->insert('card_3',$input);
+			}else{
+				if ($check_exist->row()->edit_allow) {
+					$this->db->where('user_id',$this->acc_id)->update('card_3',$input);
+				}
+			}
+
+			$this->db->trans_complete();
+
+			if ($this->db->trans_status() === true) {
+				$data['message'] = 'Done.';
+			}else{
+				$data['message'] = 'Error happened, try again later.';
+			}
+		}
+
+		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_3");
+		if ($check_exist->num_rows() == 1) {
+			$data['data'] = $check_exist->row();
+			$this->load->view("view_student_card_3",$data);
+		}else{
+			$this->load->view("student_card_3");
+		}
+	}
+
+	public function card_4(){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$input = $this->input->post();
+			$input['user_id'] = $this->acc_id;
+
+
+			if (isset($_FILES["job_offer_1_file"]["name"]) && !empty($_FILES["job_offer_1_file"]["name"]) )
+			{
+			    $config = array(
+					'upload_path' => './ext/student_documents/',
+					'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+					'max_size' => 1024,
+					'encrypt_name' => TRUE
+				);
+
+			    $this->load->library('upload', $config);
+
+
+			    if ($this->upload->do_upload('job_offer_1_file') )
+		        {
+		        	$input['job_offer_1_file'] = $this->upload->data('file_name');
+		        }
+			}
+
+			if (isset($_FILES["job_offer_2_file"]["name"]) && !empty($_FILES["job_offer_2_file"]["name"]) )
+			{
+			    $config = array(
+					'upload_path' => './ext/student_documents/',
+					'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+					'max_size' => 1024,
+					'encrypt_name' => TRUE
+				);
+
+			    $this->load->library('upload', $config);
+
+
+			    if ($this->upload->do_upload('job_offer_2_file') )
+		        {
+		        	$input['job_offer_2_file'] = $this->upload->data('file_name');
+		        }
+			}
+
+			if (!isset($input['is_enough_work']) || empty($input['is_enough_work'])) {
+				$input['is_enough_work'] = 0;
+			}
+
+
+
+
+			$this->db->trans_start();
+
+			$check_exist = $this->db->where('user_id',$this->acc_id)->get('card_4');
+
+			if ($check_exist->num_rows() == 0) {
+				$this->db->insert('card_4',$input);
+			}else{
+				if ($check_exist->row()->edit_allow) {
+					$this->db->where('user_id',$this->acc_id)->update('card_4',$input);
+				}
+			}
+
+			$this->db->trans_complete();
+
+			if ($this->db->trans_status() === true) {
+				$data['message'] = 'Done.';
+			}else{
+				$data['message'] = 'Error happened, try again later.';
+			}
+		}
+
+		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_4");
+		if ($check_exist->num_rows() == 1) {
+			$data['data'] = $check_exist->row();
+			$this->load->view("view_student_card_4",$data);
+		}else{
+			$this->load->view("student_card_4");
 		}
 	}
 }
