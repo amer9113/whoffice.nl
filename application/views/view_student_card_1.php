@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php if (isset($message)): ?>
 		<p><b><?= $message; ?></b></p>
 	<?php endif ?>
-	<form method="POST" action="<?= base_url().'student/submit_card_1'; ?>" enctype="multipart/form-data">
+	<form method="POST" action="<?= base_url().'student/card_1'; ?>" enctype="multipart/form-data">
 		<p>Question No. 1</p>
 
 		<div style="margin-left: 25px;">
@@ -75,6 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<input type="checkbox" name="work_with_certificate" value="1" <?php if ($data->work_with_certificate == 1): ?>
 				checked
 			<?php endif ?>>work_with_certificate
+			<br><br>
 			<input type="text" name="reason_no_certificate" placeholder="reason_no_certificate" maxlength="255" value="<?= $data->reason_no_certificate; ?>">
 			<br><br>
 			<input type="checkbox" name="experience" value="1" <?php if ($data->experience == 1): ?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2018 at 09:55 PM
+-- Generation Time: Dec 09, 2018 at 03:54 AM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -51,6 +51,49 @@ CREATE TABLE `card_1` (
   `no_experience_certificate` tinyint(1) NOT NULL DEFAULT '0',
   `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
   `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `card_2`
+--
+
+CREATE TABLE `card_2` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `tasks` text,
+  `work_with_team` tinyint(1) NOT NULL DEFAULT '0',
+  `same_work_time` tinyint(1) NOT NULL DEFAULT '0',
+  `alot_of_mony` tinyint(1) NOT NULL DEFAULT '0',
+  `uniform` tinyint(1) NOT NULL DEFAULT '0',
+  `travel_far` tinyint(1) NOT NULL DEFAULT '0',
+  `work_one_place` tinyint(1) NOT NULL DEFAULT '0',
+  `with_materials` tinyint(1) NOT NULL DEFAULT '0',
+  `is_dangerous` tinyint(1) NOT NULL DEFAULT '0',
+  `physical_work` tinyint(1) NOT NULL DEFAULT '0',
+  `work_outside` tinyint(1) NOT NULL DEFAULT '0',
+  `work_at_night` tinyint(1) NOT NULL DEFAULT '0',
+  `work_weekend` tinyint(1) NOT NULL DEFAULT '0',
+  `work_condetions` text,
+  `good_with_me` tinyint(1) NOT NULL DEFAULT '0',
+  `driving_license` tinyint(1) NOT NULL DEFAULT '0',
+  `speake_another_lang` tinyint(1) NOT NULL DEFAULT '0',
+  `sport` tinyint(1) NOT NULL DEFAULT '0',
+  `swimming_diploma` tinyint(1) NOT NULL DEFAULT '0',
+  `other_requirements` text NOT NULL,
+  `good_requirements` tinyint(1) NOT NULL DEFAULT '0',
+  `another_special_requirements` text,
+  `in_my_home` tinyint(1) NOT NULL DEFAULT '0',
+  `in_my_health` tinyint(1) NOT NULL DEFAULT '0',
+  `in_my_age` tinyint(1) NOT NULL DEFAULT '0',
+  `in_my_motivation` tinyint(1) NOT NULL DEFAULT '0',
+  `in_my_address` tinyint(1) NOT NULL DEFAULT '0',
+  `other_circumstance` text,
+  `yes_change_circumstance` varchar(255) DEFAULT NULL,
+  `no_change_circumstance` varchar(255) DEFAULT NULL,
+  `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -118,6 +161,12 @@ ALTER TABLE `card_1`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `card_2`
+--
+ALTER TABLE `card_2`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -137,12 +186,17 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `card_1`
 --
 ALTER TABLE `card_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `card_2`
+--
+ALTER TABLE `card_2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `teachers`
 --

@@ -13,8 +13,12 @@ class Site extends CI_Controller {
 			$acc_id = $this->session->userdata('acc_id');
 			$acc_type = $this->session->userdata('acc_type');
 
-			$this->db->where('id',$this->session->userdata('acc_id'));
-			$check_query = $this->db->get('accounts');
+
+			if ($acc_type == "student") {
+				$check_query = $this->db->where('id',$acc_id)->get('students');
+			}else{
+				$check_query = $this->db->where('id',$acc_id)->get('teachers');
+			}
 
 			if ($check_query->num_rows() == 1) {
 				if ($check_query->row()->active == 1) {

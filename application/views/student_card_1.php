@@ -10,8 +10,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Card 1</h1>
 	<?php if (isset($message)): ?>
 		<p><b><?= $message; ?></b></p>
+		<script>
+			window.onload = function() {
+				if ( window.history.replaceState ) {
+			        window.history.replaceState( null, null, window.location.href );
+			    }
+			}
+		</script>
 	<?php endif ?>
-	<form method="POST" action="<?= base_url().'student/submit_card_1'; ?>" enctype="multipart/form-data">
+	<form method="POST" action="<?= base_url().'student/card_1'; ?>" enctype="multipart/form-data">
 		<p>Question No. 1</p>
 
 		<div style="margin-left: 25px;">
@@ -43,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<input type="file" name="ion_certificate_file">
 			<br><br>
 			<input type="checkbox" name="work_with_certificate" value="1">work_with_certificate
+			<br><br>
 			<input type="text" name="reason_no_certificate" placeholder="reason_no_certificate" maxlength="255">
 			<br><br>
 			<input type="checkbox" name="experience" value="1">experience
