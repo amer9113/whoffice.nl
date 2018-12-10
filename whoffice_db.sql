@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2018 at 10:24 PM
--- Server version: 10.0.17-MariaDB
--- PHP Version: 5.6.14
+-- Generation Time: Dec 10, 2018 at 02:12 PM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -165,6 +165,65 @@ CREATE TABLE `card_4` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `card_5`
+--
+
+CREATE TABLE `card_5` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `one_course` tinyint(1) NOT NULL DEFAULT '0',
+  `one_complate_training` tinyint(1) NOT NULL DEFAULT '0',
+  `training_one_year` tinyint(1) NOT NULL DEFAULT '0',
+  `training_multi_year` tinyint(1) NOT NULL DEFAULT '0',
+  `course_full_time` tinyint(1) NOT NULL DEFAULT '0',
+  `course_part_time` tinyint(1) NOT NULL DEFAULT '0',
+  `in_day` tinyint(1) NOT NULL DEFAULT '0',
+  `at_night` tinyint(1) NOT NULL DEFAULT '0',
+  `at_school` tinyint(1) NOT NULL DEFAULT '0',
+  `at_home` tinyint(1) NOT NULL DEFAULT '0',
+  `another_course` text,
+  `course_name` varchar(255) DEFAULT NULL,
+  `course_school` varchar(255) DEFAULT NULL,
+  `course_period` varchar(255) DEFAULT NULL,
+  `period_time` varchar(255) DEFAULT NULL,
+  `no_diploma` tinyint(1) NOT NULL DEFAULT '0',
+  `get_diplomas` varchar(255) DEFAULT NULL,
+  `have_diploma` tinyint(1) NOT NULL DEFAULT '0',
+  `cost_diploma` varchar(100) DEFAULT NULL,
+  `get_lend` text,
+  `can_pay` tinyint(1) NOT NULL DEFAULT '0',
+  `owner_pay` tinyint(1) NOT NULL DEFAULT '0',
+  `another_pay` varchar(255) DEFAULT NULL,
+  `Living_money` text,
+  `dutch_level` varchar(10) DEFAULT NULL,
+  `have_Level` tinyint(1) NOT NULL DEFAULT '0',
+  `have_diploma_Level` tinyint(1) NOT NULL DEFAULT '0',
+  `can_speak_with_people` tinyint(1) NOT NULL DEFAULT '0',
+  `instructions` tinyint(1) NOT NULL DEFAULT '0',
+  `meet` tinyint(1) NOT NULL DEFAULT '0',
+  `email` tinyint(1) NOT NULL DEFAULT '0',
+  `telephone` tinyint(1) NOT NULL DEFAULT '0',
+  `report` tinyint(1) NOT NULL DEFAULT '0',
+  `speak_client` tinyint(1) NOT NULL DEFAULT '0',
+  `contact_colleague` tinyint(1) NOT NULL DEFAULT '0',
+  `work_paper` tinyint(1) NOT NULL DEFAULT '0',
+  `short_report` tinyint(1) NOT NULL DEFAULT '0',
+  `another_report` text,
+  `can_good` tinyint(1) NOT NULL DEFAULT '0',
+  `language_trajectory` text,
+  `work_language_trajectory` text,
+  `study_lang` tinyint(1) NOT NULL DEFAULT '0',
+  `study_lang_type` varchar(100) DEFAULT NULL,
+  `study_lang_where` varchar(100) DEFAULT NULL,
+  `study_lang_when` varchar(100) DEFAULT NULL,
+  `study_lang_no` tinyint(1) NOT NULL DEFAULT '0',
+  `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -245,6 +304,12 @@ ALTER TABLE `card_4`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `card_5`
+--
+ALTER TABLE `card_5`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -264,7 +329,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `card_1`
 --
 ALTER TABLE `card_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `card_2`
 --
@@ -274,12 +339,17 @@ ALTER TABLE `card_2`
 -- AUTO_INCREMENT for table `card_3`
 --
 ALTER TABLE `card_3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `card_4`
 --
 ALTER TABLE `card_4`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `card_5`
+--
+ALTER TABLE `card_5`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `students`
 --

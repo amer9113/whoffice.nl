@@ -441,4 +441,141 @@ class Student extends CI_Controller {
 			$this->load->view("student_card_4");
 		}
 	}
+
+	public function card_5(){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$input = $this->input->post();
+			$input['user_id'] = $this->acc_id;
+
+			if (!isset($input['one_course']) || empty($input['one_course'])) {
+				$input['one_course'] = 0;
+			}
+
+			if (!isset($input['one_complate_training']) || empty($input['one_complate_training'])) {
+				$input['one_complate_training'] = 0;
+			}
+
+			if (!isset($input['training_one_year']) || empty($input['training_one_year'])) {
+				$input['training_one_year'] = 0;
+			}
+
+			if (!isset($input['training_multi_year']) || empty($input['training_multi_year'])) {
+				$input['training_multi_year'] = 0;
+			}
+
+			if (!isset($input['course_full_time']) || empty($input['course_full_time'])) {
+				$input['course_full_time'] = 0;
+			}
+
+			if (!isset($input['course_part_time']) || empty($input['course_part_time'])) {
+				$input['course_part_time'] = 0;
+			}
+
+			if (!isset($input['in_day']) || empty($input['in_day'])) {
+				$input['in_day'] = 0;
+			}
+
+			if (!isset($input['at_night']) || empty($input['at_night'])) {
+				$input['at_night'] = 0;
+			}
+
+			if (!isset($input['at_school']) || empty($input['at_school'])) {
+				$input['at_school'] = 0;
+			}
+
+			if (!isset($input['at_home']) || empty($input['at_home'])) {
+				$input['at_home'] = 0;
+			}
+
+			if (!isset($input['no_diploma']) || empty($input['no_diploma'])) {
+				$input['no_diploma'] = 0;
+			}
+
+			if (!isset($input['can_pay']) || empty($input['can_pay'])) {
+				$input['can_pay'] = 0;
+			}
+
+			if (!isset($input['owner_pay']) || empty($input['owner_pay'])) {
+				$input['owner_pay'] = 0;
+			}
+
+
+			if (!isset($input['can_speak_with_people']) || empty($input['can_speak_with_people'])) {
+				$input['can_speak_with_people'] = 0;
+			}
+
+			if (!isset($input['instructions']) || empty($input['instructions'])) {
+				$input['instructions'] = 0;
+			}
+
+			if (!isset($input['meet']) || empty($input['meet'])) {
+				$input['meet'] = 0;
+			}
+
+			if (!isset($input['email']) || empty($input['email'])) {
+				$input['email'] = 0;
+			}
+
+			if (!isset($input['telephone']) || empty($input['telephone'])) {
+				$input['telephone'] = 0;
+			}
+
+			if (!isset($input['report']) || empty($input['report'])) {
+				$input['report'] = 0;
+			}
+
+			if (!isset($input['speak_client']) || empty($input['speak_client'])) {
+				$input['speak_client'] = 0;
+			}
+
+			if (!isset($input['contact_colleague']) || empty($input['contact_colleague'])) {
+				$input['contact_colleague'] = 0;
+			}
+
+			if (!isset($input['work_paper']) || empty($input['work_paper'])) {
+				$input['work_paper'] = 0;
+			}
+
+			if (!isset($input['short_report']) || empty($input['short_report'])) {
+				$input['short_report'] = 0;
+			}
+
+			if (!isset($input['study_lang']) || empty($input['study_lang'])) {
+				$input['study_lang'] = 0;
+			}
+
+			if (!isset($input['study_lang_no']) || empty($input['study_lang_no'])) {
+				$input['study_lang_no'] = 0;
+			}
+
+
+			$this->db->trans_start();
+
+			$check_exist = $this->db->where('user_id',$this->acc_id)->get('card_5');
+
+			if ($check_exist->num_rows() == 0) {
+				$this->db->insert('card_5',$input);
+			}else{
+				if ($check_exist->row()->edit_allow) {
+					$this->db->where('user_id',$this->acc_id)->update('card_5',$input);
+				}
+			}
+
+			$this->db->trans_complete();
+
+			if ($this->db->trans_status() === true) {
+				$data['message'] = 'Done.';
+			}else{
+				$data['message'] = 'Error happened, try again later.';
+			}
+		}
+
+		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_5");
+		if ($check_exist->num_rows() == 1) {
+			$data['data'] = $check_exist->row();
+			$this->load->view("view_student_card_5",$data);
+		}else{
+			$this->load->view("student_card_5");
+		}
+	}
 }

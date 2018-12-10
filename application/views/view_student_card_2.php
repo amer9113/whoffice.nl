@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<?php require('inc/head.php') ?>
 	<title>whoffice</title>
 </head>
 <body>
@@ -157,5 +157,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<input type="submit" value="Alter">
 		<?php endif ?>
 	</form>
+<?php require('inc/scripts.php') ?>
 </body>
 </html>
