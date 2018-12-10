@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2018 at 02:12 PM
+-- Generation Time: Dec 10, 2018 at 11:41 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -224,6 +224,53 @@ CREATE TABLE `card_5` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `card_6`
+--
+
+CREATE TABLE `card_6` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `close_friend` tinyint(1) NOT NULL DEFAULT '0',
+  `colleague` tinyint(1) NOT NULL DEFAULT '0',
+  `study_friend` tinyint(1) NOT NULL DEFAULT '0',
+  `sports_club_friend` tinyint(1) NOT NULL DEFAULT '0',
+  `client_manger` tinyint(1) NOT NULL DEFAULT '0',
+  `knowledge` tinyint(1) NOT NULL DEFAULT '0',
+  `friend` tinyint(1) NOT NULL DEFAULT '0',
+  `family` tinyint(1) NOT NULL DEFAULT '0',
+  `another` text,
+  `name_help_me_1` varchar(100) DEFAULT NULL,
+  `name_help_me_2` varchar(100) DEFAULT NULL,
+  `name_help_me_3` varchar(100) DEFAULT NULL,
+  `no_one_help_me` tinyint(1) NOT NULL DEFAULT '0',
+  `who_work` varchar(100) DEFAULT NULL,
+  `when_work` varchar(100) DEFAULT NULL,
+  `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `card_8`
+--
+
+CREATE TABLE `card_8` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `in_my_country_1` text,
+  `in_my_country_2` text,
+  `in_my_country_3` text,
+  `in_netherlands_1` text,
+  `in_netherlands_2` text,
+  `in_netherlands_3` text,
+  `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -310,6 +357,18 @@ ALTER TABLE `card_5`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `card_6`
+--
+ALTER TABLE `card_6`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `card_8`
+--
+ALTER TABLE `card_8`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -349,6 +408,16 @@ ALTER TABLE `card_4`
 -- AUTO_INCREMENT for table `card_5`
 --
 ALTER TABLE `card_5`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `card_6`
+--
+ALTER TABLE `card_6`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `card_8`
+--
+ALTER TABLE `card_8`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `students`

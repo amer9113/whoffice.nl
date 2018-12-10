@@ -578,4 +578,110 @@ class Student extends CI_Controller {
 			$this->load->view("student_card_5");
 		}
 	}
+
+	public function card_6(){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$input = $this->input->post();
+			$input['user_id'] = $this->acc_id;
+
+			if (!isset($input['close_friend']) || empty($input['close_friend'])) {
+				$input['close_friend'] = 0;
+			}
+
+			if (!isset($input['colleague']) || empty($input['colleague'])) {
+				$input['colleague'] = 0;
+			}
+
+			if (!isset($input['study_friend']) || empty($input['study_friend'])) {
+				$input['study_friend'] = 0;
+			}
+
+			if (!isset($input['sports_club_friend']) || empty($input['sports_club_friend'])) {
+				$input['sports_club_friend'] = 0;
+			}
+
+			if (!isset($input['client_manger']) || empty($input['client_manger'])) {
+				$input['client_manger'] = 0;
+			}
+
+			if (!isset($input['knowledge']) || empty($input['knowledge'])) {
+				$input['knowledge'] = 0;
+			}
+
+			if (!isset($input['friend']) || empty($input['friend'])) {
+				$input['friend'] = 0;
+			}
+
+			if (!isset($input['family']) || empty($input['family'])) {
+				$input['family'] = 0;
+			}
+
+			if (!isset($input['no_one_help_me']) || empty($input['no_one_help_me'])) {
+				$input['no_one_help_me'] = 0;
+			}
+
+			$this->db->trans_start();
+
+			$check_exist = $this->db->where('user_id',$this->acc_id)->get('card_6');
+
+			if ($check_exist->num_rows() == 0) {
+				$this->db->insert('card_6',$input);
+			}else{
+				if ($check_exist->row()->edit_allow) {
+					$this->db->where('user_id',$this->acc_id)->update('card_6',$input);
+				}
+			}
+
+			$this->db->trans_complete();
+
+			if ($this->db->trans_status() === true) {
+				$data['message'] = 'Done.';
+			}else{
+				$data['message'] = 'Error happened, try again later.';
+			}
+		}
+
+		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_6");
+		if ($check_exist->num_rows() == 1) {
+			$data['data'] = $check_exist->row();
+			$this->load->view("view_student_card_6",$data);
+		}else{
+			$this->load->view("student_card_6");
+		}
+	}
+
+	public function card_8(){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$input = $this->input->post();
+			$input['user_id'] = $this->acc_id;
+
+			$this->db->trans_start();
+
+			$check_exist = $this->db->where('user_id',$this->acc_id)->get('card_8');
+
+			if ($check_exist->num_rows() == 0) {
+				$this->db->insert('card_8',$input);
+			}else{
+				if ($check_exist->row()->edit_allow) {
+					$this->db->where('user_id',$this->acc_id)->update('card_8',$input);
+				}
+			}
+
+			$this->db->trans_complete();
+
+			if ($this->db->trans_status() === true) {
+				$data['message'] = 'Done.';
+			}else{
+				$data['message'] = 'Error happened, try again later.';
+			}
+		}
+
+		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_8");
+		if ($check_exist->num_rows() == 1) {
+			$data['data'] = $check_exist->row();
+			$this->load->view("view_student_card_8",$data);
+		}else{
+			$this->load->view("student_card_8");
+		}
+	}
 }
