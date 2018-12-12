@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php if (isset($message)): ?>
 		<p><b><?= $message; ?></b></p>
 	<?php endif ?>
-	<form method="POST" enctype="multipart/form-data">
+	<form method="POST">
 		<p>Question No. 1</p>
 
 		<div style="margin-left: 25px;">

@@ -650,6 +650,174 @@ class Student extends CI_Controller {
 		}
 	}
 
+	public function card_7(){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$input = $this->input->post();
+			$input['user_id'] = $this->acc_id;
+
+			if (!isset($input['vacancies']) || empty($input['vacancies'])) {
+				$input['vacancies'] = 0;
+			}
+
+			if (!isset($input['open_application']) || empty($input['open_application'])) {
+				$input['open_application'] = 0;
+			}
+
+			if (isset($input['app_form_work']) && $input['app_form_work'] == 1) {
+				if (isset($_FILES["app_form_work_file"]["name"]) && !empty($_FILES["app_form_work_file"]["name"]) )
+				{
+			        $config = array(
+			    		'upload_path' => './ext/student_documents/',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'max_size' => 1024,
+						'encrypt_name' => TRUE
+			    	);
+
+			        $this->load->library('upload', $config);
+
+
+			        if ($this->upload->do_upload('app_form_work_file') )
+		            {
+		            	$input['app_form_work_file'] = $this->upload->data('file_name');
+		            }
+				}else{
+					$input['app_form_work_file'] = "";
+					$input['app_form_work'] = 0;
+				}
+			}else{
+				$input['app_form_work_file'] = "";
+				$input['app_form_work'] = 0;
+			}
+
+			if (isset($input['app_form_another_work']) && $input['app_form_another_work'] == 1) {
+				if (isset($_FILES["app_form_another_work_file_1"]["name"]) && !empty($_FILES["app_form_another_work_file_1"]["name"]) )
+				{
+			        $config = array(
+			    		'upload_path' => './ext/student_documents/',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'max_size' => 1024,
+						'encrypt_name' => TRUE
+			    	);
+
+			        $this->load->library('upload', $config);
+
+
+			        if ($this->upload->do_upload('app_form_another_work_file_1') )
+		            {
+		            	$input['app_form_another_work_file_1'] = $this->upload->data('file_name');
+		            }
+				}else{
+					$input['app_form_another_work_file_1'] = "";
+				}
+
+				if (isset($_FILES["app_form_another_work_file_2"]["name"]) && !empty($_FILES["app_form_another_work_file_2"]["name"]) )
+				{
+			        $config = array(
+			    		'upload_path' => './ext/student_documents/',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'max_size' => 1024,
+						'encrypt_name' => TRUE
+			    	);
+
+			        $this->load->library('upload', $config);
+
+
+			        if ($this->upload->do_upload('app_form_another_work_file_2') )
+		            {
+		            	$input['app_form_another_work_file_2'] = $this->upload->data('file_name');
+		            }
+				}else{
+					$input['app_form_another_work_file_2'] = "";
+				}
+			}else{
+				$input['app_form_another_work_file_1'] = "";
+				$input['app_form_another_work_file_2'] = "";
+				$input['app_form_another_work'] = 0;
+			}
+
+			if (isset($input['motivation']) && $input['motivation'] == 1) {
+				if (isset($_FILES["motivation_file"]["name"]) && !empty($_FILES["motivation_file"]["name"]) )
+				{
+			        $config = array(
+			    		'upload_path' => './ext/student_documents/',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'max_size' => 1024,
+						'encrypt_name' => TRUE
+			    	);
+
+			        $this->load->library('upload', $config);
+
+
+			        if ($this->upload->do_upload('motivation_file') )
+		            {
+		            	$input['motivation_file'] = $this->upload->data('file_name');
+		            }
+				}else{
+					$input['motivation_file'] = "";
+					$input['motivation'] = 0;
+				}
+			}else{
+				$input['motivation_file'] = "";
+				$input['motivation'] = 0;
+			}
+
+			if (isset($input['have_cv']) && $input['have_cv'] == 1) {
+				if (isset($_FILES["cv"]["name"]) && !empty($_FILES["cv"]["name"]) )
+				{
+			        $config = array(
+			    		'upload_path' => './ext/student_documents/',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'max_size' => 1024,
+						'encrypt_name' => TRUE
+			    	);
+
+			        $this->load->library('upload', $config);
+
+
+			        if ($this->upload->do_upload('cv') )
+		            {
+		            	$input['cv'] = $this->upload->data('file_name');
+		            }
+				}else{
+					$input['cv'] = "";
+					$input['have_cv'] = 0;
+				}
+			}else{
+				$input['cv'] = "";
+				$input['have_cv'] = 0;
+			}
+
+
+			$this->db->trans_start();
+
+			$check_exist = $this->db->where('user_id',$this->acc_id)->get('card_7');
+
+			if ($check_exist->num_rows() == 0) {
+				$this->db->insert('card_7',$input);
+			}else{
+				if ($check_exist->row()->edit_allow) {
+					$this->db->where('user_id',$this->acc_id)->update('card_7',$input);
+				}
+			}
+
+			$this->db->trans_complete();
+
+			if ($this->db->trans_status() === true) {
+				$data['message'] = 'Done.';
+			}else{
+				$data['message'] = 'Error happened, try again later.';
+			}
+		}
+
+		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_7");
+		if ($check_exist->num_rows() == 1) {
+			$data['data'] = $check_exist->row();
+			$this->load->view("view_student_card_7",$data);
+		}else{
+			$this->load->view("student_card_7");
+		}
+	}
+
 	public function card_8(){
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
