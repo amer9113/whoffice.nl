@@ -51,8 +51,7 @@ class Student extends CI_Controller {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
-			$direction = $input['direction'];
-			unset($input['direction']);
+			
 			if (isset($input['have_certificate']) && $input['have_certificate'] == 1) {
 				if (isset($_FILES["certificate_file"]["name"]) && !empty($_FILES["certificate_file"]["name"]) )
 				{
@@ -179,12 +178,7 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-
-				if ($direction == 'next') {
-					redirect('student/card_2');
-				}else if($direction == 'back'){
-
-				}
+				redirect('student/card_2');
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
@@ -459,11 +453,11 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				/*if ($direction == 'next') {
+				if ($direction == 'next') {
 					redirect('student/card_5');
 				}else if($direction == 'back'){
 					redirect('student/card_3');
-				}*/
+				}
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
@@ -482,6 +476,8 @@ class Student extends CI_Controller {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
+			$direction = $input['direction'];
+			unset($input['direction']);
 
 			if (!isset($input['one_course']) || empty($input['one_course'])) {
 				$input['one_course'] = 0;
@@ -600,7 +596,11 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				$data['message'] = 'Done.';
+				if ($direction == 'next') {
+					redirect('student/card_6');
+				}else if($direction == 'back'){
+					redirect('student/card_4');
+				}
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
@@ -609,7 +609,7 @@ class Student extends CI_Controller {
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_5");
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
-			$this->load->view("view_student_card_5",$data);
+			$this->load->view("student_card_5",$data);
 		}else{
 			$this->load->view("student_card_5");
 		}
@@ -619,6 +619,8 @@ class Student extends CI_Controller {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
+			$direction = $input['direction'];
+			unset($input['direction']);
 
 			if (!isset($input['close_friend']) || empty($input['close_friend'])) {
 				$input['close_friend'] = 0;
@@ -671,7 +673,11 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				$data['message'] = 'Done.';
+				if ($direction == 'next') {
+					redirect('student/card_7');
+				}else if($direction == 'back'){
+					redirect('student/card_5');
+				}
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
@@ -680,7 +686,7 @@ class Student extends CI_Controller {
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_6");
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
-			$this->load->view("view_student_card_6",$data);
+			$this->load->view("student_card_6",$data);
 		}else{
 			$this->load->view("student_card_6");
 		}
@@ -690,6 +696,8 @@ class Student extends CI_Controller {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
+			$direction = $input['direction'];
+			unset($input['direction']);
 
 			if (!isset($input['vacancies']) || empty($input['vacancies'])) {
 				$input['vacancies'] = 0;
@@ -839,7 +847,11 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				$data['message'] = 'Done.';
+				if ($direction == 'next') {
+					redirect('student/card_8');
+				}else if($direction == 'back'){
+					redirect('student/card_6');
+				}
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
@@ -848,7 +860,7 @@ class Student extends CI_Controller {
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_7");
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
-			$this->load->view("view_student_card_7",$data);
+			$this->load->view("student_card_7",$data);
 		}else{
 			$this->load->view("student_card_7");
 		}
@@ -874,7 +886,7 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				$data['message'] = 'Done.';
+				redirect('student/card_7');
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
@@ -883,7 +895,7 @@ class Student extends CI_Controller {
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_8");
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
-			$this->load->view("view_student_card_8",$data);
+			$this->load->view("student_card_8",$data);
 		}else{
 			$this->load->view("student_card_8");
 		}

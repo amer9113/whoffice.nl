@@ -316,27 +316,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile w3-center" id="footer">
                     <div class="w3-bar">
-                    	<input type="hidden" name="direction">
-                        <button class="w3-button w3-red" type="button" id="submit_backword">Naar voorblad</button>
-                        <button class="w3-button w3-red" type="button" id="submit_forword">Naar Kaart2</button>
+                        <button class="w3-button w3-red" type="submit">Naar Kaart2</button>
                     </div>
                 </div>
             </div>
     	</form>
     </div>
 <?php require('inc/scripts.php') ?>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#submit_forword').click(function(){
-			$('[name="direction"]').val("next");
-			$('form').submit();
-		});
-
-		$('#submit_backword').click(function(){
-			$('[name="direction"]').val("back");
-			$('form').submit();
-		});
-	});
-</script>
 </body>
 </html>
