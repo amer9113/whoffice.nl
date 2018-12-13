@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2018 at 11:41 PM
+-- Generation Time: Dec 13, 2018 at 03:17 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -19,6 +19,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `whoffice_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `administrators`
+--
+
+CREATE TABLE `administrators` (
+  `id` int(11) NOT NULL,
+  `username` varchar(75) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `firstname` varchar(75) NOT NULL,
+  `lastname` varchar(75) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `administrators`
+--
+
+INSERT INTO `administrators` (`id`, `username`, `password`, `firstname`, `lastname`) VALUES
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'AbdAlrzzaq', 'Alommar');
 
 -- --------------------------------------------------------
 
@@ -47,7 +68,7 @@ CREATE TABLE `card_1` (
   `experience` tinyint(1) DEFAULT '0',
   `experience_certificate` tinyint(1) NOT NULL DEFAULT '0',
   `experience_certificate_file` varchar(255) DEFAULT NULL,
-  `reson_no_experience` varchar(255) DEFAULT NULL,
+  `reason_no_experience` varchar(255) DEFAULT NULL,
   `no_experience_certificate` tinyint(1) NOT NULL DEFAULT '0',
   `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
   `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
@@ -93,7 +114,7 @@ CREATE TABLE `card_2` (
   `yes_change_circumstance` varchar(255) DEFAULT NULL,
   `no_change_circumstance` varchar(255) DEFAULT NULL,
   `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
-  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -122,7 +143,7 @@ CREATE TABLE `card_3` (
   `why_properties_6` varchar(255) DEFAULT NULL,
   `have_properties_6` tinyint(1) NOT NULL DEFAULT '0',
   `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
-  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -159,7 +180,7 @@ CREATE TABLE `card_4` (
   `go_first` varchar(255) DEFAULT NULL,
   `go_first_reason` varchar(255) DEFAULT NULL,
   `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
-  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -218,7 +239,7 @@ CREATE TABLE `card_5` (
   `study_lang_when` varchar(100) DEFAULT NULL,
   `study_lang_no` tinyint(1) NOT NULL DEFAULT '0',
   `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
-  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -246,7 +267,48 @@ CREATE TABLE `card_6` (
   `who_work` varchar(100) DEFAULT NULL,
   `when_work` varchar(100) DEFAULT NULL,
   `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
-  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `card_7`
+--
+
+CREATE TABLE `card_7` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `vacancies` tinyint(1) NOT NULL DEFAULT '0',
+  `open_application` tinyint(1) NOT NULL DEFAULT '0',
+  `other_way` varchar(255) DEFAULT NULL,
+  `volunteering` varchar(255) NOT NULL,
+  `no_volunteering` varchar(255) NOT NULL,
+  `have_job` text,
+  `no_job` text,
+  `search_job` text,
+  `way_application_form_1` varchar(255) NOT NULL,
+  `way_application_form_2` varchar(255) NOT NULL,
+  `way_application_form_3` varchar(255) NOT NULL,
+  `app_form_work` tinyint(1) NOT NULL DEFAULT '0',
+  `app_form_work_file` varchar(255) DEFAULT NULL,
+  `app_form_another_work` tinyint(1) NOT NULL DEFAULT '0',
+  `app_form_another_work_file_1` varchar(255) DEFAULT NULL,
+  `app_form_another_work_file_2` varchar(255) DEFAULT NULL,
+  `motivation` tinyint(1) NOT NULL DEFAULT '0',
+  `motivation_file` varchar(255) DEFAULT NULL,
+  `have_cv` tinyint(1) NOT NULL DEFAULT '0',
+  `cv` varchar(255) DEFAULT NULL,
+  `help_letter` text,
+  `good_points` text,
+  `need_to_be_good_1` varchar(255) DEFAULT NULL,
+  `way_to_be_good_1` text,
+  `need_to_be_good_2` varchar(255) DEFAULT NULL,
+  `way_to_be_good_2` text,
+  `need_to_be_good_3` varchar(255) DEFAULT NULL,
+  `way_to_be_good_3` text,
+  `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -265,8 +327,29 @@ CREATE TABLE `card_8` (
   `in_netherlands_2` text,
   `in_netherlands_3` text,
   `checked_with_teacher` tinyint(1) NOT NULL DEFAULT '0',
-  `edit_allow` tinyint(1) NOT NULL DEFAULT '0'
+  `edit_allow` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page_text`
+--
+
+CREATE TABLE `page_text` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `text` text,
+  `text_ar` text,
+  `page_nr` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `page_text`
+--
+
+INSERT INTO `page_text` (`id`, `name`, `text`, `text_ar`, `page_nr`) VALUES
+(1, 'text1', 'Ik wil werken in een van deze drie beroepen', 'أرغب في ممارسة واحدة من هذه المهن الثلاثة\r\n', '1');
 
 -- --------------------------------------------------------
 
@@ -327,6 +410,12 @@ INSERT INTO `teachers` (`id`, `username`, `password`, `active`, `firstname`, `la
 --
 
 --
+-- Indexes for table `administrators`
+--
+ALTER TABLE `administrators`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `card_1`
 --
 ALTER TABLE `card_1`
@@ -363,9 +452,21 @@ ALTER TABLE `card_6`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `card_7`
+--
+ALTER TABLE `card_7`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `card_8`
 --
 ALTER TABLE `card_8`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page_text`
+--
+ALTER TABLE `page_text`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -385,25 +486,30 @@ ALTER TABLE `teachers`
 --
 
 --
+-- AUTO_INCREMENT for table `administrators`
+--
+ALTER TABLE `administrators`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `card_1`
 --
 ALTER TABLE `card_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `card_2`
 --
 ALTER TABLE `card_2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `card_3`
 --
 ALTER TABLE `card_3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `card_4`
 --
 ALTER TABLE `card_4`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `card_5`
 --
@@ -413,12 +519,22 @@ ALTER TABLE `card_5`
 -- AUTO_INCREMENT for table `card_6`
 --
 ALTER TABLE `card_6`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `card_7`
+--
+ALTER TABLE `card_7`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `card_8`
 --
 ALTER TABLE `card_8`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `page_text`
+--
+ALTER TABLE `page_text`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `students`
 --

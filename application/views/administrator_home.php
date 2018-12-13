@@ -7,12 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>whoffice</title>
 </head>
 <body>
-	<h1>This is the teacher area !</h1>
+	<h1>This is the admin area !</h1>
 	<h1>Welcome <?= $acc_name; ?></h1>
 
-	<a href="<?= base_url().'teacher/view_pages_texts'; ?>">View pages texts</a><br>
-
-	<a href="<?= base_url().'teacher/logout'; ?>">Logout</a>
+	<a href="<?= base_url().'administrator/logout'; ?>">Logout</a>
 <?php require('inc/scripts.php') ?>
 </body>
 </html>
