@@ -63,7 +63,7 @@ class Login extends CI_Controller {
 				$this->session->set_userdata('acc_id',$acc_id);
 				$this->session->set_userdata('signed_in',true);
 				$this->session->set_userdata('acc_type',$data['type']);
-				redirect('login');
+				header('Location: '.base_url().'login');
 			}
 			
 		}else if($query->num_rows() == 0){

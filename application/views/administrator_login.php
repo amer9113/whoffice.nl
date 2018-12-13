@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en">
+<html lang="NL">
 <head>
 	<?php require('inc/head.php') ?>
 	<title>whoffice</title>

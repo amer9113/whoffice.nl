@@ -22,13 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <?php if (isset($message)): ?>
     		<p><b><?= $message; ?></b></p>
-    		<script>
-    			window.onload = function() {
-    				if ( window.history.replaceState ) {
-    			        window.history.replaceState( null, null, window.location.href );
-    			    }
-    			}
-    		</script>
     	<?php endif ?>
 	    <form method="POST" enctype="multipart/form-data">
 	    	<div class="w3-container w3-block w3-mobile" id="cnt_form">

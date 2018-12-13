@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en">
+<html lang="NL">
 <head>
 	<?php require('inc/head.php') ?>
 	<title>whoffice</title>
@@ -50,13 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?= validation_errors('<p class="error_msg">', '</p>'); ?>
 			<?php if (isset($message)): ?>
 				<p class="error_msg"><b><?= $message; ?></b></p>
-				<script>
-					window.onload = function() {
-						if ( window.history.replaceState ) {
-					        window.history.replaceState( null, null, window.location.href );
-					    }
-					}
-				</script>
 			<?php endif ?>
 		</fieldset>
 	</form>

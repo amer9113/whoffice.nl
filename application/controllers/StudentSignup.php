@@ -62,7 +62,7 @@ class StudentSignup extends CI_Controller {
 				$this->session->set_userdata('acc_id',$acc_id);
 				$this->session->set_userdata('signed_in',true);
 				$this->session->set_userdata('acc_type',"student");
-				redirect('student');
+				header('Location: '.base_url().'student');
 			}else{
 				$data['message'] = 'Error happened, try again later';
 			}
