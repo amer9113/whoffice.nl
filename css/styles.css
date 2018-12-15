@@ -135,6 +135,9 @@
     display: block;
 }
 
+.pointer_cursor{
+  cursor: pointer;
+}
 
 
 

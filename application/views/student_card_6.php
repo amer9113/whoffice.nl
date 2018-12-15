@@ -8,6 +8,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<div class="parallax w3-container w3-mobile" id="Content">
+		<div class="col-sm-10 col-sm-offset-1 w3-container w3-mobile" id="cnt" style="margin-bottom:25px;background:rgba(102, 153, 153,0.2); padding: 0.1px;">
+            <div class="row">
+                <!-- topbar -->
+                <div class="topnav" id="myTopnav">
+                    <a href="<?= base_url().'student/card_1'; ?>">Resultaatkaart1</a>
+                    <a href="<?= base_url().'student/card_2'; ?>">Resultaatkaart2</a>
+                    <a href="<?= base_url().'student/card_3'; ?>">Resultaatkaart3</a>
+                    <a href="<?= base_url().'student/card_4'; ?>">Resultaatkaart4</a>
+                    <a href="<?= base_url().'student/card_5'; ?>">Resultaatkaart5</a>
+                    <a class="active">Resultaatkaart6</a>
+                    <a href="<?= base_url().'student/card_7'; ?>">Resultaatkaart7</a>
+                    <a href="<?= base_url().'student/card_8'; ?>">Resultaatkaart8</a>
+                </div>
+            </div>
+        </div>
         <div class="cnt_heads w3-mobile" id="cnt_head">
             <h1 class="w3-xxlarge w3-text-red" id="title"><b>
                 Resultaatkaart6 -Netwerk opbouwen
@@ -262,8 +277,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile w3-center" id="footer">
 	                <div class="w3-bar">
 			            <input type="hidden" name="direction">
-			            <button class="w3-button w3-red" type="button" id="submit_backword">Naar Kaart5</button>
-			            <button class="w3-button w3-red" type="button" id="submit_forword">Naar Kaart7</button>
+			            <button class="w3-button w3-red submit_backword" type="button">Naar Kaart5</button>
+			            <button class="w3-button w3-red submit_forword" type="button">Naar Kaart7</button>
 			        </div>
 	            </div>
 	        </div>
@@ -272,12 +287,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php require('inc/scripts.php') ?>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#submit_forword').click(function(){
+		$('.submit_forword').click(function(){
 			$('[name="direction"]').val("next");
 			$('form').submit();
 		});
 
-		$('#submit_backword').click(function(){
+		$('.submit_backword').click(function(){
 			$('[name="direction"]').val("back");
 			$('form').submit();
 		});

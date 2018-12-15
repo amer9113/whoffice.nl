@@ -8,7 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<h1>Welcome to whoffice!</h1>
-	<a href="login">Login</a>
+	<a href="login">Login as student</a>
+	<br>
+	<a href="login/teacher">Login as teacher</a>
 	<br>
 	<a href="studentSignup">Signup as a new student</a>
 <?php require('inc/scripts.php') ?>

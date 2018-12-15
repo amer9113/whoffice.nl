@@ -34,7 +34,12 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('login');
+		$this->load->view('student_login');
+	}
+
+	public function teacher()
+	{
+		$this->load->view('teacher_login');
 	}
 
 	public function validate_credential()
@@ -68,7 +73,11 @@ class Login extends CI_Controller {
 			
 		}else if($query->num_rows() == 0){
 			$data['message'] = 'Invalid username or password.';
-			$this->load->view('login',$data);
+			if ($data['type'] == "student") {
+				$this->load->view('student_login',$data);
+			}else{
+				$this->load->view('teacher_login',$data);
+			}
 		}
 	}
 }
