@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Resultaatkaart1</title>
 </head>
 <body>
-	<div class="w3-container w3-mobile" id="Content">
+	<div class="parallax w3-container w3-mobile" id="Content">
 		<div class="cnt_heads w3-mobile" id="cnt_head">
            	<h1 class="w3-xxlarge w3-text-red" id="title"><b>Resultaatkaart1 -BeroePenorientatie<small>arabic</small></b></h1>
 
@@ -31,9 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="w3-cell w3-block w3-mobile">
                         <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" name="quline1">
                             <label class="quline_text w3-mobile" name="text1">
-                            Ik wil werken in een van deze drie beroepen:
+                            [[text1:text]]
                             </label>
-                            <small name="text2">arabic</small> 
+                            <small name="text2"> [[text1:text_ar]]</small> 
                         </div>
                         <div class="w3-cell-row w3-block w3-mobile" name="ans1line1">
                             <div class="signsize w3-cell w3-mobile">

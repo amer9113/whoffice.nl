@@ -17,11 +17,11 @@ class StudentSignup extends CI_Controller {
 		$this->form_validation->set_rules('firstname', 'FirstName', 'trim|required|min_length[4]|max_length[75]');
 		$this->form_validation->set_rules('lastname', 'LastName', 'trim|required|min_length[4]|max_length[75]');
 		$this->form_validation->set_rules('username', 'UserName', 'trim|required|min_length[4]|max_length[75]|regex_match[/[A-Za-z]+\w/]|is_unique[students.username]',array(
-			'is_unique' => 'This username is already exist. please choose another one',
-			'regex_match' => 'Username can have only latin characters, numbers or underscores. and must start with a letter. for example john_10',
+			'is_unique' => 'Deze gebruikersnaam bestaat al. kies alstublieft een andere',
+			'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld john_10',
 		));
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-		$this->form_validation->set_rules('postal_code', 'Postal code', 'trim|required');
+
+		$this->form_validation->set_rules('postal_code', 'Postal code', 'trim|required|min_length[6]');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('website', 'Website', 'trim|valid_url');
 		$this->form_validation->set_rules('bio', 'Bio', 'trim');
@@ -51,7 +51,7 @@ class StudentSignup extends CI_Controller {
 			}
         	
         	$this->db->trans_start();
-        	$input['password'] = sha1($input['password']);
+        	$input['password'] = sha1($input['postal_code'].$input['postal_code']);
 			$this->db->insert('students',$input);
 
 			$acc_id = $this->db->insert_id();
@@ -64,7 +64,7 @@ class StudentSignup extends CI_Controller {
 				$this->session->set_userdata('acc_type',"student");
 				header('Location: '.base_url().'student');
 			}else{
-				$data['message'] = 'Error happened, try again later';
+				$data['message'] = 'Er is een fout opgetreden, probeer het later opnieuw';
 			}
         }
 

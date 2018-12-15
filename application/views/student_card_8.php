@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Resultaatkaart8</title>
 </head>
 <body>
-	<div class="w3-container w3-mobile" id="Content">
+	<div class="parallax w3-container w3-mobile" id="Content">
         <div class="cnt_heads w3-mobile" id="cnt_head">
             <h1 class="w3-xxlarge w3-text-red" id="title"><b>
                 Resultaatkaart8 -Werkcultuur

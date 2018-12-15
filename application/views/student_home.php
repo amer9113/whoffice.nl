@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php require('inc/head.php') ?>
 	<title>whoffice</title>
 </head>
-<body>
+<body class="parallax">
 	<h1>This is the student area !</h1>
 	<h1>Welcome <?= $acc_name; ?></h1>
 
