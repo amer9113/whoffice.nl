@@ -38,7 +38,8 @@ class Teacher extends CI_Controller {
 	public function index()
 	{
 		$data['acc_name'] = $this->acc_name;
-		$this->load->view('teacher_home',$data);
+		$view = $this->load->view("teacher_home",$data,true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function logout()
@@ -76,7 +77,8 @@ class Teacher extends CI_Controller {
 
 		$data['pages_texts'] = $this->db->get('page_text')->result();
 
-		$this->load->view('pages_texts',$data);
+		$view = $this->load->view("pages_texts",$data,true);
+		$this->page->fix_view_template_text($view);
 
 	}
 
@@ -115,7 +117,8 @@ class Teacher extends CI_Controller {
 
 		if ($page_text->num_rows() == 1) {
 			$data['data'] = $page_text->row();
-			$this->load->view('alter_page_text',$data);
+			$view = $this->load->view("alter_page_text",$data,true);
+			$this->page->fix_view_template_text($view);
 
 		}else{
 			echo "Not found.";

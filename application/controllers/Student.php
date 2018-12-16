@@ -38,33 +38,14 @@ class Student extends CI_Controller {
 	public function index()
 	{
 		$data['acc_name'] = $this->acc_name;
-		$this->load->view('student_home',$data);
+		$view = $this->load->view("student_home",$data,true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
 		redirect('site');
-	}
-
-	public function fix_view_template_with_page_text($view,$page_no=-1){
-		preg_match_all("/\[\[\w*:\w*\]\]/", $view,$matches);
-		
-		foreach ($matches[0] as $key => $row) {
-			$str = str_replace('[[', '', $row);
-			$str = str_replace(']]', '', $str);
-			list($name, $prpoerty) = explode(':', $str);
-
-			if ($page_no > -1) {
-				$this->db->where('page_nr',$page_no);
-			}
-			$text_requested = $this->db->where('name',$name)->get('page_text')->row();
-			if (isset($text_requested->$prpoerty)) {
-				$view = str_replace("[[$name:$prpoerty]]", $text_requested->$prpoerty, $view);
-			}
-		}
-
-		echo $view;
 	}
 
 	public function card_1(){
@@ -214,7 +195,7 @@ class Student extends CI_Controller {
 
 		$view = $this->load->view("student_card_1",$data,true);
 
-		$this->fix_view_template_with_page_text($view,$page_no=1);
+		$this->page->fix_view_template_text($view,$page_no=1);
 	}
 
 	public function card_2(){
@@ -344,7 +325,7 @@ class Student extends CI_Controller {
 
 		$view = $this->load->view("student_card_2",$data,true);
 
-		$this->fix_view_template_with_page_text($view,$page_no=2);
+		$this->page->fix_view_template_text($view,$page_no=2);
 	}
 
 	public function card_3(){
@@ -388,7 +369,7 @@ class Student extends CI_Controller {
 
 		$view = $this->load->view("student_card_3",$data,true);
 
-		$this->fix_view_template_with_page_text($view,$page_no=3);
+		$this->page->fix_view_template_text($view,$page_no=3);
 	}
 
 	public function card_4(){
@@ -502,7 +483,7 @@ class Student extends CI_Controller {
 
 		$view = $this->load->view("student_card_4",$data,true);
 
-		$this->fix_view_template_with_page_text($view,$page_no=4);
+		$this->page->fix_view_template_text($view,$page_no=4);
 	}
 
 	public function card_5(){
@@ -648,7 +629,7 @@ class Student extends CI_Controller {
 
 		$view = $this->load->view("student_card_5",$data,true);
 
-		$this->fix_view_template_with_page_text($view,$page_no=5);
+		$this->page->fix_view_template_text($view,$page_no=5);
 	}
 
 	public function card_6(){
@@ -728,7 +709,7 @@ class Student extends CI_Controller {
 
 		$view = $this->load->view("student_card_6",$data,true);
 
-		$this->fix_view_template_with_page_text($view,$page_no=6);
+		$this->page->fix_view_template_text($view,$page_no=6);
 	}
 
 	public function card_7(){
@@ -905,7 +886,7 @@ class Student extends CI_Controller {
 
 		$view = $this->load->view("student_card_7",$data,true);
 
-		$this->fix_view_template_with_page_text($view,$page_no=7);
+		$this->page->fix_view_template_text($view,$page_no=7);
 	}
 
 	public function card_8(){
@@ -944,6 +925,6 @@ class Student extends CI_Controller {
 
 		$view = $this->load->view("student_card_8",$data,true);
 
-		$this->fix_view_template_with_page_text($view,$page_no=8);
+		$this->page->fix_view_template_text($view,$page_no=8);
 	}
 }

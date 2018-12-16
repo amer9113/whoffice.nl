@@ -34,12 +34,14 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('student_login');
+		$view = $this->load->view("student_login",'',true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function teacher()
 	{
-		$this->load->view('teacher_login');
+		$view = $this->load->view("teacher_login",'',true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function validate_credential()
@@ -62,7 +64,13 @@ class Login extends CI_Controller {
 		if ($query->num_rows() == 1) {
 			if ($query->row()->active == 0) {
 				$data['message'] = 'This account is inactive, please contact support.';
-				$this->load->view('login',$data);
+
+				if ($data['type'] == "student") {
+					$view = $this->load->view("student_login",$data,true);
+				}else{
+					$view = $this->load->view("teacher_login",$data,true);
+				}
+				$this->page->fix_view_template_text($view);
 			} else {
 				$acc_id = $query->row()->id;
 				$this->session->set_userdata('acc_id',$acc_id);
@@ -74,10 +82,11 @@ class Login extends CI_Controller {
 		}else if($query->num_rows() == 0){
 			$data['message'] = 'Invalid username or password.';
 			if ($data['type'] == "student") {
-				$this->load->view('student_login',$data);
+				$view = $this->load->view("student_login",$data,true);
 			}else{
-				$this->load->view('teacher_login',$data);
+				$view = $this->load->view("teacher_login",$data,true);
 			}
+			$this->page->fix_view_template_text($view);
 		}
 	}
 }

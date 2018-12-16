@@ -24,7 +24,8 @@ class AdministratorLogin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('administrator_login');
+		$view = $this->load->view("administrator_login",'',true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function validate_credential()
@@ -48,7 +49,8 @@ class AdministratorLogin extends CI_Controller {
 			
 		}else if($query->num_rows() == 0){
 			$data['message'] = 'Invalid username or password.';
-			$this->load->view('administrator_login',$data);
+			$view = $this->load->view("administrator_login",$data,true);
+			$this->page->fix_view_template_text($view);
 		}
 	}
 }

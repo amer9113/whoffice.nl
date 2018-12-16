@@ -459,6 +459,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		                <input type="hidden" name="direction">
                         <button class="w3-button w3-red submit_backword" type="button">Naar Kaart1</button>
                         <button class="w3-button w3-red submit_forword" type="button">Naar Kaart3</button>
+                        <button type="submit" class="form_submit hidden"></button>
 		            </div>
 		        </div>
 		    </div>
@@ -469,12 +470,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$(document).ready(function(){
 		$('.submit_forword').click(function(){
 			$('[name="direction"]').val("next");
-			$('form').submit();
+			$('.form_submit').click();
 		});
 
 		$('.submit_backword').click(function(){
 			$('[name="direction"]').val("back");
-			$('form').submit();
+			$('.form_submit').click();
 		});
 	});
 </script>

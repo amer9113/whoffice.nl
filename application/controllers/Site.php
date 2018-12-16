@@ -35,6 +35,7 @@ class Site extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('site');
+		$view = $this->load->view("site",'',true);
+		$this->page->fix_view_template_text($view);
 	}
 }

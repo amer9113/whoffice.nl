@@ -33,18 +33,13 @@ class Administrator extends CI_Controller {
 	public function index()
 	{
 		$data['acc_name'] = $this->acc_name;
-		$this->load->view('administrator_home',$data);
+		$view = $this->load->view("administrator_home",$data,true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
 		redirect('AdministratorLogin');
-	}
-
-
-	public function add_page_texts()
-	{
-		$this->load->view();
 	}
 }

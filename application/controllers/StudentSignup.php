@@ -8,7 +8,8 @@ class StudentSignup extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('student_signup');
+		$view = $this->load->view("student_signup",'',true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function signup()
@@ -28,7 +29,8 @@ class StudentSignup extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE)
         {
-			$this->load->view('student_signup');
+			$view = $this->load->view("student_signup",'',true);
+			$this->page->fix_view_template_text($view);
         }
         else
         {
