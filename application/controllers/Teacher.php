@@ -7,13 +7,30 @@ class Teacher extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
+		include_once APPPATH.'/libraries/FileSessionHandler.php';
+		$handler = new FileSessionHandler();
+		session_set_save_handler(
+		    array($handler, 'open'),
+		    array($handler, 'close'),
+		    array($handler, 'read'),
+		    array($handler, 'write'),
+		    array($handler, 'destroy'),
+		    array($handler, 'gc')
+		    );
+
+		// the following prevents unexpected effects when using objects as save handlers
+		register_shutdown_function('session_write_close');
+
+		session_start();
+		// proceed to set and retrieve values by key from $_SESSION
+
+		$signed_in = (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true ) ? true : false;
 
 		if (!$signed_in) {
 			redirect('login');
 		}else{
 
-			$acc_id = $this->session->userdata('acc_id');
+			$acc_id = $_SESSION['acc_id'];
 
 			$check_query = $this->db->where('id',$acc_id)->get('teachers');
 
@@ -26,11 +43,11 @@ class Teacher extends CI_Controller {
 					$this->acc_name = $account->firstname." ".$account->lastname;
 					$this->load->model('TeacherModel');
 				}else{
-					$this->session->sess_destroy();
+					session_destroy();
 					redirect('login');
 				}
 			}else{
-				$this->session->sess_destroy();
+				session_destroy();
 				redirect('login');
 			}
 		}
@@ -38,14 +55,13 @@ class Teacher extends CI_Controller {
 
 	public function index()
 	{
-		$data['acc_name'] = $this->acc_name;
-		$view = $this->load->view("teacher_home",$data,true);
+		$view = $this->load->view("teacher_home",'',true);
 		$this->page->fix_view_template_text($view);
 	}
 
 	public function logout()
 	{
-		$this->session->sess_destroy();
+		session_destroy();
 		redirect('site');
 	}
 
@@ -125,7 +141,8 @@ class Teacher extends CI_Controller {
 
 	public function check_students_pending_cards(){
 		$data['pending_cards'] = $this->TeacherModel->get_pending_cards();
-		$this->load->view('pending_cards',$data);
+		$view = $this->load->view("pending_cards",$data,true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function check_card($card_no,$card_id){
@@ -146,6 +163,19 @@ class Teacher extends CI_Controller {
 				$student = $this->db->where('id',$student_id)->get('students')->row();
 				/*Send email here*/
 
+				/*$this->load->library('email');
+				$this->email->from('');
+				$this->email->to($student->email);
+				$this->email->subject('');
+				$this->email->message($msg);
+
+				try {
+				   set_error_handler(create_function('', "throw new Exception(); return true;")); 
+				   $this->email->send();
+				} catch(Exception $e) { 
+				   
+				}*/
+
 				redirect('teacher/check_students_pending_cards');
 			}else{
 				echo "Sorry, error.";
@@ -165,5 +195,10 @@ class Teacher extends CI_Controller {
 		}
 	}
 
+	public function check_students_times(){
+		$data['students_times'] = $this->TeacherModel->get_students_times();
 
+		$view = $this->load->view("student_times",$data,true);
+		$this->page->fix_view_template_text($view);
+	}
 }

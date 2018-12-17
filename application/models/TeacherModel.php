@@ -2,6 +2,24 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class TeacherModel extends CI_Model{
+
+	public function formatSeconds( $seconds ){
+	  	$hours = 0;
+	  	$milliseconds = str_replace( "0.", '', $seconds - floor( $seconds ) );
+
+	  	if ( $seconds > 3600 )
+	  	{
+	    	$hours = floor( $seconds / 3600 );
+	  	}
+	  	$seconds = $seconds % 3600;
+
+
+	  	return str_pad( $hours, 2, '0', STR_PAD_LEFT )
+	       . gmdate( ':i:s', $seconds )
+	       . ($milliseconds ? ".$milliseconds" : '')
+	  	;
+	}
+
 	public function get_pending_cards(){
 		$card_1_query = $this->db->select('students.*,card_1.id as card_id, "Resultaatkaart1" as card_name, 1 as card_no')->join('students','students.id = card_1.user_id')
 		->where('checked_with_teacher',0)->get('card_1');
@@ -63,5 +81,21 @@ class TeacherModel extends CI_Model{
 		}
 
 		return $data;
+	}
+
+	public function get_students_times(){
+		$query = $this->db->select('sum(time_out - time_in) as time_elapsed, students.*')
+		->join('students','student_visites.user_id = students.id')
+		->where('time_out !=',0)
+		->group_by('user_id')
+		->get('student_visites');
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result() as $key => &$row) {
+				$row->time_elapsed = $this->formatSeconds($row->time_elapsed);
+			}
+		}
+		
+		return $query->result();
 	}
 }

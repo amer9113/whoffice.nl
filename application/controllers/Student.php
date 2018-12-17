@@ -7,13 +7,30 @@ class Student extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
+		include_once APPPATH.'/libraries/FileSessionHandler.php';
+		$handler = new FileSessionHandler();
+		session_set_save_handler(
+		    array($handler, 'open'),
+		    array($handler, 'close'),
+		    array($handler, 'read'),
+		    array($handler, 'write'),
+		    array($handler, 'destroy'),
+		    array($handler, 'gc')
+		    );
+
+		// the following prevents unexpected effects when using objects as save handlers
+		register_shutdown_function('session_write_close');
+
+		session_start();
+		// proceed to set and retrieve values by key from $_SESSION
+
+		$signed_in = (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true ) ? true : false;
 
 		if (!$signed_in) {
 			redirect('login');
 		}else{
 
-			$acc_id = $this->session->userdata('acc_id');
+			$acc_id = $_SESSION['acc_id'];
 
 			$check_query = $this->db->where('id',$acc_id)->get('students');
 
@@ -26,11 +43,11 @@ class Student extends CI_Controller {
 					$this->acc_name = $account->firstname." ".$account->lastname;
 					$this->load->model('StudentModel');
 				}else{
-					$this->session->sess_destroy();
+					session_destroy();
 					redirect('login');
 				}
 			}else{
-				$this->session->sess_destroy();
+				session_destroy();
 				redirect('login');
 			}
 		}
@@ -45,7 +62,7 @@ class Student extends CI_Controller {
 
 	public function logout()
 	{
-		$this->session->sess_destroy();
+		session_destroy();
 		redirect('site');
 	}
 
