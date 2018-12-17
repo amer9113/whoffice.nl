@@ -28,7 +28,7 @@
       
             .parallax {
                   /* The image used */
-                   background-image: url('../images/background.png');
+                    background-image: url('../images/background.png');
 
                   /* Full height */
                 min-height: 1000px;
@@ -74,6 +74,16 @@
     background-color:rgb(0, 153, 153);
     color: white;
 }
+
+.side{
+     width:240px;
+}
+
+.pad{
+    padding:30px;
+}
+
+
 .loginsignup {
     width:100%;
      background-color:cadetblue;
@@ -135,9 +145,6 @@
     display: block;
 }
 
-.pointer_cursor{
-  cursor: pointer;
-}
 
 
 
@@ -146,7 +153,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=url], input[type=email],textarea {
+input[type=text], input[type=password] , input[type=email] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -155,7 +162,7 @@ input[type=text], input[type=password], input[type=url], input[type=email],texta
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus,input[type=url]:focus, input[type=email]:focus, textarea:focus {
+input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
   background-color: #ddd;
   outline: none;
 }

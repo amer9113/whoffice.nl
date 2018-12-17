@@ -24,6 +24,7 @@ class Student extends CI_Controller {
 				if ($account->active == 1) {
 					$this->acc_id = $account->id;
 					$this->acc_name = $account->firstname." ".$account->lastname;
+					$this->load->model('StudentModel');
 				}else{
 					$this->session->sess_destroy();
 					redirect('login');
@@ -49,10 +50,13 @@ class Student extends CI_Controller {
 	}
 
 	public function card_1(){
+		$data = array();
+		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['card_number'] = 1;
+
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
-			unset($input['direction']);
 			
 			if (isset($input['have_certificate']) && $input['have_certificate'] == 1) {
 				if (isset($_FILES["certificate_file"]["name"]) && !empty($_FILES["certificate_file"]["name"]) )
@@ -180,14 +184,13 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				redirect('student/card_2');
+				$data['message'] = "";
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
 		}
 
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_1");
-		$data = array();
 
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
@@ -199,11 +202,19 @@ class Student extends CI_Controller {
 	}
 
 	public function card_2(){
+		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_1')->num_rows();
+
+		if ($check_previous_is_completed == 0) {
+			echo "Sorry, you can't take this card yet.";
+			die();
+		}
+
+		$data = array();
+		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['card_number'] = 2;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
-			$direction = $input['direction'];
-			unset($input['direction']);
 
 			if (!isset($input['work_with_team']) || empty($input['work_with_team'])) {
 				$input['work_with_team'] = 0;
@@ -306,18 +317,13 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				if ($direction == 'next') {
-					redirect('student/card_3');
-				}else if($direction == 'back'){
-					redirect('student/card_1');
-				}
+				$data['message'] = "";
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
 		}
 
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_2");
-		$data = array();
 
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
@@ -329,11 +335,19 @@ class Student extends CI_Controller {
 	}
 
 	public function card_3(){
+		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_2')->num_rows();
+
+		if ($check_previous_is_completed == 0) {
+			echo "Sorry, you can't take this card yet.";
+			die();
+		}
+
+		$data = array();
+		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['card_number'] = 3;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
-			$direction = $input['direction'];
-			unset($input['direction']);
 
 			$this->db->trans_start();
 
@@ -350,18 +364,13 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				if ($direction == 'next') {
-					redirect('student/card_4');
-				}else if($direction == 'back'){
-					redirect('student/card_2');
-				}
+				$data['message'] = "";
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
 		}
 
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_3");
-		$data = array();
 
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
@@ -373,11 +382,19 @@ class Student extends CI_Controller {
 	}
 
 	public function card_4(){
+		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_3')->num_rows();
+
+		if ($check_previous_is_completed == 0) {
+			echo "Sorry, you can't take this card yet.";
+			die();
+		}
+
+		$data = array();
+		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['card_number'] = 4;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
-			$direction = $input['direction'];
-			unset($input['direction']);
 
 			if (isset($_FILES["job_offer_1_file"]["name"]) && !empty($_FILES["job_offer_1_file"]["name"]) )
 			{
@@ -464,18 +481,13 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				if ($direction == 'next') {
-					redirect('student/card_5');
-				}else if($direction == 'back'){
-					redirect('student/card_3');
-				}
+				$data['message'] = "";
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
 		}
 
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_4");
-		$data = array();
 
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
@@ -487,11 +499,19 @@ class Student extends CI_Controller {
 	}
 
 	public function card_5(){
+		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_4')->num_rows();
+
+		if ($check_previous_is_completed == 0) {
+			echo "Sorry, you can't take this card yet.";
+			die();
+		}
+
+		$data = array();
+		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['card_number'] = 5;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
-			$direction = $input['direction'];
-			unset($input['direction']);
 
 			if (!isset($input['one_course']) || empty($input['one_course'])) {
 				$input['one_course'] = 0;
@@ -610,18 +630,13 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				if ($direction == 'next') {
-					redirect('student/card_6');
-				}else if($direction == 'back'){
-					redirect('student/card_4');
-				}
+				$data['message'] = "";
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
 		}
 
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_5");
-		$data = array();
 
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
@@ -633,11 +648,19 @@ class Student extends CI_Controller {
 	}
 
 	public function card_6(){
+		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_5')->num_rows();
+
+		if ($check_previous_is_completed == 0) {
+			echo "Sorry, you can't take this card yet.";
+			die();
+		}
+
+		$data = array();
+		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['card_number'] = 6;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
-			$direction = $input['direction'];
-			unset($input['direction']);
 
 			if (!isset($input['close_friend']) || empty($input['close_friend'])) {
 				$input['close_friend'] = 0;
@@ -690,18 +713,13 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				if ($direction == 'next') {
-					redirect('student/card_7');
-				}else if($direction == 'back'){
-					redirect('student/card_5');
-				}
+				$data['message'] = "";
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
 		}
 
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_6");
-		$data = array();
 
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
@@ -713,11 +731,19 @@ class Student extends CI_Controller {
 	}
 
 	public function card_7(){
+		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_6')->num_rows();
+
+		if ($check_previous_is_completed == 0) {
+			echo "Sorry, you can't take this card yet.";
+			die();
+		}
+
+		$data = array();
+		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['card_number'] = 7;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;
-			$direction = $input['direction'];
-			unset($input['direction']);
 
 			if (!isset($input['vacancies']) || empty($input['vacancies'])) {
 				$input['vacancies'] = 0;
@@ -867,18 +893,13 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				if ($direction == 'next') {
-					redirect('student/card_8');
-				}else if($direction == 'back'){
-					redirect('student/card_6');
-				}
+				$data['message'] = "";
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
 		}
 
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_7");
-		$data = array();
 
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();
@@ -890,10 +911,18 @@ class Student extends CI_Controller {
 	}
 
 	public function card_8(){
+		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_7')->num_rows();
+
+		if ($check_previous_is_completed == 0) {
+			echo "Sorry, you can't take this card yet.";
+			die();
+		}
+
+		$data = array();
+		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['card_number'] = 8;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
-			$input['user_id'] = $this->acc_id;
-			unset($input['direction']);
 
 			$this->db->trans_start();
 
@@ -910,14 +939,13 @@ class Student extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				redirect('student/card_7');
+				$data['message'] = "";
 			}else{
 				$data['message'] = 'Error happened, try again later.';
 			}
 		}
 
 		$check_exist = $this->db->where('user_id',$this->acc_id)->get("card_8");
-		$data = array();
 
 		if ($check_exist->num_rows() == 1) {
 			$data['data'] = $check_exist->row();

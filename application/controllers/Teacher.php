@@ -24,6 +24,7 @@ class Teacher extends CI_Controller {
 				if ($account->active == 1) {
 					$this->acc_id = $account->id;
 					$this->acc_name = $account->firstname." ".$account->lastname;
+					$this->load->model('TeacherModel');
 				}else{
 					$this->session->sess_destroy();
 					redirect('login');
@@ -79,12 +80,9 @@ class Teacher extends CI_Controller {
 
 		$view = $this->load->view("pages_texts",$data,true);
 		$this->page->fix_view_template_text($view);
-
 	}
 
 	public function alter_page_text($id){
-
-
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 
@@ -124,4 +122,48 @@ class Teacher extends CI_Controller {
 			echo "Not found.";
 		}
 	}
+
+	public function check_students_pending_cards(){
+		$data['pending_cards'] = $this->TeacherModel->get_pending_cards();
+		$this->load->view('pending_cards',$data);
+	}
+
+	public function check_card($card_no,$card_id){
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$lock_card = $this->input->post('lock_card');
+
+			if ($lock_card == "yes") {
+				$this->db->set('edit_allow',0);
+			}else{
+				$this->db->set('edit_allow',1);
+			}
+
+			$this->db->where('id',$card_id)->set('checked_with_teacher',1)->update("card_$card_no");
+
+			if ($this->db->affected_rows() > 0 ) {
+				$student_id = $this->db->where('id',$card_id)->get("card_$card_no")->row()->user_id;
+				$student = $this->db->where('id',$student_id)->get('students')->row();
+				/*Send email here*/
+
+				redirect('teacher/check_students_pending_cards');
+			}else{
+				echo "Sorry, error.";
+			}
+
+		}
+
+
+		$card_details_query = $this->db->where('id',$card_id)->get("card_$card_no");
+		if ($card_details_query->num_rows() == 1) {
+			$data['data'] = $card_details_query->row();
+			$data['opened_for_teacher_checking'] = true;
+			$view = $this->load->view("student_card_$card_no",$data,true);
+			$this->page->fix_view_template_text($view,$page_no=1);
+		} else {
+			echo "Sorry, card isn't found.";
+		}
+	}
+
+
 }

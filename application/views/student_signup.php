@@ -41,14 +41,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <label for="email"><b>Email</b></label>
                                 <input type="email" placeholder="Enter Email" name="email" required value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>">
 
-                                <label for="website"><b>Website</b></label>
+                                <!-- <label for="website"><b>Website</b></label>
                                 <input type="url" placeholder="Enter Website" name="website" value="<?= isset($_POST['website']) ? $_POST['website'] : ''; ?>">
 
                                 <label for="bio"><b>Over jou</b></label>
                                 <textarea placeholder="About you" name="bio"></textarea>
 
                                 <label for="profile_image"><b>Profielfoto</b></label>
-                                <input type="file" name="profile_image" accept="image/*">
+                                <input type="file" name="profile_image" accept="image/*"> -->
 
                                 <div class="clearfix" style="width: 100%">
                                     <button type="submit" class="signupbtn green" style="width: 100%;">Inschrijven</button>
