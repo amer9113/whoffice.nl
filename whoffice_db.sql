@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2018 at 05:10 PM
+-- Generation Time: Dec 18, 2018 at 03:15 PM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -386,9 +386,9 @@ INSERT INTO `students` (`id`, `username`, `password`, `active`, `firstname`, `la
 
 CREATE TABLE `student_visites` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `time_in` double NOT NULL,
-  `time_out` double NOT NULL
+  `student_id` int(11) NOT NULL,
+  `login_time` double NOT NULL,
+  `last_action_time` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -493,7 +493,7 @@ ALTER TABLE `students`
 --
 ALTER TABLE `student_visites`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`student_id`);
 
 --
 -- Indexes for table `teachers`
@@ -564,7 +564,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `student_visites`
 --
 ALTER TABLE `student_visites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `teachers`
 --
@@ -578,7 +578,7 @@ ALTER TABLE `teachers`
 -- Constraints for table `student_visites`
 --
 ALTER TABLE `student_visites`
-  ADD CONSTRAINT `student_visites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_visites_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

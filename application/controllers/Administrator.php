@@ -7,30 +7,13 @@ class Administrator extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		include_once APPPATH.'/libraries/FileSessionHandler.php';
-		$handler = new FileSessionHandler();
-		session_set_save_handler(
-		    array($handler, 'open'),
-		    array($handler, 'close'),
-		    array($handler, 'read'),
-		    array($handler, 'write'),
-		    array($handler, 'destroy'),
-		    array($handler, 'gc')
-		    );
-
-		// the following prevents unexpected effects when using objects as save handlers
-		register_shutdown_function('session_write_close');
-
-		session_start();
-		// proceed to set and retrieve values by key from $_SESSION
-
-		$administrator_signed_in = $_SESSION['administrator_signed_in'] == true ? true : false;
+		$administrator_signed_in = $this->session->userdata('administrator_signed_in') == true ? true : false;
 
 		if (!$administrator_signed_in) {
 			redirect('AdministratorLogin');
 		}else{
 
-			$administrator_acc_id = $_SESSION['administrator_acc_id'];
+			$administrator_acc_id = $this->session->userdata('administrator_acc_id');
 
 			$check_query = $this->db->where('id',$administrator_acc_id)->get('administrators');
 
@@ -41,7 +24,7 @@ class Administrator extends CI_Controller {
 				$this->acc_id = $account->id;
 				$this->acc_name = $account->firstname." ".$account->lastname;
 			}else{
-				session_destroy();
+				$this->session->sess_destroy();
 				redirect('AdministratorLogin');
 			}
 		}
@@ -56,7 +39,7 @@ class Administrator extends CI_Controller {
 
 	public function logout()
 	{
-		session_destroy();
+		$this->session->sess_destroy();
 		redirect('AdministratorLogin');
 	}
 }

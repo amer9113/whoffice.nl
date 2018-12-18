@@ -7,30 +7,13 @@ class Student extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		include_once APPPATH.'/libraries/FileSessionHandler.php';
-		$handler = new FileSessionHandler();
-		session_set_save_handler(
-		    array($handler, 'open'),
-		    array($handler, 'close'),
-		    array($handler, 'read'),
-		    array($handler, 'write'),
-		    array($handler, 'destroy'),
-		    array($handler, 'gc')
-		    );
-
-		// the following prevents unexpected effects when using objects as save handlers
-		register_shutdown_function('session_write_close');
-
-		session_start();
-		// proceed to set and retrieve values by key from $_SESSION
-
-		$signed_in = (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true ) ? true : false;
+		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
 
 		if (!$signed_in) {
 			redirect('login');
 		}else{
 
-			$acc_id = $_SESSION['acc_id'];
+			$acc_id = $this->session->userdata('acc_id');
 
 			$check_query = $this->db->where('id',$acc_id)->get('students');
 
@@ -42,12 +25,18 @@ class Student extends CI_Controller {
 					$this->acc_id = $account->id;
 					$this->acc_name = $account->firstname." ".$account->lastname;
 					$this->load->model('StudentModel');
+
+
+					$last_visit_id = $this->db->where('student_id',$this->acc_id)->order_by('id','DESC')->get('student_visites')->row()->id;
+
+					$this->db->where('id',$last_visit_id)->set('last_action_time',time())->update('student_visites');
+
 				}else{
-					session_destroy();
+					$this->session->sess_destroy();
 					redirect('login');
 				}
 			}else{
-				session_destroy();
+				$this->session->sess_destroy();
 				redirect('login');
 			}
 		}
@@ -62,8 +51,14 @@ class Student extends CI_Controller {
 
 	public function logout()
 	{
-		session_destroy();
+		$this->session->sess_destroy();
 		redirect('site');
+	}
+
+	public function keep_session_alive()
+	{
+		$time = date('r');
+		echo json_encode("data: The server time is: {$time}\n\n");
 	}
 
 	public function card_1(){

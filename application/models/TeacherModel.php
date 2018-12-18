@@ -84,10 +84,9 @@ class TeacherModel extends CI_Model{
 	}
 
 	public function get_students_times(){
-		$query = $this->db->select('sum(time_out - time_in) as time_elapsed, students.*')
-		->join('students','student_visites.user_id = students.id')
-		->where('time_out !=',0)
-		->group_by('user_id')
+		$query = $this->db->select('sum(last_action_time - login_time) as time_elapsed, students.*')
+		->join('students','student_visites.student_id = students.id')
+		->group_by('student_visites.student_id')
 		->get('student_visites');
 
 		if ($query->num_rows() > 0) {
