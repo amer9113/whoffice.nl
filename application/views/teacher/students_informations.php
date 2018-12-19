@@ -31,6 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<th>Student Name / ID</th>
 								<th>Postal Code</th>
 								<th>Email</th>
+								<th>Group</th>
 								<th>Status</th>
 								<th></th>
 							</tr>
@@ -41,6 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<td><?= $student->firstname." ".$student->lastname." / ".$student->id; ?></td>
 									<td><?= $student->postal_code; ?></td>
 									<td><?= $student->email; ?></td>
+									<td><?= $student->student_group; ?></td>
 									<td><?= $student->active == 1 ? "Active" : "Inactive"; ?></td>
 									<td><a href="<?= base_url().'teacher/send_student_info_mail/'.$student->id; ?>">Send information email</a> &nbsp;&nbsp; <a href="<?= base_url().'teacher/send_student_reset_password_mail/'.$student->id; ?>">Send reset password email</a> &nbsp;&nbsp; <a href="<?= base_url().'teacher/edit_student/'.$student->id; ?>">Edit</a></td>
 								</tr>
