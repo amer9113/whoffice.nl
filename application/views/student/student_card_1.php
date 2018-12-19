@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="NL">
 <head>
-	<?php require('inc/head.php') ?>
+	<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
 	<title>Resultaatkaart1</title>
 </head>
 <body>
@@ -45,6 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php if (isset($data)): ?>
             <?php if ($data->checked_with_teacher == 0): ?>
                 <div class="alert alert-danger text-center" role="alert"><strong>Waiting</strong> for teacher approval to go to the next card.</div>
+
+                <?php if ($data->needs_correction_by_student == 1): ?>
+                    <div class="alert alert-info text-center" role="alert">
+                        <strong>Card Needs Correction</strong><br><strong>Notes: </strong><?= $data->correction_notes; ?></div>
+                <?php endif ?>
+                
             <?php else: ?>
                 <div class="alert alert-success text-center" role="alert">
                     <strong>Well done!</strong> You can now take <a href="<?= base_url().'student/card_2'; ?>" class="alert-link">card2</a>.
@@ -353,8 +359,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php if (isset($opened_for_teacher_checking)): ?>
                         
                         <input type="hidden" name="lock_card">
+                        <input type="hidden" name="needs_correction_by_student" value="no">
                         <button class="w3-button w3-green approve_edit" type="button">Approve &amp; allow edit</button> 
                         <button class="w3-button w3-red approve_lock" type="button">Approve &amp; lock</button> 
+                        <button class="w3-button w3-blue needs_correction" type="button">Needs correction</button><br>
+                        <input type="text" name="correction_notes" placeholder="Correction Notes" value="<?= $data->correction_notes; ?>">
 
                         <?php else: ?>
                             
@@ -375,7 +384,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
     	</form>
     </div>
-<?php require('inc/scripts.php') ?>
+<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 <?php if (isset($opened_for_teacher_checking)): ?>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -386,6 +395,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $('.approve_lock').click(function(){
             $('[name="lock_card"]').val("yes");
+            $('form').submit();
+        });
+
+        $('.needs_correction').click(function(){
+            $('[name="lock_card"]').val("no");
+            $('[name="needs_correction_by_student"]').val("yes");
             $('form').submit();
         });
     });

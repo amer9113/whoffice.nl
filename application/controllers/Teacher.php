@@ -10,7 +10,7 @@ class Teacher extends CI_Controller {
 		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
 
 		if (!$signed_in) {
-			redirect('login');
+			redirect('login/teacher');
 		}else{
 
 			$acc_id = $this->session->userdata('acc_id');
@@ -27,19 +27,37 @@ class Teacher extends CI_Controller {
 					$this->load->model('TeacherModel');
 				}else{
 					$this->session->sess_destroy();
-					redirect('login');
+					redirect('login/teacher');
 				}
 			}else{
 				$this->session->sess_destroy();
-				redirect('login');
+				redirect('login/teacher');
 			}
 		}
 	}
 
 	public function index()
 	{
-		$view = $this->load->view("teacher_home",'',true);
+		$view = $this->load->view("teacher/teacher_home",'',true);
 		$this->page->fix_view_template_text($view);
+	}
+
+	public function wleknfwlnwiecnacwbeicubal(){
+		header('Content-Type: text/event-stream');
+		header('Cache-Control: no-cache');
+
+		$time = date('r');
+		echo "data: The server time is: {$time}\n\n";
+		flush();
+	}
+
+	public function authenticate()
+	{
+		$this->session->set_userdata('acc_id',$this->acc_id);
+		$this->session->set_userdata('signed_in',true);
+		$this->session->set_userdata('acc_type','teacher');
+		$time = date('r');
+		echo json_encode("data: The server time is: {$time}\n\n");
 	}
 
 	public function logout()
@@ -77,7 +95,7 @@ class Teacher extends CI_Controller {
 
 		$data['pages_texts'] = $this->db->get('page_text')->result();
 
-		$view = $this->load->view("pages_texts",$data,true);
+		$view = $this->load->view("teacher/pages_texts",$data,true);
 		$this->page->fix_view_template_text($view);
 	}
 
@@ -114,7 +132,7 @@ class Teacher extends CI_Controller {
 
 		if ($page_text->num_rows() == 1) {
 			$data['data'] = $page_text->row();
-			$view = $this->load->view("alter_page_text",$data,true);
+			$view = $this->load->view("teacher/alter_page_text",$data,true);
 			$this->page->fix_view_template_text($view);
 
 		}else{
@@ -124,7 +142,7 @@ class Teacher extends CI_Controller {
 
 	public function check_students_pending_cards(){
 		$data['pending_cards'] = $this->TeacherModel->get_pending_cards();
-		$view = $this->load->view("pending_cards",$data,true);
+		$view = $this->load->view("teacher/pending_cards",$data,true);
 		$this->page->fix_view_template_text($view);
 	}
 
@@ -134,30 +152,40 @@ class Teacher extends CI_Controller {
 			$lock_card = $this->input->post('lock_card');
 
 			if ($lock_card == "yes") {
-				$this->db->set('edit_allow',0);
+				$this->db->set('edit_allow',0)->set('checked_with_teacher',1);
 			}else{
+				$needs_correction_by_student = $this->input->post('needs_correction_by_student');
+				if ($needs_correction_by_student == "yes") {
+					$correction_notes = $this->input->post('correction_notes');
+					$this->db->set('correction_notes',$correction_notes)->set('needs_correction_by_student',1);
+				}else{
+					$this->db->set('checked_with_teacher',1);
+				}
 				$this->db->set('edit_allow',1);
 			}
 
-			$this->db->where('id',$card_id)->set('checked_with_teacher',1)->update("card_$card_no");
+			$this->db->where('id',$card_id)->update("card_$card_no");
 
 			if ($this->db->affected_rows() > 0 ) {
 				$student_id = $this->db->where('id',$card_id)->get("card_$card_no")->row()->user_id;
 				$student = $this->db->where('id',$student_id)->get('students')->row();
 				/*Send email here*/
 
-				/*$this->load->library('email');
-				$this->email->from('');
-				$this->email->to($student->email);
-				$this->email->subject('');
-				$this->email->message($msg);
+				$msg = '<html lang="NL">
+				    <head>
+				    <title></title>
+				    </head>
+				    <body>
+				        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+				        <p>Yor cards is updated by teacher. Please check it out.</p>
+				        <p>Thank you.</p>
+				        <p>Support Team.</p>
+				    </body>
+				</html>';
 
-				try {
-				   set_error_handler(create_function('', "throw new Exception(); return true;")); 
-				   $this->email->send();
-				} catch(Exception $e) { 
-				   
-				}*/
+				$subject = "Whoffice Card Informaion.";
+
+				$this->TeacherModel->send_email($student->email,$msg,$subject);
 
 				redirect('teacher/check_students_pending_cards');
 			}else{
@@ -166,12 +194,11 @@ class Teacher extends CI_Controller {
 
 		}
 
-
 		$card_details_query = $this->db->where('id',$card_id)->get("card_$card_no");
 		if ($card_details_query->num_rows() == 1) {
 			$data['data'] = $card_details_query->row();
 			$data['opened_for_teacher_checking'] = true;
-			$view = $this->load->view("student_card_$card_no",$data,true);
+			$view = $this->load->view("student/student_card_$card_no",$data,true);
 			$this->page->fix_view_template_text($view,$page_no=1);
 		} else {
 			echo "Sorry, card isn't found.";
@@ -181,7 +208,153 @@ class Teacher extends CI_Controller {
 	public function check_students_times(){
 		$data['students_times'] = $this->TeacherModel->get_students_times();
 
-		$view = $this->load->view("student_times",$data,true);
+		$view = $this->load->view("teacher/student_times",$data,true);
 		$this->page->fix_view_template_text($view);
+	}
+
+	public function check_students_informations(){
+		$data['students'] = $this->db->get('students')->result();
+
+		$view = $this->load->view("teacher/students_informations",$data,true);
+		$this->page->fix_view_template_text($view);
+	}
+
+	public function send_student_info_mail($student_id){
+		$student = $this->db->where('id',$student_id)->get('students')->row();
+
+		$msg = '<html lang="NL">
+		    <head>
+		    <title></title>
+		    </head>
+		    <body>
+		        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+		        <p>This is information mail sent to you from administration.</p>
+		        <p>Your account username is <b>'.$student->username.'</b></p>
+		        <p>Your Group is <b>'.$student->student_group.'</b></p>
+		        <p>Your account username is <b>'.$student->username.'</b></p>
+		        <p>Thank you.</p>
+		        <p>Support Team.</p>
+		    </body>
+		</html>';
+
+		$subject = "Whoffice Account Informaion.";
+
+		$result = $this->TeacherModel->send_email($student->email,$msg,$subject);
+
+		if ($result == "sent") {
+			$data['message'] = "Email is sent successfully.";
+		}else{
+			$data['message'] = "Sorry, something went wrong.<br>$result";
+		}
+
+		$data['students'] = $this->db->get('students')->result();
+		$view = $this->load->view("teacher/students_informations",$data,true);
+		$this->page->fix_view_template_text($view);
+	}
+
+	public function send_student_reset_password_mail($student_id){
+		$student = $this->db->where('id',$student_id)->get('students')->row();
+		$new_passwrod = $this->TeacherModel->generateRandomString(8);
+
+		$old_password = $student->password;
+
+		$this->db->where('id',$student_id)->set('password',sha1($new_passwrod))->update('students');
+
+		if ($this->db->affected_rows() > 0 ) {
+			$msg = '<html lang="NL">
+			    <head>
+			    <title></title>
+			    </head>
+			    <body>
+			        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+			        <p>This is information mail sent to you from administration.</p>
+			        <p>Your account username is <b>'.$student->username.'</b></p>
+			        <p>Your Group is <b>'.$student->student_group.'</b></p>
+			        <p>Your account username is <b>'.$student->username.'</b></p>
+			        <p>Your new password is <b>'.$new_passwrod.'</b></p>
+			        <p>Thank you.</p>
+			        <p>Support Team.</p>
+			    </body>
+			</html>';
+
+			$subject = "Whoffice Account Reset.";
+
+			$result = $this->TeacherModel->send_email($student->email,$msg,$subject);
+
+			if ($result == "sent") {
+				$data['message'] = "Email is sent successfully.";
+			}else{
+				$this->db->where('id',$student_id)->set('password',$old_password)->update('students');
+				$data['message'] = "Sorry, something went wrong.<br>$result";
+			}
+		}else{
+			$data['message'] = "Sorry, something went wrong.";
+		}
+		$data['students'] = $this->db->get('students')->result();
+		$view = $this->load->view("teacher/students_informations",$data,true);
+		$this->page->fix_view_template_text($view);
+	}
+
+	public function edit_student($student_id){
+		$data = array();
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$action = $this->input->post('action');
+			$data['result'] = 1;
+			if ($action == "alter") {
+				$firstname = $this->input->post('firstname');
+				$lastname = $this->input->post('lastname');
+				$email = $this->input->post('email');
+				$student_group = $this->input->post('student_group');
+
+				$this->db->trans_start();
+				$this->db->where('id',$student_id)->set('firstname',$firstname)
+				->set('lastname',$lastname)->set('email',$email)
+				->set('student_group',$student_group)->update('students');
+				$this->db->trans_complete();
+
+				if ($this->db->trans_status() === FALSE)
+					{$data['result'] = 0;
+				}
+			}
+
+			if ($action == "delete") {
+				$this->db->where('id',$student_id)->delete('students');
+				if ($this->db->affected_rows() == 0) {
+					$data['result'] = 0;
+				}
+				 
+			}
+
+			if ($action == "activate") {
+				$this->db->where('id',$student_id)->set('active',1)->update('students');
+				if ($this->db->affected_rows() == 0) {
+					$data['result'] = 0;
+				}
+				 
+			}
+
+			if ($action == "deactivate") {
+				$this->db->where('id',$student_id)->set('active',0)->update('students');
+				if ($this->db->affected_rows() == 0) {
+					$data['result'] = 0;
+				}
+				 
+			}
+
+			if ($data['result'] != 0) {
+				redirect('teacher/check_students_informations');
+			}else{
+				$data['message'] = "Sorry, error occurred.";
+			}
+
+		}
+
+
+		$student = $this->db->where('id',$student_id)->get('students');
+		if ($student->num_rows() == 1) {
+			$data['student'] = $student->row();
+			$view = $this->load->view("teacher/student_edit",$data,true);
+			$this->page->fix_view_template_text($view);
+		}
 	}
 }

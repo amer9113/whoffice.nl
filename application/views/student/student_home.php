@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="NL">
 <head>
-	<?php require('inc/head.php') ?>
+	<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
 	<title>whoffice</title>
 </head>
 <body class="parallax">
@@ -20,6 +20,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<a href="<?= base_url().'student/card_7'; ?>">Card 7</a><br>
 	<a href="<?= base_url().'student/card_8'; ?>">Card 8</a><br>
 	<a href="<?= base_url().'student/logout'; ?>">Logout</a>
-<?php require('inc/scripts.php') ?>
+<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 </body>
 </html>

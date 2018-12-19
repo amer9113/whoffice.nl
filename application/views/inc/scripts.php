@@ -9,11 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	acc_type = "<?= $this->session->userdata('acc_type'); ?>";
 	acc_id = "<?= $this->session->userdata('acc_id'); ?>";
 	base_url = "<?= base_url(); ?>";
-	if (signed_in != "" && signed_in == 1 && acc_type != "" && acc_type == "student") {
-		setInterval(function(){
-			$.getJSON(base_url+'student/keep_session_alive',null,function(data){
-				//console.log(data);
-			});
-		}, 10000);
+	if (signed_in != "" && signed_in == 1 && acc_type != "") {
+		//setInterval(function(){$.getJSON(base_url+acc_type+'/authenticate',null,function(data){});}, 10000);
+	
+		var source = new EventSource(base_url+acc_type+'/wleknfwlnwiecnacwbeicubal');
+		source.onmessage = function(event) {
+		  	$.getJSON(base_url+acc_type+'/authenticate',null,function(data){});
+		};
 	}
 </script>

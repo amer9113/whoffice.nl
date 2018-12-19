@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="NL">
 <head>
-	<?php require('inc/head.php') ?>
+	<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
 	<title>Resultaatkaart8</title>
 </head>
 <body>
@@ -45,6 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php if (isset($data)): ?>
             <?php if ($data->checked_with_teacher == 0): ?>
                 <div class="alert alert-danger text-center" role="alert"><strong>Waiting</strong> for teacher approval.</div>
+
+                <?php if ($data->needs_correction_by_student == 1): ?>
+                    <div class="alert alert-info text-center" role="alert">
+                        <strong>Card Needs Correction</strong><br><strong>Notes: </strong><?= $data->correction_notes; ?></div>
+                <?php endif ?>
+
             <?php else: ?>
                 <div class="alert alert-success text-center" role="alert">
                     <strong>Well done!</strong>
@@ -72,25 +78,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="w3-cell w3-block w3-mobile">
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 	                        <label class="t8 quline_text w3-mobile" name="text1">
-	                        text1
+	                        [[text238:text]]
 	                        </label>
-	                        <small name="text2">text2</small> 
 	                    </div>
 	                    <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 	                        <div class=".divstyle;">
 	                            <div>
 	                                <label class="quline_text w3-mobile" name="text3">
-	                                text3
+	                                [[text239:text]]
 	                                </label>
-	                                <small name="text4">text4</small>
 	                                <br>
 	                                <labelfor="in_my_country_1"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_1" value="<?= isset($data) ? $data->in_my_country_1 : ''; ?>"></labelfor>
 	                            </div>
 	                            <div>
 	                                <label class="quline_text w3-mobile" name="text5">
-	                                text5
+	                                [[text240:text]]
 	                                </label>
-	                                <small name="text6">text6</small>
 	                                <br>
 	                                <labelfor="in_netherlands_1"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_1" value="<?= isset($data) ? $data->in_netherlands_1 : ''; ?>"></labelfor>
 	                            </div>
@@ -98,17 +101,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                        <div class=".divstyle;">
 	                            <div>
 	                                <label class="quline_text w3-mobile" name="text7">
-	                                text7
+	                                [[text241:text]]
 	                                </label>
-	                                <small name="text8">text8</small>
 	                                <br>
 	                                <labelfor="in_my_country_2"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_2" value="<?= isset($data) ? $data->in_my_country_2 : ''; ?>"></labelfor>
 	                            </div>
 	                            <div>
 	                                <label class="quline_text w3-mobile" name="text9">
-	                                text9
+	                                [[text242:text]]
 	                                </label>
-	                                <small name="text10">text10</small>
 	                                <br>
 	                                <labelfor="in_netherlands_2"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_2" value="<?= isset($data) ? $data->in_netherlands_2 : ''; ?>"></labelfor>
 	                            </div>
@@ -116,17 +117,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                        <div class=".divstyle;">
 	                            <div>
 	                                <label class="quline_text w3-mobile" name="text11">
-	                                text11
+	                                [[text243:text]]
 	                                </label>
-	                                <small name="text12">text12</small>
 	                                <br>
 	                                <labelfor="in_my_country_3"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_3" value="<?= isset($data) ? $data->in_my_country_3 : ''; ?>"></labelfor>
 	                            </div>
 	                            <div>
 	                                <label class="quline_text w3-mobile" name="text13">
-	                                text13
+	                                [[text244:text]]
 	                                </label>
-	                                <small name="text14">text14</small>
 	                                <br>
 	                                <labelfor="in_netherlands_3"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_3" value="<?= isset($data) ? $data->in_netherlands_3 : ''; ?>"></labelfor>
 	                            </div>
@@ -139,9 +138,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php if (isset($opened_for_teacher_checking)): ?>
                         
                         <input type="hidden" name="lock_card">
+                        <input type="hidden" name="needs_correction_by_student" value="no">
                         <button class="w3-button w3-green approve_edit" type="button">Approve &amp; allow edit</button> 
                         <button class="w3-button w3-red approve_lock" type="button">Approve &amp; lock</button> 
-
+                        <button class="w3-button w3-blue needs_correction" type="button">Needs correction</button><br>
+                        <input type="text" name="correction_notes" placeholder="Correction Notes" value="<?= $data->correction_notes; ?>">
+                        
                         <?php else: ?>
                             
                         <?php if (isset($data)): ?>
@@ -161,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        </div>
 	    </form>
     </div>
-<?php require('inc/scripts.php') ?>
+<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 <?php if (isset($opened_for_teacher_checking)): ?>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -172,6 +174,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $('.approve_lock').click(function(){
             $('[name="lock_card"]').val("yes");
+            $('form').submit();
+        });
+
+        $('.needs_correction').click(function(){
+            $('[name="lock_card"]').val("no");
+            $('[name="needs_correction_by_student"]').val("yes");
             $('form').submit();
         });
     });

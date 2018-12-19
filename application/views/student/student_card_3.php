@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="NL">
 <head>
-	<?php require('inc/head.php') ?>
+	<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
 	<title>Resultaatkaart3</title>
 </head>
 <body>
@@ -45,6 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php if (isset($data)): ?>
             <?php if ($data->checked_with_teacher == 0): ?>
                 <div class="alert alert-danger text-center" role="alert"><strong>Waiting</strong> for teacher approval to go to the next card.</div>
+
+                <?php if ($data->needs_correction_by_student == 1): ?>
+                    <div class="alert alert-info text-center" role="alert">
+                        <strong>Card Needs Correction</strong><br><strong>Notes: </strong><?= $data->correction_notes; ?></div>
+                <?php endif ?>
+                
             <?php else: ?>
                 <div class="alert alert-success text-center" role="alert">
                     <strong>Well done!</strong> You can now take <a href="<?= base_url().'student/card_3'; ?>" class="alert-link">card3</a>.
@@ -72,19 +78,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="w3-cell w3-block w3-mobile">
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 	                        <label class="quline_text w3-mobile" name="text1">
-	                        text1
+	                        [[text60:text]]
 	                        </label>
 	                        <br>
-	                        <small name="text2">text2</small> 
 	                    </div>
 	                    <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 	                        <div class="col-sm-8 .divstyle">
 	                            <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1_r">
 	                                <label class="quline_text w3-mobile" name="text3">
-	                                text3
+	                                [[text61:text]]
+	                                </label>
+                                    <label class="quline_text w3-mobile" name="text3">
+	                                [[text62:text]]
 	                                </label>
 	                                <br>
-	                                <small name="text4">text4</small> 
 	                            </div>
 	                            <div class="w3-cell-row w3-block w3-mobile" id="ans1line1">
 	                                <div class="signsize w3-cell w3-mobile">
@@ -107,30 +114,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                            <br>
 	                            <br>
 	                            <label class="quline_text w3-mobile" name="text5">
-	                            text5
+	                            [[text63:text]]
 	                            <br>
-	                            <small name="text6">text6</small>
 	                            </label>
 	                            <div class="divstyle">
 	                                <input class="w3-radio" type="radio" name="have_properties_1" value="1" <?php if (isset($data) && $data->have_properties_1 == 1): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name="text7">ja</label>
+	                                <label class="quline_text w3-mobile" name="text7">[[text64:text]]</label>
 	                                <input class="w3-radio" type="radio"  name="have_properties_1" value="0" <?php if (isset($data) && $data->have_properties_1 == 0): ?>
 		    						checked
 		    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name="text8">nee</label>
+	                                <label class="quline_text w3-mobile" name="text8">[[text65:text]]</label>
 	                            </div>
 	                            <br><br>
 	                            <div class="divstyle">
 	                                <input class="w3-radio" type="radio" name="have_properties_2" value="1" <?php if (isset($data) && $data->have_properties_2 == 1): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name="text9">ja</label>
+	                                <label class="quline_text w3-mobile" name="text9">[[text66:text]]</label>
 	                                <input class="w3-radio" type="radio"  name="have_properties_2" value="0" <?php if (isset($data) && $data->have_properties_2 == 0): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name="text10">nee</label>
+	                                <label class="quline_text w3-mobile" name="text10">[[text67:text]]</label>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -143,19 +149,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="w3-cell w3-block w3-mobile">
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline2">
 	                        <label class="quline_text w3-mobile" name="text11">
-	                        text11
+	                        [[text68:text]]
 	                        </label>
 	                        <br>
-	                        <small name="text12">text12</small> 
 	                    </div>
 	                    <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 	                        <div class="col-sm-4 w3-rightbar w3-border-gray w3-hover-border-red w3-block w3-mobile .divstyle">
 	                            <div class="quline; w3-panel " id="quline2_r">
 	                                <label class="quline_text w3-mobile" name="text13">
-	                                text13
-	                                </label>
-	                                <br>
-	                                <small name=" text14"> text14</small> 
+	                                [[text69:text]]
+	                                </label> 
 	                            </div>
 	                            <div class="w3-cell-row w3-block w3-mobile" id="ans1line4">
 	                                <div class="signsize w3-cell w3-mobile">
@@ -193,10 +196,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                        <div class="col-sm-4 w3-rightbar w3-border-gray w3-hover-border-red w3-block w3-mobile .divstyle">
 	                            <div class="quline; w3-panel" id="quline2_m">
 	                                <label class="quline_text w3-mobile" name=" text15">
-	                                text15
+	                                [[text70:text]]
 	                                </label>
-	                                <br>
-	                                <small name=" text16"> text16</small> 
+                                    <br>
+                                    <label class="quline_text w3-mobile" name=" text15">
+	                                [[text71:text]]
+	                                </label>
 	                            </div>
 	                            <div class="w3-cell-row w3-block w3-mobile" id="ans1line_m_4">
 	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_3" maxlength="255" value="<?= isset($data) ? $data->why_properties_3 : ''; ?>">
@@ -214,53 +219,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                        <div class="col-sm-4 .divstyle">
 	                            <br>
 	                            <label class="quline_text w3-mobile" name=" text17">
-	                            text17
-	                            <br>
-	                            <small name=" text18"> text18</small>
+	                            [[text72:text]]
 	                            </label>
 	                            <br><br>
 	                            <div class="divstyle">
 	                                <input class="w3-radio" type="radio" name="have_properties_3" value="1" <?php if (isset($data) && $data->have_properties_3 == 1): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name=" text19">ja</label>
+	                                <label class="quline_text w3-mobile" name=" text19">[[text73:text]]</label>
 	                                <input class="w3-radio" type="radio"  name="have_properties_3" value="0" <?php if (isset($data) && $data->have_properties_3 == 0): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name=" text20">nee</label>
+	                                <label class="quline_text w3-mobile" name=" text20">[[text74:text]]</label>
 	                            </div>
 	                            <br><br>
 	                            <div class="divstyle">
 	                                <input class="w3-radio" type="radio" name="have_properties_4" value="1" <?php if (isset($data) && $data->have_properties_4 == 1): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name=" text21">ja</label>
+	                                <label class="quline_text w3-mobile" name=" text21">[[text75:text]]</label>
 	                                <input class="w3-radio" type="radio"  name="have_properties_4" value="0" <?php if (isset($data) && $data->have_properties_4 == 0): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name=" text22">nee</label>
+	                                <label class="quline_text w3-mobile" name=" text22">[[text76:text]]</label>
 	                            </div>
 	                            <br><br>
 	                            <div class="divstyle">
 	                                <input class="w3-radio" type="radio" name="have_properties_5" value="1" <?php if (isset($data) && $data->have_properties_5 == 1): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name=" text23">ja</label>
+	                                <label class="quline_text w3-mobile" name=" text23">[[text77:text]]</label>
 	                                <input class="w3-radio" type="radio"  name="have_properties_5" value="0" <?php if (isset($data) && $data->have_properties_5 == 0): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name=" text24">nee</label>
+	                                <label class="quline_text w3-mobile" name=" text24">[[text78:text]]</label>
 	                            </div>
 	                            <br><br>
 	                            <div class="divstyle">
 	                                <input class="w3-radio" type="radio" name="have_properties_6" value="1" <?php if (isset($data) && $data->have_properties_6 == 1): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name=" text25">ja</label>
+	                                <label class="quline_text w3-mobile" name=" text25">[[text79:text]]</label>
 	                                <input class="w3-radio" type="radio"  name="have_properties_6" value="0" <?php if (isset($data) && $data->have_properties_6 == 0): ?>
 			    						checked
 			    					<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name=" text26">nee</label>
+	                                <label class="quline_text w3-mobile" name=" text26">[[text80:text]]</label>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -271,8 +274,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php if (isset($opened_for_teacher_checking)): ?>
                         
                         <input type="hidden" name="lock_card">
+                        <input type="hidden" name="needs_correction_by_student" value="no">
                         <button class="w3-button w3-green approve_edit" type="button">Approve &amp; allow edit</button> 
                         <button class="w3-button w3-red approve_lock" type="button">Approve &amp; lock</button> 
+                        <button class="w3-button w3-blue needs_correction" type="button">Needs correction</button><br>
+                        <input type="text" name="correction_notes" placeholder="Correction Notes" value="<?= $data->correction_notes; ?>">
 
                         <?php else: ?>
                             
@@ -293,7 +299,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        </div>
         </form>
     </div>
-<?php require('inc/scripts.php') ?>
+<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 <?php if (isset($opened_for_teacher_checking)): ?>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -304,6 +310,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $('.approve_lock').click(function(){
             $('[name="lock_card"]').val("yes");
+            $('form').submit();
+        });
+
+        $('.needs_correction').click(function(){
+            $('[name="lock_card"]').val("no");
+            $('[name="needs_correction_by_student"]').val("yes");
             $('form').submit();
         });
     });

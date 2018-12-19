@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="NL">
 <head>
-	<?php require('inc/head.php') ?>
+	<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
 	<title>Resultaatkaart4</title>
 </head>
 <body>
@@ -45,6 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php if (isset($data)): ?>
             <?php if ($data->checked_with_teacher == 0): ?>
                 <div class="alert alert-danger text-center" role="alert"><strong>Waiting</strong> for teacher approval to go to the next card.</div>
+
+                <?php if ($data->needs_correction_by_student == 1): ?>
+                    <div class="alert alert-info text-center" role="alert">
+                        <strong>Card Needs Correction</strong><br><strong>Notes: </strong><?= $data->correction_notes; ?></div>
+                <?php endif ?>
+                
             <?php else: ?>
                 <div class="alert alert-success text-center" role="alert">
                     <strong>Well done!</strong> You can now take <a href="<?= base_url().'student/card_4'; ?>" class="alert-link">card4</a>.
@@ -72,9 +78,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="w3-cell w3-block w3-mobile">
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 	                        <label class="quline_text w3-mobile" name="text1">
-	                        text1
+	                        [[text81:text]]
 	                        </label>
-	                        <small name="text2">text2</small> 
 	                    </div>
 	                    <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 	                        <div class="w3-cell-row w3-block w3-mobile" id="ans1line1">
@@ -112,9 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline2">
 	                        <div class="col-sm-4">
 	                            <label class="quline_text w3-mobile" name="text3">
-	                            text3
-	                            <br>
-	                            <small name="text4">text4</small> 
+	                            [[text82:text]]
 	                            </label>
 	                        </div>
 	                        <div class="col-sm-2">
@@ -122,9 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                        </div>
 	                        <div class="col-sm-6">
 	                            <label class="quline_text w3-mobile" name="text5">
-	                            text5
-	                            <br>
-	                            <small name="text6">text6</small> 
+	                            [[text83:text]]
 	                            </label> 
 	                        </div>
 	                    </div>
@@ -137,9 +138,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="w3-cell w3-block w3-mobile">
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 	                        <label class="quline_text w3-mobile" name="text7">
-	                        text7
+	                        [[text84:text]]
 	                        </label>
-	                        <small name="text8">text8</small> 
 	                    </div>
 	                    <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 	                        <div class=".divstyle w3-container w3-card-4">
@@ -147,19 +147,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                <input class="w3-radio" type="radio" name="chance_work" value="0" <?php if (isset($data) && $data->chance_work == 0): ?>
 										checked
 									<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name="text9">text9 <small name="text10">text10</small></label>
+	                                <label class="quline_text w3-mobile" name="text9">[[text85:text]]</label>
 	                            </p>
 	                            <p>
 	                                <input class="w3-radio" type="radio"  name="chance_work" value="1" <?php if (isset($data) && $data->chance_work == 1): ?>
 										checked
 									<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name="text10">text10 <small name="text11">text11</small></label>
+	                                <label class="quline_text w3-mobile" name="text10">[[text86:text]]</label>
 	                            </p>
 	                            <p>
 	                                <input class="w3-radio" type="radio" name="chance_work" value="2" <?php if (isset($data) && $data->chance_work == 2): ?>
 										checked
 									<?php endif ?>>
-	                                <label class="quline_text w3-mobile" name="text11">text11 <small name="text12">text12</small></label>
+	                                <label class="quline_text w3-mobile" name="text11">[[text87:text]]</label>
 	                            </p>
 	                        </div>
 	                    </div>
@@ -172,26 +172,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="w3-cell w3-block w3-mobile">
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 	                        <label class="quline_text w3-mobile" name="text13">
-	                        text13
+	                        [[text88:text]]
 	                        </label>
-	                        <small name="text14">text14</small> 
 	                    </div>
 	                    <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 	                        <div class=".divstyle;checkbox">
-	                            <label>
+	                       
 	                            <label class="quline_text w3-mobile" name="text15">
-	                            text15
-	                            </label>
-	                            <small name="text16">text16</small>
+	                            [[text89:text]]
 	                            </label>
 	                            <div>
 	                                <div>
 	                                    <div class="col-sm-4">
 	                                        <label class="quline_text w3-mobile" name="text17">
-	                                        text17
+	                                        [[text90:text]]
 	                                        </label>
-	                                        <br>
-	                                        <small name="text18">text18</small>
 	                                    </div>
 	                                    <div class="col-sm-8">
 	                                        <labelfor="job_offer_1_date"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="date"  name="job_offer_1_date" value="<?= isset($data) ? $data->job_offer_1_date : ''; ?>"></labelfor>
@@ -200,10 +195,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                <div>
 	                                    <div class="col-sm-4">
 	                                        <label class="quline_text w3-mobile" name="text19">
-	                                        text19
+	                                        [[text91:text]]
 	                                        </label>
-	                                        <br>
-	                                        <small name="text20">text20</small>
 	                                    </div>
 	                                    <div class="col-sm-8">
 	                                        <labelfor="job_offer_1_profession"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_profession" value="<?= isset($data) ? $data->job_offer_1_profession : ''; ?>"></labelfor>
@@ -212,10 +205,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                <div>
 	                                    <div class="col-sm-4">
 	                                        <label class="quline_text w3-mobile" name="text21">
-	                                        text21
+	                                        [[text92:text]]
 	                                        </label>
-	                                        <br>
-	                                        <small name="text22">text22</small>
 	                                    </div>
 	                                    <div class="col-sm-8">
 	                                        <labelfor="job_offer_1_company"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_company" value="<?= isset($data) ? $data->job_offer_1_company : ''; ?>"></labelfor>
@@ -224,10 +215,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                <div>
 	                                    <div class="col-sm-4">
 	                                        <label class="quline_text w3-mobile" name="text23">
-	                                        text23
+	                                        [[text93:text]]
 	                                        </label>
-	                                        <br>
-	                                        <small name="text24">text24</small>
 	                                    </div>
 	                                    <div class="col-sm-8">
 	                                        <labelfor="job_offer_1_place"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_place" value="<?= isset($data) ? $data->job_offer_1_place : ''; ?>"></labelfor>
@@ -246,16 +235,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                </div>
 	                                <div class="col-sm-9 w3-block w3-mobile">
 	                                    <label class="quline_text w3-mobile" name="text25">
-	                                    Voeg een Kopie van de aanvraag of het ervaringscertificaat toe
+	                                   [[text94:text]]
 	                                    </label>
-	                                    <small name="text26">arabic</small>
 	                                </div>
 	                            </div>
 	                        </div>
 	                        <div class=".divstyle;checkbox">
 	                            <label class="quline_text w3-mobile" name="text27">
-	                            text27
-	                            <small name="text28">text28</small>
+	                            [[text96:text]]
 	                            </label>
 	                            <div class=".divstyle;checkbox">
 	                                <label> 
@@ -263,9 +250,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										checked
 									<?php endif ?>>
 	                                <label class="quline_text w3-mobile" name="text29">
-	                                text29
+	                                [[text97:text]]
 	                                </label>
-	                                <small name="text30">text30</small>
 	                                </label>
 	                                <br>
 	                                <labelfor="job_offer_1_reason_yes"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_reason_yes" value="<?= (isset($data) && $data->job_offer_1_yes_no == 1 ) ? $data->job_offer_1_reason : ''; ?>"></labelfor>
@@ -276,28 +262,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										checked
 									<?php endif ?>>
 	                                <label class="quline_text w3-mobile" name="text31">
-	                                text31
+	                                [[text98:text]]
 	                                </label>
-	                                <small name="text32">text32</small>
 	                                </label>
 	                                <br>
 	                                <labelfor="job_offer_1_reason_no"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_reason_no" value="<?= (isset($data) && $data->job_offer_1_yes_no == 0) ? $data->job_offer_1_reason : ''; ?>"></labelfor>
 	                            </div>
 	                            <div class=".divstyle;checkbox">
-	                                <label>
+	                                
 	                                <label class="quline_text w3-mobile" name="text33">
-	                                text33
+	                                [[text99:text]]
 	                                </label>
-	                                <small name="text34">text34</small>
-	                                </label>
+	                                
 	                                <div>
 	                                    <div>
 	                                        <div class="col-sm-4">
 	                                            <label class="quline_text w3-mobile" name="text35">
-	                                            text35
+	                                            [[text100:text]]
 	                                            </label>
-	                                            <br>
-	                                            <small name="text36">text36</small>
 	                                        </div>
 	                                        <div class="col-sm-8">
 	                                            <labelfor="job_offer_2_date"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="date"  name="job_offer_2_date" value="<?= isset($data) ? $data->job_offer_2_date : ''; ?>"></labelfor>
@@ -306,10 +288,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <div>
 	                                        <div class="col-sm-4">
 	                                            <label class="quline_text w3-mobile" name="text37">
-	                                            text37
+	                                            [[text101:text]]
 	                                            </label>
-	                                            <br>
-	                                            <small name="text38">text38</small>
 	                                        </div>
 	                                        <div class="col-sm-8">
 	                                            <labelfor="job_offer_2_profession"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_profession" value="<?= isset($data) ? $data->job_offer_2_profession : ''; ?>"></labelfor>
@@ -318,10 +298,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <div>
 	                                        <div class="col-sm-4">
 	                                            <label class="quline_text w3-mobile" name="text39">
-	                                            text39
+	                                            [[text102:text]]
 	                                            </label>
-	                                            <br>
-	                                            <small name="text40">text40</small>
 	                                        </div>
 	                                        <div class="col-sm-8">
 	                                            <labelfor="job_offer_2_company"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_company" value="<?= isset($data) ? $data->job_offer_2_company : ''; ?>"></labelfor>
@@ -330,10 +308,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <div>
 	                                        <div class="col-sm-4">
 	                                            <label class="quline_text w3-mobile" name="text41">
-	                                            text41
+	                                            [[text103:text]]
 	                                            </label>
-	                                            <br>
-	                                            <small name="text42">text42</small>
 	                                        </div>
 	                                        <div class="col-sm-8">
 	                                            <labelfor="job_offer_2_place"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_place" value="<?= isset($data) ? $data->job_offer_2_place : ''; ?>"></labelfor>
@@ -352,17 +328,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    </div>
 	                                    <div class="col-sm-9 w3-block w3-mobile">
 	                                        <label class="quline_text w3-mobile" name="text43">
-	                                        Voeg een Kopie van de aanvraag of het ervaringscertificaat toe
+	                                        [[text104:text]]
 	                                        </label>
-	                                        <small name="text44">arabic</small>
 	                                    </div>
 	                                </div>
 	                            </div>
 	                        </div>
 	                        <div class=".divstyle;checkbox">
 	                            <label class="quline_text w3-mobile" name="text45">
-	                            text45
-	                            <small name="text46">text46</small>
+	                            [[text106:text]]
 	                            </label>
 	                            <div class=".divstyle;checkbox">
 	                                <label>
@@ -370,9 +344,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										checked
 									<?php endif ?>>
 	                                <label class="quline_text w3-mobile" name="text47">
-	                                text47
+	                                [[text107:text]]
 	                                </label>
-	                                <small name="text48">text48</small>
 	                                </label>
 	                                <br>
 	                                <labelfor="job_offer_2_reason_yes"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_reason_yes" value="<?= (isset($data) && $data->job_offer_2_yes_no == 1 ) ? $data->job_offer_2_reason : ''; ?>"></labelfor>
@@ -383,9 +356,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										checked
 									<?php endif ?>>
 	                                <label class="quline_text w3-mobile" name="text49">
-	                                text49
+	                                [[text108:text]]
 	                                </label>
-	                                <small name="text50">text50</small>
 	                                </label>
 	                                <br>
 	                                <labelfor="job_offer_2_reason_no"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_reason_no" value="<?= (isset($data) && $data->job_offer_2_yes_no == 0 ) ? $data->job_offer_2_reason : ''; ?>"></labelfor>
@@ -401,14 +373,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="w3-cell w3-block w3-mobile">
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 	                        <label class="quline_text w3-mobile" name="text52">
-	                        text52
+	                        [[text109:text]]
 	                        </label>
-	                        <small name="text53">text53</small> 
 	                    </div>
 	                    <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 	                        <label class="quline_text w3-mobile" name="text54">
-	                        text54
-	                        <small name="text55">text55</small>
+	                        [[text110:text]]
 	                        </label>
 	                        <div class=".divstyle;checkbox">
 	                            <label>
@@ -416,9 +386,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										checked
 									<?php endif ?>> 
 	                            <label class="quline_text w3-mobile" name="text56">
-	                            text56
+	                            [[text111:text]]
 	                            </label>
-	                            <small name="text57">text57</small>
 	                            </label>
 	                        </div>
 	                        <div class=".divstyle;checkbox">
@@ -427,9 +396,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									checked
 								<?php endif ?>> 
 	                            <label class="quline_text w3-mobile" name="text58">
-	                            text58
+	                            [[text112:text]]
 	                            </label>
-	                            <small name="text59">text59</small>
 	                            </label>
 	                            <br>
 	                            <labelfor="is_little_work"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="is_little_work" maxlength="255" value="<?= isset($data) ? $data->is_little_work : ''; ?>"></labelfor>
@@ -440,9 +408,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									checked
 								<?php endif ?>> 
 	                            <label class="quline_text w3-mobile" name="text60">
-	                            text60
+	                            [[text113:text]]
 	                            </label>
-	                            <small name="text61">text61</small>
 	                            </label>
 	                            <br>
 	                            <labelfor="another_work"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_work" maxlength="255" value="<?= isset($data) ? $data->another_work : ''; ?>"></labelfor>
@@ -453,17 +420,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									checked
 								<?php endif ?>> 
 	                            <label class="quline_text w3-mobile" name="text62">
-	                            text62
+	                            [[text114:text]]
 	                            </label>
-	                            <small name="text63">text63</small>
 	                            </label>
 	                            <br>
 	                            <labelfor="go_first"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="go_first" maxlength="255" value="<?= isset($data) ? $data->go_first : ''; ?>"></labelfor>
 	                        </div>
 	                        <div class=".divstyle;checkbox">
 	                            <label class="quline_text w3-mobile" name="text64">
-	                            text64
-	                            <small name="text65">text65</small>
+	                            [[text115:text]]
 	                            </label>
 	                            <br>
 	                            <labelfor="go_first_reason"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="go_first_reason" maxlength="255" value="<?= isset($data) ? $data->go_first_reason : ''; ?>"></labelfor>
@@ -476,8 +441,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php if (isset($opened_for_teacher_checking)): ?>
                         
                         <input type="hidden" name="lock_card">
+                        <input type="hidden" name="needs_correction_by_student" value="no">
                         <button class="w3-button w3-green approve_edit" type="button">Approve &amp; allow edit</button> 
                         <button class="w3-button w3-red approve_lock" type="button">Approve &amp; lock</button> 
+                        <button class="w3-button w3-blue needs_correction" type="button">Needs correction</button><br>
+                        <input type="text" name="correction_notes" placeholder="Correction Notes" value="<?= $data->correction_notes; ?>">
 
                         <?php else: ?>
                             
@@ -498,7 +466,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        </div>
 	    </form>
     </div>
-<?php require('inc/scripts.php') ?>
+<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 <?php if (isset($opened_for_teacher_checking)): ?>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -509,6 +477,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $('.approve_lock').click(function(){
             $('[name="lock_card"]').val("yes");
+            $('form').submit();
+        });
+
+        $('.needs_correction').click(function(){
+            $('[name="lock_card"]').val("no");
+            $('[name="needs_correction_by_student"]').val("yes");
             $('form').submit();
         });
     });

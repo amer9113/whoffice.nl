@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="NL">
 <head>
-	<?php require('inc/head.php') ?>
+	<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
 	<title>Resultaatkaart2</title>
 </head>
 <body>
@@ -45,6 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php if (isset($data)): ?>
             <?php if ($data->checked_with_teacher == 0): ?>
                 <div class="alert alert-danger text-center" role="alert"><strong>Waiting</strong> for teacher approval to go to the next card.</div>
+
+                 <?php if ($data->needs_correction_by_student == 1): ?>
+                    <div class="alert alert-info text-center" role="alert">
+                        <strong>Card Needs Correction</strong><br><strong>Notes: </strong><?= $data->correction_notes; ?></div>
+                <?php endif ?>
+                
             <?php else: ?>
                 <div class="alert alert-success text-center" role="alert">
                     <strong>Well done!</strong> You can now take <a href="<?= base_url().'student/card_3'; ?>" class="alert-link">card3</a>.
@@ -72,9 +78,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		            <div class="w3-cell w3-block w3-mobile">
 		                <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 		                    <label class="quline_text w3-mobile" name="text1">
-		                    text1
-		                    </label>
-		                    <small name="text2">text2</small> 
+		                    [[text21:text]]
+		                    </label> 
 		                </div>
 		                <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 		                    <labelfor="tasks"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="textarea" name="tasks" required value="<?= isset($data) ? $data->tasks : ''; ?>"></labelfor>
@@ -88,9 +93,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		            <div class="w3-cell w3-block w3-mobile">
 		                <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline2">
 		                    <label class="quline_text w3-mobile" name="text3">
-		                    text3
+		                    [[text22:text]]
 		                    </label>
-		                    <small name="text4">text4</small> 
 		                </div>
 		                <div class="w3-cell-row w3-block w3-mobile" id="ans2line">
 		                    <div class=".divstyle;checkbox">
@@ -99,9 +103,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text5">
-		                        text5
+		                        [[text23:text]]
 		                        </label>
-		                        <small name="text6">text6</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -110,9 +113,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text7">
-		                        text7
+		                        [[text24:text]]
 		                        </label>
-		                        <small name="text8">text8</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -121,9 +123,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text9">
-		                        text9
+		                        [[text25:text]]
 		                        </label>
-		                        <small name="text10">text10</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -132,9 +133,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text11">
-		                        text11
+		                        [[text26:text]]
 		                        </label>
-		                        <small name="text12">text12</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -143,9 +143,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text13">
-		                        text13
+		                        [[text27:text]]
 		                        </label>
-		                        <small name="text14">text14</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -154,9 +153,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text15">
-		                        text15
+		                        [[text28:text]]
 		                        </label>
-		                        <small name="text16">text16</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -165,9 +163,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text17">
-		                        text17
+		                        [[text29:text]]
 		                        </label>
-		                        <small name="text18">text18</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -176,9 +173,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text19">
-		                        text19
+		                        [[text30:text]]
 		                        </label>
-		                        <small name="text20">text20</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -187,9 +183,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text21">
-		                        text21
+		                        [[text31:text]]
 		                        </label>
-		                        <small name="text22">text22</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -198,9 +193,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text23">
-		                        text23
+		                        [[text32:text]]
 		                        </label>
-		                        <small name="text24">text24</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -209,9 +203,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text25">
-		                        text25
+		                        [[text33:text]]
 		                        </label>
-		                        <small name="text26">text26</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -220,9 +213,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text27">
-		                        text27
+		                        [[text34:text]]
 		                        </label>
-		                        <small name="text28">text28</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -231,9 +223,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text29">
-		                        text29
+		                        [[text35:text]]
 		                        </label>
-		                        <small name="text30">text30</small>
 		                        </label>
 		                        <br>
 		                        <labelfor="work_condetions"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="work_condetions" value="<?= isset($data) ? $data->work_condetions : ''; ?>"></labelfor>
@@ -241,20 +232,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		                    <div class=".divstyle;checkbox">
 		                        <div class="w3-container w3-card-4" id="good_with_me">
 		                            <label class="quline_text w3-mobile" name="text31">
-		                            text31
-		                            <small name="text32">text32</small>
+		                            [[text36:text]]
 		                            </label>
 		                            <p>
 		                                <input class="w3-radio" type="radio" name="good_with_me" value="1" <?php if (isset($data) && $data->good_with_me == 1): ?>
 		    								checked
 		    							<?php endif ?>>
-		                                <label class="quline_text w3-mobile" name="text33">ja</label>
+		                                <label class="quline_text w3-mobile" name="text33">[[text37:text]]</label>
 		                            </p>
 		                            <p>
 		                                <input class="w3-radio" type="radio"  name="good_with_me" value="0" <?php if (isset($data) && $data->good_with_me == 0): ?>
 		    								checked
 		    							<?php endif ?>>
-		                                <label class="quline_text w3-mobile" name="text34">nee</label>
+		                                <label class="quline_text w3-mobile" name="text34">[[text38:text]]</label>
 		                            </p>
 		                        </div>
 		                    </div>
@@ -268,9 +258,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		            <div class="w3-cell w3-block w3-mobile">
 		                <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline3">
 		                    <label class="quline_text w3-mobile" name="text35">
-		                    text35
+		                    [[text39:text]]
 		                    </label>
-		                    <small name="text36">text36</small> 
+                            <label class="quline_text w3-mobile" name="text35">
+		                    [[text40:text]]
+		                    </label>
 		                </div>
 		                <div class="w3-cell-row w3-block w3-mobile" id="ans3line">
 		                    <div class=".divstyle;checkbox">
@@ -279,9 +271,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text37">
-		                        text37
+		                        [[text41:text]]
 		                        </label>
-		                        <small name="text38">text38</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -290,9 +281,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text39">
-		                        text39
+		                        [[text42:text]]
 		                        </label>
-		                        <small name="text40">text40</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -301,9 +291,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text41">
-		                        text41
+		                        [[text43:text]]
 		                        </label>
-		                        <small name="text42">text42</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -312,9 +301,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     								checked
     							<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text43">
-		                        text43
+		                        [[text44:text]]
 		                        </label>
-		                        <small name="text44">text44</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -323,9 +311,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text45">
-		                        text45
+		                        [[text45:text]]
 		                        </label>
-		                        <small name="text46">text46</small>
 		                        </label>
 		                        <br>
 		                        <labelfor="other_requirements"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="other_requirements" value="<?= isset($data) ? $data->other_requirements : ''; ?>"></labelfor>
@@ -333,20 +320,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		                    <div class=".divstyle;checkbox">
 		                        <div class="w3-container w3-card-4" id="good_requirement">
 		                            <label class="quline_text w3-mobile" name="text47">
-		                            text47
-		                            <small name="text48">text48</small>
+		                           [[text46:text]]
 		                            </label>
 		                            <p>
 		                                <input class="w3-radio" type="radio" name="good_requirements" value="1" <?php if (isset($data) && $data->good_requirements == 1): ?>
 		    								checked
 		    							<?php endif ?>>
-		                                <label class="quline_text w3-mobile" name="text49">ja</label>
+		                                <label class="quline_text w3-mobile" name="text49">[[text47:text]]</label>
 		                            </p>
 		                            <p>
 		                                <input class="w3-radio" type="radio"  name="good_requirements" value="0" <?php if (isset($data) && $data->good_requirements == 0): ?>
 		    								checked
 		    							<?php endif ?>>
-		                                <label class="quline_text w3-mobile" name="text50">nee</label>
+		                                <label class="quline_text w3-mobile" name="text50">[[text48:text]]</label>
 		                            </p>
 		                        </div>
 		                    </div>
@@ -356,9 +342,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text51">
-		                        text51
+		                        [[text49:text]]
 		                        </label>
-		                        <small name="text52">text52</small>
 		                        </label>
 		                        <br>
 		                        <labelfor="another_special_requirements"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_special_requirements" value="<?= isset($data) ? $data->another_special_requirements : ''; ?>"></labelfor>
@@ -373,9 +358,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		            <div class="w3-cell w3-block w3-mobile">
 		                <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline4">
 		                    <label class="quline_text w3-mobile" name="text53">
-		                    text53
+		                    [[text50:text]]
 		                    </label>
-		                    <small name="text54">text54</small> 
 		                </div>
 		                <div class="w3-cell-row w3-block w3-mobile" id="ans4line">
 		                    <div class=".divstyle;checkbox">
@@ -384,9 +368,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text55">
-		                        text55
+		                        [[text51:text]]
 		                        </label>
-		                        <small name="text56">text56</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -395,9 +378,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text57">
-		                        text57
+		                        [[text52:text]]
 		                        </label>
-		                        <small name="text58">text58</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -406,9 +388,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text59">
-		                        text59
+		                        [[text53:text]]
 		                        </label>
-		                        <small name="text60">text60</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -417,9 +398,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text61">
-		                        text61
+		                        [[text54:text]]
 		                        </label>
-		                        <small name="text62">text62</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -428,9 +408,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text63">
-		                        text63
+		                        [[text55:text]]
 		                        </label>
-		                        <small name="text64">text64</small>
 		                        </label>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
@@ -439,16 +418,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text65">
-		                        text65
+		                        [[text56:text]]
 		                        </label>
-		                        <small name="text66">text66</small>
 		                        </label>
 		                        <br>
 		                        <labelfor="other_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="other_circumstance" value="<?= isset($data) ? $data->other_circumstance : ''; ?>"></labelfor>
 		                        <label class="quline_text w3-mobile" name="text67">
-		                        text67
+		                        [[text57:text]]
 		                        </label>
-		                        <small name="text68">text68</small>
 		                    </div>
 		                    <div class=".divstyle;checkbox">
 		                        <label>
@@ -456,9 +433,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text69">
-		                        text69
+		                        [[text58:text]]
 		                        </label>
-		                        <small name="text70">text70</small>
 		                        </label>
 		                        <br>
 		                        <labelfor="yes_change_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="yes_change_circumstance" value="<?= isset($data) ? $data->yes_change_circumstance : ''; ?>"></labelfor>
@@ -469,9 +445,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    						checked
 		    					<?php endif ?>> 
 		                        <label class="quline_text w3-mobile" name="text71">
-		                        text71
+		                        [[text59:text]]
 		                        </label>
-		                        <small name="text72">text72</small>
 		                        </label>
 		                        <br>
 		                        <labelfor="no_change_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="no_change_circumstance" value="<?= isset($data) ? $data->no_change_circumstance : ''; ?>"></labelfor>
@@ -484,8 +459,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php if (isset($opened_for_teacher_checking)): ?>
                         
                         <input type="hidden" name="lock_card">
+                        <input type="hidden" name="needs_correction_by_student" value="no">
                         <button class="w3-button w3-green approve_edit" type="button">Approve &amp; allow edit</button> 
                         <button class="w3-button w3-red approve_lock" type="button">Approve &amp; lock</button> 
+                        <button class="w3-button w3-blue needs_correction" type="button">Needs correction</button><br>
+                        <input type="text" name="correction_notes" placeholder="Correction Notes" value="<?= $data->correction_notes; ?>">
 
                         <?php else: ?>
                             
@@ -506,7 +484,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    </div>
 		</form>
 	</div>
-<?php require('inc/scripts.php') ?>
+<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 <?php if (isset($opened_for_teacher_checking)): ?>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -517,6 +495,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $('.approve_lock').click(function(){
             $('[name="lock_card"]').val("yes");
+            $('form').submit();
+        });
+
+        $('.needs_correction').click(function(){
+            $('[name="lock_card"]').val("no");
+            $('[name="needs_correction_by_student"]').val("yes");
             $('form').submit();
         });
     });

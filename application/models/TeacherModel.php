@@ -3,6 +3,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class TeacherModel extends CI_Model{
 
+	public function generateRandomString($length) {
+	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+	    return $randomString;
+	}
+
+	public function check_email_host($email) {
+		if (trim($email) == "") {
+			return false;
+		}
+	    $domain_name = substr($email,(strpos($email, '@'))+1);
+	    if ( checkdnsrr($domain_name, 'ANY') ) {
+		  	return true;
+		}
+		else {
+		  	return false;
+		}
+	}
+
+	public function send_email($email,$msg,$subject) {
+		$this->config->load('email');
+		$smtp_host = $this->config->item('smtp_host');
+		$smtp_user = $this->config->item('smtp_user');
+		$smtp_pass = $this->config->item('smtp_pass');
+
+		if (!empty($smtp_host) && !empty($smtp_user) && !empty($smtp_pass)) {
+			if ($this->check_email_host($email)) {
+				$this->email->from($smtp_user);
+				$this->email->to($email);
+				$this->email->subject($subject);
+				$this->email->message($msg);
+				if ( ! $this->email->send()){
+					return "not_sent";
+				}else{
+					return "sent";
+				}
+			}else{
+				return "student email isn't valid.";
+			}
+		}else{
+			return "missing email configs.";
+		}
+	}
+
 	public function formatSeconds( $seconds ){
 	  	$hours = 0;
 	  	$milliseconds = str_replace( "0.", '', $seconds - floor( $seconds ) );

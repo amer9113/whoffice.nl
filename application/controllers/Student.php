@@ -45,21 +45,34 @@ class Student extends CI_Controller {
 	public function index()
 	{
 		$data['acc_name'] = $this->acc_name;
-		$view = $this->load->view("student_home",$data,true);
+		$view = $this->load->view("student/student_home",$data,true);
 		$this->page->fix_view_template_text($view);
 	}
 
+	public function wleknfwlnwiecnacwbeicubal(){
+		header('Content-Type: text/event-stream');
+		header('Cache-Control: no-cache');
+
+		$time = date('r');
+		echo "data: The server time is: {$time}\n\n";
+		flush();
+	}
+
+	public function authenticate()
+	{
+		$this->session->set_userdata('acc_id',$this->acc_id);
+		$this->session->set_userdata('signed_in',true);
+		$this->session->set_userdata('acc_type','student');
+		$time = date('r');
+		echo json_encode("data: The server time is: {$time}\n\n");
+	}
+	
 	public function logout()
 	{
 		$this->session->sess_destroy();
 		redirect('site');
 	}
 
-	public function keep_session_alive()
-	{
-		$time = date('r');
-		echo json_encode("data: The server time is: {$time}\n\n");
-	}
 
 	public function card_1(){
 		$data = array();
@@ -208,7 +221,7 @@ class Student extends CI_Controller {
 			$data['data'] = $check_exist->row();
 		}
 
-		$view = $this->load->view("student_card_1",$data,true);
+		$view = $this->load->view("student/student_card_1",$data,true);
 
 		$this->page->fix_view_template_text($view,$page_no=1);
 	}
@@ -341,7 +354,7 @@ class Student extends CI_Controller {
 			$data['data'] = $check_exist->row();
 		}
 
-		$view = $this->load->view("student_card_2",$data,true);
+		$view = $this->load->view("student/student_card_2",$data,true);
 
 		$this->page->fix_view_template_text($view,$page_no=2);
 	}
@@ -388,7 +401,7 @@ class Student extends CI_Controller {
 			$data['data'] = $check_exist->row();
 		}
 
-		$view = $this->load->view("student_card_3",$data,true);
+		$view = $this->load->view("student/student_card_3",$data,true);
 
 		$this->page->fix_view_template_text($view,$page_no=3);
 	}
@@ -505,7 +518,7 @@ class Student extends CI_Controller {
 			$data['data'] = $check_exist->row();
 		}
 
-		$view = $this->load->view("student_card_4",$data,true);
+		$view = $this->load->view("student/student_card_4",$data,true);
 
 		$this->page->fix_view_template_text($view,$page_no=4);
 	}
@@ -654,7 +667,7 @@ class Student extends CI_Controller {
 			$data['data'] = $check_exist->row();
 		}
 
-		$view = $this->load->view("student_card_5",$data,true);
+		$view = $this->load->view("student/student_card_5",$data,true);
 
 		$this->page->fix_view_template_text($view,$page_no=5);
 	}
@@ -737,7 +750,7 @@ class Student extends CI_Controller {
 			$data['data'] = $check_exist->row();
 		}
 
-		$view = $this->load->view("student_card_6",$data,true);
+		$view = $this->load->view("student/student_card_6",$data,true);
 
 		$this->page->fix_view_template_text($view,$page_no=6);
 	}
@@ -917,7 +930,7 @@ class Student extends CI_Controller {
 			$data['data'] = $check_exist->row();
 		}
 
-		$view = $this->load->view("student_card_7",$data,true);
+		$view = $this->load->view("student/student_card_7",$data,true);
 
 		$this->page->fix_view_template_text($view,$page_no=7);
 	}
@@ -963,7 +976,7 @@ class Student extends CI_Controller {
 			$data['data'] = $check_exist->row();
 		}
 
-		$view = $this->load->view("student_card_8",$data,true);
+		$view = $this->load->view("student/student_card_8",$data,true);
 
 		$this->page->fix_view_template_text($view,$page_no=8);
 	}
