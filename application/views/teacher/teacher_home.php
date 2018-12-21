@@ -9,7 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<div class="parallax w3-container background-color:lavenderblush w3-mobile">
 	    <div class="col-sm-3">
-	        <?php require('/side_navbar.inc.php') ?>
+	    	<?php require(dirname(__FILE__) . '/side_navbar.inc.php') ?>
+	    
 	    </div>
 
 	    <div class="col-sm-9">
