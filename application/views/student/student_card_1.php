@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="w3-container w3-cell w3-mobile">1</div>
                             </div>
                             <div class="w3-cell w3-mobile">
-                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="work_1" required maxlength="255" value="<?= isset($data) ? $data->work_1 : ''; ?>">
+                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red create_which_work_select_list" type="text" name="work_1" required maxlength="255" value="<?= isset($data) ? $data->work_1 : ''; ?>">
                             </div>
                         </div>
                         <div class="w3-cell-row w3-block w3-mobile" name="ans1line2">
@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="w3-container w3-cell w3-mobile">2</div>
                             </div>
                             <div class="w3-cell w3-mobile">
-                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="work_2" required maxlength="255" value="<?= isset($data) ? $data->work_2 : ''; ?>">
+                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red create_which_work_select_list" type="text" name="work_2" required maxlength="255" value="<?= isset($data) ? $data->work_2 : ''; ?>">
                             </div>
                         </div>
                         <div class="w3-cell-row w3-block w3-mobile" name="ans1line3">
@@ -77,7 +77,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="w3-container w3-cell w3-mobile">3</div>
                             </div>
                             <div class="w3-cell w3-mobile">
-                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="work_3" required maxlength="255" value="<?= isset($data) ? $data->work_3 : ''; ?>">
+                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red create_which_work_select_list" type="text" name="work_3" required maxlength="255" value="<?= isset($data) ? $data->work_3 : ''; ?>">
+                            </div>
+                        </div>
+                        <div class="w3-cell-row w3-block w3-mobile" name="ans1line3">
+                            <div class="signsize w3-cell w3-mobile">
+                                <div class="w3-container w3-cell w3-mobile"></div>
+                            </div>
+                            <div class="w3-cell w3-mobile">
+                                <select class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="which_work_is_selected" required></select>
                             </div>
                         </div>
                         <div class="w3-hover-opacity">
@@ -377,6 +385,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('[name="needs_correction_by_student"]').val("yes");
             $('form').submit();
         });
+    });
+</script>
+<?php else: ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.create_which_work_select_list').change(function(){
+            var work_1 = $('[name="work_1"]').val().trim();
+            var work_2 = $('[name="work_2"]').val().trim();
+            var work_3 = $('[name="work_3"]').val().trim();
+
+            $('[name="which_work_is_selected"]').empty();
+
+            if (work_1 != "") {
+                $('[name="which_work_is_selected"]').append(
+                    $('<option value="1">').text(work_1)
+                );
+            }
+
+            if (work_2 != "") {
+                $('[name="which_work_is_selected"]').append(
+                    $('<option value="2">').text(work_2)
+                );
+            }
+
+            if (work_3 != "") {
+                $('[name="which_work_is_selected"]').append(
+                    $('<option value="3">').text(work_3)
+                );
+            }
+
+            var which_work_is_selected = <?= isset($data) ? $data->which_work_is_selected : 0; ?>;
+
+            $('[name="which_work_is_selected"] option[value="'+which_work_is_selected+'"]').prop('selected',true);
+
+        });
+
+        $('[name="work_1"]').change();
     });
 </script>
 <?php endif ?>

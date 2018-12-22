@@ -82,6 +82,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_2" required maxlength="255" value="<?= isset($data) ? $data->properties_2 : ''; ?>">
 	                                </div>
 	                            </div>
+	                            <div class="w3-cell-row w3-block w3-mobile" id="ans1line2">
+	                                <div class="signsize w3-cell w3-mobile">
+	                                    <div class="w3-container w3-cell w3-mobile">3-</div>
+	                                </div>
+	                                <div class="w3-cell w3-mobile">
+	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_7" required maxlength="255" value="<?= isset($data) ? $data->properties_7 : ''; ?>">
+	                                </div>
+	                            </div>
 	                        </div>
 	                        <div class="col-sm-4 .divstyle">
 	                            <br>
@@ -107,6 +115,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    					<?php endif ?>>
 	                                <label class="quline_text w3-mobile" name="text9">[[text66:text]]</label>
 	                                <input class="w3-radio" type="radio"  name="have_properties_2" value="0" <?php if (isset($data) && $data->have_properties_2 == 0): ?>
+			    						checked
+			    					<?php endif ?>>
+	                                <label class="quline_text w3-mobile" name="text10">[[text67:text]]</label>
+	                            </div>
+	                            <br><br>
+	                            <div class="divstyle">
+	                                <input class="w3-radio" type="radio" name="have_properties_7" value="1" <?php if (isset($data) && $data->have_properties_7 == 1): ?>
+			    						checked
+			    					<?php endif ?>>
+	                                <label class="quline_text w3-mobile" name="text9">[[text66:text]]</label>
+	                                <input class="w3-radio" type="radio"  name="have_properties_7" value="0" <?php if (isset($data) && $data->have_properties_7 == 0): ?>
 			    						checked
 			    					<?php endif ?>>
 	                                <label class="quline_text w3-mobile" name="text10">[[text67:text]]</label>

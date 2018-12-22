@@ -97,6 +97,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                        </div>
 	                        <div class=".divstyle;checkbox">
 	                            <label>
+	                            <input class="w3-check" type="checkbox" name="days_work" value="1" <?php if (isset($data) && $data->days_work == 1): ?>
+	                            	checked
+	                            <?php endif ?>> 
+	                            <label class="quline_text w3-mobile" name="text9">
+	                            [[text120:text]]
+	                            </label>
+	                            </label>
+	                        </div>
+	                        <div class=".divstyle;checkbox">
+	                            <label>
+	                            <input class="w3-check" type="checkbox" name="days_school" value="1" <?php if (isset($data) && $data->days_school == 1): ?>
+	                            	checked
+	                            <?php endif ?>> 
+	                            <label class="quline_text w3-mobile" name="text9">
+	                            [[text120:text]]
+	                            </label>
+	                            </label>
+	                        </div>
+	                        <div class=".divstyle;checkbox">
+	                            <label>
 	                            <input class="w3-check" type="checkbox" name="course_full_time" value="1" <?php if (isset($data) && $data->course_full_time == 1): ?>
 	                            	checked
 	                            <?php endif ?>> 

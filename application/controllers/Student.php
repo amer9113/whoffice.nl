@@ -558,6 +558,14 @@ class Student extends CI_Controller {
 				$input['training_multi_year'] = 0;
 			}
 
+			if (!isset($input['days_work']) || empty($input['days_work'])) {
+				$input['days_work'] = 0;
+			}
+
+			if (!isset($input['days_school']) || empty($input['days_school'])) {
+				$input['days_school'] = 0;
+			}
+
 			if (!isset($input['course_full_time']) || empty($input['course_full_time'])) {
 				$input['course_full_time'] = 0;
 			}
@@ -706,6 +714,14 @@ class Student extends CI_Controller {
 
 			if (!isset($input['sports_club_friend']) || empty($input['sports_club_friend'])) {
 				$input['sports_club_friend'] = 0;
+			}
+
+			if (!isset($input['parents']) || empty($input['parents'])) {
+				$input['parents'] = 0;
+			}
+
+			if (!isset($input['another_parents']) || empty($input['another_parents'])) {
+				$input['another_parents'] = 0;
 			}
 
 			if (!isset($input['client_manger']) || empty($input['client_manger'])) {
@@ -955,6 +971,7 @@ class Student extends CI_Controller {
 		$data['card_number'] = 8;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
+			$input['user_id'] = $this->acc_id;
 
 			$this->db->trans_start();
 
