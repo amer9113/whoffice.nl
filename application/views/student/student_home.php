@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="parallax">
 	<h1>This is the student area !</h1>
 	<h1>Welcome <?= $acc_name; ?></h1>
+	<h3>Elapsed Time : <?= $this->elapsed_time; ?></h3>
 
 
 	<a href="<?= base_url().'student/card_1'; ?>">Card 1</a><br>

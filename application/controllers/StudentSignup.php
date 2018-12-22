@@ -23,9 +23,9 @@ class StudentSignup extends CI_Controller {
 		));
 
 		$this->form_validation->set_rules('postal_code', 'Postal code', 'trim|required|min_length[6]');
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-		$this->form_validation->set_rules('website', 'Website', 'trim|valid_url');
-		$this->form_validation->set_rules('bio', 'Bio', 'trim');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[students.email]',array(
+			'is_unique' => 'This email is already reigstered, enter another one.'
+		));
 
 		if ($this->form_validation->run() == FALSE)
         {
@@ -69,7 +69,10 @@ class StudentSignup extends CI_Controller {
 
 				header('Location: '.base_url().'student');
 			}else{
+				$data = array();
 				$data['message'] = 'Er is een fout opgetreden, probeer het later opnieuw';
+				$view = $this->load->view("student/student_signup",$data,true);
+				$this->page->fix_view_template_text($view);
 			}
         }
 

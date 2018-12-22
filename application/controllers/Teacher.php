@@ -42,20 +42,17 @@ class Teacher extends CI_Controller {
 		$this->page->fix_view_template_text($view);
 	}
 
-	public function wleknfwlnwiecnacwbeicubal(){
+	/*public function wleknfwlnwiecnacwbeicubal(){
 		header('Content-Type: text/event-stream');
 		header('Cache-Control: no-cache');
 
 		$time = date('r');
 		echo "data: The server time is: {$time}\n\n";
 		flush();
-	}
+	}*/
 
 	public function authenticate()
 	{
-		$this->session->set_userdata('acc_id',$this->acc_id);
-		$this->session->set_userdata('signed_in',true);
-		$this->session->set_userdata('acc_type','teacher');
 		$time = date('r');
 		echo json_encode("data: The server time is: {$time}\n\n");
 	}
@@ -67,7 +64,7 @@ class Teacher extends CI_Controller {
 	}
 
 	public function view_pages_texts(){
-
+		$data = array();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 
@@ -100,6 +97,7 @@ class Teacher extends CI_Controller {
 	}
 
 	public function alter_page_text($id){
+		$data = array();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 
@@ -152,14 +150,14 @@ class Teacher extends CI_Controller {
 			$lock_card = $this->input->post('lock_card');
 
 			if ($lock_card == "yes") {
-				$this->db->set('edit_allow',0)->set('checked_with_teacher',1);
+				$this->db->set('edit_allow',0)->set('checked_with_teacher',1)->set('needs_correction_by_student',0);
 			}else{
 				$needs_correction_by_student = $this->input->post('needs_correction_by_student');
 				if ($needs_correction_by_student == "yes") {
 					$correction_notes = $this->input->post('correction_notes');
 					$this->db->set('correction_notes',$correction_notes)->set('needs_correction_by_student',1);
 				}else{
-					$this->db->set('checked_with_teacher',1);
+					$this->db->set('checked_with_teacher',1)->set('needs_correction_by_student',0);
 				}
 				$this->db->set('edit_allow',1);
 			}
@@ -199,7 +197,7 @@ class Teacher extends CI_Controller {
 			$data['data'] = $card_details_query->row();
 			$data['opened_for_teacher_checking'] = true;
 			$view = $this->load->view("student/student_card_$card_no",$data,true);
-			$this->page->fix_view_template_text($view,$page_no=1);
+			$this->page->fix_view_template_text($view,$page_no=$card_no);
 		} else {
 			echo "Sorry, card isn't found.";
 		}
@@ -231,7 +229,6 @@ class Teacher extends CI_Controller {
 		        <p>This is information mail sent to you from administration.</p>
 		        <p>Your account username is <b>'.$student->username.'</b></p>
 		        <p>Your Group is <b>'.$student->student_group.'</b></p>
-		        <p>Your account username is <b>'.$student->username.'</b></p>
 		        <p>Thank you.</p>
 		        <p>Support Team.</p>
 		    </body>
@@ -269,9 +266,8 @@ class Teacher extends CI_Controller {
 			        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
 			        <p>This is information mail sent to you from administration.</p>
 			        <p>Your account username is <b>'.$student->username.'</b></p>
-			        <p>Your Group is <b>'.$student->student_group.'</b></p>
-			        <p>Your account username is <b>'.$student->username.'</b></p>
 			        <p>Your new password is <b>'.$new_passwrod.'</b></p>
+			        <p>Your Group is <b>'.$student->student_group.'</b></p>
 			        <p>Thank you.</p>
 			        <p>Support Team.</p>
 			    </body>
@@ -305,16 +301,26 @@ class Teacher extends CI_Controller {
 				$lastname = $this->input->post('lastname');
 				$email = $this->input->post('email');
 				$student_group = $this->input->post('student_group');
+				$postal_code = $this->input->post('postal_code');
 
-				$this->db->trans_start();
-				$this->db->where('id',$student_id)->set('firstname',$firstname)
-				->set('lastname',$lastname)->set('email',$email)
-				->set('student_group',$student_group)->update('students');
-				$this->db->trans_complete();
 
-				if ($this->db->trans_status() === FALSE)
-					{$data['result'] = 0;
+				$check_mail = $this->db->where('id !=',$student_id)->where('email',$email)->get('students')->num_rows();
+
+				if ($check_mail != 0) {
+					$data['result'] = 0;
+					$data['message'] = "This email is already reigstered, enter another one.";
+				}else{
+					$this->db->trans_start();
+					$this->db->where('id',$student_id)->set('firstname',$firstname)
+					->set('lastname',$lastname)->set('email',$email)->set('postal_code',$postal_code)
+					->set('student_group',$student_group)->update('students');
+					$this->db->trans_complete();
+
+					if ($this->db->trans_status() === FALSE){
+						$data['result'] = 0;
+					}
 				}
+
 			}
 
 			if ($action == "delete") {
@@ -344,7 +350,9 @@ class Teacher extends CI_Controller {
 			if ($data['result'] != 0) {
 				redirect('teacher/check_students_informations');
 			}else{
-				$data['message'] = "Sorry, error occurred.";
+				if (!isset($data['message'])) {
+					$data['message'] = "Sorry, error occurred.";
+				}
 			}
 
 		}
@@ -356,5 +364,44 @@ class Teacher extends CI_Controller {
 			$view = $this->load->view("teacher/student_edit",$data,true);
 			$this->page->fix_view_template_text($view);
 		}
+	}
+
+	public function add_student(){
+		$data = array();
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$input = $this->input->post();
+			$this->form_validation->set_rules('firstname', 'FirstName', 'trim|required|min_length[4]|max_length[75]');
+			$this->form_validation->set_rules('lastname', 'LastName', 'trim|required|min_length[4]|max_length[75]');
+			$this->form_validation->set_rules('username', 'UserName', 'trim|required|min_length[4]|max_length[75]|regex_match[/[A-Za-z]+\w/]|is_unique[students.username]',array(
+				'is_unique' => 'Deze gebruikersnaam bestaat al. kies alstublieft een andere',
+				'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld john_10',
+			));
+
+			$this->form_validation->set_rules('postal_code', 'Postal code', 'trim|required');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[students.email]',array(
+				'is_unique' => 'This email is already reigstered, enter another one.'
+			));
+			if ($this->form_validation->run() == FALSE)
+	        {
+				$view = $this->load->view("teacher/student_add",$data,true);
+				$this->page->fix_view_template_text($view);
+	        }
+	        else
+	        {
+	        	$this->db->trans_start();
+	        	$input['password'] = sha1($input['postal_code'].$input['postal_code']);
+				$this->db->insert('students',$input);
+				$this->db->trans_complete();
+
+				if ($this->db->trans_status() === true) {
+					header('Location: '.base_url().'teacher/check_students_informations');
+				}else{
+					$data['message'] = 'Er is een fout opgetreden, probeer het later opnieuw';
+				}
+	        }
+		}
+
+		$view = $this->load->view("teacher/student_add",$data,true);
+		$this->page->fix_view_template_text($view);
 	}
 }

@@ -49,6 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php endforeach ?>
 						</tbody>
 					</table>
+					<div style="padding: 10px;">
+						<a href="<?= base_url().'teacher/add_student'; ?>" class="btn btn-success">Add new student</a>
+					</div>
 	            </div>
 	        </div>
 	    </div>

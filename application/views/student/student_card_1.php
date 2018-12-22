@@ -27,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div>
+        <p class="text-center" style="clear: both;margin: 0px;">Elapsed Time : <?= $this->elapsed_time; ?></p>
         <?php endif ?>
 		<div class="cnt_heads w3-mobile" id="cnt_head">
            	<h1 class="w3-xxlarge w3-text-red" id="title"><b>Resultaatkaart1 -BeroePenorientatie<small>arabic</small></b></h1>
@@ -40,35 +41,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            	</h3>
 		</div>
 
-        <?php if (!isset($opened_for_teacher_checking)): ?>
-    
-        <?php if (isset($data)): ?>
-            <?php if ($data->checked_with_teacher == 0): ?>
-                <div class="alert alert-danger text-center" role="alert"><strong>Waiting</strong> for teacher approval to go to the next card.</div>
+        <?php require(dirname(__FILE__) . '/student_card_header.inc.php') ?>
 
-                <?php if ($data->needs_correction_by_student == 1): ?>
-                    <div class="alert alert-info text-center" role="alert">
-                        <strong>Card Needs Correction</strong><br><strong>Notes: </strong><?= $data->correction_notes; ?></div>
-                <?php endif ?>
-                
-            <?php else: ?>
-                <div class="alert alert-success text-center" role="alert">
-                    <strong>Well done!</strong> You can now take <a href="<?= base_url().'student/card_2'; ?>" class="alert-link">card2</a>.
-                </div>
-            <?php endif ?>
-        <?php endif ?>
-    	<?php if (isset($message)): ?>
-    		<p><b><?= $message; ?></b></p>
-            <script>
-                 window.onload = function() {
-                     if ( window.history.replaceState ) {
-                         window.history.replaceState( null, null, window.location.href );
-                     }
-                 }
-             </script>
-    	<?php endif ?>
-
-        <?php endif ?>
     	<form method="POST" enctype="multipart/form-data">
     		<div class="w3-container w3-block w3-mobile" id="cnt_form">
                 <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt1">
@@ -207,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="w3-container w3-block w3-mobile">
                                     <div class="col-sm-3 w3-block w3-mobile">
                                         <label class="btn btn-default btn-file w3-teal w3-text-white">
-                                        Kies document <input name="another_certificate_file"type="file" style="display: none;">
+                                        Kies document <input name="another_certificate_file" type="file" style="display: none;">
                                         </label>
                                     	<?php if (isset($data) && $data->another_certificate == 1): ?>
     										<a href="<?= base_url().'ext/student_documents/'.$data->another_certificate_name; ?>" target="_blank">View uploaded file</a>
@@ -376,7 +350,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php else: ?>
                         <button type="submit" class="w3-button w3-red">Submit card</button>    
                         <?php endif ?>
-
+                        <a class="w3-button w3-green" href="<?= base_url().'student/logout' ?>">Logout</a>
                         <?php endif ?>
                         
                     </div>

@@ -36,24 +36,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								    <label>Firstname</label>
 								    <input type="text" maxlength="75" class="form-control" name="firstname" placeholder="Firstname" value="<?= $student->firstname; ?>">
 								</div>
+								<div class="form-group">
+								    <label>Postal Code</label>
+								    <input type="text" class="form-control" name="postal_code" placeholder="Postal Code" value="<?= $student->postal_code; ?>" minlength="6">
+								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Email</label>
-								    <input type="text" class="form-control" name="email" placeholder="Email" value="<?= $student->email; ?>">
+								    <input type="email" class="form-control" name="email" placeholder="Email" value="<?= $student->email; ?>">
 								</div>
 								
 								<div class="form-group">
 								    <label>Lastname</label>
 								    <input type="text" maxlength="75" class="form-control" name="lastname" placeholder="Lastname" value="<?= $student->lastname; ?>">
 								</div>
-							</div>
-							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Group</label>
 								    <input type="text" class="form-control" name="student_group" placeholder="Group" value="<?= $student->student_group; ?>">
 								</div>
-							</div>	
+							</div>
 							<div class="col-sm-12">
 								<input type="hidden" name="action">
 								<button type="button" class="btn btn-success alter_btn">Alter Information</button>
@@ -63,8 +65,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="form-group">
 								<?php else: ?>
 								<button type="button" class="btn btn-warning activate_btn">Activate Student</button>
-								<div class="form-group">
 								<?php endif ?>
+								<div class="form-group">
 									<?= validation_errors('<p class="error_msg">', '</p>'); ?>
 								</div>
 							</div>

@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Student extends CI_Controller {
 	var $acc_id;
 	var $acc_name;
+	var $elapsed_time = 0;
 	public function __construct(){
 		parent::__construct();
 
@@ -31,6 +32,8 @@ class Student extends CI_Controller {
 
 					$this->db->where('id',$last_visit_id)->set('last_action_time',time())->update('student_visites');
 
+					$this->elapsed_time = $this->StudentModel->get_student_elapsed_time();
+
 				}else{
 					$this->session->sess_destroy();
 					redirect('login');
@@ -49,20 +52,17 @@ class Student extends CI_Controller {
 		$this->page->fix_view_template_text($view);
 	}
 
-	public function wleknfwlnwiecnacwbeicubal(){
+	/*public function wleknfwlnwiecnacwbeicubal(){
 		header('Content-Type: text/event-stream');
 		header('Cache-Control: no-cache');
 
 		$time = date('r');
 		echo "data: The server time is: {$time}\n\n";
 		flush();
-	}
+	}*/
 
 	public function authenticate()
 	{
-		$this->session->set_userdata('acc_id',$this->acc_id);
-		$this->session->set_userdata('signed_in',true);
-		$this->session->set_userdata('acc_type','student');
 		$time = date('r');
 		echo json_encode("data: The server time is: {$time}\n\n");
 	}
@@ -88,7 +88,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -111,7 +111,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -135,7 +135,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -159,7 +159,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -202,6 +202,7 @@ class Student extends CI_Controller {
 				$this->db->insert('card_1',$input);
 			}else{
 				if ($check_exist->row()->edit_allow) {
+					$this->db->set('needs_correction_by_student',0);
 					$this->db->where('user_id',$this->acc_id)->update('card_1',$input);
 				}
 			}
@@ -335,6 +336,7 @@ class Student extends CI_Controller {
 				$this->db->insert('card_2',$input);
 			}else{
 				if ($check_exist->row()->edit_allow) {
+					$this->db->set('needs_correction_by_student',0);
 					$this->db->where('user_id',$this->acc_id)->update('card_2',$input);
 				}
 			}
@@ -382,6 +384,7 @@ class Student extends CI_Controller {
 				$this->db->insert('card_3',$input);
 			}else{
 				if ($check_exist->row()->edit_allow) {
+					$this->db->set('needs_correction_by_student',0);
 					$this->db->where('user_id',$this->acc_id)->update('card_3',$input);
 				}
 			}
@@ -425,7 +428,7 @@ class Student extends CI_Controller {
 			{
 			    $config = array(
 					'upload_path' => './ext/student_documents/',
-					'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+					'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 					'max_size' => 1024,
 					'encrypt_name' => TRUE
 				);
@@ -443,7 +446,7 @@ class Student extends CI_Controller {
 			{
 			    $config = array(
 					'upload_path' => './ext/student_documents/',
-					'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+					'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 					'max_size' => 1024,
 					'encrypt_name' => TRUE
 				);
@@ -499,6 +502,7 @@ class Student extends CI_Controller {
 				$this->db->insert('card_4',$input);
 			}else{
 				if ($check_exist->row()->edit_allow) {
+					$this->db->set('needs_correction_by_student',0);
 					$this->db->where('user_id',$this->acc_id)->update('card_4',$input);
 				}
 			}
@@ -648,6 +652,7 @@ class Student extends CI_Controller {
 				$this->db->insert('card_5',$input);
 			}else{
 				if ($check_exist->row()->edit_allow) {
+					$this->db->set('needs_correction_by_student',0);
 					$this->db->where('user_id',$this->acc_id)->update('card_5',$input);
 				}
 			}
@@ -731,6 +736,7 @@ class Student extends CI_Controller {
 				$this->db->insert('card_6',$input);
 			}else{
 				if ($check_exist->row()->edit_allow) {
+					$this->db->set('needs_correction_by_student',0);
 					$this->db->where('user_id',$this->acc_id)->update('card_6',$input);
 				}
 			}
@@ -783,7 +789,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -809,7 +815,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -829,7 +835,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -855,7 +861,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -881,7 +887,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp',
+			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -911,6 +917,7 @@ class Student extends CI_Controller {
 				$this->db->insert('card_7',$input);
 			}else{
 				if ($check_exist->row()->edit_allow) {
+					$this->db->set('needs_correction_by_student',0);
 					$this->db->where('user_id',$this->acc_id)->update('card_7',$input);
 				}
 			}
@@ -957,6 +964,7 @@ class Student extends CI_Controller {
 				$this->db->insert('card_8',$input);
 			}else{
 				if ($check_exist->row()->edit_allow) {
+					$this->db->set('needs_correction_by_student',0);
 					$this->db->where('user_id',$this->acc_id)->update('card_8',$input);
 				}
 			}
