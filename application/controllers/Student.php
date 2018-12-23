@@ -1005,4 +1005,23 @@ class Student extends CI_Controller {
 
 		$this->page->fix_view_template_text($view,$page_no=8);
 	}
+
+	public function lesson($no){
+		if ($no >= 1 && $no <= 8) {
+			$data = array();
+			if ($no > 1) {
+				$previous_card = $no-1;
+				$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get("card_$previous_card")->num_rows();
+
+				if ($check_previous_is_completed == 0) {
+					echo "Sorry, you can't take this card yet.";
+					die();
+				}
+			}
+			$data['cards_status'] = $this->StudentModel->get_cards_status();
+			$data['card_number'] = $no;
+			$view = $this->load->view("student/student_lesson_$no",$data,true);
+			$this->page->fix_view_template_text($view,$page_no=$no);
+		}
+	}
 }

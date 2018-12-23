@@ -258,3 +258,42 @@ button:hover {
         width: 100%;
     }
 }
+
+.aracnt {
+    direction: rtl;
+    text-align: justify;
+    /* For Edge */
+    -moz-text-align-last: right;
+    /* For Firefox prior 58.0 */
+    text-align-last: right;
+    padding: 20px;
+    background-color: rgba(255, 235, 206, 0.2);
+}
+
+.hollcnt {
+    direction: ltr;
+    text-align: justify;
+    /* For Edge */
+    -moz-text-align-last: left;
+    /* For Firefox prior 58.0 */
+    text-align-last: left;
+    padding: 20px;
+    background-color: rgba(196, 253, 236, 0.2);
+}
+
+.ssquare {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 0.2px;
+    margin: 5px;
+}
+
+.csquare {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 0.2px;
+    border-radius: 15px;
+    margin: 10px;
+}

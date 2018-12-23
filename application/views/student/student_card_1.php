@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="topnav" id="myTopnav">
                     <?php foreach ($cards_status as $key => $card): ?>
                     <?php if ($card->card_no == $card_number): ?>
-                        <a class="active" href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
+                        <a class="active" href="<?= base_url().'student/lesson/'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
                     <?php else: ?>
                         <?php if ($card->accessable == 1): ?>
                             <a href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div>
-        <p class="text-center" style="clear: both;margin: 0px;">Elapsed Time : <?= $this->elapsed_time; ?></p>
+        <p class="text-center" style="clear: both;margin: 0px;">Elapsed Time : <?= $this->elapsed_time; ?> <a href="<?= base_url().'student/logout' ?>">Logout</a></p>
         <?php endif ?>
 		<div class="cnt_heads w3-mobile" id="cnt_head">
            	<h1 class="w3-xxlarge w3-text-red" id="title"><b>Resultaatkaart1 -BeroePenorientatie<small>arabic</small></b></h1>
@@ -358,9 +358,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php else: ?>
                         <button type="submit" class="w3-button w3-red">Submit card</button>    
                         <?php endif ?>
-                        <a class="w3-button w3-green" href="<?= base_url().'student/logout' ?>">Logout</a>
                         <?php endif ?>
-                        
                     </div>
                 </div>
             </div>

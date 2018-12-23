@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="NL">
 <head>
-	<?php require('inc/head.php') ?>
+	<?php require(realpath(dirname(__FILE__)) . '/inc/head.php') ?>
 	<title>whoffice</title>
 </head>
 <body>
@@ -13,6 +13,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<a href="login/teacher">Login as teacher</a>
 	<br>
 	<a href="studentSignup">Signup as a new student</a>
-<?php require('inc/scripts.php') ?>
+<?php require(realpath(dirname(__FILE__)) . '/inc/scripts.php') ?>
 </body>
 </html>

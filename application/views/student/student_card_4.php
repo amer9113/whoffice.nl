@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div>
-        <p class="text-center" style="clear: both;margin: 0px;">Elapsed Time : <?= $this->elapsed_time; ?></p>
+        <p class="text-center" style="clear: both;margin: 0px;">Elapsed Time : <?= $this->elapsed_time; ?> <a href="<?= base_url().'student/logout' ?>">Logout</a></p>
         <?php endif ?>
         <div class="cnt_heads w3-mobile" id="cnt_head">
             <h1 class="w3-xxlarge w3-text-red" id="title"><b>
@@ -431,7 +431,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php else: ?>
                         <button type="submit" class="w3-button w3-red">Submit card</button>    
                         <?php endif ?>
-                        <a class="w3-button w3-green" href="<?= base_url().'student/logout' ?>">Logout</a>
                         <?php endif ?>
                         
                     </div>

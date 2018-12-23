@@ -18,7 +18,7 @@
         <?php else: ?>
             <div class="alert alert-success text-center" role="alert">
                 <strong>Well done!</strong> <?php if ($card_number < 8): ?>
-                    You can now take <a href="<?= base_url().'student/card_'.($card_number+1); ?>" class="alert-link">card<?= $card_number+1; ?></a>.
+                    You can now take <a href="<?= base_url().'student/lesson/'.($card_number+1); ?>" class="alert-link">card<?= $card_number+1; ?></a>.
                 <?php endif ?>
             </div>
         <?php endif ?>

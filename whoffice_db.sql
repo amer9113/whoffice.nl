@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2018 at 03:08 PM
+-- Generation Time: Dec 23, 2018 at 03:34 PM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -53,6 +53,7 @@ CREATE TABLE `card_1` (
   `work_1` varchar(255) DEFAULT NULL,
   `work_2` varchar(255) DEFAULT NULL,
   `work_3` varchar(255) DEFAULT NULL,
+  `which_work_is_selected` int(11) NOT NULL,
   `sectors` text,
   `one_sector` varchar(255) DEFAULT NULL,
   `have_certificate` tinyint(1) NOT NULL DEFAULT '0',
@@ -134,6 +135,8 @@ CREATE TABLE `card_3` (
   `have_properties_1` tinyint(1) NOT NULL DEFAULT '0',
   `properties_2` varchar(255) DEFAULT NULL,
   `have_properties_2` tinyint(1) NOT NULL DEFAULT '0',
+  `properties_7` varchar(255) NOT NULL,
+  `have_properties_7` tinyint(4) NOT NULL,
   `properties_3` varchar(255) DEFAULT NULL,
   `why_properties_3` varchar(255) DEFAULT NULL,
   `have_properties_3` tinyint(1) NOT NULL DEFAULT '0',
@@ -204,6 +207,8 @@ CREATE TABLE `card_5` (
   `one_complate_training` tinyint(1) NOT NULL DEFAULT '0',
   `training_one_year` tinyint(1) NOT NULL DEFAULT '0',
   `training_multi_year` tinyint(1) NOT NULL DEFAULT '0',
+  `days_work` tinyint(4) NOT NULL,
+  `days_school` tinyint(4) NOT NULL,
   `course_full_time` tinyint(1) NOT NULL DEFAULT '0',
   `course_part_time` tinyint(1) NOT NULL DEFAULT '0',
   `in_day` tinyint(1) NOT NULL DEFAULT '0',
@@ -265,6 +270,8 @@ CREATE TABLE `card_6` (
   `colleague` tinyint(1) NOT NULL DEFAULT '0',
   `study_friend` tinyint(1) NOT NULL DEFAULT '0',
   `sports_club_friend` tinyint(1) NOT NULL DEFAULT '0',
+  `parents` tinyint(4) NOT NULL,
+  `another_parents` tinyint(4) NOT NULL,
   `client_manger` tinyint(1) NOT NULL DEFAULT '0',
   `knowledge` tinyint(1) NOT NULL DEFAULT '0',
   `friend` tinyint(1) NOT NULL DEFAULT '0',
@@ -382,8 +389,6 @@ CREATE TABLE `students` (
   `lastname` varchar(75) NOT NULL,
   `postal_code` varchar(25) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `website` varchar(150) NOT NULL,
-  `bio` text NOT NULL,
   `profile_image` varchar(100) NOT NULL,
   `student_group` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -392,8 +397,8 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `username`, `password`, `active`, `firstname`, `lastname`, `postal_code`, `email`, `website`, `bio`, `profile_image`, `student_group`) VALUES
-(2, 'student', '204036a1ef6e7360e536300ea78c6aeb4a9333dd', 1, 'mohmmad', 'rabea', '98191', 'mohm@hotmail.com', 'http://google.com', 'nothing ', '', 'cvsdvsd');
+INSERT INTO `students` (`id`, `username`, `password`, `active`, `firstname`, `lastname`, `postal_code`, `email`, `profile_image`, `student_group`) VALUES
+(2, 'student', '204036a1ef6e7360e536300ea78c6aeb4a9333dd', 1, 'mohmmad', 'rabea', '98191', 'mohm@hotmail.com', '', 'cvsdvsd');
 
 -- --------------------------------------------------------
 
@@ -420,7 +425,11 @@ INSERT INTO `student_visites` (`id`, `student_id`, `login_time`, `last_action_ti
 (54, 2, 1545177070, 1545177088),
 (55, 2, 1545177162, 1545177629),
 (56, 2, 1545179300, 1545179343),
-(57, 2, 1545228402, 1545228412);
+(57, 2, 1545228402, 1545228412),
+(58, 2, 1545574052, 1545574066),
+(59, 2, 1545574130, 1545575329),
+(60, 2, 1545575500, 1545575509),
+(61, 2, 1545575638, 1545575645);
 
 -- --------------------------------------------------------
 
@@ -595,7 +604,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `student_visites`
 --
 ALTER TABLE `student_visites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `teachers`
 --
