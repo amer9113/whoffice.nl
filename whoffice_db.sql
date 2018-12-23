@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2018 at 03:34 PM
--- Server version: 10.0.17-MariaDB
--- PHP Version: 5.6.14
+-- Generation Time: Dec 24, 2018 at 12:27 AM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -382,14 +382,13 @@ INSERT INTO `page_text` (`id`, `name`, `text`, `text_ar`, `page_nr`) VALUES
 
 CREATE TABLE `students` (
   `id` int(11) NOT NULL,
-  `username` varchar(75) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `password` varchar(40) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `firstname` varchar(75) NOT NULL,
-  `lastname` varchar(75) NOT NULL,
+  `firstname` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
   `postal_code` varchar(25) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `profile_image` varchar(100) NOT NULL,
   `student_group` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -397,8 +396,8 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `username`, `password`, `active`, `firstname`, `lastname`, `postal_code`, `email`, `profile_image`, `student_group`) VALUES
-(2, 'student', '204036a1ef6e7360e536300ea78c6aeb4a9333dd', 1, 'mohmmad', 'rabea', '98191', 'mohm@hotmail.com', '', 'cvsdvsd');
+INSERT INTO `students` (`id`, `username`, `password`, `active`, `firstname`, `lastname`, `postal_code`, `email`, `student_group`) VALUES
+(2, 'student', '204036a1ef6e7360e536300ea78c6aeb4a9333dd', 1, 'mohmmad', 'rabea', '98191', 'mohm@hotmail.com', 'cvsdvsd');
 
 -- --------------------------------------------------------
 

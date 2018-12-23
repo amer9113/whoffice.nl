@@ -17,17 +17,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-6 col-sm-offset-3 w3-center">
                         <form method="POST" action="<?= base_url().'login/validate_credential'; ?>">
                             <div class="container" style="width: 100%">
-                            	<h1>Student Sign In</h1>
+                            	<h1>Student Anmeldung</h1>
                             	<hr>
-                                <label for="username"><b>Username</b></label>
-                                <input type="text" placeholder="Enter Username" name="username" required value="<?= isset($_POST['username']) ? $_POST['username'] : ''; ?>">
+                                <label for="username"><b>Nutzername</b></label>
+                                <input type="text" placeholder="Nutzername" name="username" required value="<?= isset($_POST['username']) ? $_POST['username'] : ''; ?>">
 
-                                <label for="password"><b>Password</b></label>
-                                <input type="password" placeholder="Enter Password" name="password" required value="<?= isset($_POST['password']) ? $_POST['password'] : ''; ?>">
+                                <label for="password"><b>Passwort</b></label>
+                                <input type="password" placeholder="Passwort" name="password" required value="<?= isset($_POST['password']) ? $_POST['password'] : ''; ?>">
 
                                 <input type="hidden" name="type" value="student">
 
-                                <button class="green" type="submit">Login</button>
+                                <button class="green" type="submit">Anmeldung</button>
 
                                 <?php if (isset($message)): ?>
 									<p class="error_msg"><b><?= $message; ?></b></p>

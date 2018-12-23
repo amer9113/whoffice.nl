@@ -4,29 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="NL">
 <head>
     <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
-    <title>Resultaatkaart1</title>
+    <title>Lektion 1</title>
 </head>
 <body>
 	<div class="parallax w3-container background-color:lavenderblush w3-mobile">
-        <div class="col-sm-10 col-sm-offset-1 w3-container w3-mobile" id="cnt" style="margin-bottom:25px;background:rgba(102, 153, 153,0.2); padding: 0.1px;">
-            <div class="row">
-                <!-- topbar -->
-                <div class="topnav" id="myTopnav">
-                    <?php foreach ($cards_status as $key => $card): ?>
-                    <?php if ($card->card_no == $card_number): ?>
-                        <a class="active" href="<?= base_url().'student/lesson/'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
-                    <?php else: ?>
-                        <?php if ($card->accessable == 1): ?>
-                            <a href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
-                        <?php else: ?>
-                            <a class="disabled" href="#"><?= 'Resultaatkaart'.$card->card_no; ?></a>
-                        <?php endif ?>
-                    <?php endif ?>
-                    <?php endforeach ?>
-                </div>
-            </div>
-        </div>
-        <p class="text-center" style="clear: both;margin: 0px;">Elapsed Time : <?= $this->elapsed_time; ?> <a href="<?= base_url().'student/logout' ?>">Logout</a></p>
+        <?php require(dirname(__FILE__) . '/student_card_header.inc.php') ?>
         <div class="col-sm-2"></div>
         <div class="col-sm-8 w3-container w3-mobile w3-center">
             <div class="aracnt w3-container w3-cell-row w3-border w3-mobile">

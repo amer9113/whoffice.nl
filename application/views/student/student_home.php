@@ -7,20 +7,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>whoffice</title>
 </head>
 <body class="parallax">
-	<h1>This is the student area !</h1>
-	<h1>Welcome <?= $acc_name; ?></h1>
-	<h3>Elapsed Time : <?= $this->elapsed_time; ?></h3>
+	<h1 class="text-center">Herzlich willkommen <strong><?= $acc_name; ?></strong></h1>
+	<h4 class="text-center" style="font-weight: 600">Verstrichene Zeit: <?= $this->elapsed_time; ?>&nbsp;&nbsp;&nbsp;<a href="<?= base_url().'student/logout' ?>">Ausloggen</a></h4>
 
-
-	<a href="<?= base_url().'student/lesson/1'; ?>">Card 1</a><br>
-	<a href="<?= base_url().'student/lesson/2'; ?>">Card 2</a><br>
-	<a href="<?= base_url().'student/lesson/3'; ?>">Card 3</a><br>
-	<a href="<?= base_url().'student/lesson/4'; ?>">Card 4</a><br>
-	<a href="<?= base_url().'student/lesson/5'; ?>">Card 5</a><br>
-	<a href="<?= base_url().'student/lesson/6'; ?>">Card 6</a><br>
-	<a href="<?= base_url().'student/lesson/7'; ?>">Card 7</a><br>
-	<a href="<?= base_url().'student/lesson/8'; ?>">Card 8</a><br>
-	<a href="<?= base_url().'student/logout'; ?>">Logout</a>
+	<a href="<?= base_url().'student/lesson/1'; ?>">Lektion 1</a><br>
+	<a href="<?= base_url().'student/card_1'; ?>">Resultaatkaart 1</a><br>
+	<a href="<?= base_url().'student/lesson/2'; ?>">Lektion 2</a><br>
+	<a href="<?= base_url().'student/card_2'; ?>">Resultaatkaart 2</a><br>
+	<a href="<?= base_url().'student/lesson/3'; ?>">Lektion 3</a><br>
+	<a href="<?= base_url().'student/card_3'; ?>">Resultaatkaart 3</a><br>
+	<a href="<?= base_url().'student/lesson/4'; ?>">Lektion 4</a><br>
+	<a href="<?= base_url().'student/card_4'; ?>">Resultaatkaart 4</a><br>
+	<a href="<?= base_url().'student/lesson/5'; ?>">Lektion 5</a><br>
+	<a href="<?= base_url().'student/card_5'; ?>">Resultaatkaart 5</a><br>
+	<a href="<?= base_url().'student/lesson/6'; ?>">Lektion 6</a><br>
+	<a href="<?= base_url().'student/card_6'; ?>">Resultaatkaart 6</a><br>
+	<a href="<?= base_url().'student/lesson/7'; ?>">Lektion 7</a><br>
+	<a href="<?= base_url().'student/card_7'; ?>">Resultaatkaart 7</a><br>
+	<a href="<?= base_url().'student/lesson/8'; ?>">Lektion 8</a><br>
+	<a href="<?= base_url().'student/card_8'; ?>">Resultaatkaart 8</a><br>
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 </body>
 </html>

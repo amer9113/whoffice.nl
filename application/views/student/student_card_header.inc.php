@@ -1,36 +1,32 @@
-<?php if (!isset($opened_for_teacher_checking)): ?>  
-    <?php if (isset($data)): ?>
-        <?php if ($data->checked_with_teacher == 0): ?>
-            <!-- <div class="alert alert-danger text-center" role="alert"><strong>Waiting</strong> for teacher approval to go to the next card.</div> -->
-
-            <?php if ($data->needs_correction_by_student == 1): ?>
-                <div class="alert alert-danger text-center" role="alert">
-                    <strong>Card Needs Correction</strong><br><strong>Teacher Notes: </strong><?= $data->correction_notes; ?>
-                </div>
+<?php if (!isset($opened_for_teacher_checking)): ?>
+<div class="col-sm-12 w3-container w3-mobile" id="cnt" style="margin-bottom:25px;background:rgba(102, 153, 153,0.2); padding: 0.1px;">
+    <div class="row">
+        <!-- topbar -->
+        <div class="topnav" id="myTopnav">
+            <?php foreach ($cards_status as $key => $card): ?>
+            <?php if ($card->card_no == $card_number): ?>
+                <?php if ($page_type == "lesson"): ?>
+                    <a class="active" href="<?= base_url().'student/lesson/'.$card->card_no; ?>"><?= 'Lektion'.$card->card_no; ?></a>
+                <?php else: ?>
+                    <a href="<?= base_url().'student/lesson/'.$card->card_no; ?>"><?= 'Lektion'.$card->card_no; ?></a>
+                <?php endif ?>
+                 <?php if ($page_type == "card"): ?>
+                    <a class="active" href="<?= base_url().'student/card_1'; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
+                <?php else: ?>
+                    <a href="<?= base_url().'student/card_1'; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
+                <?php endif ?>
             <?php else: ?>
-                <?php if ($data->correction_notes != ""): ?>
-                    <div class="alert alert-danger text-center" role="alert">
-                        <strong>Teacher Notes: </strong><?= $data->correction_notes; ?>
-                    </div>
+                <?php if ($card->accessable == 1): ?>
+                    <a href="<?= base_url().'student/lesson/'.$card->card_no; ?>"><?= 'Lektion'.$card->card_no; ?></a>
+                    <a href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
+                <?php else: ?>
+                    <a class="disabled" href="#"><?= 'Lektion'.$card->card_no; ?></a>
+                    <a class="disabled" href="#"><?= 'Resultaatkaart'.$card->card_no; ?></a>
                 <?php endif ?>
             <?php endif ?>
-            
-        <?php else: ?>
-            <div class="alert alert-success text-center" role="alert">
-                <strong>Well done!</strong> <?php if ($card_number < 8): ?>
-                    You can now take <a href="<?= base_url().'student/lesson/'.($card_number+1); ?>" class="alert-link">card<?= $card_number+1; ?></a>.
-                <?php endif ?>
-            </div>
-        <?php endif ?>
-    <?php endif ?>
-    <?php if (isset($message)): ?>
-    	<p><b><?= $message; ?></b></p>
-        <script>
-             window.onload = function() {
-                if ( window.history.replaceState ) {
-                    window.history.replaceState( null, null, window.location.href );
-                }
-             }
-         </script>
-    <?php endif ?>
+            <?php endforeach ?>
+        </div>
+    </div>
+</div>
+<h5 class="text-center" style="font-weight: 600">Verstrichene Zeit: <?= $this->elapsed_time; ?>&nbsp;&nbsp;&nbsp;<a href="<?= base_url().'student/logout' ?>">Ausloggen</a>&nbsp;&nbsp;<a href="<?= base_url().'student' ?>">Zuhause</a></h5>
 <?php endif ?>

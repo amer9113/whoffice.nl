@@ -4,31 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="NL">
 <head>
 	<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
-	<title>Resultaatkaart7</title>
+	<title>Resultaatkaart 7</title>
 </head>
 <body>
 	<div class="parallax w3-container w3-mobile" id="Content">
-		<?php if (!isset($opened_for_teacher_checking)): ?>
-        <div class="col-sm-10 col-sm-offset-1 w3-container w3-mobile" id="cnt" style="margin-bottom:25px;background:rgba(102, 153, 153,0.2); padding: 0.1px;">
-            <div class="row">
-                <!-- topbar -->
-                <div class="topnav" id="myTopnav">
-                    <?php foreach ($cards_status as $key => $card): ?>
-                    <?php if ($card->card_no == $card_number): ?>
-                        <a class="active" href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
-                    <?php else: ?>
-                        <?php if ($card->accessable == 1): ?>
-                            <a href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
-                        <?php else: ?>
-                            <a class="disabled" href="#"><?= 'Resultaatkaart'.$card->card_no; ?></a>
-                        <?php endif ?>
-                    <?php endif ?>
-                    <?php endforeach ?>
-                </div>
-            </div>
-        </div>
-        <p class="text-center" style="clear: both;margin: 0px;">Elapsed Time : <?= $this->elapsed_time; ?> <a href="<?= base_url().'student/logout' ?>">Logout</a></p>
-        <?php endif ?>
+		<?php require(dirname(__FILE__) . '/student_card_header.inc.php') ?>
         <div class="cnt_heads w3-mobile" id="cnt_head">
             <h1 class="w3-xxlarge w3-text-red" id="title"><b>
                 Resultaatkaart7 -Werk vinden
@@ -41,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <small>arabic</small></b>
             </h3>
         </div>
-        <?php require(dirname(__FILE__) . '/student_card_header.inc.php') ?>
+        <?php require(dirname(__FILE__) . '/student_card_response_messages.inc.php') ?>
 	    <form method="POST" enctype="multipart/form-data">
 	    	<div class="w3-container w3-block w3-mobile" id="cnt_form">
 	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt1">

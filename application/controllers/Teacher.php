@@ -370,17 +370,22 @@ class Teacher extends CI_Controller {
 		$data = array();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
-			$this->form_validation->set_rules('firstname', 'FirstName', 'trim|required|min_length[4]|max_length[75]');
-			$this->form_validation->set_rules('lastname', 'LastName', 'trim|required|min_length[4]|max_length[75]');
-			$this->form_validation->set_rules('username', 'UserName', 'trim|required|min_length[4]|max_length[75]|regex_match[/[A-Za-z]+\w/]|is_unique[students.username]',array(
+			$this->form_validation->set_rules('firstname', 'FirstName', 'trim|required|min_length[4]|max_length[45]|regex_match[/[A-Za-z]+\w/]',array(
+				'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld Brouse_10'
+			));
+			$this->form_validation->set_rules('lastname', 'LastName', 'trim|required|min_length[4]|max_length[45]|regex_match[/[A-Za-z]+\w/]',array(
+				'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld Wayne_10'
+			));
+			$this->form_validation->set_rules('username', 'UserName', 'trim|required|min_length[8]|max_length[100]|regex_match[/[A-Za-z]+\w/]|is_unique[students.username]',array(
 				'is_unique' => 'Deze gebruikersnaam bestaat al. kies alstublieft een andere',
 				'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld john_10',
 			));
 
-			$this->form_validation->set_rules('postal_code', 'Postal code', 'trim|required');
+			$this->form_validation->set_rules('postal_code', 'Postal code', 'trim|required|min_length[4]');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[students.email]',array(
 				'is_unique' => 'This email is already reigstered, enter another one.'
 			));
+
 			if ($this->form_validation->run() == FALSE)
 	        {
 				$view = $this->load->view("teacher/student_add",$data,true);
@@ -391,17 +396,43 @@ class Teacher extends CI_Controller {
 	        	$this->db->trans_start();
 	        	$input['password'] = sha1($input['postal_code'].$input['postal_code']);
 				$this->db->insert('students',$input);
+				$acc_id = $this->db->insert_id();
+
 				$this->db->trans_complete();
 
 				if ($this->db->trans_status() === true) {
+
+					$student = $this->db->where('id',$acc_id)->get('students')->row();
+
+					$msg = '<html lang="NL">
+					    <head>
+					    <title></title>
+					    </head>
+					    <body>
+					        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+					        <p>This is information mail sent to you from administration.</p>
+					        <p>Your account username is <b>'.$student->username.'</b></p>
+					        <p>Your password is <b>'.$input['postal_code'].$input['postal_code'].'</b></p>
+					        <p>Your Group is <b>'.$student->student_group.'</b></p>
+					        <p>Thank you.</p>
+					        <p>Support Team.</p>
+					    </body>
+					</html>';
+
+					$subject = "Whoffice New Account Informaion.";
+
+					$this->TeacherModel->send_email($student->email,$msg,$subject);
+
 					header('Location: '.base_url().'teacher/check_students_informations');
 				}else{
 					$data['message'] = 'Er is een fout opgetreden, probeer het later opnieuw';
+					$view = $this->load->view("teacher/student_add",$data,true);
+					$this->page->fix_view_template_text($view);
 				}
 	        }
+		}else{
+			$view = $this->load->view("teacher/student_add",$data,true);
+			$this->page->fix_view_template_text($view);
 		}
-
-		$view = $this->load->view("teacher/student_add",$data,true);
-		$this->page->fix_view_template_text($view);
 	}
 }

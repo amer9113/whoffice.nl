@@ -30,25 +30,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Username</label>
-								    <input type="text" class="form-control" name="username" maxlength="75" placeholder="Username" value="<?= isset($_POST['username']) ? $_POST['username'] : ''; ?>">
+								    <input type="text" class="form-control" name="username" placeholder="Username" readonly>
 								</div>
 								<div class="form-group">
 								    <label>Firstname</label>
-								    <input type="text" maxlength="75" class="form-control" name="firstname" placeholder="Firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>">
+								    <input type="text" class="form-control compose_username" name="firstname" placeholder="Firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>" minlength="4" maxlength="45" required>
 								</div>
 								<div class="form-group">
-								    <label>Postal Code</label>
-								    <input type="text" class="form-control" name="postal_code" placeholder="Postal Code" value="<?= isset($_POST['postal_code']) ? $_POST['postal_code'] : ''; ?>" minlength="6">
+								    <label>Lastname</label>
+								    <input type="text" class="form-control compose_username" name="lastname" placeholder="Lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>" minlength="4" maxlength="45" required>
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Email</label>
-								    <input type="email" class="form-control" name="email" placeholder="Email" value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>">
+								    <input type="email" class="form-control" name="email" placeholder="Email" value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>" required>
 								</div>
 								<div class="form-group">
-								    <label>Lastname</label>
-								    <input type="text" maxlength="75" class="form-control" name="lastname" placeholder="Lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>">
+								    <label>Postal Code</label>
+								    <input type="text" class="form-control" name="postal_code" placeholder="Postal Code" value="<?= isset($_POST['postal_code']) ? $_POST['postal_code'] : ''; ?>" minlength="4" required>
 								</div>
 								<div class="form-group">
 								    <label>Group</label>
@@ -69,5 +69,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('input.compose_username').change(function(){
+            var firstname = $('[name="firstname"]').val().trim();
+            var lastname = $('[name="lastname"]').val().trim();
+
+            if (firstname != "" && lastname != "") {
+            	$('[name="username"]').val(firstname+"_"+lastname);
+            }
+
+        });
+
+        $('[name="firstname"]').change();
+    });
+</script>
 </body>
 </html>

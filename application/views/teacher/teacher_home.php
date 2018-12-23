@@ -10,12 +10,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="parallax w3-container background-color:lavenderblush w3-mobile">
 	    <div class="col-sm-3">
 	    	<?php require(dirname(__FILE__) . '/side_navbar.inc.php') ?>
-	    
 	    </div>
-
 	    <div class="col-sm-9">
 	    </div>
-
 	</div>
 
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
