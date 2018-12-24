@@ -6,9 +6,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | -------------------------------------------------------------------
 */
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'smtp.gmail.com';
-$config['smtp_user'] = 'whofficewhoffice9@gmail.com';
-$config['smtp_pass'] = 'whoffice12345678';
+$config['smtp_host'] = 'whoffice.nl';
+$config['smtp_user'] = 'no-reply@whoffice.nl';
+$config['smtp_pass'] = 'noreply.asd123@#$';
 $config['smtp_port'] = 465;
 $config['validate'] = TRUE;
 $config['mailtype'] = 'html';
