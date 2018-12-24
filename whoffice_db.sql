@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.0.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2018 at 12:27 AM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.3
+-- Generation Time: Dec 24, 2018 at 02:52 PM
+-- Server version: 10.0.17-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,27 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `whoffice_db`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `administrators`
---
-
-CREATE TABLE `administrators` (
-  `id` int(11) NOT NULL,
-  `username` varchar(75) NOT NULL,
-  `password` varchar(40) NOT NULL,
-  `firstname` varchar(75) NOT NULL,
-  `lastname` varchar(75) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `administrators`
---
-
-INSERT INTO `administrators` (`id`, `username`, `password`, `firstname`, `lastname`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'AbdAlrzzaq', 'Alommar');
 
 -- --------------------------------------------------------
 
@@ -438,34 +417,25 @@ INSERT INTO `student_visites` (`id`, `student_id`, `login_time`, `last_action_ti
 
 CREATE TABLE `teachers` (
   `id` int(11) NOT NULL,
-  `username` varchar(75) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `password` varchar(40) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `firstname` varchar(75) NOT NULL,
-  `lastname` varchar(75) NOT NULL,
+  `firstname` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
   `postal_code` varchar(25) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `website` varchar(150) NOT NULL,
-  `bio` text NOT NULL,
-  `profile_image` varchar(100) NOT NULL
+  `email` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`id`, `username`, `password`, `active`, `firstname`, `lastname`, `postal_code`, `email`, `website`, `bio`, `profile_image`) VALUES
-(1, 'teacher', '4a82cb6db537ef6c5b53d144854e146de79502e8', 1, 'AbdAlrzzaq', 'Alommar', '', '', '', '', '');
+INSERT INTO `teachers` (`id`, `username`, `password`, `active`, `firstname`, `lastname`, `postal_code`, `email`) VALUES
+(1, 'teacher', '4a82cb6db537ef6c5b53d144854e146de79502e8', 1, 'AbdAlrzzaq', 'Alommar', '', '');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `administrators`
---
-ALTER TABLE `administrators`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `card_1`
@@ -544,11 +514,6 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `administrators`
---
-ALTER TABLE `administrators`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `card_1`
 --
