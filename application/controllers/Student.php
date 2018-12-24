@@ -25,14 +25,14 @@ class Student extends CI_Controller {
 				if ($account->active == 1) {
 					$this->acc_id = $account->id;
 					$this->acc_name = $account->firstname." ".$account->lastname;
-					$this->load->model('StudentModel');
+					$this->load->model('Student_model');
 
 
 					$last_visit_id = $this->db->where('student_id',$this->acc_id)->order_by('id','DESC')->get('student_visites')->row()->id;
 
 					$this->db->where('id',$last_visit_id)->set('last_action_time',time())->update('student_visites');
 
-					$this->elapsed_time = $this->StudentModel->get_student_elapsed_time();
+					$this->elapsed_time = $this->Student_model->get_student_elapsed_time();
 
 				}else{
 					$this->session->sess_destroy();
@@ -76,7 +76,7 @@ class Student extends CI_Controller {
 
 	public function card_1(){
 		$data = array();
-		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 1;
 		$data['page_type'] = 'card';
 
@@ -237,7 +237,7 @@ class Student extends CI_Controller {
 		}
 
 		$data = array();
-		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 2;
 		$data['page_type'] = 'card';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -372,7 +372,7 @@ class Student extends CI_Controller {
 		}
 
 		$data = array();
-		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 3;
 		$data['page_type'] = 'card';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -421,7 +421,7 @@ class Student extends CI_Controller {
 		}
 
 		$data = array();
-		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 4;
 		$data['page_type'] = 'card';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -540,7 +540,7 @@ class Student extends CI_Controller {
 		}
 
 		$data = array();
-		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 5;
 		$data['page_type'] = 'card';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -699,7 +699,7 @@ class Student extends CI_Controller {
 		}
 
 		$data = array();
-		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 6;
 		$data['page_type'] = 'card';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -792,7 +792,7 @@ class Student extends CI_Controller {
 		}
 
 		$data = array();
-		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 7;
 		$data['page_type'] = 'card';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -974,7 +974,7 @@ class Student extends CI_Controller {
 		}
 
 		$data = array();
-		$data['cards_status'] = $this->StudentModel->get_cards_status();
+		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 8;
 		$data['page_type'] = 'card';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -1026,7 +1026,7 @@ class Student extends CI_Controller {
 					die();
 				}
 			}
-			$data['cards_status'] = $this->StudentModel->get_cards_status();
+			$data['cards_status'] = $this->Student_model->get_cards_status();
 			$data['card_number'] = $no;
 			$data['page_type'] = 'lesson';
 			$view = $this->load->view("student/student_lesson_$no",$data,true);

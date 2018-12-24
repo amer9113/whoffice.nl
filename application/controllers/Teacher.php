@@ -24,7 +24,7 @@ class Teacher extends CI_Controller {
 				if ($account->active == 1) {
 					$this->acc_id = $account->id;
 					$this->acc_name = $account->firstname." ".$account->lastname;
-					$this->load->model('TeacherModel');
+					$this->load->model('Teacher_model');
 				}else{
 					$this->session->sess_destroy();
 					redirect('login/teacher');
@@ -139,7 +139,7 @@ class Teacher extends CI_Controller {
 	}
 
 	public function check_students_pending_cards(){
-		$data['pending_cards'] = $this->TeacherModel->get_pending_cards();
+		$data['pending_cards'] = $this->Teacher_model->get_pending_cards();
 		$view = $this->load->view("teacher/pending_cards",$data,true);
 		$this->page->fix_view_template_text($view);
 	}
@@ -183,7 +183,7 @@ class Teacher extends CI_Controller {
 
 				$subject = "Whoffice Card Informaion.";
 
-				$this->TeacherModel->send_email($student->email,$msg,$subject);
+				$this->Teacher_model->send_email($student->email,$msg,$subject);
 
 				redirect('teacher/check_students_pending_cards');
 			}else{
@@ -204,7 +204,7 @@ class Teacher extends CI_Controller {
 	}
 
 	public function check_students_times(){
-		$data['students_times'] = $this->TeacherModel->get_students_times();
+		$data['students_times'] = $this->Teacher_model->get_students_times();
 
 		$view = $this->load->view("teacher/student_times",$data,true);
 		$this->page->fix_view_template_text($view);
@@ -236,7 +236,7 @@ class Teacher extends CI_Controller {
 
 		$subject = "Whoffice Account Informaion.";
 
-		$result = $this->TeacherModel->send_email($student->email,$msg,$subject);
+		$result = $this->Teacher_model->send_email($student->email,$msg,$subject);
 
 		if ($result == "sent") {
 			$data['message'] = "Email is sent successfully.";
@@ -251,7 +251,7 @@ class Teacher extends CI_Controller {
 
 	public function send_student_reset_password_mail($student_id){
 		$student = $this->db->where('id',$student_id)->get('students')->row();
-		$new_passwrod = $this->TeacherModel->generateRandomString(8);
+		$new_passwrod = $this->Teacher_model->generateRandomString(8);
 
 		$old_password = $student->password;
 
@@ -275,7 +275,7 @@ class Teacher extends CI_Controller {
 
 			$subject = "Whoffice Account Reset.";
 
-			$result = $this->TeacherModel->send_email($student->email,$msg,$subject);
+			$result = $this->Teacher_model->send_email($student->email,$msg,$subject);
 
 			if ($result == "sent") {
 				$data['message'] = "Email is sent successfully.";
@@ -421,7 +421,7 @@ class Teacher extends CI_Controller {
 
 					$subject = "Whoffice New Account Informaion.";
 
-					$this->TeacherModel->send_email($student->email,$msg,$subject);
+					$this->Teacher_model->send_email($student->email,$msg,$subject);
 
 					header('Location: '.base_url().'teacher/check_students_informations');
 				}else{

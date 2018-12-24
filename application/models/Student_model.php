@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class StudentModel extends CI_Model{
+class Student_model extends CI_Model{
 	public function get_last_approved_card_no(){
 		for ($i = 8; $i > 0 ; $i--) { 
 			$query = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get("card_$i")->num_rows();
