@@ -34,25 +34,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 								<div class="form-group">
 								    <label>Firstname</label>
-								    <input type="text" class="form-control compose_username" name="firstname" placeholder="Firstname" value="<?= $student->firstname; ?>" minlength="4" maxlength="45" required>
+								    <input type="text" class="form-control compose_username" name="firstname" placeholder="Firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : $student->firstname; ?>" minlength="4" maxlength="45" required>
 								</div>
 								<div class="form-group">
 								    <label>Lastname</label>
-								    <input type="text" class="form-control compose_username" name="lastname" placeholder="Lastname" value="<?= $student->lastname; ?>" minlength="4" maxlength="45" required>
+								    <input type="text" class="form-control compose_username" name="lastname" placeholder="Lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : $student->lastname; ?>" minlength="4" maxlength="45" required>
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Email</label>
-								    <input type="email" class="form-control" name="email" placeholder="Email" value="<?= $student->email; ?>" required>
+								    <input type="email" class="form-control" name="email" placeholder="Email" value="<?= isset($_POST['email']) ? $_POST['email'] : $student->email; ?>" required>
 								</div>
 								<div class="form-group">
 								    <label>Postal Code</label>
-								    <input type="text" class="form-control" name="postal_code" placeholder="Postal Code" value="<?= $student->postal_code; ?>" minlength="4" required>
+								    <input type="text" class="form-control" name="postal_code" placeholder="Postal Code" value="<?= isset($_POST['postal_code']) ? $_POST['postal_code'] : $student->postal_code; ?>" minlength="4" required>
 								</div>
 								<div class="form-group">
 								    <label>Group</label>
-								    <input type="text" class="form-control" name="student_group" placeholder="Group" value="<?= $student->student_group; ?>">
+								    <input type="text" class="form-control" name="student_group" placeholder="Group" value="<?= isset($_POST['student_group']) ? $_POST['student_group'] : $student->student_group; ?>">
 								</div>
 							</div>
 							<div class="col-sm-12">
