@@ -293,34 +293,77 @@ class Teacher extends CI_Controller {
 
 	public function edit_student($student_id){
 		$data = array();
+		
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$action = $this->input->post('action');
 			$data['result'] = 1;
+			
 			if ($action == "alter") {
-				$firstname = $this->input->post('firstname');
-				$lastname = $this->input->post('lastname');
-				$email = $this->input->post('email');
-				$student_group = $this->input->post('student_group');
-				$postal_code = $this->input->post('postal_code');
+				$input = $this->input->post();
+				$this->form_validation->set_rules('firstname', 'FirstName', 'trim|required|min_length[4]|max_length[45]|regex_match[/[A-Za-z]+\w/]',array(
+					'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld Brouse_10'
+				));
+				$this->form_validation->set_rules('lastname', 'LastName', 'trim|required|min_length[4]|max_length[45]|regex_match[/[A-Za-z]+\w/]',array(
+					'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld Wayne_10'
+				));
+				$this->form_validation->set_rules('username', 'UserName', 'trim|required|min_length[8]|max_length[100]|regex_match[/[A-Za-z]+\w/]|is_unique[students.username]',array(
+					'is_unique' => 'Deze gebruikersnaam bestaat al. kies alstublieft een andere',
+					'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld john_10',
+				));
+
+				$this->form_validation->set_rules('postal_code', 'Postal code', 'trim|required|min_length[4]');
+
+				if ($this->form_validation->run() == TRUE){
+		        	$firstname = $this->input->post('firstname');
+					$lastname = $this->input->post('lastname');
+					$username = $this->input->post('username');
+					$email = $this->input->post('email');
+					$student_group = $this->input->post('student_group');
+					$postal_code = $this->input->post('postal_code');
+					$password = $postal_code.$postal_code;
 
 
-				$check_mail = $this->db->where('id !=',$student_id)->where('email',$email)->get('students')->num_rows();
+					$check_mail = $this->db->where('id !=',$student_id)->where('email',$email)->get('students')->num_rows();
 
-				if ($check_mail != 0) {
-					$data['result'] = 0;
-					$data['message'] = "This email is already reigstered, enter another one.";
-				}else{
-					$this->db->trans_start();
-					$this->db->where('id',$student_id)->set('firstname',$firstname)
-					->set('lastname',$lastname)->set('email',$email)->set('postal_code',$postal_code)
-					->set('student_group',$student_group)->update('students');
-					$this->db->trans_complete();
-
-					if ($this->db->trans_status() === FALSE){
+					if ($check_mail != 0) {
 						$data['result'] = 0;
-					}
-				}
+						$data['message'] = "This email is already reigstered, enter another one.";
+					}else{
+						$this->db->trans_start();
+						$this->db->where('id',$student_id)->set('firstname',$firstname)
+						->set('lastname',$lastname)->set('username',$firstname.$lastname)
+						->set('email',$email)->set('postal_code',$postal_code)
+						->set('password',sha1($password))
+						->set('student_group',$student_group)->update('students');
+						$this->db->trans_complete();
 
+						if ($this->db->trans_status() === FALSE){
+							$data['result'] = 0;
+						}else{
+							$student = $this->db->where('id',$student_id)->get('students')->row();
+
+							$msg = '<html lang="NL">
+							    <head>
+							    <title></title>
+							    </head>
+							    <body>
+							        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+							        <p>This is information mail sent to you from administration.</p>
+							        <p>Your account username is <b>'.$student->username.'</b></p>
+							        <p>Your password is <b>'.$password.'</b></p>
+							        <p>Your Group is <b>'.$student->student_group.'</b></p>
+							        <p>Thank you.</p>
+							        <p>Support Team.</p>
+							    </body>
+							</html>';
+
+							$subject = "Whoffice Account Informaion.";
+							$this->Teacher_model->send_email($student->email,$msg,$subject);
+						}
+					}
+		        }else{
+		        	$data['result'] = 0;
+		        }
 			}
 
 			if ($action == "delete") {
@@ -354,7 +397,6 @@ class Teacher extends CI_Controller {
 					$data['message'] = "Sorry, error occurred.";
 				}
 			}
-
 		}
 
 

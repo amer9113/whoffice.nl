@@ -30,26 +30,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Username</label>
-								    <input type="text" class="form-control" maxlength="75" placeholder="Username" value="<?= $student->username; ?>" readonly="">
+								    <input type="text" class="form-control" name="username" placeholder="Username" readonly>
 								</div>
 								<div class="form-group">
 								    <label>Firstname</label>
-								    <input type="text" maxlength="75" class="form-control" name="firstname" placeholder="Firstname" value="<?= $student->firstname; ?>">
+								    <input type="text" class="form-control compose_username" name="firstname" placeholder="Firstname" value="<?= $student->firstname; ?>" minlength="4" maxlength="45" required>
 								</div>
 								<div class="form-group">
-								    <label>Postal Code</label>
-								    <input type="text" class="form-control" name="postal_code" placeholder="Postal Code" value="<?= $student->postal_code; ?>" minlength="6">
+								    <label>Lastname</label>
+								    <input type="text" class="form-control compose_username" name="lastname" placeholder="Lastname" value="<?= $student->lastname; ?>" minlength="4" maxlength="45" required>
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Email</label>
-								    <input type="email" class="form-control" name="email" placeholder="Email" value="<?= $student->email; ?>">
+								    <input type="email" class="form-control" name="email" placeholder="Email" value="<?= $student->email; ?>" required>
 								</div>
-								
 								<div class="form-group">
-								    <label>Lastname</label>
-								    <input type="text" maxlength="75" class="form-control" name="lastname" placeholder="Lastname" value="<?= $student->lastname; ?>">
+								    <label>Postal Code</label>
+								    <input type="text" class="form-control" name="postal_code" placeholder="Postal Code" value="<?= $student->postal_code; ?>" minlength="4" required>
 								</div>
 								<div class="form-group">
 								    <label>Group</label>
@@ -99,6 +98,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('[name="action"]').val("deactivate");
             $('form').submit();
         });
+
+        $('input.compose_username').change(function(){
+            var firstname = $('[name="firstname"]').val().trim();
+            var lastname = $('[name="lastname"]').val().trim();
+
+            if (firstname != "" && lastname != "") {
+            	$('[name="username"]').val(firstname+lastname);
+            }
+
+        });
+
+        $('[name="firstname"]').change();
     });
 </script>
 </body>

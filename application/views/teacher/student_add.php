@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var lastname = $('[name="lastname"]').val().trim();
 
             if (firstname != "" && lastname != "") {
-            	$('[name="username"]').val(firstname+"_"+lastname);
+            	$('[name="username"]').val(firstname+lastname);
             }
 
         });
