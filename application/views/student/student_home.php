@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>whoffice</title>
 </head>
 <body class="parallax">
-	<h1 class="text-center">Herzlich willkommen <strong><?= $acc_name; ?></strong></h1>
+	<h1 class="text-center">Herzlich willkommen <strong><i><?= $acc_name; ?></i></strong></h1>
 	<h4 class="text-center" style="font-weight: 600">Verstrichene Zeit: <?= $this->elapsed_time; ?>&nbsp;&nbsp;&nbsp;<a href="<?= base_url().'student/logout' ?>">Ausloggen</a></h4>
 
 	<a href="<?= base_url().'student/lesson/1'; ?>">Lektion 1</a><br>

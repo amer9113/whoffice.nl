@@ -175,7 +175,8 @@ body,html{
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="number"] {
+input[type="number"],
+select{
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -187,7 +188,8 @@ input[type="number"] {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
-input[type="number"] {
+input[type="number"]:focus,
+select:focus{
     background-color: #ddd;
     outline: none;
 }
