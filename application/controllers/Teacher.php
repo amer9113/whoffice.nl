@@ -228,6 +228,7 @@ class Teacher extends CI_Controller {
 		        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
 		        <p>This is information mail sent to you from administration.</p>
 		        <p>Your account username is <b>'.$student->username.'</b></p>
+		        <p>Your password is <b>'.$function->postal_code.$function->postal_code.'</b></p>
 		        <p>Your Group is <b>'.$student->student_group.'</b></p>
 		        <p>Thank you.</p>
 		        <p>Support Team.</p>
