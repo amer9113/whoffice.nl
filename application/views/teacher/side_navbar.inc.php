@@ -9,5 +9,6 @@
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'teacher/check_students_pending_cards'; ?>">Students Check</a>
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'teacher/check_students_times'; ?>">Students Times</a>
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'teacher/check_students_informations'; ?>">Students Informations</a>
+    <a class="pad w3-bar-item w3-button" href="<?= base_url().'teacher/check_students_statistics'; ?>">Students Statistics</a>
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'teacher/logout'; ?>">Logout</a>
 </div>

@@ -22,13 +22,13 @@
 
                 <?php endif ?>
 
-                 <?php if ($page_type == "card"): ?>
+                <?php if ($page_type == "card"): ?>
 
-                    <a class="active" href="<?= base_url().'student/card_1'; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
+                    <a class="active" href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
 
                 <?php else: ?>
 
-                    <a href="<?= base_url().'student/card_1'; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
+                    <a href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a>
 
                 <?php endif ?>
 

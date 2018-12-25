@@ -56,20 +56,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('input.compose_username').change(function(){
-            var firstname = $('[name="firstname"]').val().trim();
-            var lastname = $('[name="lastname"]').val().trim();
-
-            if (firstname != "" && lastname != "") {
-                $('[name="username"]').val(firstname+lastname);
-            }
-
-        });
-
-        $('[name="firstname"]').change();
-    });
-</script>
 </body>
 </html>

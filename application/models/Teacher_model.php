@@ -125,6 +125,42 @@ class Teacher_model extends CI_Model{
 	}
 
 	public function get_students_times(){
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$id = $this->input->post('id');
+			$firstname = $this->input->post('firstname');
+			$lastname = $this->input->post('lastname');
+			$email = $this->input->post('email');
+			$from_hours = $this->input->post('from_hours');
+			$to_hours = $this->input->post('to_hours');
+
+			if (isset($id) && !empty($id)) {
+				$this->db->where('students.id',$id);
+			}
+
+			if (isset($firstname) && !empty($firstname)) {
+				$this->db->where('students.firstname',$firstname);
+			}
+
+			if (isset($lastname) && !empty($lastname)) {
+				$this->db->where('students.lastname',$lastname);
+			}
+
+			if (isset($email) && !empty($email)) {
+				$this->db->where('students.email',$email);
+			}
+
+			if (isset($from_hours) && $from_hours != "") {
+				$this->db->having('time_elapsed >=',$from_hours*60);
+			}
+
+			if (isset($to_hours) && $to_hours != "") {
+				$this->db->having('time_elapsed <=',$to_hours*60);
+			}
+
+		}
+
+
 		$query = $this->db->select('sum(last_action_time - login_time) as time_elapsed, students.*')
 		->join('students','student_visites.student_id = students.id')
 		->group_by('student_visites.student_id')
@@ -137,5 +173,16 @@ class Teacher_model extends CI_Model{
 		}
 		
 		return $query->result();
+	}
+
+	public function get_student_last_approved_card_no($student_id){
+		for ($i = 8; $i > 0 ; $i--) { 
+			$query = $this->db->where('user_id',$student_id)->where('checked_with_teacher',1)->get("card_$i")->num_rows();
+			if ($query != 0) {
+				return $i;
+			}
+		}
+
+		return 0;
 	}
 }

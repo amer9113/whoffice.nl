@@ -34,9 +34,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<tbody>
 							<?php foreach ($pending_cards as $key => $card): ?>
 								<tr>
-									<td><?= $card->firstname." ".$card->lastname." / ".$card->id; ?></td>
+									<td><?= $card->username." / ".$card->id; ?></td>
 									<td><?= $card->card_name; ?></td>
-									<td><a href="<?= base_url().'teacher/check_card/'.$card->card_no.'/'.$card->card_id; ?>">check it out</a></td>
+									<td><a href="<?= base_url().'teacher/check_card/'.$card->id.'/'.$card->card_no.'/1'; ?>">check it out</a></td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>

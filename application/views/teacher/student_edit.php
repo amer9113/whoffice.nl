@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                </div>
 	            </div>
 	            <div class="w3-container">
-	                <h3><?= $student->firstname." ".$student->lastname; ?></h3>
+	                <h3><?= $student->username; ?></h3>
 	                <?php if (isset($message)): ?>
 	                	<div class="alert alert-danger text-center" role="alert"><?= $message; ?></div>
 	                <?php endif ?>
@@ -97,16 +97,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('.deactivate_btn').click(function(){
             $('[name="action"]').val("deactivate");
             $('form').submit();
-        });
-
-        $('input.compose_username').change(function(){
-            var firstname = $('[name="firstname"]').val().trim();
-            var lastname = $('[name="lastname"]').val().trim();
-
-            if (firstname != "" && lastname != "") {
-            	$('[name="username"]').val(firstname+lastname);
-            }
-
         });
 
         $('[name="firstname"]').change();

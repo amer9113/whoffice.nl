@@ -240,6 +240,7 @@ class Student extends CI_Controller {
 		$data['cards_status'] = $this->Student_model->get_cards_status();
 		$data['card_number'] = 2;
 		$data['page_type'] = 'card';
+
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$input = $this->input->post();
 			$input['user_id'] = $this->acc_id;

@@ -289,16 +289,10 @@ class Teacher extends CI_Controller {
 	}
 
 
-
-	public function check_card($card_no,$card_id){
-
-
-
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	public function check_card($student_id,$card_no,$mode=0/*0 for view and 1 for approving*/){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' && $mode == 1) {
 
 			$lock_card = $this->input->post('lock_card');
-
-
 
 			if ($lock_card == "yes") {
 
@@ -324,75 +318,45 @@ class Teacher extends CI_Controller {
 
 			}
 
-
-
-			$this->db->where('id',$card_id)->update("card_$card_no");
-
-
+			$this->db->where('user_id',$student_id)->update("card_$card_no");
 
 			if ($this->db->affected_rows() > 0 ) {
 
-				$student_id = $this->db->where('id',$card_id)->get("card_$card_no")->row()->user_id;
+				$student_id = $this->db->where('user_id',$student_id)->get("card_$card_no")->row()->user_id;
 
 				$student = $this->db->where('id',$student_id)->get('students')->row();
-
 				/*Send email here*/
-
-
-
 				$msg = '<html lang="NL">
-
 				    <head>
-
 				    <title></title>
-
 				    </head>
-
 				    <body>
-
 				        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
-
 				        <p>Yor cards is updated by teacher. Please check it out.</p>
-
 				        <p>Thank you.</p>
-
 				        <p>Support Team.</p>
-
 				    </body>
-
 				</html>';
-
-
 
 				$subject = "Whoffice Card Informaion.";
 
-
-
 				$this->Teacher_model->send_email($student->email,$msg,$subject);
-
-
 
 				redirect('teacher/check_students_pending_cards');
 
 			}else{
-
 				echo "Sorry, error.";
-
 			}
-
-
-
 		}
 
-
-
-		$card_details_query = $this->db->where('id',$card_id)->get("card_$card_no");
+		$card_details_query = $this->db->where('user_id',$student_id)->get("card_$card_no");
 
 		if ($card_details_query->num_rows() == 1) {
 
 			$data['data'] = $card_details_query->row();
 
 			$data['opened_for_teacher_checking'] = true;
+			$data['opened_for_teacher_checking_mode'] = $mode;
 
 			$view = $this->load->view("student/student_card_$card_no",$data,true);
 
@@ -409,29 +373,28 @@ class Teacher extends CI_Controller {
 
 
 	public function check_students_times(){
-
 		$data['students_times'] = $this->Teacher_model->get_students_times();
-
-
-
 		$view = $this->load->view("teacher/student_times",$data,true);
-
 		$this->page->fix_view_template_text($view);
-
 	}
 
-
-
 	public function check_students_informations(){
-
 		$data['students'] = $this->db->get('students')->result();
-
-
-
 		$view = $this->load->view("teacher/students_informations",$data,true);
-
 		$this->page->fix_view_template_text($view);
+	}
 
+	public function check_students_statistics(){
+		$students_times = $this->Teacher_model->get_students_times();
+
+		foreach ($students_times as $key => &$student) {
+			$student->last_achieved_card_no = $this->Teacher_model->get_student_last_approved_card_no($student->id);
+		}
+
+		$data['data'] = $students_times;
+
+		$view = $this->load->view("teacher/students_statistics",$data,true);
+		$this->page->fix_view_template_text($view);
 	}
 
 
@@ -497,27 +460,14 @@ class Teacher extends CI_Controller {
 		$view = $this->load->view("teacher/students_informations",$data,true);
 
 		$this->page->fix_view_template_text($view);
-
 	}
 
-
-
-	public function send_student_reset_password_mail($student_id){
-
+	//Not used anymore.
+	/*public function send_student_reset_password_mail($student_id){
 		$student = $this->db->where('id',$student_id)->get('students')->row();
-
-		//$new_passwrod = $this->Teacher_model->generateRandomString(8);
-
-
-
-		//$old_password = $student->password;
-
-
-
-		//$this->db->where('id',$student_id)->set('password',sha1($new_passwrod))->update('students');
-
-
-
+		$new_passwrod = $this->Teacher_model->generateRandomString(8);
+		$old_password = $student->password;
+		$this->db->where('id',$student_id)->set('password',sha1($new_passwrod))->update('students');
 		if ($this->db->affected_rows() > 0 ) {
 
 			$msg = '<html lang="NL">
@@ -536,7 +486,7 @@ class Teacher extends CI_Controller {
 
 			        <p>Your account username is <b>'.$student->username.'</b></p>
 
-			        <p>Your password is <b>'.$student->postal_code.$student->postal_code.'</b></p>
+			        <p>Your password is <b>'.$new_passwrod.'</b></p>
 
 			        <p>Your Group is <b>'.$student->student_group.'</b></p>
 
@@ -548,26 +498,14 @@ class Teacher extends CI_Controller {
 
 			</html>';
 
-
-
 			$subject = "Whoffice Account Reset.";
-
-
-
 			$result = $this->Teacher_model->send_email($student->email,$msg,$subject);
 
-
-
 			if ($result == "sent") {
-
 				$data['message'] = "Email is sent successfully.";
-
 			}else{
-
-				//$this->db->where('id',$student_id)->set('password',$old_password)->update('students');
-
+				$this->db->where('id',$student_id)->set('password',$old_password)->update('students');
 				$data['message'] = "Sorry, something went wrong.<br>$result";
-
 			}
 
 		}else{
@@ -581,10 +519,7 @@ class Teacher extends CI_Controller {
 		$view = $this->load->view("teacher/students_informations",$data,true);
 
 		$this->page->fix_view_template_text($view);
-
-	}
-
-
+	}*/
 
 	public function edit_student($student_id){
 
@@ -668,7 +603,7 @@ class Teacher extends CI_Controller {
 
 						$this->db->where('id',$student_id)->set('firstname',$firstname)
 
-						->set('lastname',$lastname)->set('username',$firstname.$lastname)
+						->set('lastname',$lastname)->set('username',$username)
 
 						->set('email',$email)->set('postal_code',$postal_code)
 
@@ -814,10 +749,7 @@ class Teacher extends CI_Controller {
 			$this->page->fix_view_template_text($view);
 
 		}
-
 	}
-
-
 
 	public function add_student(){
 
@@ -942,7 +874,6 @@ class Teacher extends CI_Controller {
 			$this->page->fix_view_template_text($view);
 
 		}
-
 	}
 
 }

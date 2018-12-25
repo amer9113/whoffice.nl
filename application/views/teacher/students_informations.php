@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<tr>
 
-									<td><?= $student->firstname." ".$student->lastname ?></td>
+									<td><?= $student->username; ?></td>
 
 									<td><?= $student->postal_code; ?></td>
 
@@ -101,11 +101,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</table>
 
 					<div style="padding: 10px;">
-
 						<a href="<?= base_url().'teacher/add_student'; ?>" class="btn btn-success">Voeg nieuwe student toe</a>
-
 					</div>
-
 	            </div>
 
 	        </div>

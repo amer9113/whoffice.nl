@@ -1397,51 +1397,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile w3-center" id="footer">
 
 	                <div class="w3-bar">
-
-                        <?php if (isset($opened_for_teacher_checking)): ?>
-
-                        
-
-                        <input type="hidden" name="lock_card">
-
-                        <input type="hidden" name="needs_correction_by_student" value="no">
-
-                        <button class="w3-button w3-green approve_edit" type="button">Approve &amp; allow edit</button> 
-
-                        <button class="w3-button w3-red approve_lock" type="button">Approve &amp; lock</button> 
-
-                        <button class="w3-button w3-blue needs_correction" type="button">Needs correction</button><br>
-
-                        <input type="text" name="correction_notes" placeholder="Correction Notes" value="<?= $data->correction_notes; ?>">
-
-
-
-                        <?php else: ?>
-
-                            
-
-                        <?php if (isset($data)): ?>
-
-                            <?php if ($data->edit_allow == 1): ?>
-
-                                <button type="submit" class="w3-button w3-red">Update card</button> 
-
-                            <?php else: ?>
-
-                                <button type="submit" class="w3-button w3-red" disabled>Update isn't allowed</button>
-
-                            <?php endif ?>
-
-                        <?php else: ?>
-
-                        <button type="submit" class="w3-button w3-red">Submit card</button>    
-
-                        <?php endif ?>
-
-                        <?php endif ?>
-
-                        
-
+                        <?php require(dirname(__FILE__) . '/student_card_modify_buttons.inc.php') ?>
                     </div>
 
 	            </div>

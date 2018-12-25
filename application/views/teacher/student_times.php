@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<tbody>
 							<?php foreach ($students_times as $key => $card): ?>
 								<tr>
-									<td><?= $card->firstname." ".$card->lastname." / ".$card->id; ?></td>
+									<td><?= $card->username." / ".$card->id; ?></td>
 									<td><?= $card->time_elapsed; ?></td>
 								</tr>
 							<?php endforeach ?>
