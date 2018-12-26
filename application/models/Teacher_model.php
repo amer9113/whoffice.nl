@@ -151,11 +151,11 @@ class Teacher_model extends CI_Model{
 			}
 
 			if (isset($from_hours) && $from_hours != "") {
-				$this->db->having('time_elapsed >=',$from_hours*60);
+				$this->db->having('time_elapsed >=',$from_hours*60*60);
 			}
 
 			if (isset($to_hours) && $to_hours != "") {
-				$this->db->having('time_elapsed <=',$to_hours*60);
+				$this->db->having('time_elapsed <=',$to_hours*60*60);
 			}
 
 		}
