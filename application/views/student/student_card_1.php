@@ -56,7 +56,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="rightsign w3-container w3-cell w3-mobile">
 
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+                        <span class="label label-success">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
 
                     </div>
 
@@ -161,7 +162,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="rightsign w3-container w3-cell w3-mobile">
 
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+                        <span class="label label-success">&nbsp;&nbsp;2&nbsp;&nbsp;</span>
 
                     </div>
 
@@ -239,7 +241,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="rightsign w3-container w3-cell w3-mobile">
 
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+                        <span class="label label-success">&nbsp;&nbsp;3&nbsp;&nbsp;</span>
 
                     </div>
 
