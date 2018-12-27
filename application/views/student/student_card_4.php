@@ -46,11 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <?php require(dirname(__FILE__) . '/student_card_response_messages.inc.php') ?>
 
-	    <form method="POST" enctype="multipart/form-data">
+	    <form method="POST" enctype="multipart/form-data" class="manual_validation">
 
 	    	<div class="w3-container w3-block w3-mobile" id="cnt_form">
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt1">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt1">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text1">
+	                        <label class="quline_text w3-mobile section_header" name="text1">
 
 	                        [[text81:text]]
 
@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="w3-cell w3-mobile">
 
-	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="place_vacancies_find_1" required maxlength="255" value="<?= isset($data) ? $data->place_vacancies_find_1 : ''; ?>">
+	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="place_vacancies_find_1" maxlength="255" value="<?= isset($data) ? $data->place_vacancies_find_1 : ''; ?>" required>
 
 	                            </div>
 
@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="w3-cell w3-mobile">
 
-	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="place_vacancies_find_2" required maxlength="255" value="<?= isset($data) ? $data->place_vacancies_find_2 : ''; ?>">
+	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="place_vacancies_find_2" maxlength="255" value="<?= isset($data) ? $data->place_vacancies_find_2 : ''; ?>" required>
 
 	                            </div>
 
@@ -115,7 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="w3-cell w3-mobile">
 
-	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="place_vacancies_find_3" required maxlength="255" value="<?= isset($data) ? $data->place_vacancies_find_3 : ''; ?>">
+	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="place_vacancies_find_3" maxlength="255" value="<?= isset($data) ? $data->place_vacancies_find_3 : ''; ?>" required>
 
 	                            </div>
 
@@ -127,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt2">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt2">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                        <div class="col-sm-4">
 
-	                            <label class="quline_text w3-mobile" name="text3">
+	                            <label class="quline_text w3-mobile section_header" name="text3">
 
 	                            [[text82:text]]
 
@@ -152,7 +152,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                        <div class="col-sm-2">
 
-	                            <labelfor="num_vacancies_find"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="number"  name="num_vacancies_find" value="<?= isset($data) ? $data->num_vacancies_find : ''; ?>"></labelfor>
+	                            <labelfor="num_vacancies_find"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="number" name="num_vacancies_find" value="<?= isset($data) ? $data->num_vacancies_find : ''; ?>" required></labelfor>
 
 	                        </div>
 
@@ -172,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt3">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt3">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -185,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text7">
+	                        <label class="quline_text w3-mobile section_header" name="text7">
 
 	                        [[text84:text]]
 
@@ -199,7 +199,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <p>
 
-	                                <input class="w3-radio" type="radio" name="chance_work" value="0" <?php if (isset($data) && $data->chance_work == 0): ?>
+	                                <input class="w3-radio" type="radio" name="chance_work" required value="0" <?php if (isset($data) && $data->chance_work == 0): ?>
 
 										checked
 
@@ -211,7 +211,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <p>
 
-	                                <input class="w3-radio" type="radio"  name="chance_work" value="1" <?php if (isset($data) && $data->chance_work == 1): ?>
+	                                <input class="w3-radio" type="radio"  name="chance_work" required value="1" <?php if (isset($data) && $data->chance_work == 1): ?>
 
 										checked
 
@@ -223,7 +223,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <p>
 
-	                                <input class="w3-radio" type="radio" name="chance_work" value="2" <?php if (isset($data) && $data->chance_work == 2): ?>
+	                                <input class="w3-radio" type="radio" name="chance_work" required value="2" <?php if (isset($data) && $data->chance_work == 2): ?>
 
 										checked
 
@@ -241,7 +241,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt4">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt4">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -254,7 +254,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text13">
+	                        <label class="quline_text w3-mobile section_header" name="text13">
 
 	                        [[text88:text]]
 
@@ -290,7 +290,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <div class="col-sm-8">
 
-	                                        <labelfor="job_offer_1_date"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="date"  name="job_offer_1_date" value="<?= isset($data) ? $data->job_offer_1_date : ''; ?>"></labelfor>
+	                                        <labelfor="job_offer_1_date"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="date"  name="job_offer_1_date" value="<?= isset($data) ? $data->job_offer_1_date : ''; ?>" required></labelfor>
 
 	                                    </div>
 
@@ -310,7 +310,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <div class="col-sm-8">
 
-	                                        <labelfor="job_offer_1_profession"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_profession" value="<?= isset($data) ? $data->job_offer_1_profession : ''; ?>"></labelfor>
+	                                        <labelfor="job_offer_1_profession"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_profession" value="<?= isset($data) ? $data->job_offer_1_profession : ''; ?>" required></labelfor>
 
 	                                    </div>
 
@@ -330,7 +330,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <div class="col-sm-8">
 
-	                                        <labelfor="job_offer_1_company"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_company" value="<?= isset($data) ? $data->job_offer_1_company : ''; ?>"></labelfor>
+	                                        <labelfor="job_offer_1_company"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_company" value="<?= isset($data) ? $data->job_offer_1_company : ''; ?>" required></labelfor>
 
 	                                    </div>
 
@@ -350,7 +350,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <div class="col-sm-8">
 
-	                                        <labelfor="job_offer_1_place"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_place" value="<?= isset($data) ? $data->job_offer_1_place : ''; ?>"></labelfor>
+	                                        <labelfor="job_offer_1_place"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="job_offer_1_place" value="<?= isset($data) ? $data->job_offer_1_place : ''; ?>" required></labelfor>
 
 	                                    </div>
 
@@ -366,7 +366,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <label class="btn btn-default btn-file w3-teal w3-text-white">
 
-	                                    Kies document <input name="job_offer_1_file"type="file" style="display: none;">
+	                                    Kies document <input name="job_offer_1_file" type="file" style="display: none;" <?php if (!(isset($data) && $data->job_offer_1_file != "")): ?>
+	                                    	required
+	                                    <?php endif ?>>
 
 	                                    </label>
 
@@ -404,7 +406,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label> 
 
-	                                <input class="w3-radio" type="radio" name="job_offer_1_yes_no" value="1" <?php if (isset($data) && $data->job_offer_1_yes_no == 1): ?>
+	                                <input class="w3-radio" type="radio" required id="job_offer_1_yes_check" data-checkbox_to_revers='#job_offer_1_no_check' data-input_to_toggle='[name="job_offer_1_reason_yes"]' name="job_offer_1_yes_no" value="1" <?php if (isset($data) && $data->job_offer_1_yes_no == 1): ?>
 
 										checked
 
@@ -420,7 +422,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="job_offer_1_reason_yes"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_reason_yes" value="<?= (isset($data) && $data->job_offer_1_yes_no == 1 ) ? $data->job_offer_1_reason : ''; ?>"></labelfor>
+	                                <labelfor="job_offer_1_reason_yes"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_reason_yes" value="<?= (isset($data) && $data->job_offer_1_yes_no == 1 ) ? $data->job_offer_1_reason : ''; ?>" readonly></labelfor>
 
 	                            </div>
 
@@ -428,7 +430,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label>
 
-	                                <input class="w3-radio" type="radio"  name="job_offer_1_yes_no" value="0" <?php if (isset($data) && $data->job_offer_1_yes_no == 0): ?>
+	                                <input class="w3-radio" type="radio" required id="job_offer_1_no_check" data-checkbox_to_revers='#job_offer_1_yes_check' data-input_to_toggle='[name="job_offer_1_reason_no"]' name="job_offer_1_yes_no" value="0" <?php if (isset($data) && $data->job_offer_1_yes_no == 0): ?>
 
 										checked
 
@@ -444,7 +446,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="job_offer_1_reason_no"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_reason_no" value="<?= (isset($data) && $data->job_offer_1_yes_no == 0) ? $data->job_offer_1_reason : ''; ?>"></labelfor>
+	                                <labelfor="job_offer_1_reason_no"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_1_reason_no" value="<?= (isset($data) && $data->job_offer_1_yes_no == 0) ? $data->job_offer_1_reason : ''; ?>" readonly></labelfor>
 
 	                            </div>
 
@@ -476,7 +478,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                        <div class="col-sm-8">
 
-	                                            <labelfor="job_offer_2_date"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="date"  name="job_offer_2_date" value="<?= isset($data) ? $data->job_offer_2_date : ''; ?>"></labelfor>
+	                                            <labelfor="job_offer_2_date"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="date"  name="job_offer_2_date" value="<?= isset($data) ? $data->job_offer_2_date : ''; ?>" required></labelfor>
 
 	                                        </div>
 
@@ -496,7 +498,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                        <div class="col-sm-8">
 
-	                                            <labelfor="job_offer_2_profession"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_profession" value="<?= isset($data) ? $data->job_offer_2_profession : ''; ?>"></labelfor>
+	                                            <labelfor="job_offer_2_profession"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_profession" value="<?= isset($data) ? $data->job_offer_2_profession : ''; ?>" required></labelfor>
 
 	                                        </div>
 
@@ -516,7 +518,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                        <div class="col-sm-8">
 
-	                                            <labelfor="job_offer_2_company"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_company" value="<?= isset($data) ? $data->job_offer_2_company : ''; ?>"></labelfor>
+	                                            <labelfor="job_offer_2_company"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_company" value="<?= isset($data) ? $data->job_offer_2_company : ''; ?>" required></labelfor>
 
 	                                        </div>
 
@@ -536,7 +538,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                        <div class="col-sm-8">
 
-	                                            <labelfor="job_offer_2_place"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_place" value="<?= isset($data) ? $data->job_offer_2_place : ''; ?>"></labelfor>
+	                                            <labelfor="job_offer_2_place"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_place" value="<?= isset($data) ? $data->job_offer_2_place : ''; ?>" required></labelfor>
 
 	                                        </div>
 
@@ -552,7 +554,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                        <label class="btn btn-default btn-file w3-teal w3-text-white">
 
-	                                        Kies document <input name="job_offer_2_file"type="file" style="display: none;">
+	                                        Kies document <input name="job_offer_2_file" type="file" style="display: none;" <?php if (!(isset($data) && $data->job_offer_2_file != "")): ?>
+			                                    	required
+			                                    <?php endif ?>>
 
 	                                        </label>
 
@@ -592,7 +596,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label>
 
-	                                <input class="w3-radio" type="radio"  name="job_offer_2_yes_no" value="1" <?php if (isset($data) && $data->job_offer_2_yes_no == 1): ?>
+	                                <input class="w3-radio" type="radio" id="job_offer_2_yes_check" data-checkbox_to_revers='#job_offer_2_no_check' name="job_offer_2_yes_no" data-input_to_toggle='[name="job_offer_2_reason_yes"]' required value="1" <?php if (isset($data) && $data->job_offer_2_yes_no == 1): ?>
 
 										checked
 
@@ -608,7 +612,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="job_offer_2_reason_yes"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_reason_yes" value="<?= (isset($data) && $data->job_offer_2_yes_no == 1 ) ? $data->job_offer_2_reason : ''; ?>"></labelfor>
+	                                <labelfor="job_offer_2_reason_yes"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_reason_yes" value="<?= (isset($data) && $data->job_offer_2_yes_no == 1 ) ? $data->job_offer_2_reason : ''; ?>" readonly></labelfor>
 
 	                            </div>
 
@@ -616,7 +620,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label>
 
-	                                <input class="w3-radio" type="radio"  name="job_offer_2_yes_no" value="0" <?php if (isset($data) && $data->job_offer_2_yes_no == 0): ?>
+	                                <input class="w3-radio" type="radio" id="job_offer_2_no_check" data-checkbox_to_revers='#job_offer_2_yes_check' name="job_offer_2_yes_no" data-input_to_toggle='[name="job_offer_2_reason_no"]' required value="0" <?php if (isset($data) && $data->job_offer_2_yes_no == 0): ?>
 
 										checked
 
@@ -632,7 +636,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="job_offer_2_reason_no"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_reason_no" value="<?= (isset($data) && $data->job_offer_2_yes_no == 0 ) ? $data->job_offer_2_reason : ''; ?>"></labelfor>
+	                                <labelfor="job_offer_2_reason_no"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="job_offer_2_reason_no" value="<?= (isset($data) && $data->job_offer_2_yes_no == 0 ) ? $data->job_offer_2_reason : ''; ?>" readonly></labelfor>
 
 	                            </div>
 
@@ -644,7 +648,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt5">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt5">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -657,7 +661,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text52">
+	                        <label class="quline_text w3-mobile section_header" name="text52">
 
 	                        [[text109:text]]
 
@@ -677,7 +681,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="is_enough_work" value="1" <?php if (isset($data) && $data->is_enough_work == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="is_enough_work" data-checkbox_mandatory_group="section_5" value="1" <?php if (isset($data) && $data->is_enough_work == 1): ?>
 
 										checked
 
@@ -697,7 +701,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->is_little_work != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_5" data-input_to_toggle='[name="is_little_work"]' <?php if (isset($data) && $data->is_little_work != ""): ?>
 
 									checked
 
@@ -713,7 +717,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="is_little_work"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="is_little_work" maxlength="255" value="<?= isset($data) ? $data->is_little_work : ''; ?>"></labelfor>
+	                            <labelfor="is_little_work"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="is_little_work" maxlength="255" value="<?= isset($data) ? $data->is_little_work : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -721,7 +725,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->another_work != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_5" data-input_to_toggle='[name="another_work"]' <?php if (isset($data) && $data->another_work != ""): ?>
 
 									checked
 
@@ -737,7 +741,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="another_work"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_work" maxlength="255" value="<?= isset($data) ? $data->another_work : ''; ?>"></labelfor>
+	                            <labelfor="another_work"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_work" maxlength="255" value="<?= isset($data) ? $data->another_work : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -745,7 +749,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->go_first != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_5" data-input_to_toggle='[name="go_first"],[name="go_first_reason"]' <?php if (isset($data) && $data->go_first != ""): ?>
 
 									checked
 
@@ -761,7 +765,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="go_first"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="go_first" maxlength="255" value="<?= isset($data) ? $data->go_first : ''; ?>"></labelfor>
+	                            <labelfor="go_first"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="go_first" maxlength="255" value="<?= isset($data) ? $data->go_first : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -775,7 +779,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="go_first_reason"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="go_first_reason" maxlength="255" value="<?= isset($data) ? $data->go_first_reason : ''; ?>"></labelfor>
+	                            <labelfor="go_first_reason"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="go_first_reason" maxlength="255" value="<?= isset($data) ? $data->go_first_reason : ''; ?>" readonly></labelfor>
 
 	                        </div>
 

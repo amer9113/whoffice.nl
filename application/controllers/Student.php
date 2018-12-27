@@ -89,7 +89,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -112,7 +112,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -136,7 +136,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -160,7 +160,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -433,7 +433,7 @@ class Student extends CI_Controller {
 			{
 			    $config = array(
 					'upload_path' => './ext/student_documents/',
-					'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+					'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 					'max_size' => 1024,
 					'encrypt_name' => TRUE
 				);
@@ -451,7 +451,7 @@ class Student extends CI_Controller {
 			{
 			    $config = array(
 					'upload_path' => './ext/student_documents/',
-					'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+					'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 					'max_size' => 1024,
 					'encrypt_name' => TRUE
 				);
@@ -481,23 +481,24 @@ class Student extends CI_Controller {
 				}
 				
 			}
+
 			unset($input['job_offer_1_reason_yes']);
 			unset($input['job_offer_1_reason_no']);
 
+		
 			if (isset($input['job_offer_2_yes_no'])) {
 				if ($input['job_offer_2_yes_no'] == 1) {
 					$input['job_offer_2_reason'] = $input['job_offer_2_reason_yes'];
+					
 				}
 				if($input['job_offer_2_yes_no'] == 0){
 					$input['job_offer_2_reason'] = $input['job_offer_2_reason_no'];
 				}
 				
 			}
+
 			unset($input['job_offer_2_reason_yes']);
 			unset($input['job_offer_2_reason_no']);
-
-
-
 
 			$this->db->trans_start();
 
@@ -813,7 +814,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -825,9 +826,6 @@ class Student extends CI_Controller {
 		            {
 		            	$input['app_form_work_file'] = $this->upload->data('file_name');
 		            }
-				}else{
-					$input['app_form_work_file'] = "";
-					$input['app_form_work'] = 0;
 				}
 			}else{
 				$input['app_form_work_file'] = "";
@@ -839,7 +837,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -851,15 +849,13 @@ class Student extends CI_Controller {
 		            {
 		            	$input['app_form_another_work_file_1'] = $this->upload->data('file_name');
 		            }
-				}else{
-					$input['app_form_another_work_file_1'] = "";
 				}
 
 				if (isset($_FILES["app_form_another_work_file_2"]["name"]) && !empty($_FILES["app_form_another_work_file_2"]["name"]) )
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -871,8 +867,6 @@ class Student extends CI_Controller {
 		            {
 		            	$input['app_form_another_work_file_2'] = $this->upload->data('file_name');
 		            }
-				}else{
-					$input['app_form_another_work_file_2'] = "";
 				}
 			}else{
 				$input['app_form_another_work_file_1'] = "";
@@ -885,7 +879,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -897,9 +891,6 @@ class Student extends CI_Controller {
 		            {
 		            	$input['motivation_file'] = $this->upload->data('file_name');
 		            }
-				}else{
-					$input['motivation_file'] = "";
-					$input['motivation'] = 0;
 				}
 			}else{
 				$input['motivation_file'] = "";
@@ -911,7 +902,7 @@ class Student extends CI_Controller {
 				{
 			        $config = array(
 			    		'upload_path' => './ext/student_documents/',
-			    		'allowed_types' => 'gif|jpg|png|jpeg|bmp|pdf|doc|docx|',
+			    		'allowed_types' => 'jpg|png|jpeg|bmp|pdf|doc|docx|',
 			    		'max_size' => 1024,
 						'encrypt_name' => TRUE
 			    	);
@@ -923,9 +914,6 @@ class Student extends CI_Controller {
 		            {
 		            	$input['cv'] = $this->upload->data('file_name');
 		            }
-				}else{
-					$input['cv'] = "";
-					$input['have_cv'] = 0;
 				}
 			}else{
 				$input['cv'] = "";

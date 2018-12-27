@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         	<div class="w3-container w3-block w3-mobile" id="cnt_form">
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt1">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt1">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text1">
+	                        <label class="quline_text w3-mobile section_header" name="text1">
 
 	                        [[text60:text]]
 
@@ -231,7 +231,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt2">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt2">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -244,7 +244,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline2">
 
-	                        <label class="quline_text w3-mobile" name="text11">
+	                        <label class="quline_text w3-mobile section_header" name="text11">
 
 	                        [[text68:text]]
 

@@ -46,11 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <?php require(dirname(__FILE__) . '/student_card_response_messages.inc.php') ?>
 
-	    <form method="POST">
+	    <form method="POST" class="manual_validation">
 
 	    	<div class="w3-container w3-block w3-mobile" id="cnt_form">
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt1">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt1">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="t8 quline_text w3-mobile" name="text1">
+	                        <label class="t8 quline_text w3-mobile section_header" name="text1">
 
 	                        [[text238:text]]
 
@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="in_my_country_1"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_1" value="<?= isset($data) ? $data->in_my_country_1 : ''; ?>"></labelfor>
+	                                <labelfor="in_my_country_1"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_1" value="<?= isset($data) ? $data->in_my_country_1 : ''; ?>" required></labelfor>
 
 	                            </div>
 
@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="in_netherlands_1"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_1" value="<?= isset($data) ? $data->in_netherlands_1 : ''; ?>"></labelfor>
+	                                <labelfor="in_netherlands_1"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_1" value="<?= isset($data) ? $data->in_netherlands_1 : ''; ?>" required></labelfor>
 
 	                            </div>
 
@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="in_my_country_2"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_2" value="<?= isset($data) ? $data->in_my_country_2 : ''; ?>"></labelfor>
+	                                <labelfor="in_my_country_2"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_2" value="<?= isset($data) ? $data->in_my_country_2 : ''; ?>" required></labelfor>
 
 	                            </div>
 
@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="in_netherlands_2"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_2" value="<?= isset($data) ? $data->in_netherlands_2 : ''; ?>"></labelfor>
+	                                <labelfor="in_netherlands_2"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_2" value="<?= isset($data) ? $data->in_netherlands_2 : ''; ?>" required></labelfor>
 
 	                            </div>
 
@@ -149,7 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="in_my_country_3"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_3" value="<?= isset($data) ? $data->in_my_country_3 : ''; ?>"></labelfor>
+	                                <labelfor="in_my_country_3"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_my_country_3" value="<?= isset($data) ? $data->in_my_country_3 : ''; ?>" required></labelfor>
 
 	                            </div>
 
@@ -163,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <br>
 
-	                                <labelfor="in_netherlands_3"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_3" value="<?= isset($data) ? $data->in_netherlands_3 : ''; ?>"></labelfor>
+	                                <labelfor="in_netherlands_3"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="in_netherlands_3" value="<?= isset($data) ? $data->in_netherlands_3 : ''; ?>" required></labelfor>
 
 	                            </div>
 

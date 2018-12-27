@@ -46,11 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <?php require(dirname(__FILE__) . '/student_card_response_messages.inc.php') ?>
 
-        <form method="POST">
+        <form method="POST" class="manual_validation">
 
 	        <div class="w3-container w3-block w3-mobile" id="cnt_form">
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt1">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt1">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text1">
+	                        <label class="quline_text w3-mobile section_header" name="text1">
 
 	                        [[text116:text]]
 
@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="one_course" value="1" <?php if (isset($data) && $data->one_course == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="one_course" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->one_course == 1): ?>
 
 	                            	checked
 
@@ -97,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="one_complate_training" value="1" <?php if (isset($data) && $data->one_complate_training == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="one_complate_training" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->one_complate_training == 1): ?>
 
 	                            	checked
 
@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="training_one_year" value="1" <?php if (isset($data) && $data->training_one_year == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="training_one_year" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->training_one_year == 1): ?>
 
 	                            	checked
 
@@ -137,7 +137,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="training_multi_year" value="1" <?php if (isset($data) && $data->training_multi_year == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="training_multi_year" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->training_multi_year == 1): ?>
 
 	                            	checked
 
@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="days_work" value="1" <?php if (isset($data) && $data->days_work == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="days_work" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->days_work == 1): ?>
 
 	                            	checked
 
@@ -177,7 +177,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="days_school" value="1" <?php if (isset($data) && $data->days_school == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="days_school" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->days_school == 1): ?>
 
 	                            	checked
 
@@ -197,7 +197,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="course_full_time" value="1" <?php if (isset($data) && $data->course_full_time == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="course_full_time" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->course_full_time == 1): ?>
 
 	                            	checked
 
@@ -217,7 +217,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="course_part_time" value="1" <?php if (isset($data) && $data->course_part_time == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="course_part_time" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->course_part_time == 1): ?>
 
 	                            	checked
 
@@ -237,7 +237,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="in_day" value="1" <?php if (isset($data) && $data->in_day == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="in_day" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->in_day == 1): ?>
 
 	                            	checked
 
@@ -257,7 +257,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="at_night" value="1" <?php if (isset($data) && $data->at_night == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="at_night" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->at_night == 1): ?>
 
 	                            	checked
 
@@ -277,7 +277,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="at_school" value="1" <?php if (isset($data) && $data->at_school == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="at_school" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->at_school == 1): ?>
 
 	                            	checked
 
@@ -297,7 +297,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="at_home" value="1" <?php if (isset($data) && $data->at_home == 1): ?>
+	                            <input class="w3-check" type="checkbox" name="at_home" data-checkbox_mandatory_group="section_1" value="1" <?php if (isset($data) && $data->at_home == 1): ?>
 
 	                            	checked
 
@@ -317,7 +317,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->another_course != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-input_to_toggle='[name="another_course"]' data-checkbox_mandatory_group="section_1" <?php if (isset($data) && $data->another_course != ""): ?>
 
 	                            	checked
 
@@ -333,7 +333,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="another_course"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_course" value="<?= isset($data) ? $data->another_course : ''; ?>"></labelfor>
+	                            <labelfor="another_course"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="another_course" value="<?= isset($data) ? $data->another_course : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -343,7 +343,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt2">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt2">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -356,7 +356,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text25">
+	                        <label class="quline_text w3-mobile section_header" name="text25">
 
 	                        [[text128:text]]
 
@@ -382,7 +382,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="col-sm-8">
 
-	                                    <labelfor="course_name"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="course_name" maxlength="255" value="<?= isset($data) ? $data->course_name : ''; ?>"></labelfor>
+	                                    <labelfor="course_name"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="course_name" maxlength="255" value="<?= isset($data) ? $data->course_name : ''; ?>" required></labelfor>
 
 	                                </div>
 
@@ -402,7 +402,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="col-sm-8">
 
-	                                    <labelfor="course_school"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="course_school" maxlength="255" value="<?= isset($data) ? $data->course_school : ''; ?>"></labelfor>
+	                                    <labelfor="course_school"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="course_school" maxlength="255" value="<?= isset($data) ? $data->course_school : ''; ?>" required></labelfor>
 
 	                                </div>
 
@@ -422,7 +422,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="col-sm-8">
 
-	                                    <labelfor="course_period"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="course_period" maxlength="255" value="<?= isset($data) ? $data->course_period : ''; ?>"></labelfor>
+	                                    <labelfor="course_period"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="course_period" maxlength="255" value="<?= isset($data) ? $data->course_period : ''; ?>" required></labelfor>
 
 	                                </div>
 
@@ -442,7 +442,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="col-sm-8">
 
-	                                    <labelfor="period_time"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="period_time" maxlength="255" value="<?= isset($data) ? $data->period_time : ''; ?>"></labelfor>
+	                                    <labelfor="period_time"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="period_time" maxlength="255" value="<?= isset($data) ? $data->period_time : ''; ?>" required></labelfor>
 
 	                                </div>
 
@@ -456,7 +456,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt3">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt3">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -469,7 +469,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text35">
+	                        <label class="quline_text w3-mobile section_header" name="text35">
 
 	                        [[text133:text]]
 
@@ -483,7 +483,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="no_diploma" value="1" <?php if (isset($data) && $data->no_diploma == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_3" name="no_diploma" value="1" <?php if (isset($data) && $data->no_diploma == 1): ?>
 
 	                            	checked
 
@@ -503,7 +503,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->get_diplomas != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_3" data-input_to_toggle='[name="get_diplomas"]' <?php if (isset($data) && $data->get_diplomas != ""): ?>
 
 	                            	checked
 
@@ -519,7 +519,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="get_diplomas"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="get_diplomas" value="<?= isset($data) ? $data->get_diplomas : ''; ?>" maxlength="255"></labelfor>
+	                            <labelfor="get_diplomas"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="get_diplomas" value="<?= isset($data) ? $data->get_diplomas : ''; ?>" maxlength="255" readonly></labelfor>
 
 	                        </div>
 
@@ -535,7 +535,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio" name="have_diploma" value="1" <?php if (isset($data) && $data->have_diploma == 1): ?>
+	                                    <input class="w3-radio" type="radio" required name="have_diploma" value="1" <?php if (isset($data) && $data->have_diploma == 1): ?>
 
 			                            	checked
 
@@ -547,7 +547,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio"  name="have_diploma" value="0" <?php if (isset($data) && $data->have_diploma == 0): ?>
+	                                    <input class="w3-radio" type="radio" required  name="have_diploma" value="0" <?php if (isset($data) && $data->have_diploma == 0): ?>
 
 			                            	checked
 
@@ -567,7 +567,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt4">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt4">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -582,7 +582,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                        <div class="col-sm-6">
 
-	                            <label class="quline_text w3-mobile" name="text45">
+	                            <label class="quline_text w3-mobile section_header" name="text45">
 
 	                            [[text139:text]]
 
@@ -614,7 +614,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox"> 
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_4" data-input_to_toggle='[name="get_lend"]' <?php if (isset($data) && $data->get_lend != ""): ?>
+
+	                            	checked
+
+	                            <?php endif ?>> 
 
 	                            <label class="quline_text w3-mobile" name="text49">
 
@@ -626,7 +630,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="get_lend"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="get_lend" value="<?= isset($data) ? $data->get_lend : ''; ?>"></labelfor>
+	                            <labelfor="get_lend"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="get_lend" value="<?= isset($data) ? $data->get_lend : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -634,7 +638,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="can_pay" value="1" <?php if (isset($data) && $data->can_pay == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_4" name="can_pay" value="1" <?php if (isset($data) && $data->can_pay == 1): ?>
 
 	                            	checked
 
@@ -654,7 +658,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="owner_pay" value="1" <?php if (isset($data) && $data->owner_pay == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_4" name="owner_pay" value="1" <?php if (isset($data) && $data->owner_pay == 1): ?>
 
 	                            	checked
 
@@ -674,7 +678,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->another_pay != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_4" data-input_to_toggle='[name="another_pay"]' <?php if (isset($data) && $data->another_pay != ""): ?>
 
 	                            	checked
 
@@ -690,7 +694,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="another_pay"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_pay" maxlength="255" value="<?= isset($data) ? $data->another_pay : ''; ?>"></labelfor>
+	                            <labelfor="another_pay"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_pay" maxlength="255" value="<?= isset($data) ? $data->another_pay : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -700,7 +704,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt5">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt5">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -713,7 +717,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text57">
+	                        <label class="quline_text w3-mobile section_header" name="text57">
 
 	                        [[text144:text]]
 
@@ -737,7 +741,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="Living_money"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="Living_money" value="<?= isset($data) ? $data->Living_money : ''; ?>"></labelfor>
+	                            <labelfor="Living_money"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="Living_money" value="<?= isset($data) ? $data->Living_money : ''; ?>" required></labelfor>
 
 	                        </div>
 
@@ -747,7 +751,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt6">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt6">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -760,7 +764,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text61">
+	                        <label class="quline_text w3-mobile section_header" name="text61">
 
 	                        [[text146:text]]
 
@@ -776,7 +780,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio" name="dutch_level" value="taalniveay" <?php if (isset($data) && $data->dutch_level == "taalniveay"): ?>
+	                                    <input class="w3-radio" type="radio" required name="dutch_level" value="taalniveay" <?php if (isset($data) && $data->dutch_level == "taalniveay"): ?>
 
 			                            	checked
 
@@ -788,7 +792,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio"  name="dutch_level" value="onder 1f" <?php if (isset($data) && $data->dutch_level == "onder 1f"): ?>
+	                                    <input class="w3-radio" type="radio" required  name="dutch_level" value="onder 1f" <?php if (isset($data) && $data->dutch_level == "onder 1f"): ?>
 
 			                            	checked
 
@@ -800,7 +804,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio" name="dutch_level" value="1f" <?php if (isset($data) && $data->dutch_level == "1f"): ?>
+	                                    <input class="w3-radio" type="radio" required name="dutch_level" value="1f" <?php if (isset($data) && $data->dutch_level == "1f"): ?>
 
 			                            	checked
 
@@ -812,7 +816,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio"  name="dutch_level" value="2f" <?php if (isset($data) && $data->dutch_level == "2f"): ?>
+	                                    <input class="w3-radio" type="radio" required  name="dutch_level" value="2f" <?php if (isset($data) && $data->dutch_level == "2f"): ?>
 
 			                            	checked
 
@@ -824,7 +828,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio" name="dutch_level" value="3f" <?php if (isset($data) && $data->dutch_level == "3f"): ?>
+	                                    <input class="w3-radio" type="radio" required name="dutch_level" value="3f" <?php if (isset($data) && $data->dutch_level == "3f"): ?>
 
 			                            	checked
 
@@ -836,7 +840,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio"  name="dutch_level" value="4f" <?php if (isset($data) && $data->dutch_level == "4f"): ?>
+	                                    <input class="w3-radio" type="radio" required  name="dutch_level" value="4f" <?php if (isset($data) && $data->dutch_level == "4f"): ?>
 
 			                            	checked
 
@@ -862,7 +866,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio" name="have_Level" value="1" <?php if (isset($data) && $data->have_Level == 1): ?>
+	                                    <input class="w3-radio" type="radio" required name="have_Level" value="1" <?php if (isset($data) && $data->have_Level == 1): ?>
 
 			                            	checked
 
@@ -870,7 +874,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <label class="quline_text w3-mobile" name="text71">[[text154:text]]</label>
 
-	                                    <input class="w3-radio" type="radio"  name="have_Level" value="0" <?php if (isset($data) && $data->have_Level == 0): ?>
+	                                    <input class="w3-radio" type="radio" required  name="have_Level" value="0" <?php if (isset($data) && $data->have_Level == 0): ?>
 
 			                            	checked
 
@@ -898,7 +902,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio" name="have_diploma_Level" value="1" <?php if (isset($data) && $data->have_diploma_Level == 1): ?>
+	                                    <input class="w3-radio" type="radio" required name="have_diploma_Level" value="1" <?php if (isset($data) && $data->have_diploma_Level == 1): ?>
 
 			                            	checked
 
@@ -906,7 +910,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <label class="quline_text w3-mobile" name="text81">[[text157:text]]</label>
 
-	                                    <input class="w3-radio" type="radio"  name="have_diploma_Level" value="0" <?php if (isset($data) && $data->have_diploma_Level == 0): ?>
+	                                    <input class="w3-radio" type="radio" required  name="have_diploma_Level" value="0" <?php if (isset($data) && $data->have_diploma_Level == 0): ?>
 
 			                            	checked
 
@@ -926,7 +930,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt7">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt7">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -939,7 +943,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text73">
+	                        <label class="quline_text w3-mobile section_header" name="text73">
 
 	                        [[text159:text]]
 
@@ -953,7 +957,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="can_speak_with_people" value="1" <?php if (isset($data) && $data->can_speak_with_people == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="can_speak_with_people" value="1" <?php if (isset($data) && $data->can_speak_with_people == 1): ?>
 
 	                            	checked
 
@@ -973,7 +977,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="instructions" value="1" <?php if (isset($data) && $data->instructions == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="instructions" value="1" <?php if (isset($data) && $data->instructions == 1): ?>
 
 	                            	checked
 
@@ -993,7 +997,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="meet" value="1" <?php if (isset($data) && $data->meet == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="meet" value="1" <?php if (isset($data) && $data->meet == 1): ?>
 
 	                            	checked
 
@@ -1013,7 +1017,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="email" value="1" <?php if (isset($data) && $data->email == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="email" value="1" <?php if (isset($data) && $data->email == 1): ?>
 
 	                            	checked
 
@@ -1033,7 +1037,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="telephone" value="1" <?php if (isset($data) && $data->telephone == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="telephone" value="1" <?php if (isset($data) && $data->telephone == 1): ?>
 
 	                            	checked
 
@@ -1053,7 +1057,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="report" value="1" <?php if (isset($data) && $data->report == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="report" value="1" <?php if (isset($data) && $data->report == 1): ?>
 
 	                            	checked
 
@@ -1073,7 +1077,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="speak_client" value="1" <?php if (isset($data) && $data->speak_client == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="speak_client" value="1" <?php if (isset($data) && $data->speak_client == 1): ?>
 
 	                            	checked
 
@@ -1093,7 +1097,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="contact_colleague" value="1" <?php if (isset($data) && $data->contact_colleague == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="contact_colleague" value="1" <?php if (isset($data) && $data->contact_colleague == 1): ?>
 
 	                            	checked
 
@@ -1113,7 +1117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="work_paper" value="1" <?php if (isset($data) && $data->work_paper == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="work_paper" value="1" <?php if (isset($data) && $data->work_paper == 1): ?>
 
 	                            	checked
 
@@ -1133,7 +1137,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="short_report" value="1" <?php if (isset($data) && $data->short_report == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" name="short_report" value="1" <?php if (isset($data) && $data->short_report == 1): ?>
 
 	                            	checked
 
@@ -1153,7 +1157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->another_report != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_7" data-input_to_toggle='[name="another_report"]' <?php if (isset($data) && $data->another_report != ""): ?>
 
 	                            	checked
 
@@ -1169,7 +1173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="another_report"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_report" value="<?= isset($data) ? $data->another_report : ''; ?>"></labelfor>
+	                            <labelfor="another_report"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_report" value="<?= isset($data) ? $data->another_report : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -1185,7 +1189,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio" name="can_good" value="1" <?php if (isset($data) && $data->can_good == 1): ?>
+	                                    <input class="w3-radio" type="radio" required name="can_good" value="1" <?php if (isset($data) && $data->can_good == 1): ?>
 
 	                                    	checked
 
@@ -1197,7 +1201,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <p>
 
-	                                    <input class="w3-radio" type="radio"  name="can_good" value="0" <?php if (isset($data) && $data->can_good == 0): ?>
+	                                    <input class="w3-radio" type="radio" required  name="can_good" value="0" <?php if (isset($data) && $data->can_good == 0): ?>
 
 	                                    	checked
 
@@ -1217,7 +1221,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </div>
 
-	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt8">
+	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt8">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -1230,7 +1234,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <label class="quline_text w3-mobile" name="text101">
+	                        <label class="quline_text w3-mobile section_header" name="text101">
 
 	                        [[text174:text]]
 
@@ -1244,7 +1248,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->language_trajectory != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_8" data-input_to_toggle='[name="language_trajectory"]' <?php if (isset($data) && $data->language_trajectory != ""): ?>
 
 	                            	checked
 
@@ -1260,7 +1264,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="language_trajectory"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="language_trajectory" value="<?= isset($data) ? $data->language_trajectory : ''; ?>"></labelfor>
+	                            <labelfor="language_trajectory"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="language_trajectory" value="<?= isset($data) ? $data->language_trajectory : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -1268,7 +1272,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->work_language_trajectory != ""): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_8" data-input_to_toggle='[name="work_language_trajectory"]' <?php if (isset($data) && $data->work_language_trajectory != ""): ?>
 
 	                            	checked
 
@@ -1292,7 +1296,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <br>
 
-	                            <labelfor="work_language_trajectory"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="work_language_trajectory" value="<?= isset($data) ? $data->work_language_trajectory : ''; ?>"></labelfor>
+	                            <labelfor="work_language_trajectory"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="work_language_trajectory" value="<?= isset($data) ? $data->work_language_trajectory : ''; ?>" readonly></labelfor>
 
 	                        </div>
 
@@ -1300,7 +1304,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="study_lang" value="1" <?php if (isset($data) && $data->study_lang == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_8" data-input_to_toggle='[name="study_lang_type"],[name="study_lang_where"],[name="study_lang_when"]' name="study_lang" value="1" <?php if (isset($data) && $data->study_lang == 1): ?>
 
 	                            	checked
 
@@ -1328,7 +1332,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="col-sm-8">
 
-	                                    <labelfor="study_lang_type"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="study_lang_type" maxlength="100" value="<?= isset($data) ? $data->study_lang_type : ''; ?>"></labelfor>
+	                                    <labelfor="study_lang_type"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="study_lang_type" maxlength="100" value="<?= isset($data) ? $data->study_lang_type : ''; ?>" readonly></labelfor>
 
 	                                </div>
 
@@ -1348,7 +1352,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="col-sm-8">
 
-	                                    <labelfor="study_lang_where"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="study_lang_where" maxlength="100" value="<?= isset($data) ? $data->study_lang_where : ''; ?>"></labelfor>
+	                                    <labelfor="study_lang_where"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="study_lang_where" maxlength="100" value="<?= isset($data) ? $data->study_lang_where : ''; ?>" readonly></labelfor>
 
 	                                </div>
 
@@ -1368,7 +1372,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="col-sm-8">
 
-	                                    <labelfor="study_lang_when"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="study_lang_when" maxlength="100" value="<?= isset($data) ? $data->study_lang_when : ''; ?>"></labelfor>
+	                                    <labelfor="study_lang_when"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="study_lang_when" maxlength="100" value="<?= isset($data) ? $data->study_lang_when : ''; ?>" readonly></labelfor>
 
 	                                </div>
 
@@ -1380,7 +1384,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label>
 
-	                            <input class="w3-check" type="checkbox" name="study_lang_no" value="1" <?php if (isset($data) && $data->study_lang_no == 1): ?>
+	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_8" name="study_lang_no" value="1" <?php if (isset($data) && $data->study_lang_no == 1): ?>
 
 	                            	checked
 

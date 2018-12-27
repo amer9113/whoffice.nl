@@ -203,7 +203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <br>
 
-                                <labelfor="sectors"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="sectors" value="<?= isset($data) ? $data->sectors : ''; ?>" disabled></labelfor>
+                                <labelfor="sectors"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="sectors" value="<?= isset($data) ? $data->sectors : ''; ?>" readonly></labelfor>
 
                             </div>
 
@@ -227,7 +227,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <br>
 
-                                <labelfor="one_sector"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="one_sector" maxlength="255" value="<?= isset($data) ? $data->one_sector : ''; ?>" disabled></labelfor>
+                                <labelfor="one_sector"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="one_sector" maxlength="255" value="<?= isset($data) ? $data->one_sector : ''; ?>" readonly></labelfor>
 
                             </div>
 
@@ -288,7 +288,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <label class="btn btn-default btn-file w3-teal w3-text-white" name="quline3_text3">
 
-                                        Kies document <input name="certificate_file" disabled type="file" style="display: none;">
+                                        Kies document <input name="certificate_file" type="file" style="display: none;" <?php if (!(isset($data) && $data->have_certificate == 1)): ?>
+                                                disabled
+                                            <?php endif ?>>
 
                                         </label>
 
@@ -345,7 +347,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <label class="btn btn-default btn-file w3-teal w3-text-white">
 
-                                        Kies document <input name="another_certificate_file" disabled type="file" style="display: none;">
+                                        Kies document <input name="another_certificate_file" type="file" style="display: none;" <?php if (!(isset($data) && $data->another_certificate == 1)): ?>
+                                                disabled
+                                            <?php endif ?>>
 
                                         </label>
 
@@ -413,7 +417,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 </label>
 
-                                <labelfor="ion_certificate_name"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="ion_certificate_name" disabled>
+                                <labelfor="ion_certificate_name"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="ion_certificate_name" readonly value="<?= isset($data) ? $data->ion_certificate_name : ''; ?>">
 
                                 </labelfor>
 
@@ -427,7 +431,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <label class="btn btn-default btn-file w3-teal w3-text-white">
 
-                                        Kies document <input name="ion_certificate_file" disabled type="file" style="display: none;">
+                                        Kies document <input name="ion_certificate_file" type="file" style="display: none;" <?php if (!(isset($data) && $data->ion_certificate == 1)): ?>
+                                                disabled
+                                            <?php endif ?>>
 
                                         </label>
 
@@ -501,7 +507,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <br>
 
-                                <labelfor="reason_no_certificate"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="reason_no_certificate" disabled value="<?= isset($data) ? $data->reason_no_certificate : ''; ?>"></labelfor>
+                                <labelfor="reason_no_certificate"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="reason_no_certificate" readonly value="<?= isset($data) ? $data->reason_no_certificate : ''; ?>"></labelfor>
 
                             </div>
 
@@ -555,7 +561,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <label class="btn btn-default btn-file w3-teal w3-text-white">
 
-                                        Kies document <input name="experience_certificate_file" disabled type="file" style="display: none;">
+                                        Kies document <input name="experience_certificate_file" type="file" style="display: none;" <?php if (isset($data) && $data->experience_certificate == 1): ?>
+                                                disabled
+                                            <?php endif ?>>
 
                                         </label>
 
@@ -605,7 +613,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <br>
 
-                                <labelfor="reason_no_experience"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="reason_no_experience" disabled value="<?= isset($data) ? $data->reason_no_experience : ''; ?>"></labelfor>
+                                <labelfor="reason_no_experience"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="reason_no_experience" readonly value="<?= isset($data) ? $data->reason_no_experience : ''; ?>"></labelfor>
 
                             </div>
 

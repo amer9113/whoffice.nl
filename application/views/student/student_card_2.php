@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		                <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 
-		                    <labelfor="tasks"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="textarea" name="tasks" required value="<?= isset($data) ? $data->tasks : ''; ?>"></labelfor>
+		                    <labelfor="tasks"><input type="text" class="w3-input w3-animate-input w3-border w3-hover-border-red" type="textarea" name="tasks" required value="<?= isset($data) ? $data->tasks : ''; ?>"></labelfor>
 
 		                </div>
 
@@ -348,7 +348,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		                        <label>
 
-		                        <input class="w3-check" type="checkbox" data-input_to_toggle='[name="work_condetions"]' <?php if (isset($data) && $data->work_condetions != ""): ?>
+		                        <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_2" data-input_to_toggle='[name="work_condetions"]' <?php if (isset($data) && $data->work_condetions != ""): ?>
 
 		    						checked
 
@@ -364,7 +364,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		                        <br>
 
-		                        <labelfor="work_condetions"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="work_condetions" value="<?= isset($data) ? $data->work_condetions : ''; ?>" disabled></labelfor>
+		                        <labelfor="work_condetions"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="work_condetions" value="<?= isset($data) ? $data->work_condetions : ''; ?>" readonly></labelfor>
 
 		                    </div>
 
@@ -541,7 +541,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		                        <br>
 
-		                        <labelfor="other_requirements"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="other_requirements" value="<?= isset($data) ? $data->other_requirements : ''; ?>" disabled></labelfor>
+		                        <labelfor="other_requirements"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="other_requirements" value="<?= isset($data) ? $data->other_requirements : ''; ?>" readonly></labelfor>
 
 		                    </div>
 
@@ -603,7 +603,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		                        <br>
 
-		                        <labelfor="another_special_requirements"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_special_requirements" value="<?= isset($data) ? $data->another_special_requirements : ''; ?>" disabled></labelfor>
+		                        <labelfor="another_special_requirements"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="another_special_requirements" value="<?= isset($data) ? $data->another_special_requirements : ''; ?>" readonly></labelfor>
 
 		                    </div>
 
@@ -756,7 +756,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		                        <br>
 
-		                        <labelfor="other_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="other_circumstance" value="<?= isset($data) ? $data->other_circumstance : ''; ?>" disabled></labelfor>
+		                        <labelfor="other_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="other_circumstance" value="<?= isset($data) ? $data->other_circumstance : ''; ?>" readonly></labelfor>
 
 		                        <label class="quline_text w3-mobile" name="text67">
 
@@ -786,7 +786,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		                        <br>
 
-		                        <labelfor="yes_change_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="yes_change_circumstance" value="<?= isset($data) ? $data->yes_change_circumstance : ''; ?>" disabled></labelfor>
+		                        <labelfor="yes_change_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="yes_change_circumstance" value="<?= isset($data) ? $data->yes_change_circumstance : ''; ?>" readonly></labelfor>
 
 		                    </div>
 
@@ -810,7 +810,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		                        <br>
 
-		                        <labelfor="no_change_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="no_change_circumstance" value="<?= isset($data) ? $data->no_change_circumstance : ''; ?>" disabled></labelfor>
+		                        <labelfor="no_change_circumstance"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text"  name="no_change_circumstance" value="<?= isset($data) ? $data->no_change_circumstance : ''; ?>" readonly></labelfor>
 
 		                    </div>
 

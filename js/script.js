@@ -66,16 +66,23 @@ $(document).ready(function(){
     });
 
 
-    $('input[type="checkbox"][data-input_to_toggle]').click(function(){
+    $('input[data-input_to_toggle],input[data-checkbox_to_revers]').click(function(){
     	if ($(this).is(':checked')) {
             var inputs_to_toggle = $(this).attr('data-input_to_toggle');
-            var inputs_array = inputs_to_toggle.split(",");
-            $(inputs_array).each(function(key,input){
-                $(input).prop('disabled',false).prop('required',true);
-                if (key == 0 && canFocus($(input))) {
-                    $(input).focus();
-                }
-            });
+            if (typeof inputs_to_toggle != "undefined") {
+                var inputs_array = inputs_to_toggle.split(",");
+                $(inputs_array).each(function(key,input){
+                    if ($(input).attr('type') == 'file') {
+                        $(input).prop('disabled',false).prop('required',true);
+                    } else {
+                        $(input).prop('readonly',false).prop('required',true);
+                    }
+                        
+                    if (key == 0 && canFocus($(input))) {
+                        $(input).focus();
+                    }
+                });
+            }
 
             var checkboxs_to_revers = $(this).attr('data-checkbox_to_revers');
             if(typeof checkboxs_to_revers != 'undefined'){
@@ -92,14 +99,33 @@ $(document).ready(function(){
         }
     });
 
-    $('input[type="checkbox"][data-input_to_toggle]').change(function(){
+    $('input[data-input_to_toggle],input[data-checkbox_to_revers]').change(function(){
     	if (!$(this).is(':checked')) {
             var inputs_to_toggle = $(this).attr('data-input_to_toggle');
-            var inputs_array = inputs_to_toggle.split(",");
-            $(inputs_array).each(function(key,input){
-                $(input).prop('disabled',true).prop('required',false).val("");
-            });
+            if (typeof inputs_to_toggle != "undefined") {
+                var inputs_array = inputs_to_toggle.split(",");
+                $(inputs_array).each(function(key,input){
+                    if ($(input).attr('type') == 'file') {
+                        $(input).prop('disabled',true).prop('required',false).val("");
+                    } else {
+                        $(input).prop('readonly',true).prop('required',false).val("");
+                    }
+                });
+            }
 
+        }else{
+            var inputs_to_toggle = $(this).attr('data-input_to_toggle');
+            if (typeof inputs_to_toggle != "undefined") {
+                var inputs_array = inputs_to_toggle.split(",");
+                $(inputs_array).each(function(key,input){
+                    if ($($(input)[0]).attr('type') != "file") {
+                        $(input).prop('readonly',false).prop('required',true);
+                        if (key == 0 && canFocus($(input))) {
+                            $(input).focus();
+                        }
+                    }
+                });
+            }
         }
     });
 
@@ -116,6 +142,7 @@ $(document).ready(function(){
                 }
             }
         });
+
         $(form).find('textarea').each(function(key,value){
             if(!$(form).find('textarea')[key].checkValidity()){
                 var input = $(form).find('input')[key];
@@ -137,9 +164,9 @@ $(document).ready(function(){
             }
         });
 
-        $(form).find('input[type="checkbox"][data-checkbox_mandatory_group]').each(function(key,row){
+        $(form).find('input[data-checkbox_mandatory_group]').each(function(key,row){
             var checkbox_group = $(row).attr('data-checkbox_mandatory_group');
-            var checkbox_group_selected_count = $('input[type="checkbox"][data-checkbox_mandatory_group="'+checkbox_group+'"]:checked').length;
+            var checkbox_group_selected_count = $('input[data-checkbox_mandatory_group="'+checkbox_group+'"]:checked').length;
 
             if (checkbox_group_selected_count == 0) {
 
@@ -151,7 +178,42 @@ $(document).ready(function(){
         });
         
         $(form).submit();
-    	
     });
+
+    $('form.manual_validation input[type="file"]').change(function(){
+        var input = $(this);
+        var countFiles = input.prop('files').length;
+        if (countFiles == 0) {
+            _error("No files to upload.");
+        }
+
+        if (countFiles > 1) {
+            alert("Only one file allowed to upload.");
+            input.val("");
+            _error("Only one file allowed.");
+        }
+
+        var allowed_exts = ['jpg','png','jpeg','bmp','pdf','doc','docx'];
+        var extn = "";
+
+        var file = input.prop('files')[0];
+        extn = file.name.substring(file.name.lastIndexOf('.') + 1).toLowerCase();
+
+        if (!allowed_exts.includes(extn)) {
+            alert('The file ' + file.name + ' ' + 'is not allowed to upload, You can upload one of these types : jpg, png, jpeg, bmp, pdf, doc or docx');
+            input.val("");
+            _error("Forbidden file extension.");
+        }
+
+        var size = file.size/1024;
+            if (size > 1024) {
+                alert('The file ' + file.name + ' ' +'is bigger than 1MB, You can only upload files up to 1MB.');
+                input.val("");
+                _error("File size restriction.");
+            }
+
+    });
+
+    $('input[data-input_to_toggle]').change();
 
 });
