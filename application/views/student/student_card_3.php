@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <?php require(dirname(__FILE__) . '/student_card_response_messages.inc.php') ?>
 
-        <form method="POST">
+        <form method="POST" class="manual_validation">
 
         	<div class="w3-container w3-block w3-mobile" id="cnt_form">
 
@@ -161,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="divstyle">
 
-	                                <input class="w3-radio" type="radio" name="have_properties_1" value="1" <?php if (isset($data) && $data->have_properties_1 == 1): ?>
+	                                <input class="w3-radio" type="radio" name="have_properties_1" required value="1" <?php if (isset($data) && $data->have_properties_1 == 1): ?>
 
 			    						checked
 
@@ -169,7 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label class="quline_text w3-mobile" name="text7">[[text64:text]]</label>
 
-	                                <input class="w3-radio" type="radio"  name="have_properties_1" value="0" <?php if (isset($data) && $data->have_properties_1 == 0): ?>
+	                                <input class="w3-radio" type="radio"  name="have_properties_1" required value="0" <?php if (isset($data) && $data->have_properties_1 == 0): ?>
 
 		    						checked
 
@@ -183,7 +183,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="divstyle">
 
-	                                <input class="w3-radio" type="radio" name="have_properties_2" value="1" <?php if (isset($data) && $data->have_properties_2 == 1): ?>
+	                                <input class="w3-radio" type="radio" name="have_properties_2" required value="1" <?php if (isset($data) && $data->have_properties_2 == 1): ?>
 
 			    						checked
 
@@ -191,7 +191,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label class="quline_text w3-mobile" name="text9">[[text66:text]]</label>
 
-	                                <input class="w3-radio" type="radio"  name="have_properties_2" value="0" <?php if (isset($data) && $data->have_properties_2 == 0): ?>
+	                                <input class="w3-radio" type="radio"  name="have_properties_2" required value="0" <?php if (isset($data) && $data->have_properties_2 == 0): ?>
 
 			    						checked
 
@@ -205,7 +205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="divstyle">
 
-	                                <input class="w3-radio" type="radio" name="have_properties_7" value="1" <?php if (isset($data) && $data->have_properties_7 == 1): ?>
+	                                <input class="w3-radio" type="radio" name="have_properties_7" required value="1" <?php if (isset($data) && $data->have_properties_7 == 1): ?>
 
 			    						checked
 
@@ -213,7 +213,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label class="quline_text w3-mobile" name="text9">[[text66:text]]</label>
 
-	                                <input class="w3-radio" type="radio"  name="have_properties_7" value="0" <?php if (isset($data) && $data->have_properties_7 == 0): ?>
+	                                <input class="w3-radio" type="radio"  name="have_properties_7" required value="0" <?php if (isset($data) && $data->have_properties_7 == 0): ?>
 
 			    						checked
 
@@ -278,7 +278,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="w3-cell w3-mobile">
 
-	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_3" maxlength="255" value="<?= isset($data) ? $data->properties_3 : ''; ?>">
+	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_3" maxlength="255" value="<?= isset($data) ? $data->properties_3 : ''; ?>" required>
 
 	                                </div>
 
@@ -294,7 +294,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="w3-cell w3-mobile">
 
-	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_4" maxlength="255" value="<?= isset($data) ? $data->properties_4 : ''; ?>">
+	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_4" maxlength="255" value="<?= isset($data) ? $data->properties_4 : ''; ?>" required>
 
 	                                </div>
 
@@ -310,7 +310,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="w3-cell w3-mobile">
 
-	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_5" maxlength="255" value="<?= isset($data) ? $data->properties_5 : ''; ?>">
+	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_5" maxlength="255" value="<?= isset($data) ? $data->properties_5 : ''; ?>" required>
 
 	                                </div>
 
@@ -326,7 +326,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="w3-cell w3-mobile">
 
-	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_6" maxlength="255" value="<?= isset($data) ? $data->properties_6 : ''; ?>">
+	                                    <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="properties_6" maxlength="255" value="<?= isset($data) ? $data->properties_6 : ''; ?>" required>
 
 	                                </div>
 
@@ -356,25 +356,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="w3-cell-row w3-block w3-mobile" id="ans1line_m_4">
 
-	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_3" maxlength="255" value="<?= isset($data) ? $data->why_properties_3 : ''; ?>">
+	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_3" maxlength="255" value="<?= isset($data) ? $data->why_properties_3 : ''; ?>" required>
 
 	                            </div>
 
 	                            <div class="w3-cell-row w3-block w3-mobile" id="ans1line_m_5">          
 
-	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_4" maxlength="255" value="<?= isset($data) ? $data->why_properties_4 : ''; ?>">
+	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_4" maxlength="255" value="<?= isset($data) ? $data->why_properties_4 : ''; ?>" required>
 
 	                            </div>
 
 	                            <div class="w3-cell-row w3-block w3-mobile" id="ans1line_m_6">
 
-	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_5" maxlength="255" value="<?= isset($data) ? $data->why_properties_5 : ''; ?>">
+	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_5" maxlength="255" value="<?= isset($data) ? $data->why_properties_5 : ''; ?>" required>
 
 	                            </div>
 
 	                            <div class="w3-cell-row w3-block w3-mobile" id="ans1line_m_7">
 
-	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_6" maxlength="255" value="<?= isset($data) ? $data->why_properties_6 : ''; ?>">
+	                                <input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="why_properties_6" maxlength="255" value="<?= isset($data) ? $data->why_properties_6 : ''; ?>" required>
 
 	                            </div>
 
@@ -394,7 +394,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="divstyle">
 
-	                                <input class="w3-radio" type="radio" name="have_properties_3" value="1" <?php if (isset($data) && $data->have_properties_3 == 1): ?>
+	                                <input class="w3-radio" type="radio" name="have_properties_3" required value="1" <?php if (isset($data) && $data->have_properties_3 == 1): ?>
 
 			    						checked
 
@@ -402,7 +402,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label class="quline_text w3-mobile" name=" text19">[[text73:text]]</label>
 
-	                                <input class="w3-radio" type="radio"  name="have_properties_3" value="0" <?php if (isset($data) && $data->have_properties_3 == 0): ?>
+	                                <input class="w3-radio" type="radio"  name="have_properties_3" required value="0" <?php if (isset($data) && $data->have_properties_3 == 0): ?>
 
 			    						checked
 
@@ -416,7 +416,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="divstyle">
 
-	                                <input class="w3-radio" type="radio" name="have_properties_4" value="1" <?php if (isset($data) && $data->have_properties_4 == 1): ?>
+	                                <input class="w3-radio" type="radio" name="have_properties_4" required value="1" <?php if (isset($data) && $data->have_properties_4 == 1): ?>
 
 			    						checked
 
@@ -424,7 +424,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label class="quline_text w3-mobile" name=" text21">[[text75:text]]</label>
 
-	                                <input class="w3-radio" type="radio"  name="have_properties_4" value="0" <?php if (isset($data) && $data->have_properties_4 == 0): ?>
+	                                <input class="w3-radio" type="radio"  name="have_properties_4" required value="0" <?php if (isset($data) && $data->have_properties_4 == 0): ?>
 
 			    						checked
 
@@ -438,7 +438,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="divstyle">
 
-	                                <input class="w3-radio" type="radio" name="have_properties_5" value="1" <?php if (isset($data) && $data->have_properties_5 == 1): ?>
+	                                <input class="w3-radio" type="radio" name="have_properties_5" required value="1" <?php if (isset($data) && $data->have_properties_5 == 1): ?>
 
 			    						checked
 
@@ -446,7 +446,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label class="quline_text w3-mobile" name=" text23">[[text77:text]]</label>
 
-	                                <input class="w3-radio" type="radio"  name="have_properties_5" value="0" <?php if (isset($data) && $data->have_properties_5 == 0): ?>
+	                                <input class="w3-radio" type="radio"  name="have_properties_5" required value="0" <?php if (isset($data) && $data->have_properties_5 == 0): ?>
 
 			    						checked
 
@@ -460,7 +460,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <div class="divstyle">
 
-	                                <input class="w3-radio" type="radio" name="have_properties_6" value="1" <?php if (isset($data) && $data->have_properties_6 == 1): ?>
+	                                <input class="w3-radio" type="radio" name="have_properties_6" required value="1" <?php if (isset($data) && $data->have_properties_6 == 1): ?>
 
 			    						checked
 
@@ -468,7 +468,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <label class="quline_text w3-mobile" name=" text25">[[text79:text]]</label>
 
-	                                <input class="w3-radio" type="radio"  name="have_properties_6" value="0" <?php if (isset($data) && $data->have_properties_6 == 0): ?>
+	                                <input class="w3-radio" type="radio"  name="have_properties_6" required value="0" <?php if (isset($data) && $data->have_properties_6 == 0): ?>
 
 			    						checked
 

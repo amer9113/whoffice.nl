@@ -48,11 +48,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-    	<form method="POST" enctype="multipart/form-data">
+    	<form method="POST" enctype="multipart/form-data" class="manual_validation">
 
     		<div class="w3-container w3-block w3-mobile" id="cnt_form">
 
-                <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt1">
+                <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt1">
 
                     <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" name="quline1">
 
-                            <label class="quline_text w3-mobile" name="text1">
+                            <label class="quline_text w3-mobile section_header" name="text1">
 
                             [[text1:text]]
 
@@ -140,25 +140,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           
 
                         </div>
-                    <div class="w3-cell-row w3-block w3-mobile" name="ans1line3">
-                          <div class="signsize w3-cell w3-mobile">
+                        <div class="w3-cell-row w3-block w3-mobile" name="ans1line3">
+                            <div class="signsize w3-cell w3-mobile">
 
-                                <div class="w3-container w3-cell w3-mobile"></div>
+                                <div class="w3-container w3-cell w3-mobile">-</div>
 
                             </div>
-                              <div class="w3-cell w3-mobile">
+                            <div class="w3-cell w3-mobile">
 
                                 <select class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="which_work_is_selected" required></select>
 
                             </div>
-                    </div>
+                        </div>
                       
 
                     </div>
 
                 </div>
 
-                <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt2">
+                <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt2">
 
                     <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -171,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" name="quline2">
 
-                            <label class="quline_text w3-mobile" name="text5">
+                            <label class="quline_text w3-mobile section_header" name="text5">
 
                             Het volgende antwoord past bij mijn gewenste beroep:
 
@@ -187,7 +187,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->sectors != ""): ?>
+                                <input class="w3-check" type="checkbox" id="sectors_checkbox" data-input_to_toggle='[name="sectors"]' data-checkbox_to_revers='#one_sector_checkbox' data-checkbox_mandatory_group="section_2" <?php if (isset($data) && $data->sectors != ""): ?>
 
     								checked
 
@@ -203,7 +203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <br>
 
-                                <labelfor="sectors"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="sectors" required value="<?= isset($data) ? $data->sectors : ''; ?>"></labelfor>
+                                <labelfor="sectors"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="sectors" value="<?= isset($data) ? $data->sectors : ''; ?>" disabled></labelfor>
 
                             </div>
 
@@ -211,7 +211,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->one_sector != ""): ?>
+                                <input class="w3-check" type="checkbox" id="one_sector_checkbox" data-input_to_toggle='[name="one_sector"]' data-checkbox_to_revers='#sectors_checkbox' data-checkbox_mandatory_group="section_2" <?php if (isset($data) && $data->one_sector != ""): ?>
 
     								checked
 
@@ -227,7 +227,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <br>
 
-                                <labelfor="one_sector"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="one_sector" required maxlength="255" value="<?= isset($data) ? $data->one_sector : ''; ?>"></labelfor>
+                                <labelfor="one_sector"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="one_sector" maxlength="255" value="<?= isset($data) ? $data->one_sector : ''; ?>" disabled></labelfor>
 
                             </div>
 
@@ -237,7 +237,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 </div>
 
-                <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile" id="cnt3">
+                <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt3">
 
                     <div class="rightsign w3-container w3-cell w3-mobile">
 
@@ -250,7 +250,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" name="quline3">
 
-                            <label class="quline_text w3-mobile" name="text11">
+                            <label class="quline_text w3-mobile section_header" name="text11">
 
                             De volgende situatise passen bij mij :
 
@@ -264,11 +264,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" name="have_certificate" value="1" <?php if (isset($data) && $data->have_certificate == 1): ?>
+                                <input class="w3-check" type="checkbox" name="have_certificate" data-checkbox_mandatory_group="section_3" data-input_to_toggle='[name="certificate_file"]' value="1" <?php if (isset($data) && $data->have_certificate == 1): ?>
 
-    								checked
+                                    checked
 
-    							<?php endif ?>> 
+                                <?php endif ?>> 
 
                                 <label class="quline_text w3-mobile" name="text13">
 
@@ -288,15 +288,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <label class="btn btn-default btn-file w3-teal w3-text-white" name="quline3_text3">
 
-                                        Kies document <input name="certificate_file" type="file" style="display: none;">
+                                        Kies document <input name="certificate_file" disabled type="file" style="display: none;">
 
                                         </label>
 
                                         <?php if (isset($data) && $data->have_certificate == 1): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->certificate_name; ?>" target="_blank">View uploaded file</a>
+                                            <a href="<?= base_url().'ext/student_documents/'.$data->certificate_name; ?>" target="_blank">View uploaded file</a>
 
-    									<?php endif ?>
+                                        <?php endif ?>
 
                                     </div>
 
@@ -321,11 +321,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" name="another_certificate" value="1" <?php if (isset($data) && $data->another_certificate == 1): ?>
+                                <input class="w3-check" type="checkbox" name="another_certificate" value="1" data-checkbox_mandatory_group="section_3" data-input_to_toggle='[name="another_certificate_file"]' <?php if (isset($data) && $data->another_certificate == 1): ?>
 
-    								checked
+                                    checked
 
-    							<?php endif ?>> 
+                                <?php endif ?>> 
 
                                 <label class="quline_text w3-mobile" name="text17">
 
@@ -345,15 +345,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <label class="btn btn-default btn-file w3-teal w3-text-white">
 
-                                        Kies document <input name="another_certificate_file" type="file" style="display: none;">
+                                        Kies document <input name="another_certificate_file" disabled type="file" style="display: none;">
 
                                         </label>
 
-                                    	<?php if (isset($data) && $data->another_certificate == 1): ?>
+                                        <?php if (isset($data) && $data->another_certificate == 1): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->another_certificate_name; ?>" target="_blank">View uploaded file</a>
+                                            <a href="<?= base_url().'ext/student_documents/'.$data->another_certificate_name; ?>" target="_blank">View uploaded file</a>
 
-    									<?php endif ?>
+                                        <?php endif ?>
 
                                     </div>
 
@@ -375,11 +375,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" name="have_certificate_cannot_view" value="1" <?php if (isset($data) && $data->have_certificate_cannot_view == 1): ?>
+                                <input class="w3-check" type="checkbox" name="have_certificate_cannot_view" data-checkbox_mandatory_group="section_3" value="1" <?php if (isset($data) && $data->have_certificate_cannot_view == 1): ?>
 
-    								checked
+                                    checked
 
-    							<?php endif ?>>
+                                <?php endif ?>>
 
                                 <label class="quline_text w3-mobile" name="text21">
 
@@ -397,11 +397,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" name="ion_certificate" value="1" <?php if (isset($data) && $data->ion_certificate == 1): ?>
+                                <input class="w3-check" type="checkbox" name="ion_certificate" data-checkbox_mandatory_group="section_3" data-input_to_toggle='[name="ion_certificate_name"],[name="ion_certificate_file"]' value="1" <?php if (isset($data) && $data->ion_certificate == 1): ?>
 
-    								checked
+                                    checked
 
-    							<?php endif ?>> 
+                                <?php endif ?>> 
 
                                 <label class="quline_text w3-mobile" name="text23">
 
@@ -413,7 +413,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 </label>
 
-                                <labelfor="ion_certificate_name"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="ion_certificate_name">
+                                <labelfor="ion_certificate_name"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="ion_certificate_name" disabled>
 
                                 </labelfor>
 
@@ -427,15 +427,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <label class="btn btn-default btn-file w3-teal w3-text-white">
 
-                                        Kies document <input name="ion_certificate_file" type="file" style="display: none;">
+                                        Kies document <input name="ion_certificate_file" disabled type="file" style="display: none;">
 
                                         </label>
 
-                                    	<?php if (isset($data) && $data->ion_certificate == 1): ?>
+                                        <?php if (isset($data) && $data->ion_certificate == 1): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->ion_certificate_file; ?>" target="_blank">View uploaded file</a>
+                                            <a href="<?= base_url().'ext/student_documents/'.$data->ion_certificate_file; ?>" target="_blank">View uploaded file</a>
 
-    									<?php endif ?>
+                                        <?php endif ?>
 
                                     </div>
 
@@ -461,11 +461,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" name="work_with_certificate" value="1" <?php if (isset($data) && $data->work_with_certificate == 1): ?>
+                                <input class="w3-check" type="checkbox" name="work_with_certificate" data-checkbox_mandatory_group="section_3" value="1" <?php if (isset($data) && $data->work_with_certificate == 1): ?>
 
-    								checked
+                                    checked
 
-    							<?php endif ?>>
+                                <?php endif ?>>
 
                                 <label class="quline_text w3-mobile" name="text27">
 
@@ -483,9 +483,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" id="" <?php if (isset($data) && $data->reason_no_certificate != ""): ?>
+                                <input class="w3-check" type="checkbox" data-input_to_toggle='[name="reason_no_certificate"]' data-checkbox_mandatory_group="section_3" id="" <?php if (isset($data) && $data->reason_no_certificate != ""): ?>
 
-                                	checked
+                                    checked
 
                                 <?php endif ?>> 
 
@@ -501,7 +501,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <br>
 
-                                <labelfor="reason_no_certificate"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="reason_no_certificate" value="<?= isset($data) ? $data->reason_no_certificate : ''; ?>"></labelfor>
+                                <labelfor="reason_no_certificate"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="reason_no_certificate" disabled value="<?= isset($data) ? $data->reason_no_certificate : ''; ?>"></labelfor>
 
                             </div>
 
@@ -509,11 +509,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" name="experience" value="1" <?php if (isset($data) && $data->experience == 1): ?>
+                                <input class="w3-check" type="checkbox" name="experience" data-checkbox_mandatory_group="section_3" value="1" <?php if (isset($data) && $data->experience == 1): ?>
 
-    								checked
+                                    checked
 
-    							<?php endif ?>> 
+                                <?php endif ?>> 
 
                                 <label class="quline_text w3-mobile" name="text31">
 
@@ -531,9 +531,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" name="experience_certificate" value="1" <?php if (isset($data) && $data->experience_certificate == 1): ?>
+                                <input class="w3-check" type="checkbox" name="experience_certificate" data-input_to_toggle='[name="experience_certificate_file"]' data-checkbox_mandatory_group="section_3" value="1" <?php if (isset($data) && $data->experience_certificate == 1): ?>
 
-                                	checked
+                                    checked
 
                                 <?php endif ?>> 
 
@@ -555,15 +555,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <label class="btn btn-default btn-file w3-teal w3-text-white">
 
-                                        Kies document <input name="experience_certificate_file" type="file" style="display: none;">
+                                        Kies document <input name="experience_certificate_file" disabled type="file" style="display: none;">
 
                                         </label>
 
-                                    	<?php if (isset($data) && $data->experience_certificate == 1): ?>
+                                        <?php if (isset($data) && $data->experience_certificate == 1): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->experience_certificate_file; ?>" target="_blank">View uploaded file</a>
+                                            <a href="<?= base_url().'ext/student_documents/'.$data->experience_certificate_file; ?>" target="_blank">View uploaded file</a>
 
-    									<?php endif ?>
+                                        <?php endif ?>
 
                                     </div>
 
@@ -587,9 +587,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" <?php if (isset($data) && $data->reason_no_experience != ""): ?>
+                                <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_3" data-input_to_toggle='[name="reason_no_experience"]' <?php if (isset($data) && $data->reason_no_experience != ""): ?>
 
-                                	checked
+                                    checked
 
                                 <?php endif ?>> 
 
@@ -605,7 +605,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <br>
 
-                                <labelfor="reason_no_experience"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="reason_no_experience" value="<?= isset($data) ? $data->reason_no_experience : ''; ?>"></labelfor>
+                                <labelfor="reason_no_experience"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="text" name="reason_no_experience" disabled value="<?= isset($data) ? $data->reason_no_experience : ''; ?>"></labelfor>
 
                             </div>
 
@@ -613,11 +613,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <label>
 
-                                <input class="w3-check" type="checkbox" name="no_experience_certificate" value="1" <?php if (isset($data) && $data->no_experience_certificate == 1): ?>
+                                <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_3" name="no_experience_certificate" value="1" <?php if (isset($data) && $data->no_experience_certificate == 1): ?>
 
-    								checked
+                                    checked
 
-    							<?php endif ?>> 
+                                <?php endif ?>> 
 
                                 <label class="quline_text w3-mobile" name="text39">
 
@@ -636,6 +636,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
 
                 </div>
+
+                
 
                 <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile w3-center" id="footer">
 
@@ -698,71 +700,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript">
 
     $(document).ready(function(){
-
         $('.create_which_work_select_list').change(function(){
 
             var work_1 = $('[name="work_1"]').val().trim();
-
             var work_2 = $('[name="work_2"]').val().trim();
-
             var work_3 = $('[name="work_3"]').val().trim();
-
-
 
             $('[name="which_work_is_selected"]').empty();
 
-
-
             if (work_1 != "") {
-
                 $('[name="which_work_is_selected"]').append(
-
                     $('<option value="1">').text(work_1)
-
                 );
-
             }
-
-
 
             if (work_2 != "") {
-
                 $('[name="which_work_is_selected"]').append(
-
                     $('<option value="2">').text(work_2)
-
                 );
-
             }
-
-
 
             if (work_3 != "") {
-
                 $('[name="which_work_is_selected"]').append(
-
                     $('<option value="3">').text(work_3)
-
                 );
 
             }
-
-
-
             var which_work_is_selected = <?= isset($data) ? $data->which_work_is_selected : 0; ?>;
-
-
-
             $('[name="which_work_is_selected"] option[value="'+which_work_is_selected+'"]').prop('selected',true);
-
-
-
         });
 
-
-
         $('[name="work_1"]').change();
-
     });
 
 </script>

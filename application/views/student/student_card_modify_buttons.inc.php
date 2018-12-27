@@ -10,11 +10,11 @@
 <?php else: ?>
     <?php if (isset($data)): ?>
         <?php if ($data->edit_allow == 1): ?>
-            <button type="submit" class="w3-button w3-red">Update card</button> 
+            <button type="button" class="submit w3-button w3-red">Update card</button> 
         <?php else: ?>
-            <button type="submit" class="w3-button w3-red" disabled>Update isn't allowed</button>
+            <button type="button" class="submit w3-button w3-red" disabled>Update isn't allowed</button>
         <?php endif ?>
     <?php else: ?>
-    <button type="submit" class="w3-button w3-red">Submit card</button>    
+    <button type="button" class="submit w3-button w3-red">Submit card</button>    
     <?php endif ?>
 <?php endif ?>
