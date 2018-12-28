@@ -54,21 +54,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Name</label>
-								    <input type="text" class="form-control" maxlength="255" name="name" placeholder="Name">
+								    <input type="text" class="form-control" maxlength="255" name="name" placeholder="Name" required>
 								</div>
 								<div class="form-group">
 								    <label>Text</label>
-								    <input type="text" class="form-control" name="text" placeholder="Text">
+								    <input type="text" class="form-control" name="text" placeholder="Text" required>
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group">
 								    <label>Page No.</label>
-								    <input type="number" min="1" max="8" class="form-control" name="page_nr" placeholder="Page No.">
+								    <input type="number" min="1" max="8" class="form-control" name="page_nr" placeholder="Page No." required>
 								</div>
 								<div class="form-group">
 								    <label>Arabic Text</label>
-								    <input type="text" class="form-control" name="text_ar" placeholder="Arabic Text">
+								    <input type="text" class="form-control" name="text_ar" placeholder="Arabic Text" required>
 								</div>
 							</div>	
 							<div class="col-sm-12">

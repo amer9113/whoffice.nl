@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								    <label>Name</label>
 
-								    <input type="text" class="form-control" maxlength="255" name="name" placeholder="Name" value="<?= $data->name; ?>">
+								    <input type="text" class="form-control" maxlength="255" name="name" placeholder="Name" value="<?= $data->name; ?>" required>
 
 								</div>
 
@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								    <label>Text</label>
 
-								    <input type="text" class="form-control" name="text" placeholder="Text" value="<?= $data->text; ?>">
+								    <input type="text" class="form-control" name="text" placeholder="Text" value="<?= $data->text; ?>" required>
 
 								</div>
 
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								    <label>Page No.</label>
 
-								    <input type="number" min="1" max="8" class="form-control" name="page_nr" placeholder="Page No." value="<?= $data->page_nr; ?>">
+								    <input type="number" min="1" max="8" class="form-control" name="page_nr" placeholder="Page No." value="<?= $data->page_nr; ?>" required>
 
 								</div>
 
@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								    <label>Arabic Text</label>
 
-								    <input type="text" class="form-control" name="text_ar" placeholder="Arabic Text" value="<?= $data->text_ar; ?>">
+								    <input type="text" class="form-control" name="text_ar" placeholder="Arabic Text" value="<?= $data->text_ar; ?>" required>
 
 								</div>
 
