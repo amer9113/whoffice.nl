@@ -876,5 +876,26 @@ class Teacher extends CI_Controller {
 		}
 	}
 
+	public function view_raw_card($card_no){
+		if ($card_no >= 1 && $card_no <= 8) {
+			$data = array();
+			$data['only_viewing_texts_for_teacher'] = 1;
+			$this->load->view("student/student_card_$card_no",$data);
+		}else{
+			echo "Wrong card No.";
+		}
+	}
+
+	public function view_fixed_card($card_no){
+		if ($card_no >= 1 && $card_no <= 8) {
+			$data = array();
+			$data['only_viewing_texts_for_teacher'] = 1;
+			$view = $this->load->view("student/student_card_$card_no",$data,true);
+			$this->page->fix_view_template_text($view,$card_no);
+		}else{
+			echo "Wrong card No.";
+		}
+	}
+
 }
 
