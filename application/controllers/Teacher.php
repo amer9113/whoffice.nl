@@ -880,7 +880,8 @@ class Teacher extends CI_Controller {
 		if ($card_no >= 1 && $card_no <= 8) {
 			$data = array();
 			$data['only_viewing_texts_for_teacher'] = 1;
-			$this->load->view("student/student_card_$card_no",$data);
+			$view = $this->load->view("student/student_card_$card_no",$data,true);
+			$this->page->view_raw_card($view,$card_no);
 		}else{
 			echo "Wrong card No.";
 		}
