@@ -16,7 +16,7 @@ class Database extends CI_Controller {
 		echo "Updating DB....<br>";
 		ob_end_flush();
 		flush();
-		$this->db->query('ALTER TABLE `students` ADD `sent_completion_time_email` INT NOT NULL DEFAULT '0' AFTER `student_group`');
+		$this->db->query("ALTER TABLE `students` ADD `sent_completion_time_email` INT NOT NULL DEFAULT '0' AFTER `student_group`");
 		$this->db->query("ALTER TABLE `students` CHANGE `username` `username` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL");
 		$this->db->query("ALTER TABLE `students` CHANGE `firstname` `firstname` VARCHAR(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL");
 		$this->db->query("ALTER TABLE `students` CHANGE `lastname` `lastname` VARCHAR(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL");
