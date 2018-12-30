@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	        <hr style="border:1px solid red" class="w3-round w3-hover-border-white">
 
-	        <h3 class="w3-large w3-text-teal" id="sidetext"><b>
+	        <!-- <h3 class="w3-large w3-text-teal" id="sidetext"><b>
 
 	            <span class="glyphicon glyphicon-info-sign"></span>
 
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	            </b>
 
-	        </h3>
+	        </h3> -->
 
 	    </div>
 

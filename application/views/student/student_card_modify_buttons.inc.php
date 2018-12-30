@@ -16,7 +16,10 @@
                 <button type="button" class="submit w3-button w3-red" disabled>Update isn't allowed</button>
             <?php endif ?>
         <?php else: ?>
-        <button type="button" class="submit w3-button w3-red">Submit card</button>    
+        <button type="button" class="submit w3-button w3-red">Submit card</button>
+            <?php if ($card_number == 7): ?>
+               <a class="w3-button w3-blue" href="<?= base_url().'student/employment_letter_form' ?>" target="_blank">Employment letter form</a>
+            <?php endif ?>   
         <?php endif ?>
     <?php endif ?>
     

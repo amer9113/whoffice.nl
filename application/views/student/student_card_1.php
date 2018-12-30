@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-           	<h3 class="w3-large w3-text-teal" id="sidetext">
+           	<!-- <h3 class="w3-large w3-text-teal" id="sidetext">
 
            		<b>
 
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
            		</b>
 
-           	</h3>
+           	</h3> -->
 
 		</div>
 
