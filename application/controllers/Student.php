@@ -1076,7 +1076,7 @@ class Student extends CI_Controller {
 						$data = file_get_contents($path);
 		    			$name = 'Whoffice employment letter.pdf';
 		        		force_download($name, $data);
-		        		$data['message'] = 'Done.';
+		        		redirect('student/card_7');
 					}
 
 				}else{
