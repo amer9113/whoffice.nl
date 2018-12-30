@@ -1,4 +1,4 @@
-<div class="side w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left w3-teal w3-card-4 w3-large w3-left" id="mySidebar">
+<div class="side w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left w3-red w3-text-white w3-card-4 w3-large w3-left" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
     <div class="pad w3-container w3-bottombar w3-border-white w3-hover-border-red w3-center">
         <img src="https://img.icons8.com/color/48/000000/businessman.png" id="sideicon">
