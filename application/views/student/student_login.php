@@ -36,19 +36,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <div class="container" style="width: 100%">
 
-                            	<h1>Student login</h1>
+                            	<h1>Studenten login</h1>
 
                             	<hr>
 
-                                <label for="username"><b>Username</b></label>
+                                <label for="username"><b>Gebruikersnaam</b></label>
 
-                                <input type="text" placeholder="Username" name="username" required value="<?= isset($_POST['username']) ? $_POST['username'] : ''; ?>">
+                                <input type="text" placeholder="Gebruikersnaam" name="username" required value="<?= isset($_POST['username']) ? $_POST['username'] : ''; ?>">
 
 
 
-                                <label for="password"><b>Password</b></label>
+                                <label for="password"><b>Wachtwoord</b></label>
 
-                                <input type="password" placeholder="Password" name="password" required value="<?= isset($_POST['password']) ? $_POST['password'] : ''; ?>">
+                                <input type="password" placeholder="Wachtwoord" name="password" required value="<?= isset($_POST['password']) ? $_POST['password'] : ''; ?>">
 
 
 
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-                                <button class="green" type="submit">Login</button>
+                                <button class="green" type="submit">Inloggen</button>
 
 
 

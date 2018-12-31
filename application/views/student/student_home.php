@@ -11,9 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
-	<!-- <h1 class="text-center">Welkom <strong><i><?= $acc_name; ?></i></strong></h1>
+	 <h1 class="text-center">Welkom <strong><i><?= $acc_name; ?></i></strong></h1>
 	<h4 class="text-center" style="font-weight: 600">Verstreken tijd: <?= $this->elapsed_time; ?>&nbsp;&nbsp;&nbsp;<a href="<?= base_url().'student/logout' ?>">Uitloggen</a></h4>
-	
+	<!--
 	<a href="<?= base_url().'student/lesson/1'; ?>">les 1</a><br>
 	<a href="<?= base_url().'student/card_1'; ?>">Resultaatkaart 1</a><br>
 	<a href="<?= base_url().'student/lesson/2'; ?>">les 2</a><br>
