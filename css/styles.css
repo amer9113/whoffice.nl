@@ -6,6 +6,13 @@ body,html{
     height: 100%;
     font-family: 'Cairo', sans-serif;
     background-color:  #a8a8a8;
+      -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .error_msg{
@@ -78,7 +85,7 @@ body,html{
 
 .topnav a:hover {
     background-color:#ffe8ea;
-    color: white;
+    color: black;
 }
 
 
