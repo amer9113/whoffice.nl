@@ -52,6 +52,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                <?php endif ?>
 
+	                <form class="form-inline" method="POST">
+					  	<div class="form-group">
+					  	  	<label class="sr-only">ID</label>
+					  	  	<input type="number" class="form-control" name="id" placeholder="ID" value="<?= isset($_POST['id']) ? $_POST['id'] : ''; ?>">
+					  	</div>
+					  	<div class="form-group">
+					  	  	<label class="sr-only">FirstName</label>
+					  	  	<input type="text" class="form-control" name="firstname" placeholder="FirstName" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>">
+					  	</div>
+					  	<div class="form-group">
+					  	  	<label class="sr-only">LastName</label>
+					  	  	<input type="text" class="form-control" name="lastname" placeholder="LastName" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>">
+					  	</div>
+					  	<div class="form-group">
+					  	  	<label class="sr-only">Email</label>
+					  	  	<input type="email" class="form-control" name="email" placeholder="Email" value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>">
+					  	</div>
+					  	<div class="form-group">
+					  	  	<label class="sr-only">Postcode</label>
+					  	  	<input type="text" class="form-control" name="postal_code" placeholder="Postal code" value="<?= isset($_POST['postal_code']) ? $_POST['postal_code'] : ''; ?>">
+					  	</div>
+					  	<div class="form-group">
+					  	  	<label class="sr-only">Groep</label>
+					  	  	<input type="text" class="form-control" name="group" placeholder="Groep" value="<?= isset($_POST['group']) ? $_POST['group'] : ''; ?>">
+					  	</div>
+					  	<button type="submit" class="btn btn-primary" style="margin-top: -17px;">Filter</button>
+					</form>
+
 	                <table class="table table-bordered table-striped table-hover table-condensed">
 
 						<thead>
@@ -59,6 +87,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<tr>
 
 								<th>Studenten naam </th>
+
+								<th>Password</th>
 
 								<th>Postcode</th>
 
@@ -81,6 +111,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 
 									<td><?= $student->username; ?></td>
+
+									<td><?= $student->postal_code.$student->postal_code; ?></td>
 
 									<td><?= $student->postal_code; ?></td>
 

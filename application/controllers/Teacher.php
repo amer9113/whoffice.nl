@@ -379,6 +379,40 @@ class Teacher extends CI_Controller {
 	}
 
 	public function check_students_informations(){
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$id = $this->input->post('id');
+			$firstname = $this->input->post('firstname');
+			$lastname = $this->input->post('lastname');
+			$email = $this->input->post('email');
+			$postal_code = $this->input->post('postal_code');
+			$group = $this->input->post('group');
+
+			if (isset($id) && !empty($id)) {
+				$this->db->where('id',$id);
+			}
+
+			if (isset($firstname) && !empty($firstname)) {
+				$this->db->where('firstname',$firstname);
+			}
+
+			if (isset($lastname) && !empty($lastname)) {
+				$this->db->where('lastname',$lastname);
+			}
+
+			if (isset($email) && !empty($email)) {
+				$this->db->where('email',$email);
+			}
+
+			if (isset($postal_code) && !empty($postal_code)) {
+				$this->db->where('postal_code',$postal_code);
+			}
+
+			if (isset($group) && !empty($group)) {
+				$this->db->where('student_group',$group);
+			}
+		}
+
 		$data['students'] = $this->db->get('students')->result();
 		$view = $this->load->view("teacher/students_informations",$data,true);
 		$this->page->fix_view_template_text($view);
