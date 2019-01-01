@@ -7,7 +7,7 @@ class Student extends CI_Controller {
 	var $elapsed_time = 0;
 	public function __construct(){
 		parent::__construct();
-
+		$this->load->library('session');
 		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
 
 		if (!$signed_in) {
@@ -63,6 +63,9 @@ class Student extends CI_Controller {
 
 	public function authenticate()
 	{
+		$this->session->set_userdata('acc_id',$this->acc_id);
+		$this->session->set_userdata('signed_in',true);
+		$this->session->set_userdata('acc_type','student');
 		$time = date('r');
 		echo json_encode("data: The server time is: {$time}\n\n");
 	}

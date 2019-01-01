@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		
+		$this->load->library('session');
 		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
 
 		if ($signed_in) {
@@ -81,7 +81,8 @@ class Login extends CI_Controller {
 					$this->db->set('student_id',$acc_id)->set('login_time',time())->set('last_action_time',time())->insert('student_visites');
 				}
 
-				header('Location: '.base_url().'login');
+				//header('Location: '.base_url().'login');
+				header('Location: '.base_url().$data['type']);
 			}
 			
 		}else if($query->num_rows() == 0){

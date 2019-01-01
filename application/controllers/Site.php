@@ -5,7 +5,7 @@ class Site extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-
+		$this->load->library('session');
 		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
 
 		if ($signed_in) {

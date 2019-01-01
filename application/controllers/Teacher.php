@@ -1,87 +1,38 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-
-
 class Teacher extends CI_Controller {
-
 	var $acc_id;
-
 	var $acc_name;
-
 	public function __construct(){
-
 		parent::__construct();
-
-
-
+		$this->load->library('session');
 		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
-
-
-
 		if (!$signed_in) {
-
 			redirect('login/teacher');
-
 		}else{
-
-
-
 			$acc_id = $this->session->userdata('acc_id');
-
-
-
 			$check_query = $this->db->where('id',$acc_id)->get('teachers');
-
-
-
 			if ($check_query->num_rows() == 1) {
-
-				
-
 				$account = $check_query->row();
-
-
-
 				if ($account->active == 1) {
-
 					$this->acc_id = $account->id;
-
 					$this->acc_name = $account->firstname." ".$account->lastname;
-
 					$this->load->model('Teacher_model');
-
 				}else{
-
 					$this->session->sess_destroy();
-
 					redirect('login/teacher');
-
 				}
-
 			}else{
-
 				$this->session->sess_destroy();
-
 				redirect('login/teacher');
-
 			}
-
 		}
-
 	}
 
-
-
 	public function index()
-
 	{
-
 		$view = $this->load->view("teacher/teacher_home",'',true);
-
 		$this->page->fix_view_template_text($view);
-
 	}
 
 
@@ -102,43 +53,26 @@ class Teacher extends CI_Controller {
 
 	}*/
 
-
-
 	public function authenticate()
-
 	{
-
+		$this->session->set_userdata('acc_id',$this->acc_id);
+		$this->session->set_userdata('signed_in',true);
+		$this->session->set_userdata('acc_type','teacher');
 		$time = date('r');
-
 		echo json_encode("data: The server time is: {$time}\n\n");
-
 	}
-
-
 
 	public function logout()
-
 	{
-
 		$this->session->sess_destroy();
-
 		redirect('site');
-
 	}
 
-
-
 	public function view_pages_texts(){
-
 		$data = array();
-
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			$input = $this->input->post();
-
-
-
-
 
 			$this->form_validation->set_rules('text', 'Text', 'trim|required');
 
