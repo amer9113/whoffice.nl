@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Teacher_login extends CI_Controller {
+class Admin_login extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$teacher_signed_in = $this->session->userdata('teacher_signed_in');
@@ -11,7 +11,7 @@ class Teacher_login extends CI_Controller {
 			$check_query = $this->db->where('id',$acc_id)->get('teachers');
 			if ($check_query->num_rows() == 1) {
 				if ($check_query->row()->active == 1) {
-					redirect('teacher');
+					redirect('admin');
 				}else{
 					$this->session->sess_destroy();
 				}
@@ -49,7 +49,7 @@ class Teacher_login extends CI_Controller {
 				$acc_id = $query->row()->id;
 				$this->session->set_userdata('teacher_acc_id',$acc_id);
 				$this->session->set_userdata('teacher_signed_in','true');
-				header('Location: '.base_url().'teacher');
+				header('Location: '.base_url().'admin');
 			}
 			
 		}else if($query->num_rows() == 0){

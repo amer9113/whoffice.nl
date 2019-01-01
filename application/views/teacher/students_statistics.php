@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?php else: ?>
 										<td>
 											<?php for ($i=1; $i <= $student->last_achieved_card_no; $i++) { ?> 
-												<a style="margin: 0px 3px;" target="_blank" href="<?= base_url().'teacher/check_card/'.$student->id.'/'.$i.'/0'; ?>">Card<?= $i; ?></a> 
+												<a style="margin: 0px 3px;" target="_blank" href="<?= base_url().'admin/check_card/'.$student->id.'/'.$i.'/0'; ?>">Card<?= $i; ?></a> 
 											<?php } ?>
 										</td>
 									<?php endif ?>

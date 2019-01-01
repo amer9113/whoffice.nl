@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php if ($this->session->userdata('teacher_signed_in') == 'true'): ?>
 <script type="text/javascript">
 	$(document).ready(function(){
-		setInterval(function(){$.getJSON("<?= base_url().'teacher/authenticate'; ?>",null,function(data){});}, 5000);
+		setInterval(function(){$.getJSON("<?= base_url().'admin/authenticate'; ?>",null,function(data){});}, 5000);
 	});
 </script>
 <?php endif ?>

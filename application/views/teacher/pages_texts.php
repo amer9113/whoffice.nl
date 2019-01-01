@@ -34,12 +34,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 									<td>
 										<?php for ($i=1; $i <= 8 ; $i++) { ?> 
-											<a target="_blank" style="margin: 0px 5px;" href="<?= base_url().'teacher/view_raw_card/'.$i; ?>">Card<?= $i; ?></a>
+											<a target="_blank" style="margin: 0px 5px;" href="<?= base_url().'admin/view_raw_card/'.$i; ?>">Card<?= $i; ?></a>
 										<?php } ?>
 									</td>
 									<td>
 										<?php for ($i=1; $i <= 8 ; $i++) { ?> 
-											<a target="_blank" style="margin: 0px 5px;" href="<?= base_url().'teacher/view_fixed_card/'.$i; ?>">Card<?= $i; ?></a>
+											<a target="_blank" style="margin: 0px 5px;" href="<?= base_url().'admin/view_fixed_card/'.$i; ?>">Card<?= $i; ?></a>
 										<?php } ?>
 									</td>
 								</tr>
@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<td><?= $row->text; ?></td>
 										<td><?= $row->text_ar; ?></td>
 										<td><?= $row->page_nr; ?></td>
-										<td><a href="<?= base_url().'teacher/alter_page_text/'.$row->id; ?>">Edit</a></td>
+										<td><a href="<?= base_url().'admin/alter_page_text/'.$row->id; ?>">Edit</a></td>
 									</tr>
 								<?php endforeach ?>
 							</tbody>

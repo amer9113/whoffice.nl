@@ -175,6 +175,19 @@ class Teacher_model extends CI_Model{
 		return $query->result();
 	}
 
+	public function get_student_times_detials($student_id){
+		$query = $this->db->where('student_id',$student_id)->get('student_visites');
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result() as $key => &$row) {
+				$row->from = Date('h:i:sa',$row->login_time);
+				$row->to = Date('h:i:sa',$row->last_action_time);
+			}
+		}
+		
+		return $query->result();
+	}
+
 	public function get_student_last_approved_card_no($student_id){
 		for ($i = 8; $i > 0 ; $i--) { 
 			$query = $this->db->where('user_id',$student_id)->where('checked_with_teacher',1)->get("card_$i")->num_rows();

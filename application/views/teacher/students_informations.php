@@ -122,7 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 									<td><?= $student->active == 1 ? "Actief" : "Inactief"; ?></td>
 
-									<td><a href="<?= base_url().'teacher/send_student_info_mail/'.$student->id; ?>"><img src="https://img.icons8.com/wired/64/000000/send-mass-email.png" style="width: 27px;"> </a> &nbsp;&nbsp; <a href="<?= base_url().'teacher/edit_student/'.$student->id; ?>"><img src="https://img.icons8.com/wired/64/000000/pencil.png" style="width: 27px;"></a></td>
+									<td><a href="<?= base_url().'admin/send_student_info_mail/'.$student->id; ?>"><img src="https://img.icons8.com/wired/64/000000/send-mass-email.png" style="width: 27px;"> </a> &nbsp;&nbsp; <a href="<?= base_url().'admin/edit_student/'.$student->id; ?>"><img src="https://img.icons8.com/wired/64/000000/pencil.png" style="width: 27px;"></a></td>
 
 								</tr>
 
@@ -133,7 +133,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</table>
 
 					<div style="padding: 10px;">
-						<a href="<?= base_url().'teacher/add_student'; ?>" class="btn btn-success">Voeg nieuwe student toe</a>
+						<a href="<?= base_url().'admin/add_student'; ?>" class="btn btn-success">Voeg nieuwe student toe</a>
 					</div>
 	            </div>
 

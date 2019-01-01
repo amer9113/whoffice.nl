@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Teacher extends CI_Controller {
+class Admin extends CI_Controller {
 	var $acc_id;
 	var $acc_name;
 	public function __construct(){
 		parent::__construct();
 		$teacher_signed_in = $this->session->userdata('teacher_signed_in');
 		if ($teacher_signed_in != 'true') {
-			redirect('teacher_login');
+			redirect('admin_login');
 		}else{
 			$acc_id = $this->session->userdata('teacher_acc_id');
 			$check_query = $this->db->where('id',$acc_id)->get('teachers');
@@ -19,11 +19,11 @@ class Teacher extends CI_Controller {
 					$this->load->model('Teacher_model');
 				}else{
 					$this->session->sess_destroy();
-					redirect('teacher_login');
+					redirect('admin_login');
 				}
 			}else{
 				$this->session->sess_destroy();
-				redirect('teacher_login');
+				redirect('admin_login');
 			}
 		}
 	}
@@ -64,7 +64,7 @@ class Teacher extends CI_Controller {
 	{
 		$this->session->unset_userdata('teacher_acc_id');
 		$this->session->unset_userdata('teacher_signed_in');
-		redirect('teacher_login');
+		redirect('admin_login');
 	}
 
 	public function view_pages_texts(){
@@ -275,7 +275,7 @@ class Teacher extends CI_Controller {
 
 				$this->Teacher_model->send_email($student->email,$msg,$subject);
 
-				redirect('teacher/check_students_pending_cards');
+				redirect('admin/check_students_pending_cards');
 
 			}else{
 				echo "Sorry, error.";
@@ -687,7 +687,7 @@ class Teacher extends CI_Controller {
 
 			if ($data['result'] != 0) {
 
-				redirect('teacher/check_students_informations');
+				redirect('admin/check_students_informations');
 
 			}else{
 
@@ -820,7 +820,7 @@ class Teacher extends CI_Controller {
 
 					$this->Teacher_model->send_email($student->email,$msg,$subject);
 
-					header('Location: '.base_url().'teacher/check_students_informations');
+					header('Location: '.base_url().'admin/check_students_informations');
 
 				}else{
 
@@ -863,6 +863,12 @@ class Teacher extends CI_Controller {
 		}else{
 			echo "Wrong card No.";
 		}
+	}
+
+	public function student_time_details($student_id){
+		$data['students_times'] = $this->Teacher_model->get_student_times_detials($student_id);
+		$view = $this->load->view("teacher/student_times_details",$data,true);
+		$this->page->fix_view_template_text($view);
 	}
 
 }

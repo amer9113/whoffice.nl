@@ -17,25 +17,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	            <div class="w3-black">
 	                <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
 	                <div class="w3-container w3-bottombar w3-border-white w3-hover-border-red">
-	                    <h1>Students Times</h1>
+	                    <h1>Students Times Details</h1>
 	                </div>
 	            </div>
 	            <div class="w3-container">
-	                <h3>Students Times</h3>
+	                <h3>Students Times Details</h3>
 	                <table class="table table-bordered table-striped table-hover table-condensed">
 						<thead>
 							<tr>
-								<th>Student Name / ID</th>
-								<th>Time</th>
-								<th></th>
+								<th>From</th>
+								<th>To</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach ($students_times as $key => $card): ?>
+							<?php foreach ($students_times as $key => $row): ?>
 								<tr>
-									<td><?= $card->username." / ".$card->id; ?></td>
-									<td><?= $card->time_elapsed; ?></td>
-									<td><a href="<?= base_url().'admin/student_time_details/'.$card->id; ?>">Details</a></td>
+									<td><?= $row->from; ?></td>
+									<td><?= $row->to; ?></td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>

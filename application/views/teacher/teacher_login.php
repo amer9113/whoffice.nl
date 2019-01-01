@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="col-sm-6 col-sm-offset-3 w3-center">
 
-                        <form method="POST" action="<?= base_url().'teacher_login/validate_credential'; ?>">
+                        <form method="POST" action="<?= base_url().'admin_login/validate_credential'; ?>">
 
                             <div class="container" style="width: 100%">
 
