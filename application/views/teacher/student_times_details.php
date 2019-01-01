@@ -27,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<tr>
 								<th>From</th>
 								<th>To</th>
+								<th>Time elapsed</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -34,6 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 									<td><?= $row->from; ?></td>
 									<td><?= $row->to; ?></td>
+									<td><?= $row->time_elapsed; ?></td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>

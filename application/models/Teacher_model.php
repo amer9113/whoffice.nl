@@ -180,8 +180,9 @@ class Teacher_model extends CI_Model{
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $key => &$row) {
-				$row->from = Date('h:i:sa',$row->login_time);
-				$row->to = Date('h:i:sa',$row->last_action_time);
+				$row->from = Date('d-m-Y  h:i:sa',$row->login_time);
+				$row->to = Date('d-m-Y  h:i:sa',$row->last_action_time);
+				$row->time_elapsed = formatSeconds($row->last_action_time - $row->login_time);
 			}
 		}
 		
