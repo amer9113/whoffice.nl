@@ -64,7 +64,6 @@ class Teacher extends CI_Controller {
 	{
 		$this->session->unset_userdata('teacher_acc_id');
 		$this->session->unset_userdata('teacher_signed_in');
-		$this->session->sess_destroy();
 		redirect('teacher_login');
 	}
 

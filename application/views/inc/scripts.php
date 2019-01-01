@@ -9,10 +9,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </script>
 <?php if ($this->session->userdata('student_signed_in') == 'true'): ?>
 <script type="text/javascript">
-	setInterval(function(){$.getJSON("<?= base_url().'student/authenticate'; ?>",null,function(data){});}, 5000);
+	$(document).ready(function(){
+		setInterval(function(){$.getJSON("<?= base_url().'student/authenticate'; ?>",null,function(data){});}, 5000);
+	});
 </script>
-<?php elseif($this->session->userdata('teacher_signed_in') == 'true'): ?>
+<?php endif ?>
+<?php if ($this->session->userdata('teacher_signed_in') == 'true'): ?>
 <script type="text/javascript">
-	setInterval(function(){$.getJSON("<?= base_url().'teacher/authenticate'; ?>",null,function(data){});}, 5000);
+	$(document).ready(function(){
+		setInterval(function(){$.getJSON("<?= base_url().'teacher/authenticate'; ?>",null,function(data){});}, 5000);
+	});
 </script>
 <?php endif ?>

@@ -63,7 +63,6 @@ class Student extends CI_Controller {
 	{
 		$this->session->unset_userdata('student_acc_id');
 		$this->session->unset_userdata('student_signed_in');
-		$this->session->sess_destroy();
 		redirect('site');
 	}
 
