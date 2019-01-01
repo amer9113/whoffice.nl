@@ -1,10 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class StudentSignup extends CI_Controller {
+class Student_signup extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->load->library('session');
 	}
 
 	public function index()
@@ -48,10 +47,9 @@ class StudentSignup extends CI_Controller {
 			$this->db->trans_complete();
 
 			if ($this->db->trans_status() === true) {
-				$this->session->set_userdata('acc_id',$acc_id);
-				$this->session->set_userdata('signed_in',true);
-				$this->session->set_userdata('acc_type','student');
-
+				$this->session->set_userdata('student_acc_id',$acc_id);
+				$this->session->set_userdata('student_signed_in','true');
+\
 				$this->db->set('student_id',$acc_id)->set('login_time',time())->set('last_action_time',time())->insert('student_visites');
 
 				header('Location: '.base_url().'student');

@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- Content -->
                 <div class="w3-container w3-mobile" id="Content">
                     <div class="col-sm-6 col-sm-offset-3 w3-center w3-card-4">
-                        <form method="POST" action="<?= base_url().'studentSignup/signup'; ?>" style="border:1px solid #ccc">
+                        <form method="POST" action="<?= base_url().'student_signup/signup'; ?>" style="border:1px solid #ccc">
                             <div class="container" style="width: 100%">
                                 <h1>Inschrijven</h1>
                                 <p>Vul dit formulier in om een account aan te maken.</p>

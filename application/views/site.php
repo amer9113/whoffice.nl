@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row" style="margin-top: 250px;">
 			<div class="col-sm-12 text-center">
 				<a class="btn btn-danger" href="https://whoffice.nl/wp-login.php">studenten voor 2019</a>
-				<a class="btn btn-primary" href="login">studenten na 2019</a>
+				<a class="btn btn-primary" href="student_login">studenten na 2019</a>
 			</div>
 		</div>
 	</div>

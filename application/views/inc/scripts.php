@@ -5,15 +5,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="<?= base_url(); ?>js/script.js"></script>
 <script type="text/javascript">
-	signed_in = "<?= $this->session->userdata('signed_in'); ?>";
-	acc_type = "<?= $this->session->userdata('acc_type'); ?>";
-	acc_id = "<?= $this->session->userdata('acc_id'); ?>";
 	base_url = "<?= base_url(); ?>";
-	if (signed_in != "" && signed_in == 1 && acc_type != "") {
-		setInterval(function(){$.getJSON(base_url+acc_type+'/authenticate',null,function(data){});}, 10000);
-		/*var source = new EventSource(base_url+acc_type+'/wleknfwlnwiecnacwbeicubal');
-		source.onmessage = function(event) {
-		  	$.getJSON(base_url+acc_type+'/authenticate',null,function(data){});
-		};*/
-	}
 </script>
+<?php if ($this->session->userdata('student_signed_in') == 'true'): ?>
+<script type="text/javascript">
+	setInterval(function(){$.getJSON("<?= base_url().'student/authenticate'; ?>",null,function(data){});}, 5000);
+</script>
+<?php elseif($this->session->userdata('teacher_signed_in') == 'true'): ?>
+<script type="text/javascript">
+	setInterval(function(){$.getJSON("<?= base_url().'teacher/authenticate'; ?>",null,function(data){});}, 5000);
+</script>
+<?php endif ?>

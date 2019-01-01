@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="col-sm-6 col-sm-offset-3 w3-center">
 
-                        <form method="POST" action="<?= base_url().'login/validate_credential'; ?>">
+                        <form method="POST" action="<?= base_url().'teacher_login/validate_credential'; ?>">
 
                             <div class="container" style="width: 100%">
 
@@ -49,12 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <label for="password"><b>Wachtwoord</b></label>
 
                                 <input type="password" placeholder="Wachtwoord" name="password" required value="<?= isset($_POST['password']) ? $_POST['password'] : ''; ?>">
-
-
-
-                                <input type="hidden" name="type" value="teacher">
-
-
 
                                 <button class="green" type="submit">Inloggen</button>
 

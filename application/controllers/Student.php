@@ -7,40 +7,30 @@ class Student extends CI_Controller {
 	var $elapsed_time = 0;
 	public function __construct(){
 		parent::__construct();
-		$this->load->library('session');
-		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
+		$student_signed_in = $this->session->userdata('student_signed_in');
 
-		if (!$signed_in) {
-			redirect('login');
+		if ($student_signed_in != 'true') {
+			redirect('student_login');
 		}else{
-
-			$acc_id = $this->session->userdata('acc_id');
-
+		
+			$acc_id = $this->session->userdata('student_acc_id');
 			$check_query = $this->db->where('id',$acc_id)->get('students');
-
 			if ($check_query->num_rows() == 1) {
-				
 				$account = $check_query->row();
-
 				if ($account->active == 1) {
 					$this->acc_id = $account->id;
 					$this->acc_name = $account->firstname." ".$account->lastname;
 					$this->load->model('Student_model');
-
-
 					$last_visit_id = $this->db->where('student_id',$this->acc_id)->order_by('id','DESC')->get('student_visites')->row()->id;
-
 					$this->db->where('id',$last_visit_id)->set('last_action_time',time())->update('student_visites');
-
 					$this->elapsed_time = $this->Student_model->get_student_elapsed_time();
-
 				}else{
 					$this->session->sess_destroy();
-					redirect('login');
+					redirect('student_login');
 				}
 			}else{
 				$this->session->sess_destroy();
-				redirect('login');
+				redirect('student_login');
 			}
 		}
 	}
@@ -63,15 +53,16 @@ class Student extends CI_Controller {
 
 	public function authenticate()
 	{
-		$this->session->set_userdata('acc_id',$this->acc_id);
-		$this->session->set_userdata('signed_in',true);
-		$this->session->set_userdata('acc_type','student');
+		$this->session->set_userdata('student_acc_id',$this->acc_id);
+		$this->session->set_userdata('student_signed_in','true');
 		$time = date('r');
 		echo json_encode("data: The server time is: {$time}\n\n");
 	}
 	
 	public function logout()
 	{
+		$this->session->unset_userdata('student_acc_id');
+		$this->session->unset_userdata('student_signed_in');
 		$this->session->sess_destroy();
 		redirect('site');
 	}

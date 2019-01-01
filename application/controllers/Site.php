@@ -5,24 +5,15 @@ class Site extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->library('session');
-		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
+		$student_signed_in = $this->session->userdata('student_signed_in');
 
-		if ($signed_in) {
-
-			$acc_id = $this->session->userdata('acc_id');
-			$acc_type = $this->session->userdata('acc_type');
-
-
-			if ($acc_type == "student") {
-				$check_query = $this->db->where('id',$acc_id)->get('students');
-			}else{
-				$check_query = $this->db->where('id',$acc_id)->get('teachers');
-			}
+		if ($student_signed_in == 'true') {
+			$acc_id = $this->session->userdata('student_acc_id');
+			$check_query = $this->db->where('id',$acc_id)->get('students');
 
 			if ($check_query->num_rows() == 1) {
 				if ($check_query->row()->active == 1) {
-					redirect($acc_type);
+					redirect('student');
 				}else{
 					$this->session->sess_destroy();
 				}

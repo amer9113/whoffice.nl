@@ -5,12 +5,11 @@ class Teacher extends CI_Controller {
 	var $acc_name;
 	public function __construct(){
 		parent::__construct();
-		$this->load->library('session');
-		$signed_in = $this->session->userdata('signed_in') == true ? true : false;
-		if (!$signed_in) {
-			redirect('login/teacher');
+		$teacher_signed_in = $this->session->userdata('teacher_signed_in');
+		if ($teacher_signed_in != 'true') {
+			redirect('teacher_login');
 		}else{
-			$acc_id = $this->session->userdata('acc_id');
+			$acc_id = $this->session->userdata('teacher_acc_id');
 			$check_query = $this->db->where('id',$acc_id)->get('teachers');
 			if ($check_query->num_rows() == 1) {
 				$account = $check_query->row();
@@ -20,11 +19,11 @@ class Teacher extends CI_Controller {
 					$this->load->model('Teacher_model');
 				}else{
 					$this->session->sess_destroy();
-					redirect('login/teacher');
+					redirect('teacher_login');
 				}
 			}else{
 				$this->session->sess_destroy();
-				redirect('login/teacher');
+				redirect('teacher_login');
 			}
 		}
 	}
@@ -55,17 +54,18 @@ class Teacher extends CI_Controller {
 
 	public function authenticate()
 	{
-		$this->session->set_userdata('acc_id',$this->acc_id);
-		$this->session->set_userdata('signed_in',true);
-		$this->session->set_userdata('acc_type','teacher');
+		$this->session->set_userdata('teacher_acc_id',$this->acc_id);
+		$this->session->set_userdata('teacher_signed_in','true');
 		$time = date('r');
 		echo json_encode("data: The server time is: {$time}\n\n");
 	}
 
 	public function logout()
 	{
+		$this->session->unset_userdata('teacher_acc_id');
+		$this->session->unset_userdata('teacher_signed_in');
 		$this->session->sess_destroy();
-		redirect('site');
+		redirect('teacher_login');
 	}
 
 	public function view_pages_texts(){
