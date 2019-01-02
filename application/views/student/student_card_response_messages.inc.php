@@ -7,7 +7,7 @@
                         <strong>Kaart moet worden gecorrigeerd</strong><br><strong>Opmerking van de docent: </strong><?= $data->correction_notes; ?>
                     </div>
                 <?php else: ?>
-                    <div class="alert alert-danger text-center" role="alert"><strong>Waiting</strong> for teacher approval to go to the next card.</div>
+                    <div class="alert alert-danger text-center" role="alert"><strong> Wachten </strong> als de docent het goedkeurt om naar de volgende kaart te gaan.</div>
                     <?php if ($data->correction_notes != ""): ?>
                         <div class="alert alert-info text-center" role="alert">
                             <strong>Opmerking van de docent: </strong><?= $data->correction_notes; ?>

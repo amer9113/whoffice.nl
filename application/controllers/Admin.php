@@ -263,11 +263,20 @@ class Admin extends CI_Controller {
 				    <head>
 				    <title></title>
 				    </head>
-				    <body>
-				        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
-				        <p>Yor cards is updated by teacher. Please check it out.</p>
-				        <p>Thank you.</p>
-				        <p>Support Team.</p>
+				     <body>
+				     <div style="text-align: right; direction: rtl;">
+                        <p>مرحباً</p>
+        
+                        <p>لقد تم إصلاح كرتك . يرجى مراجعة الكرت ضمن الموقع وشكراً </p>
+                        
+                        <p>مع تحيات إدارة المدرسة  .</p>
+    
+                    </div>
+
+				        <p>Hallo <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+				      
+				        <p>Uw resultaatkaart is gecorrigeerd. U kunt de correctie bij de website zien.</p>
+				        <p>Directie van de school</p>
 				    </body>
 				</html>';
 
@@ -381,22 +390,36 @@ class Admin extends CI_Controller {
 		    </head>
 
 		    <body>
+                <div style="text-align: right; direction: rtl;">
+                    <p>أهلا وسهلا</p>
+    
+                    <p>نرحب بك معنا في دورة الأونا ونقدم لك معلومات الدخول  </p>
+    
+                    <p>اسم المستخدم:  <b>'.$student->username.'</b></p>
+    
+                    <p>كلمة المرور: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+    
+                    <p>نتمنى لك التوفيق والنجاح</p>
+    
+                    <p>مع تحيات إدارة المدرسة  .</p>
+
+                </div>
+
 
 		        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
 
-		        <p>This is information mail sent to you from administration.</p>
+		        <p>Hierbij zijn de gebruikersnaam en het wachtwoord.</p>
 
-		        <p>Your account username is <b>'.$student->username.'</b></p>
+		        <p>Gebruikersnaam <b>'.$student->username.'</b></p>
 
-		        <p>Your password is <b>'.$student->postal_code.$student->postal_code.'</b></p>
+		        <p>Wachtwoord: <b>'.$student->postal_code.$student->postal_code.'</b></p>
 
-		        <p>Your Group is <b>'.$student->student_group.'</b></p>
+		        <p>Wij Wensen u veel succes</p>
 
-		        <p>Thank you.</p>
-
-		        <p>Support Team.</p>
+		        <p>Directie van de school .</p>
 
 		    </body>
+
 
 		</html>';
 
@@ -446,22 +469,36 @@ class Admin extends CI_Controller {
 			    </head>
 
 			    <body>
+                <div style="text-align: right; direction: rtl;">
+                    <p>أهلا وسهلا</p>
+    
+                    <p>نرحب بك معنا في دورة الأونا ونقدم لك معلومات الدخول  </p>
+    
+                    <p>اسم المستخدم:  <b>'.$student->username.'</b></p>
+    
+                    <p>كلمة المرور: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+    
+                    <p>نتمنى لك التوفيق والنجاح</p>
+    
+                    <p>مع تحيات إدارة المدرسة  .</p>
 
-			        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+                </div>
 
-			        <p>This is information mail sent to you from administration.</p>
 
-			        <p>Your account username is <b>'.$student->username.'</b></p>
+		        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
 
-			        <p>Your password is <b>'.$new_passwrod.'</b></p>
+		        <p>Hierbij zijn de gebruikersnaam en het wachtwoord.</p>
 
-			        <p>Your Group is <b>'.$student->student_group.'</b></p>
+		        <p>Gebruikersnaam <b>'.$student->username.'</b></p>
 
-			        <p>Thank you.</p>
+		        <p>Wachtwoord: <b>'.$student->postal_code.$student->postal_code.'</b></p>
 
-			        <p>Support Team.</p>
+		        <p>Wij Wensen u veel succes</p>
 
-			    </body>
+		        <p>Directie van de school .</p>
+
+		    </body>
+
 
 			</html>';
 
@@ -602,23 +639,35 @@ class Admin extends CI_Controller {
 								    </head>
 
 								    <body>
-
-								        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
-
-								        <p>This is information mail sent to you from administration.</p>
-
-								        <p>Your account username is <b>'.$student->username.'</b></p>
-
-								        <p>Your password is <b>'.$password.'</b></p>
-
-								        <p>Your Group is <b>'.$student->student_group.'</b></p>
-
-								        <p>Thank you.</p>
-
-								        <p>Support Team.</p>
-
-								    </body>
-
+                                        <div style="text-align: right; direction: rtl;">
+                                            <p>أهلا وسهلا</p>
+                            
+                                            <p>نرحب بك معنا في دورة الأونا ونقدم لك معلومات الدخول  </p>
+                            
+                                            <p>اسم المستخدم:  <b>'.$student->username.'</b></p>
+                            
+                                            <p>كلمة المرور: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+                            
+                                            <p>نتمنى لك التوفيق والنجاح</p>
+                            
+                                            <p>مع تحيات إدارة المدرسة  .</p>
+                        
+                                        </div>
+                        
+                        
+                                        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+                        
+                                        <p>Hierbij zijn de gebruikersnaam en het wachtwoord.</p>
+                        
+                                        <p>Gebruikersnaam <b>'.$student->username.'</b></p>
+                        
+                                        <p>Wachtwoord: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+                        
+                                        <p>Wij Wensen u veel succes</p>
+                        
+                                        <p>Directie van de school .</p>
+                        
+                                    </body>
 								</html>';
 
 
@@ -795,22 +844,35 @@ class Admin extends CI_Controller {
 					    </head>
 
 					    <body>
-
-					        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
-
-					        <p>This is information mail sent to you from administration.</p>
-
-					        <p>Your account username is <b>'.$student->username.'</b></p>
-
-					        <p>Your password is <b>'.$input['postal_code'].$input['postal_code'].'</b></p>
-
-					        <p>Your Group is <b>'.$student->student_group.'</b></p>
-
-					        <p>Thank you.</p>
-
-					        <p>Support Team.</p>
-
-					    </body>
+                                        <div style="text-align: right; direction: rtl;">
+                                            <p>أهلا وسهلا</p>
+                            
+                                            <p>نرحب بك معنا في دورة الأونا ونقدم لك معلومات الدخول  </p>
+                            
+                                            <p>اسم المستخدم:  <b>'.$student->username.'</b></p>
+                            
+                                            <p>كلمة المرور: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+                            
+                                            <p>نتمنى لك التوفيق والنجاح</p>
+                            
+                                            <p>مع تحيات إدارة المدرسة  .</p>
+                        
+                                        </div>
+                        
+                        
+                                        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+                        
+                                        <p>Hierbij zijn de gebruikersnaam en het wachtwoord.</p>
+                        
+                                        <p>Gebruikersnaam <b>'.$student->username.'</b></p>
+                        
+                                        <p>Wachtwoord: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+                        
+                                        <p>Wij Wensen u veel succes</p>
+                        
+                                        <p>Directie van de school .</p>
+                        
+                                    </body>
 
 					</html>';
 

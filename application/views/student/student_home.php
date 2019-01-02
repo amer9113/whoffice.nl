@@ -34,9 +34,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
 		<div class="row" style="margin-top: 250px;">
 			<div class="col-sm-12 text-center">
-				<a class="btn btn-danger" target="_blank" href="<?= base_url().'student/lesson/1'; ?>">ONA</a>
-				<a class="btn btn-primary" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">Arbeidsmarkt</a>
-				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">work coach</a>
+				<a class="btn btn-danger" target="_blank" href="<?= base_url().'student/lesson/1'; ?>">ONA-Lessen</a>
+				<a class="btn btn-primary" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-Praktijk</a>
+				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-Onderwijs</a>
+				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-werk en inkomen</a>
+				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA Functies</a>
 			</div>
 		</div>
 	</div>
