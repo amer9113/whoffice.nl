@@ -7,7 +7,7 @@
     </div>
     <a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/view_pages_texts'; ?>">Text Editer</a>
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_pending_cards'; ?>">Students Check</a>
-	<a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_times'; ?>">Students Times</a>
+	<!-- <a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_times'; ?>">Students Times</a> -->
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_informations'; ?>">Students Informations</a>
     <a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_statistics'; ?>">Students Statistics</a>
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/logout'; ?>">Logout</a>

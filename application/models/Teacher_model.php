@@ -162,9 +162,9 @@ class Teacher_model extends CI_Model{
 
 
 		$query = $this->db->select('sum(last_action_time - login_time) as time_elapsed, students.*')
-		->join('students','student_visites.student_id = students.id')
+		->join('student_visites','student_visites.student_id = students.id','left')
 		->group_by('student_visites.student_id')
-		->get('student_visites');
+		->get('students');
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $key => &$row) {
@@ -187,6 +187,13 @@ class Teacher_model extends CI_Model{
 		}
 		
 		return $query->result();
+	}
+
+	public function get_student_elapsed_time($student_id){
+		$query = $this->db->select('sum(last_action_time - login_time) as time_elapsed')
+		->where('student_id',$student_id)->get('student_visites');
+
+		return $query->row()->time_elapsed;
 	}
 
 	public function get_student_last_approved_card_no($student_id){

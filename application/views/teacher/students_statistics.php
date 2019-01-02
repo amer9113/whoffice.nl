@@ -63,15 +63,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php foreach ($data as $key => $student): ?>
 								<tr>
 									<td><?= $student->username." / ".$student->id; ?></td>
-									<td><?= $student->time_elapsed; ?></td>
-									<?php if ($student->last_achieved_card_no == 0): ?>
-										<td><span style="margin: 0px 3px;">None</span></td>
+									<?php if ($student->time_elapsed != "00:00:00"): ?>
+									<td><?= $student->time_elapsed; ?>&nbsp;&nbsp;&nbsp;<a href="<?= base_url().'admin/student_time_details/'.$student->id; ?>">Details</a></td>
 									<?php else: ?>
-										<td>
-											<?php for ($i=1; $i <= $student->last_achieved_card_no; $i++) { ?> 
-												<a style="margin: 0px 3px;" target="_blank" href="<?= base_url().'admin/check_card/'.$student->id.'/'.$i.'/0'; ?>">Card<?= $i; ?></a> 
-											<?php } ?>
-										</td>
+									<td><?= $student->time_elapsed; ?></a></td>
+									<?php endif ?>
+									<?php if ($student->last_achieved_card_no == 0): ?>
+									<td><span style="margin: 0px 3px;">None</span></td>
+									<?php else: ?>
+									<td>
+										<?php for ($i=1; $i <= $student->last_achieved_card_no; $i++) { ?> 
+										<a style="margin: 0px 3px;" target="_blank" href="<?= base_url().'admin/check_card/'.$student->id.'/'.$i.'/0'; ?>">Card<?= $i; ?></a> 
+										<?php } ?>
+									</td>
 									<?php endif ?>
 								</tr>
 							<?php endforeach ?>

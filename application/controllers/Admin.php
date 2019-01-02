@@ -867,6 +867,8 @@ class Admin extends CI_Controller {
 
 	public function student_time_details($student_id){
 		$data['students_times'] = $this->Teacher_model->get_student_times_detials($student_id);
+		$data['student_info'] = $this->db->where('id',$student_id)->get('students')->row();
+		$data['student_total_time'] = formatSeconds($this->Teacher_model->get_student_elapsed_time($student_id));
 		$view = $this->load->view("teacher/student_times_details",$data,true);
 		$this->page->fix_view_template_text($view);
 	}

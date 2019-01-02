@@ -17,11 +17,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	            <div class="w3-black">
 	                <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
 	                <div class="w3-container w3-bottombar w3-border-white w3-hover-border-red">
-	                    <h1>Students Times Details</h1>
+	                    <h1><?= $student_info->username; ?> Times Details</h1>
 	                </div>
 	            </div>
 	            <div class="w3-container">
-	                <h3>Students Times Details</h3>
+	                <h3>Total time is <?= $student_total_time; ?></h3>
 	                <table class="table table-bordered table-striped table-hover table-condensed">
 						<thead>
 							<tr>

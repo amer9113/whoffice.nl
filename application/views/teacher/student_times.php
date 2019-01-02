@@ -27,7 +27,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<tr>
 								<th>Student Name / ID</th>
 								<th>Time</th>
-								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -35,7 +34,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 									<td><?= $card->username." / ".$card->id; ?></td>
 									<td><?= $card->time_elapsed; ?></td>
-									<td><a href="<?= base_url().'admin/student_time_details/'.$card->id; ?>">Details</a></td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>
