@@ -56,8 +56,18 @@ body,html{
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+ .topcorner{
+   position:absolute;
+   top:0;
+   right:0;
+   padding-top: 20px;
+   padding-right: 20px;
+  }
 .divstyle {
+    width: 100%;
+}
+
+.imgtext{
     width: 100%;
 }
 
