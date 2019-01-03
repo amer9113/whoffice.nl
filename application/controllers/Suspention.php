@@ -14,6 +14,6 @@ class Suspention extends CI_Controller {
 
 	public function comming_soon()
 	{
-		$this->load->view("comming_soon.html");
+		$this->load->view("misc/comming_soon.html");
 	}
 }
