@@ -1015,6 +1015,26 @@ class Student extends CI_Controller {
 		}
 	}
 
+	public function explanation_card($no){
+		if ($no >= 1 && $no <= 8) {
+			$data = array();
+			if ($no > 1) {
+				$previous_card = $no-1;
+				$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get("card_$previous_card")->num_rows();
+
+				if ($check_previous_is_completed == 0) {
+					echo "Sorry, you can't take this card yet.";
+					die();
+				}
+			}
+			$data['cards_status'] = $this->Student_model->get_cards_status();
+			$data['card_number'] = $no;
+			$data['page_type'] = 'explanation_card';
+			$view = $this->load->view("student/word_$no",$data,true);
+			$this->page->fix_view_template_text($view,$page_no=$no);
+		}
+	}
+
 	public function create_pdf_employment_letter($letter_id)
     {
        	//load library

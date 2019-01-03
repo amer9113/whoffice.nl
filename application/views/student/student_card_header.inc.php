@@ -21,7 +21,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= 'Kaart'.$card->card_no ?> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?= base_url().'student/lesson/'.$card->card_no; ?>"><?= 'les'.$card->card_no; ?></a></li>
-                            <li><a href="<?= base_url().'student/explanation_card/'.$card->card_no; ?>"><?= 'Ultlegkaart'.$card->card_no; ?></a></li>
+                            <li><a target="_blank" href="<?= base_url().'student/explanation_card/'.$card->card_no; ?>"><?= 'Ultlegkaart'.$card->card_no; ?></a></li>
                             <li><a href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a></li>
                         </ul>
                     </li>
@@ -31,7 +31,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= 'Kaart'.$card->card_no ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<?= base_url().'student/lesson/'.$card->card_no; ?>"><?= 'les'.$card->card_no; ?></a></li>
-                                    <li><a href="<?= base_url().'student/explanation_card/'.$card->card_no; ?>"><?= 'Ultlegkaart'.$card->card_no; ?></a></li>
+                                    <li><a target="_blank" href="<?= base_url().'student/explanation_card/'.$card->card_no; ?>"><?= 'Ultlegkaart'.$card->card_no; ?></a></li>
                                     <li><a href="<?= base_url().'student/card_'.$card->card_no; ?>"><?= 'Resultaatkaart'.$card->card_no; ?></a></li>
                                 </ul>
                             </li>

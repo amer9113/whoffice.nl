@@ -98,7 +98,6 @@ html {
 }
 
 .centerpagecnt {
-    padding-top: 20%;
     text-align: center;
 }
 
@@ -109,8 +108,8 @@ html {
 
 .squarebutton {
     width: 210px;
-    height: 180px;
-    background-color: black;
+    height: 190px;
+    background-color: #a51e22;
     color: white;
     font-size: 22px;
     display: inline-block;
@@ -119,10 +118,13 @@ html {
 
 .imgtext {
     width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(128, 0, 0, 0.71);
 }
 
 .imgbutton {
-    width: 100%;
+    height: 100%;
 }
 
 .divstyle {
