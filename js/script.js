@@ -50,6 +50,38 @@ $(document).ready(function(){
         _error('invalid form');
     }
 
+    (function init_checkboxes_and_inputs_status(){
+        $('input[data-input_to_toggle],input[data-checkbox_to_revers]').each(function(key,row){
+            if (!$(this).is(':checked')) {
+                var inputs_to_toggle = $(this).attr('data-input_to_toggle');
+                if (typeof inputs_to_toggle != "undefined") {
+                    var inputs_array = inputs_to_toggle.split(",");
+                    $(inputs_array).each(function(key,input){
+                        if ($(input).attr('type') == 'file') {
+                            $(input).prop('disabled',true).prop('required',false).val("");
+                        } else {
+                            $(input).prop('readonly',true).prop('required',false).val("");
+                        }
+                    });
+                }
+            }else{
+                var inputs_to_toggle = $(this).attr('data-input_to_toggle');
+                if (typeof inputs_to_toggle != "undefined") {
+                    var inputs_array = inputs_to_toggle.split(",");
+                    $(inputs_array).each(function(key,input){
+                        if ($($(input)[0]).attr('type') != "file") {
+                            $(input).prop('readonly',false).prop('required',true);
+                        }
+                    });
+                }
+            }
+        });
+    }(window, document, jQuery));
+
+    $(".nav li.inactive a").click(function() {
+        return false;
+    });
+
 	$('input.compose_username').change(function(){
         var firstname = $('[name="firstname"]').val().trim();
         var lastname = $('[name="lastname"]').val().trim();
@@ -57,14 +89,12 @@ $(document).ready(function(){
         if (firstname != "" && lastname != "") {
         	$('[name="username"]').val(capitalize(firstname) + " " + capitalize(lastname));
         }
-
     });
 
     $('input[name="postal_code"]').change(function(){
     	var value = $(this).val().trim();
     	$(this).val(value.toUpperCase());
     });
-
 
     $('input[data-input_to_toggle],input[data-checkbox_to_revers]').click(function(){
     	if ($(this).is(':checked')) {
@@ -112,7 +142,6 @@ $(document).ready(function(){
                     }
                 });
             }
-
         }else{
             var inputs_to_toggle = $(this).attr('data-input_to_toggle');
             if (typeof inputs_to_toggle != "undefined") {
@@ -211,9 +240,5 @@ $(document).ready(function(){
                 input.val("");
                 _error("File size restriction.");
             }
-
     });
-
-    $('input[data-input_to_toggle]').change();
-
 });

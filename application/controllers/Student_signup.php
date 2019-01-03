@@ -49,7 +49,6 @@ class Student_signup extends CI_Controller {
 			if ($this->db->trans_status() === true) {
 				$this->session->set_userdata('student_acc_id',$acc_id);
 				$this->session->set_userdata('student_signed_in','true');
-\
 				$this->db->set('student_id',$acc_id)->set('login_time',time())->set('last_action_time',time())->insert('student_visites');
 
 				header('Location: '.base_url().'student');

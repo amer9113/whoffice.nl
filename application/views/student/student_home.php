@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
-	<h1 class="text-center">Welkom <strong><i><?= $acc_name; ?></i></strong></h1>
+	<h1 class="text-center">Welkom <strong><i><?= $this->acc_name; ?></i></strong></h1>
 	<h4 class="text-center" style="font-weight: 600">Verstreken tijd: <?= $this->elapsed_time; ?>&nbsp;&nbsp;&nbsp;<a href="<?= base_url().'student/logout' ?>">Uitloggen</a></h4>
 	<!--
 	<a href="<?= base_url().'student/lesson/1'; ?>">les 1</a><br>
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
 		<div class="row" style="margin-top: 250px;">
 			<div class="col-sm-12 text-center">
-				<a class="btn btn-danger" target="_blank" href="<?= base_url().'student/lesson/1'; ?>">ONA-Lessen</a>
+				<a class="btn btn-danger" href="<?= base_url().'student/lesson/1'; ?>">ONA-Lessen</a>
 				<a class="btn btn-primary" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-Praktijk</a>
 				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-Onderwijs</a>
 				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-werk en inkomen</a>

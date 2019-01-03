@@ -37,8 +37,7 @@ class Student extends CI_Controller {
 
 	public function index()
 	{
-		$data['acc_name'] = $this->acc_name;
-		$view = $this->load->view("student/student_home",$data,true);
+		$view = $this->load->view("student/student_home",'',true);
 		$this->page->fix_view_template_text($view);
 	}
 
