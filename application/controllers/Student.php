@@ -1084,9 +1084,27 @@ class Student extends CI_Controller {
 		}
 	}
 
-	public function test(){
-		$data['letter_details'] = $this->db->where('id',6)->get('employment_letter_template')->row();
-		$data['acc_info'] = $this->db->where('id',$this->acc_id)->get('students')->row();
-		$this->load->view('student/student_employment_letter_template',$data);
+	public function exams(){
+		$data['exams'] = $this->db->get('exams')->result();
+		$view = $this->load->view("student/exams",$data,true);
+		$this->page->fix_view_template_text($view);
+	}
+
+	public function exam($exam_id){
+		$data = array();
+		$exam_query = $this->db->where('id',$exam_id)->get('exams');
+
+		if ($exam_query->num_rows() > 0) {
+			$data['exam'] = $exam_query->row();
+			$data['questions'] = $this->db->where('exam_id',$exam_id)->order_by('question_no','ASC')->get('exams_questions')->result();
+			if (count($data['questions']) > 0) {
+				foreach ($data['questions'] as $key => &$question) {
+					$question->answers = $this->db->where('question_id',$question->id)->order_by('answer_no','ASC')->get('exams_questions_answers')->result();
+				}
+				$view = $this->load->view("student/exam",$data,true);
+				$this->page->fix_view_template_text($view);
+			}
+
+		}
 	}
 }
