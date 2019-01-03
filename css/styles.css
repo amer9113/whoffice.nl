@@ -7,21 +7,7 @@ html {
     height: 100%;
     font-family: 'Cairo', sans-serif;
     background-color: rgb(216, 216, 216);
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently supported by Chrome and Opera */
 }
-
-
 
 /*By AbdAlrzzaq*/
 /*-------------*/
@@ -86,6 +72,10 @@ html {
     padding: 10px;
 }
 
+.imgbc {
+    background-image: url('../images/428098-PDYLSX-5.jpg');
+}
+
 .quline_text {
     font-size: 14px;
 }
@@ -100,37 +90,47 @@ html {
 }
 
 .parallax {
-    /* The image used */
-    /*background-color: rgb(216, 216, 216);*/
-    /*   background-image: url('../images/background.png');*/
-    /* Full height */
-    /*min-height: 1000px;*/
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 100%;
 }
 
-.topcorner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding-top: 20px;
-    padding-right: 20px;
+.centerpage {
+    text-align: center;
 }
 
-.divstyle {
-    width: 100%;
+.centerpagecnt {
+    padding-top: 20%;
+    text-align: center;
+}
+
+.centerpagecnt2 {
+    padding-top: 10%;
+    text-align: center;
+}
+
+.squarebutton {
+    width: 210px;
+    height: 180px;
+    background-color: black;
+    color: white;
+    font-size: 22px;
+    display: inline-block;
+    padding: 0px;
 }
 
 .imgtext {
     width: 100%;
 }
 
+.imgbutton {
+    width: 100%;
+}
+
+.divstyle {
+    width: 100%;
+}
+
 .topnav {
     background-color: #1c2023;
-    overflow: hidden;
 }
 
 
@@ -151,7 +151,7 @@ html {
 
 .topnav a:hover {
     background-color: #ffe8ea;
-    color: black;
+    color: white;
 }
 
 
@@ -220,8 +220,6 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="number"],
-input[type="date"],
-input[type="url"],
 select {
     width: 100%;
     padding: 15px;
@@ -235,8 +233,6 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus,
-input[type="date"]:focus,
-input[type="url"]:focus,
 select:focus {
     background-color: #ddd;
     outline: none;
@@ -406,6 +402,9 @@ button:hover {
     }
     .mtext {
         font-size: 14px;
+    }
+    .squarebutton {
+        height: 150px;
     }
 }
 

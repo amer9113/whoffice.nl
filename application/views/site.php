@@ -7,20 +7,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>whoffice</title>
 </head>
 <body>
-	<!-- <h1>Welcome to whoffice!</h1>
-	<a href="login">Login as student</a>
-	<br>
-	<a href="login/teacher">Login as teacher</a>
-	<br>
-	<a href="studentSignup">Signup as a new student</a> -->
-	<div class="container">
-		<div class="row" style="margin-top: 250px;">
-			<div class="col-sm-12 text-center">
-				<a class="btn btn-danger" href="https://whoffice.nl/wp-login.php">studenten voor 2019</a>
-				<a class="btn btn-primary" href="student_login">studenten na 2019</a>
-			</div>
-		</div>
-	</div>
+	<div class="parallax centerpagecnt">
+	    <div class="w3-container w3-center w3-mobile w3-card-4 w3-white">
+	        <a href="https://whoffice.nl/wp-login.php"><button class="squarebutton w3-button w3-card-4 w3-mobile"> Studenten 2019 </button></a>
+	        <a href="student_login"><button class="squarebutton w3-button w3-card-4 w3-mobile"> Studenten na 2019 </button></a>
+	    </div>
+    </div>
 <?php require(realpath(dirname(__FILE__)) . '/inc/scripts.php') ?>
 </body>
 </html>

@@ -15,10 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-	<div class="parallax container-fluid">
-        <?php require(dirname(__FILE__) . '/student_card_header.inc.php') ?>
-    </div>
 	<div class="parallax w3-container w3-mobile" id="Content">
+		<?php require(dirname(__FILE__) . '/student_card_header.inc.php') ?>
         <div class="cnt_heads w3-mobile" id="cnt_head">
 
             <h1 class="w3-xxlarge w3-text-red" id="title"><b>

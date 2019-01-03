@@ -1,33 +1,20 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-?><!DOCTYPE html>
-
+?>
+<!DOCTYPE html>
 <html lang="NL">
-
 <head>
-
 	<?php require(realpath(dirname(__FILE__) . '/..') . '/inc/head.php') ?>
-
 	<title>Resultaatkaart 1</title>
-
 </head>
-
 <body>
-    <div class="parallax container-fluid">
+    <div class="parallax w3-container w3-mobile" id="Content">
         <?php require(dirname(__FILE__) . '/student_card_header.inc.php') ?>
-    </div>
-	<div class="parallax w3-container w3-mobile" id="Content">
 		<div class="cnt_heads w3-mobile" id="cnt_head">
 
            	<h1 class="w3-xxlarge w3-text-red" id="title"><b>Resultaatkaart1 -BeroePenorientatie</b></h1>
 
-
-
            	<hr style="border:1px solid red" class="w3-round w3-hover-border-white"> 
-
-
 
            	<!-- <h3 class="w3-large w3-text-teal" id="sidetext">
 
