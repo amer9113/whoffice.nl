@@ -1030,7 +1030,7 @@ class Student extends CI_Controller {
 			$data['cards_status'] = $this->Student_model->get_cards_status();
 			$data['card_number'] = $no;
 			$data['page_type'] = 'explanation_card';
-			$view = $this->load->view("student/word_lesson_$no",$data,true);
+			$view = $this->load->view("student/word_$no",$data,true);
 			$this->page->fix_view_template_text($view,$page_no=$no);
 		}
 	}
@@ -1106,6 +1106,12 @@ class Student extends CI_Controller {
 	public function exams(){
 		$data['exams'] = $this->db->get('exams')->result();
 		$view = $this->load->view("student/exams",$data,true);
+		$this->page->fix_view_template_text($view);
+	}
+
+	public function word_lesson($no){
+		$data = array();
+		$view = $this->load->view("student/word_lesson_$no",$data,true);
 		$this->page->fix_view_template_text($view);
 	}
 
