@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2019 at 06:12 PM
+-- Generation Time: Jan 04, 2019 at 08:29 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -1041,6 +1041,20 @@ INSERT INTO `students` (`id`, `username`, `password`, `active`, `firstname`, `la
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `students_exam_answsers`
+--
+
+CREATE TABLE `students_exam_answsers` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `answer_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_visites`
 --
 
@@ -1141,7 +1155,7 @@ INSERT INTO `student_visites` (`id`, `student_id`, `login_time`, `last_action_ti
 (147, 12, 1546457369, 1546462125),
 (148, 12, 1546465063, 1546465087),
 (149, 10, 1546465435, 1546469593),
-(150, 11, 1546472831, 1546472897),
+(150, 11, 1546472831, 1546629524),
 (151, 12, 1546474452, 1546474625),
 (152, 12, 1546495531, 1546495778),
 (153, 12, 1546496105, 1546496309),
@@ -1150,7 +1164,8 @@ INSERT INTO `student_visites` (`id`, `student_id`, `login_time`, `last_action_ti
 (156, 12, 1546510904, 1546511092),
 (157, 12, 1546514335, 1546514631),
 (158, 10, 1546514916, 1546519063),
-(159, 10, 1546519068, 1546520438);
+(159, 10, 1546519068, 1546520438),
+(160, 11, 1546629875, 1546629889);
 
 -- --------------------------------------------------------
 
@@ -1274,6 +1289,16 @@ ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `students_exam_answsers`
+--
+ALTER TABLE `students_exam_answsers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `exam_id` (`exam_id`),
+  ADD KEY `student_id` (`student_id`),
+  ADD KEY `answer_id` (`answer_id`),
+  ADD KEY `question_id` (`question_id`);
+
+--
 -- Indexes for table `student_visites`
 --
 ALTER TABLE `student_visites`
@@ -1366,10 +1391,15 @@ ALTER TABLE `scheduled_emails_to_sent`
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 --
+-- AUTO_INCREMENT for table `students_exam_answsers`
+--
+ALTER TABLE `students_exam_answsers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+--
 -- AUTO_INCREMENT for table `student_visites`
 --
 ALTER TABLE `student_visites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 --
 -- AUTO_INCREMENT for table `teachers`
 --
@@ -1396,6 +1426,15 @@ ALTER TABLE `exams_questions`
 --
 ALTER TABLE `exams_questions_answers`
   ADD CONSTRAINT `exams_questions_answers_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `exams_questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `students_exam_answsers`
+--
+ALTER TABLE `students_exam_answsers`
+  ADD CONSTRAINT `students_exam_answsers_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `exams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `students_exam_answsers_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `students_exam_answsers_ibfk_3` FOREIGN KEY (`answer_id`) REFERENCES `exams_questions_answers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `students_exam_answsers_ibfk_4` FOREIGN KEY (`question_id`) REFERENCES `exams_questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_visites`
