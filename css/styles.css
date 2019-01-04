@@ -91,7 +91,6 @@ html {
 
 .parallax {
     min-height: 100%;
-    background-color: rgb(216, 216, 216);
 }
 
 .centerpage {
@@ -118,9 +117,6 @@ html {
 }
 
 .imgtext {
-    width: 100%;
-}
-.imgtext1{
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
