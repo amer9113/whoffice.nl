@@ -15,13 +15,13 @@ class Student_signup extends CI_Controller {
 	public function signup()
 	{
 		$input = $this->input->post();
-		$this->form_validation->set_rules('firstname', 'FirstName', 'trim|required|min_length[4]|max_length[45]|regex_match[/[A-Za-z]+\w/]',array(
+		$this->form_validation->set_rules('firstname', 'FirstName', 'trim|required|max_length[45]|regex_match[/[A-Za-z]+\w/]',array(
 			'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld Brouse_10'
 		));
-		$this->form_validation->set_rules('lastname', 'LastName', 'trim|required|min_length[4]|max_length[45]|regex_match[/[A-Za-z]+\w/]',array(
+		$this->form_validation->set_rules('lastname', 'LastName', 'trim|required|max_length[45]|regex_match[/[A-Za-z]+\w/]',array(
 			'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld Wayne_10'
 		));
-		$this->form_validation->set_rules('username', 'UserName', 'trim|required|min_length[8]|max_length[100]|regex_match[/[A-Za-z]+\w/]|is_unique[students.username]',array(
+		$this->form_validation->set_rules('username', 'UserName', 'trim|required|max_length[100]|regex_match[/[A-Za-z]+\w/]|is_unique[students.username]',array(
 			'is_unique' => 'Deze gebruikersnaam bestaat al. kies alstublieft een andere',
 			'regex_match' => 'Gebruikersnaam kan alleen Latijnse tekens, cijfers of underscores bevatten. en moet beginnen met een brief. bijvoorbeeld john_10',
 		));

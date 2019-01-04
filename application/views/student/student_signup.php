@@ -30,10 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                <hr>
 
                                 <label for="firstname"><b>Voornaam</b></label>
-                                <input type="text" placeholder="Voornaam" class="compose_username" name="firstname" minlength="4" maxlength="45" required value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>">
+                                <input type="text" placeholder="Voornaam" class="compose_username" name="firstname" maxlength="45" required value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>">
 
                                 <label for="lastname"><b>Achternaam</b></label>
-                                <input type="text" placeholder="Achternaam" class="compose_username" name="lastname" minlength="4" maxlength="45" required value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>">
+                                <input type="text" placeholder="Achternaam" class="compose_username" name="lastname" maxlength="45" required value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>">
 
                                 <label for="postal_code"><b>Postcode</b></label>
                                 <input type="text" placeholder="Postcode" name="postal_code" required minlength="4" value="<?= isset($_POST['postal_code']) ? $_POST['postal_code'] : ''; ?>">

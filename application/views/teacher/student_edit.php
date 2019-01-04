@@ -34,11 +34,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 								<div class="form-group">
 								    <label>Firstname</label>
-								    <input type="text" class="form-control compose_username" name="firstname" placeholder="Firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : $student->firstname; ?>" minlength="4" maxlength="45" required>
+								    <input type="text" class="form-control compose_username" name="firstname" placeholder="Firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : $student->firstname; ?>" maxlength="45" required>
 								</div>
 								<div class="form-group">
 								    <label>Lastname</label>
-								    <input type="text" class="form-control compose_username" name="lastname" placeholder="Lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : $student->lastname; ?>" minlength="4" maxlength="45" required>
+								    <input type="text" class="form-control compose_username" name="lastname" placeholder="Lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : $student->lastname; ?>" maxlength="45" required>
 								</div>
 							</div>
 							<div class="col-sm-6">

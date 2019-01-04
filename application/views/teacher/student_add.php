@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								    <label>Voornaam</label>
 
-								    <input type="text" class="form-control compose_username" name="firstname" placeholder="Voornaam" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>" minlength="4" maxlength="45" required>
+								    <input type="text" class="form-control compose_username" name="firstname" placeholder="Voornaam" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>" maxlength="45" required>
 
 								</div>
 
@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								    <label>Achternaam</label>
 
-								    <input type="text" class="form-control compose_username" name="lastname" placeholder="Achternaam" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>" minlength="4" maxlength="45" required>
+								    <input type="text" class="form-control compose_username" name="lastname" placeholder="Achternaam" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>" maxlength="45" required>
 
 								</div>
 
