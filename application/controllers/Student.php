@@ -1114,11 +1114,32 @@ class Student extends CI_Controller {
 		$exam_query = $this->db->where('id',$exam_id)->get('exams');
 
 		if ($exam_query->num_rows() > 0) {
+			$already_have_answers = $this->db->where('exam_id',$exam_id)->where('student_id',$this->acc_id)->get('students_exam_answsers')->num_rows();
+			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				if ($already_have_answers == 0) {
+					foreach ($_POST as $question_id => $answers_id) {
+						$this->db->set('exam_id',$exam_id)->set('student_id',$this->acc_id)->set('question_id',$question_id)->set('answer_id',$answers_id)->insert('students_exam_answsers');
+					}
+					redirect("student/exam/$exam_id");
+				}
+			}
+
 			$data['exam'] = $exam_query->row();
+			$data['already_have_answers'] = $already_have_answers;
 			$data['questions'] = $this->db->where('exam_id',$exam_id)->order_by('question_no','ASC')->get('exams_questions')->result();
 			if (count($data['questions']) > 0) {
 				foreach ($data['questions'] as $key => &$question) {
 					$question->answers = $this->db->where('question_id',$question->id)->order_by('answer_no','ASC')->get('exams_questions_answers')->result();
+					if ($already_have_answers > 0) {
+						$student_answer_query = $this->db->where('exam_id',$exam_id)->where('student_id',$this->acc_id)->where('question_id',$question->id)->get('students_exam_answsers');
+						if ($student_answer_query->num_rows() > 0) {
+							$question->student_answer_id = $student_answer_query->row()->answer_id;
+						}else{
+							$question->student_answer_id = 0;
+						}
+					}else{
+						$question->student_answer_id = 0;
+					}
 				}
 				$view = $this->load->view("student/exam",$data,true);
 				$this->page->fix_view_template_text($view);
