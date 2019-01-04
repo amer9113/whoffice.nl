@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Jan 03, 2019 at 01:00 PM
--- Server version: 5.6.41
--- PHP Version: 7.2.7
+-- Host: 127.0.0.1
+-- Generation Time: Jan 04, 2019 at 06:12 PM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -433,7 +431,7 @@ CREATE TABLE `exams` (
 
 INSERT INTO `exams` (`id`, `exam_name`) VALUES
 (1, 'Vragen bij de les hoe schrijf ik een goede sollicitatiebrief'),
-(2, 'Vragen bij de les hoe wordt ik een zzp\'er'),
+(2, 'Vragen bij de les hoe wordt ik een zzp''er'),
 (3, 'Vragen bij de les van bijstand naar werk'),
 (4, 'Vragen bij de les_ wat moet je doen bij een sol gesprek');
 
@@ -624,7 +622,7 @@ INSERT INTO `page_text` (`id`, `name`, `text`, `text_ar`, `page_nr`) VALUES
 (19, 'text17', 'Ik heb een EVC-procedure aangevraagd of gevolgd. Ik kan het bewijs laten zien.', 'طلبت أو اتبعت إجراء EVC. يمكنني عرض الأدلة.', '1'),
 (20, 'text18', 'Kies document - voeg een kopie van het diploma toe', 'اختيار وثيقة - إضافة نسخة من الدبلوم', '1'),
 (21, 'text19', 'Ik heb geen ervaring certificaat nodig, want :', 'لست بحاجة إلى شهادة خبرة بسبب', '1'),
-(22, 'text20', 'Ik heb geen diploma\'s en geen werkervaring in mijn gewenste beroep.', 'ليس لدي أي مؤهلات ولا خبرة مهنية في المهنة المطلوبة', '1'),
+(22, 'text20', 'Ik heb geen diploma''s en geen werkervaring in mijn gewenste beroep.', 'ليس لدي أي مؤهلات ولا خبرة مهنية في المهنة المطلوبة', '1'),
 (24, 'text21', 'Aaals ik het werk van mijn gewenste beroep doe, heb ik de volgende taken :', 'عندما أقوم بمهمة المهنة المطلوبة ، لدي المهام التالية:', '2'),
 (25, 'text22', 'Dit gewenste beroep heeft de volgende werkomstandigheden : ', 'هذه التجارة المرغوبة لديها شروط العمل التالية', '2'),
 (26, 'text23', 'Je werkt in een team', 'أنت تعمل في فريق', '2'),
@@ -771,7 +769,7 @@ INSERT INTO `page_text` (`id`, `name`, `text`, `text_ar`, `page_nr`) VALUES
 (167, 'text164', 'telefoneren', 'مكالمة هاتفية', '5'),
 (168, 'text165', 'rapporten schrijven', 'كتابة التقارير', '5'),
 (169, 'text166', 'met klanten of patiënten spreken', 'التحدث مع العملاء أو المرضى', '5'),
-(170, 'text167', 'contact met collega\'s', 'الاتصال مع الزملاء', '5'),
+(170, 'text167', 'contact met collega''s', 'الاتصال مع الزملاء', '5'),
 (171, 'text168', 'werkbriefjes invullen', 'ملء أوراق العمل', '5'),
 (172, 'text169', 'kort verslagje schrijven', 'اكتب تقريرا قصير', '5'),
 (173, 'text170', 'anders, namelijk', 'على خلاف ذلك ، أي', '5'),
@@ -789,7 +787,7 @@ INSERT INTO `page_text` (`id`, `name`, `text`, `text_ar`, `page_nr`) VALUES
 (185, 'text182', 'Nee, ik hoef niet aan mijn taal te werken voor dit gewenste beroep of de opleiding / cursus', 'لا ، ليس عليّ أن أعمل لغتي لهذه المهنة أو هذه الدورة', '5'),
 (186, 'text183', 'ik heb een netwerk van mensen die mij kunnen helpen. de mensen in mijn netwerk zijn', 'لدي شبكة من الأشخاص يمكنهم مساعدتي. الناس في شبكتي', '6'),
 (187, 'text184', 'vakgenoten', 'الزملاء', '6'),
-(188, 'text185', 'collega\'s', 'الزملاء', '6'),
+(188, 'text185', 'collega''s', 'الزملاء', '6'),
 (189, 'text186', 'studievrienden', 'اصدقاء الكلية', '6'),
 (190, 'text187', 'mensen die ik ken van de sportclub, vereniging of organisaties waarvan ik lid ben', 'أشخاص أعرفهم عن النادي الرياضي أو الجمعية أو المنظمات التي أنا عضو فيها', '6'),
 (191, 'text188', 'klantmanagers', 'مديري العملاء', '6'),
@@ -850,6 +848,20 @@ INSERT INTO `page_text` (`id`, `name`, `text`, `text_ar`, `page_nr`) VALUES
 (246, 'text242', 'in Nederland', 'في هولندا', '8'),
 (247, 'text243', 'verschil 3. in mijn land van herkomst', 'الفرق 3. في بلدي', '8'),
 (248, 'text244', 'in Nederland', 'في هولندا', '8');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `scheduled_emails_to_sent`
+--
+
+CREATE TABLE `scheduled_emails_to_sent` (
+  `id` int(11) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `subject` varchar(1000) NOT NULL,
+  `message` text NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1250,6 +1262,12 @@ ALTER TABLE `page_text`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `scheduled_emails_to_sent`
+--
+ALTER TABLE `scheduled_emails_to_sent`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -1277,97 +1295,86 @@ ALTER TABLE `teachers`
 --
 ALTER TABLE `card_1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `card_2`
 --
 ALTER TABLE `card_2`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `card_3`
 --
 ALTER TABLE `card_3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `card_4`
 --
 ALTER TABLE `card_4`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `card_5`
 --
 ALTER TABLE `card_5`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `card_6`
 --
 ALTER TABLE `card_6`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `card_7`
 --
 ALTER TABLE `card_7`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `card_8`
 --
 ALTER TABLE `card_8`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `employment_letter_template`
 --
 ALTER TABLE `employment_letter_template`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `exams`
 --
 ALTER TABLE `exams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `exams_questions`
 --
 ALTER TABLE `exams_questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
 --
 -- AUTO_INCREMENT for table `exams_questions_answers`
 --
 ALTER TABLE `exams_questions_answers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
-
 --
 -- AUTO_INCREMENT for table `page_text`
 --
 ALTER TABLE `page_text`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
-
+--
+-- AUTO_INCREMENT for table `scheduled_emails_to_sent`
+--
+ALTER TABLE `scheduled_emails_to_sent`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1630;
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
-
 --
 -- AUTO_INCREMENT for table `student_visites`
 --
 ALTER TABLE `student_visites`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
-
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Constraints for dumped tables
 --
@@ -1395,7 +1402,6 @@ ALTER TABLE `exams_questions_answers`
 --
 ALTER TABLE `student_visites`
   ADD CONSTRAINT `student_visites_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

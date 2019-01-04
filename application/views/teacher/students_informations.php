@@ -78,8 +78,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  	  	<input type="text" class="form-control" name="group" placeholder="Groep" value="<?= isset($_POST['group']) ? $_POST['group'] : ''; ?>">
 					  	</div>
 					  	<button type="submit" class="btn btn-primary" style="margin-top: -17px;">Filter</button>
+					  	<a class="btn btn-danger" style="margin-top: -17px;" href="<?= base_url().'admin/send_all_students_informations/'; ?>">Send all students account information</a>
+					  	<a class="btn btn-success" style="margin-top: -17px;" href="<?= base_url().'admin/add_student'; ?>">Voeg nieuwe student toe</a>
 					</form>
-
 	                <table class="table table-bordered table-striped table-hover table-condensed">
 
 						<thead>
@@ -129,12 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php endforeach ?>
 
 						</tbody>
-
 					</table>
-
-					<div style="padding: 10px;">
-						<a href="<?= base_url().'admin/add_student'; ?>" class="btn btn-success">Voeg nieuwe student toe</a>
-					</div>
 	            </div>
 
 	        </div>

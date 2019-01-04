@@ -10,5 +10,6 @@
 	<!-- <a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_times'; ?>">Students Times</a> -->
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_informations'; ?>">Students Informations</a>
     <a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_statistics'; ?>">Students Statistics</a>
+    <a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/check_students_groups'; ?>">Students Groups</a>
 	<a class="pad w3-bar-item w3-button" href="<?= base_url().'admin/logout'; ?>">Logout</a>
 </div>

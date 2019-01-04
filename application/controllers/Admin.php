@@ -320,7 +320,7 @@ class Admin extends CI_Controller {
 		$this->page->fix_view_template_text($view);
 	}
 
-	public function check_students_informations(){
+	public function check_students_informations($email_count=""){
 
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$id = $this->input->post('id');
@@ -355,9 +355,52 @@ class Admin extends CI_Controller {
 			}
 		}
 
+		if (!empty($email_count)) {
+			$data['message'] = "$email_count email(s) are scheduled to send successfully.";
+		}
+
 		$data['students'] = $this->db->get('students')->result();
 		$view = $this->load->view("teacher/students_informations",$data,true);
 		$this->page->fix_view_template_text($view);
+	}
+
+	public function send_all_students_informations(){
+		$students = $this->db->get('students');
+		$emails_to_sent_count = 0;
+		if ($students->num_rows() > 0 ) {
+			foreach ($students->result() as $key => $student) {
+				$data = array();
+				$data['email'] = $student->email;
+				$data['subject'] = 'Whoffice account information.';
+				$msg = '<html lang="NL">
+				    <head>
+				    <title></title>
+				    </head>
+				    <body>
+		                <div style="text-align: right; direction: rtl;">
+		                    <p>أهلا وسهلا</p>
+		                    <p>نرحب بك معنا في دورة الأونا ونقدم لك معلومات الدخول  </p>
+		                    <p>اسم المستخدم:  <b>'.$student->username.'</b></p>
+		                    <p>كلمة المرور: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+		                    <p>نتمنى لك التوفيق والنجاح</p>
+		                    <p>مع تحيات إدارة المدرسة  .</p>
+		                </div>
+				        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+				        <p>Hierbij zijn de gebruikersnaam en het wachtwoord.</p>
+				        <p>Gebruikersnaam <b>'.$student->username.'</b></p>
+				        <p>Wachtwoord: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+				        <p>Wij Wensen u veel succes</p>
+				        <p>Directie van de school .</p>
+				    </body>
+				</html>';
+				$data['message'] = $msg;
+				$this->db->insert('scheduled_emails_to_sent',$data);
+				if ($this->db->affected_rows() > 0 ) {
+					$emails_to_sent_count++;
+				}
+			}
+		}
+		redirect("admin/check_students_informations/$emails_to_sent_count");
 	}
 
 	public function check_students_statistics(){
@@ -373,14 +416,9 @@ class Admin extends CI_Controller {
 		$this->page->fix_view_template_text($view);
 	}
 
-
-
 	public function send_student_info_mail($student_id){
 
 		$student = $this->db->where('id',$student_id)->get('students')->row();
-
-
-
 		$msg = '<html lang="NL">
 
 		    <head>
@@ -935,5 +973,55 @@ class Admin extends CI_Controller {
 		$this->page->fix_view_template_text($view);
 	}
 
+	public function check_students_groups($email_count=""){
+		$data['groups'] = $this->Teacher_model->get_students_groups();
+		if (!empty($email_count)) {
+			$data['message'] = "$email_count email(s) are scheduled to send successfully.";
+		}
+		$view = $this->load->view("teacher/students_groups",$data,true);
+		$this->page->fix_view_template_text($view);
+	}
+
+	public function send_group_account_info_email($group=""){
+		if (!empty($group)) {
+			$group = urldecode($group);
+		}
+		$students = $this->db->where('student_group',$group)->get('students');
+		$emails_to_sent_count = 0;
+		if ($students->num_rows() > 0 ) {
+			foreach ($students->result() as $key => $student) {
+				$data = array();
+				$data['email'] = $student->email;
+				$data['subject'] = 'Whoffice account information.';
+				$msg = '<html lang="NL">
+				    <head>
+				    <title></title>
+				    </head>
+				    <body>
+		                <div style="text-align: right; direction: rtl;">
+		                    <p>أهلا وسهلا</p>
+		                    <p>نرحب بك معنا في دورة الأونا ونقدم لك معلومات الدخول  </p>
+		                    <p>اسم المستخدم:  <b>'.$student->username.'</b></p>
+		                    <p>كلمة المرور: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+		                    <p>نتمنى لك التوفيق والنجاح</p>
+		                    <p>مع تحيات إدارة المدرسة  .</p>
+		                </div>
+				        <p>Hello <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+				        <p>Hierbij zijn de gebruikersnaam en het wachtwoord.</p>
+				        <p>Gebruikersnaam <b>'.$student->username.'</b></p>
+				        <p>Wachtwoord: <b>'.$student->postal_code.$student->postal_code.'</b></p>
+				        <p>Wij Wensen u veel succes</p>
+				        <p>Directie van de school .</p>
+				    </body>
+				</html>';
+				$data['message'] = $msg;
+				$this->db->insert('scheduled_emails_to_sent',$data);
+				if ($this->db->affected_rows() > 0 ) {
+					$emails_to_sent_count++;
+				}
+			}
+		}
+		redirect("admin/check_students_groups/$emails_to_sent_count");
+	}
 }
 

@@ -206,4 +206,15 @@ class Teacher_model extends CI_Model{
 
 		return 0;
 	}
+
+	public function get_students_groups(){
+		$groups = $this->db->select('student_group')->group_by('student_group')->get('students')->result();
+		if (count($groups) > 0 ) {
+			foreach ($groups as $key => &$group) {
+				$group->students_count = $this->db->where('student_group',$group->student_group)->get('students')->num_rows();
+			}
+		}
+
+		return $groups;
+	}
 }
