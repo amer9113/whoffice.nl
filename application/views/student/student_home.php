@@ -17,8 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-12 text-center">
 				<a class="btn btn-danger" href="<?= base_url().'student/lesson/1'; ?>">ONA-Lessen</a>
 				<a class="btn btn-primary" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-Praktijk</a>
-				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-Onderwijs</a>
-				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA-werk en inkomen</a>
+				<a class="btn btn-success" target="_blank" href="<?= base_url().'student_text/learn_hol'; ?>">ONA-Onderwijs</a>
+				<a class="btn btn-success" target="_blank" href="<?= base_url().'student_text/work_text'; ?>">ONA-werk en inkomen</a>
 				<a class="btn btn-success" target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>">ONA Functies</a>
 			</div>
 		</div>
@@ -33,12 +33,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img class="imgbutton" src="<?= base_url().'images/61.jpg'; ?>">
                 <div class="imgtext w3-display-bottommiddle w3-large">ONA - praktijk</div> 
             </button></a> &nbsp;
-            <a target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>"><button class="squarebutton w3-button w3-card-4 w3-mobile w3-display-container"> 
+            <a target="_blank" href="<?= base_url().'student_text/learn_hol'; ?>"><button class="squarebutton w3-button w3-card-4 w3-mobile w3-display-container"> 
                 <img class="imgbutton" src="<?= base_url().'images/25060.jpg'; ?>">
                 <div class="imgtext w3-display-bottommiddle w3-large">ONA-onderwijs</div> 
             </button></a> &nbsp;
             <br>
-            <a target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>"><button class="squarebutton w3-button w3-card-4 w3-mobile w3-display-container"> 
+            <a target="_blank" href="<?= base_url().'student_text/work_hol'; ?>"><button class="squarebutton w3-button w3-card-4 w3-mobile w3-display-container"> 
                 <img class="imgbutton" src="<?= base_url().'images/489536-PH1MCV-393.jpg'; ?>">
                 <div class="imgtext w3-display-topmiddle w3-large">Ona-werk en inkomen</div> 
             </button></a> &nbsp;
