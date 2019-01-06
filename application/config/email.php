@@ -6,10 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | -------------------------------------------------------------------
 */
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'whoffice.nl';
+$config['smtp_host'] = 'mail.whoffice.nl';
 $config['smtp_user'] = 'no-reply@whoffice.nl';
 $config['smtp_pass'] = 'noreply.asd123@#$';
-$config['smtp_port'] = 465;
+$config['smtp_port'] = 25;
 $config['validate'] = TRUE;
 $config['mailtype'] = 'html';
 $config['mailpath'] = '/usr/sbin/sendmail';

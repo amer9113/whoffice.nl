@@ -38,16 +38,10 @@ class Teacher_model extends CI_Model{
 				$this->email->to($email);
 				$this->email->subject($subject);
 				$this->email->message($msg);
-
 				$result = false;
-				try {
-				   set_error_handler(create_function('', "throw new Exception(); return true;")); 
-				   $result = $this->email->send();
-				} catch(Exception $e) { 
-				   
-				}
-
-
+				set_error_handler(function() { $result = false; });
+				$result = $this->email->send();
+				restore_error_handler();
 				if (!$result){
 					return "not_sent";
 				}else{
