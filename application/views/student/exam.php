@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<?php if ($already_have_answers == 0): ?>
 											<li class="list-group-item"><?= $answer->answer_no.". "; ?> <input type="radio" name="<?= $question->id; ?>" value="<?= $answer->id; ?>" required> <?= $answer->answer; ?></li>
 										<?php else: ?>
-											<li class="list-group-item <?= $answer->is_correct == 1 ? 'list-group-item-success' : 'list-group-item-danger'; ?>"><?= $answer->answer_no.". "; ?> <input type="radio" name="<?= $question->id; ?>" value="<?= $answer->id; ?>" required <?= $question->student_answer_id == $answer->id ? "checked" : "" ?> disabled> <?= $answer->answer; ?></li>
+											<li class="list-group-item <?= $answer->is_correct == 1 ? 'list-group-item-success' : 'list-group-item-danger'; ?>"><?= $answer->answer_no.". "; ?> <input type="radio" name="<?= $question->id; ?>" value="<?= $answer->id; ?>" required <?= $question->student_answer_id == $answer->id ? "checked" : "" ?> disabled> <?= $answer->answer; ?>&nbsp;&nbsp;&nbsp;<?= $answer->is_correct == 1 ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>' ?></li>
 										<?php endif ?>
 
 									<?php endforeach ?>

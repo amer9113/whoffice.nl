@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="panel-body">
 						<ul class="list-group">
 						<?php foreach ($exams as $key => $exam): ?>
-							<li class="list-group-item"><a href="<?= base_url().'student/exam/'.$exam->id; ?>"><?= ($key+1)."- ".$exam->exam_name; ?></a></li>
+							<li class="list-group-item"><?= ($key+1)."- ".$exam->exam_name; ?>&nbsp;&nbsp;&nbsp;<a target="_blank" href="<?= base_url().'student/word_lesson/'.$exam->exam_no; ?>">Lesson</a>&nbsp;&nbsp;&nbsp;<a target="_blank" href="<?= base_url().'student/exam/'.$exam->id; ?>">Exam</a></li>
 						<?php endforeach ?>
 						</ul>
 					</div>
