@@ -12,6 +12,9 @@
         <div class="mheader w3-container w3-mobile w3-card-4">
         <img class="imgtext" src="/images/header.png">
         <div class="topcorner">
+             <a style="color: white;font-size: 18px" href="<?= base_url().'/'; ?>">الصفحة الرئيسية</a>
+
+              <span> - </span>
             <a style="color: white;font-size: 18px" href="<?= base_url().'Student_text/learn_hol'; ?>">Nederland</a>
         </div>
     </div>
