@@ -24,6 +24,10 @@ class Student extends CI_Controller {
 					$last_visit_id = $this->db->where('student_id',$this->acc_id)->order_by('id','DESC')->get('student_visites')->row()->id;
 					$this->db->where('id',$last_visit_id)->set('last_action_time',time())->update('student_visites');
 					$this->elapsed_time = $this->Student_model->get_student_elapsed_time();
+					if ($this->Student_model->check_student_elapsed_time_today_limit()) {
+						echo "You have reached the 3-hour limit today. Sorry you cannot go more than 3 hours per a day.";
+						die();
+					}
 				}else{
 					$this->session->sess_destroy();
 					redirect('student_login');

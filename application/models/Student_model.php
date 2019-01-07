@@ -128,4 +128,26 @@ class Student_model extends CI_Model{
 			return 0;
 		}
 	}
+
+	public function check_student_elapsed_time_today_limit(){
+
+		$beginOfDay = strtotime("midnight", time());
+		$endOfDay = strtotime("tomorrow", $beginOfDay) - 1;
+
+		$query = $this->db->select('sum(last_action_time - login_time) as time_elapsed')
+		->where('student_id',$this->acc_id)
+		->where('login_time >=',$beginOfDay)
+		->where('last_action_time <=',$endOfDay)
+		->get('student_visites');
+
+		if ($query->num_rows() > 0) {
+			if ($query->row()->time_elapsed >= 3*60*60) {
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
 }
