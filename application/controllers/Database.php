@@ -13,6 +13,7 @@ class Database extends CI_Controller {
 	}
 
 	public function check_email_host($email) {
+		return true;
 		if (trim($email) == "") {
 			return false;
 		}

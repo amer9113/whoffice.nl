@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Student_model extends CI_Model{
 
 	public function check_email_host($email) {
+		return true;
 		if (trim($email) == "") {
 			return false;
 		}
