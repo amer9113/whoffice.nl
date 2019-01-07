@@ -69,8 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		                </div>
 
 		                <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
-
-		                    <labelfor="tasks"><input type="text" class="w3-input w3-animate-input w3-border w3-hover-border-red" type="textarea" name="tasks" required value="<?= isset($data) ? $data->tasks : ''; ?>"></labelfor>
+		                    <labelfor="tasks"><textarea type="text" class="w3-input w3-animate-input w3-border w3-hover-border-red" type="textarea" name="tasks" required><?= isset($data) ? $data->tasks : ''; ?></textarea>></labelfor>
 
 		                </div>
 
