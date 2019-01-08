@@ -47,6 +47,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         	<div class="w3-container w3-block w3-mobile" id="cnt_form">
 
+        		<div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt0">
+
+		            <div class="rightsign w3-container w3-cell w3-mobile">
+
+		                <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+		                <span class="label label-success">&nbsp;&nbsp;0&nbsp;&nbsp;</span>
+
+		            </div>
+
+		            <div class="w3-cell w3-block w3-mobile">
+
+		                <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
+
+		                    <label class="quline_text w3-mobile section_header" name="text1">
+
+		                    jouw gewenste beroep is :
+
+		                    </label> 
+
+		                </div>
+
+		                <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
+		                    <labelfor="tasks"><input type="text" maxlength="500" class="w3-input w3-animate-input w3-border w3-hover-border-red" type="textarea" name="desired_profession" value="<?= isset($data) ? $data->desired_profession : ''; ?>" required></labelfor>
+		                </div>
+
+		            </div>
+
+		        </div>
+
 	            <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt1">
 
 	                <div class="rightsign w3-container w3-cell w3-mobile">

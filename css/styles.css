@@ -61,6 +61,10 @@ html {
     font-weight: 600;
 }
 
+textarea{
+    resize: none;
+}
+
 /*By AbdAlrzzaq*/
 /*-------------*/
 
@@ -222,7 +226,8 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="number"],
-select {
+select,
+textarea{
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -235,6 +240,7 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus,
+textarea:focus
 select:focus {
     background-color: #ddd;
     outline: none;
