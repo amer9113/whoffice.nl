@@ -34,7 +34,7 @@ class Student_model extends CI_Model{
 				$result = $this->email->send();
 				restore_error_handler();
 				if (!$result){
-					return "not_sent";
+					return "not sent";
 				}else{
 					return "sent";
 				}

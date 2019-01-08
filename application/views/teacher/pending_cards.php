@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 									<td><?= $card->username." / ".$card->id; ?></td>
 									<td><?= $card->card_name; ?></td>
-									<td><a href="<?= base_url().'admin/check_card/'.$card->id.'/'.$card->card_no.'/1'; ?>">check it out</a></td>
+									<td><a target="_blank" href="<?= base_url().'admin/check_card/'.$card->id.'/'.$card->card_no.'/1'; ?>">check it out</a></td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>

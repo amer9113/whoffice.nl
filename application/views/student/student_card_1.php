@@ -635,7 +635,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile w3-center" id="footer">
 
-                    <div class="w3-bar">
+                    <div>
                         <?php require(dirname(__FILE__) . '/student_card_modify_buttons.inc.php') ?>
                     </div>
 

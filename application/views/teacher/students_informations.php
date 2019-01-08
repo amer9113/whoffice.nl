@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 									<td><?= $student->active == 1 ? "Actief" : "Inactief"; ?></td>
 
-									<td><a href="<?= base_url().'admin/send_student_info_mail/'.$student->id; ?>"><img src="https://img.icons8.com/wired/64/000000/send-mass-email.png" style="width: 27px;"> </a> &nbsp;&nbsp; <a href="<?= base_url().'admin/edit_student/'.$student->id; ?>"><img src="https://img.icons8.com/wired/64/000000/pencil.png" style="width: 27px;"></a></td>
+									<td><a href="<?= base_url().'admin/send_student_info_mail/'.$student->id; ?>" class="send_student_info_mail" data-student_id="<?= $student->id; ?>"><img src="https://img.icons8.com/wired/64/000000/send-mass-email.png" style="width: 27px;"> </a> &nbsp;&nbsp; <a href="<?= base_url().'admin/edit_student/'.$student->id; ?>"><img src="https://img.icons8.com/wired/64/000000/pencil.png" style="width: 27px;"></a></td>
 
 								</tr>
 

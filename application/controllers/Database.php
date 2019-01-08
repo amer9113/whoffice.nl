@@ -44,7 +44,7 @@ class Database extends CI_Controller {
 				restore_error_handler();
 				
 				if (!$result){
-					return "not_sent";
+					return "not sent";
 				}else{
 					return "sent";
 				}

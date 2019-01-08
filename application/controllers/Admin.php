@@ -457,11 +457,7 @@ class Admin extends CI_Controller {
 		        <p>Directie van de school .</p>
 
 		    </body>
-
-
 		</html>';
-
-
 
 		$subject = "Whoffice Account Informaion.";
 
@@ -469,25 +465,22 @@ class Admin extends CI_Controller {
 
 		$result = $this->Teacher_model->send_email($student->email,$msg,$subject);
 
-
-
 		if ($result == "sent") {
-
 			$data['message'] = "Email is sent successfully.";
-
+			$data['status'] = 1;
 		}else{
-
-			$data['message'] = "Sorry, something went wrong.<br>$result";
-
+			$data['status'] = 0;
+			$data['message'] = "Sorry, something went wrong.\n$result";
 		}
 
+		if (itsAjaxCall()) {
+			echo json_encode($data);
+		}else{
+			$data['students'] = $this->db->get('students')->result();
+			$view = $this->load->view("teacher/students_informations",$data,true);
+			$this->page->fix_view_template_text($view);
+		}
 
-
-		$data['students'] = $this->db->get('students')->result();
-
-		$view = $this->load->view("teacher/students_informations",$data,true);
-
-		$this->page->fix_view_template_text($view);
 	}
 
 	//Not used anymore.

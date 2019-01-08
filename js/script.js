@@ -235,10 +235,10 @@ $(document).ready(function(){
         }
 
         var size = file.size/1024;
-            if (size > 1024) {
-                alert('The file ' + file.name + ' ' +'is bigger than 1MB, You can only upload files up to 1MB.');
-                input.val("");
-                _error("File size restriction.");
-            }
+        if (size > 1024) {
+            alert('The file ' + file.name + ' ' +'is bigger than 1MB, You can only upload files up to 1MB.');
+            input.val("");
+            _error("File size restriction.");
+        }
     });
 });

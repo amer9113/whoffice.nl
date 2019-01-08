@@ -45,7 +45,7 @@ class Teacher_model extends CI_Model{
 				restore_error_handler();
 				if (!$result){
 					//return $this->email->print_debugger();
-					return "not_sent";
+					return "not sent";
 				}else{
 					return "sent";
 				}
