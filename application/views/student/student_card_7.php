@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		            <div class="rightsign w3-container w3-cell w3-mobile">
 
 		                <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-		                <span class="label label-success">&nbsp;&nbsp;0&nbsp;&nbsp;</span>
+		                <span class="label label-success">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
 
 		            </div>
 
@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;2&nbsp;&nbsp;</span>
 	                </div>
 
 	                <div class="w3-cell w3-block w3-mobile">
@@ -173,7 +173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;2&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;3&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -250,7 +250,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;3&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;4&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -351,7 +351,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;4&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;5&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -428,7 +428,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;5&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;6&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -721,7 +721,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;6&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;7&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -752,7 +752,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;7&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;8&nbsp;&nbsp;</span>
 
 	                </div>
 
