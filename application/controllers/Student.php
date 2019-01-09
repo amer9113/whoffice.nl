@@ -1034,8 +1034,14 @@ class Student extends CI_Controller {
 			$data['cards_status'] = $this->Student_model->get_cards_status();
 			$data['card_number'] = $no;
 			$data['page_type'] = 'explanation_card';
-			$view = $this->load->view("student/word_$no",$data,true);
-			$this->page->fix_view_template_text($view,$page_no=$no);
+
+			if (file_exists(APPPATH."views/student/word_$no.php")){
+				$view = $this->load->view("student/word_$no",$data,true);
+				$this->page->fix_view_template_text($view,$page_no=$no);
+		    }
+		    else{
+		        show_404();
+		    }
 		}
 	}
 
