@@ -5,11 +5,25 @@ class Database extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->dbutil();
 	}
 
-	public function index()
-	{
+	public function index(){
 		
+	}
+
+	public function backup(){
+		set_time_limit(5*60);
+		$backup = $this->dbutil->backup();
+		$this->load->helper('file');
+		$backup_file_name = 'backup_'.Date('Y-m-d_h-i-s').'.gz';
+		/*SET FOREIGN_KEY_CHECKS = 0;
+		SET FOREIGN_KEY_CHECKS = 1;*/
+		if (!file_exists('db_backups')) {
+		    mkdir('db_backups', 0777, true);
+		}
+		write_file('db_backups/'.$backup_file_name, $backup);
+		set_time_limit(30);
 	}
 
 	public function check_email_host($email) {
@@ -56,8 +70,7 @@ class Database extends CI_Controller {
 		}
 	}
 
-	public function send_scheduled_emails()
-	{
+	public function send_scheduled_emails(){
 		$list = $this->db->order_by('RAND()')->limit(10)->get('scheduled_emails_to_sent');
 		if ($list->num_rows() > 0) {
 			foreach ($list->result() as $key => $row) {
@@ -71,7 +84,6 @@ class Database extends CI_Controller {
 		}
 
 	}
-
 	public function update(){
 		echo "Updating DB....<br>";
 		ob_end_flush();
