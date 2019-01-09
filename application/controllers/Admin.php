@@ -67,6 +67,21 @@ class Admin extends CI_Controller {
 		redirect('admin_login');
 	}
 
+
+	public function db_backup(){
+		$this->load->dbutil();
+		set_time_limit(5*60);
+		$backup = $this->dbutil->backup();
+		$this->load->helper('file');
+		$backup_file_name = 'backup_'.Date('Y-m-d_h-i-s').'.gz';
+		/*SET FOREIGN_KEY_CHECKS = 0;
+		SET FOREIGN_KEY_CHECKS = 1;*/
+		write_file('db_backups/'.$backup_file_name, $backup);
+		$this->load->helper('download');
+		force_download($backup_file_name, $backup);
+		set_time_limit(30);
+	}
+
 	public function view_pages_texts(){
 		$data = array();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {

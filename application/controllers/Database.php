@@ -9,7 +9,6 @@ class Database extends CI_Controller {
 	}
 
 	public function index(){
-		
 	}
 
 	public function backup(){
@@ -23,6 +22,19 @@ class Database extends CI_Controller {
 		    mkdir('db_backups', 0777, true);
 		}
 		write_file('db_backups/'.$backup_file_name, $backup);
+
+		/*Delete backups older than 2 months*/
+		$files = glob("db_backups/*.gz");
+		$now = time();
+
+		foreach ($files as $file) {
+		    if (is_file($file)) {
+		     	if ($now - filemtime($file) >= 60 * 60 * 24 * 60) { // 60 days
+		        	unlink($file);
+		      	}
+		    }
+		}
+		/*Delete backups older than 2 months*/
 		set_time_limit(30);
 	}
 
