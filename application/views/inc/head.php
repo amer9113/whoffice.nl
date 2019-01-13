@@ -9,4 +9,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap-datetimepicker.min.css">
-<link rel="stylesheet" href="<?= base_url(); ?>css/styles.css"> 
+<link rel="stylesheet" href="<?= base_url(); ?>css/styles.css?<?= time(); ?>"> 
