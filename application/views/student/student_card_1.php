@@ -282,7 +282,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <?php if (isset($data) && $data->have_certificate == 1): ?>
 
-                                            <a href="<?= base_url().'ext/student_documents/'.$data->certificate_name; ?>" target="_blank">View uploaded file</a>
+                                            <a href="<?= base_url().'ext/student_documents/'.$data->certificate_name; ?>" target="_blank">View uploaded file <?= $data->certificate_name_caption; ?></a>
 
                                         <?php endif ?>
 
@@ -341,7 +341,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <?php if (isset($data) && $data->another_certificate == 1): ?>
 
-                                            <a href="<?= base_url().'ext/student_documents/'.$data->another_certificate_name; ?>" target="_blank">View uploaded file</a>
+                                            <a href="<?= base_url().'ext/student_documents/'.$data->another_certificate_name; ?>" target="_blank">View uploaded file <?= $data->another_certificate_name_caption; ?></a>
 
                                         <?php endif ?>
 
@@ -425,7 +425,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <?php if (isset($data) && $data->ion_certificate == 1): ?>
 
-                                            <a href="<?= base_url().'ext/student_documents/'.$data->ion_certificate_file; ?>" target="_blank">View uploaded file</a>
+                                            <a href="<?= base_url().'ext/student_documents/'.$data->ion_certificate_file; ?>" target="_blank">View uploaded file <?= $data->ion_certificate_file_caption; ?></a>
 
                                         <?php endif ?>
 
@@ -555,7 +555,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <?php if (isset($data) && $data->experience_certificate == 1): ?>
 
-                                            <a href="<?= base_url().'ext/student_documents/'.$data->experience_certificate_file; ?>" target="_blank">View uploaded file</a>
+                                            <a href="<?= base_url().'ext/student_documents/'.$data->experience_certificate_file; ?>" target="_blank">View uploaded file <?= $data->experience_certificate_file_caption; ?></a>
 
                                         <?php endif ?>
 

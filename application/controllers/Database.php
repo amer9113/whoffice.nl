@@ -101,13 +101,17 @@ class Database extends CI_Controller {
 		echo "Updating DB....<br>";
 		ob_end_flush();
 		flush();
-		$this->db->query("ALTER TABLE `card_2` ADD `desired_profession` VARCHAR(500) NOT NULL AFTER `user_id`");
-		$this->db->query("ALTER TABLE `card_3` ADD `desired_profession` VARCHAR(500) NOT NULL AFTER `user_id`");
-		$this->db->query("ALTER TABLE `card_4` ADD `desired_profession` VARCHAR(500) NOT NULL AFTER `user_id`");
-		$this->db->query("ALTER TABLE `card_5` ADD `desired_profession` VARCHAR(500) NOT NULL AFTER `user_id`");
-		$this->db->query("ALTER TABLE `card_6` ADD `desired_profession` VARCHAR(500) NOT NULL AFTER `user_id`");
-		$this->db->query("ALTER TABLE `card_7` ADD `desired_profession` VARCHAR(500) NOT NULL AFTER `user_id`");
-		$this->db->query("ALTER TABLE `card_8` ADD `desired_profession` VARCHAR(500) NOT NULL AFTER `user_id`");
+		$this->db->query("ALTER TABLE `card_1` ADD `certificate_name_caption` VARCHAR(500) NOT NULL AFTER `certificate_name`");
+		$this->db->query("ALTER TABLE `card_1` ADD `another_certificate_name_caption` VARCHAR(500) NOT NULL AFTER `another_certificate_name`");
+		$this->db->query("ALTER TABLE `card_1` ADD `ion_certificate_file_caption` VARCHAR(500) NOT NULL AFTER `ion_certificate_file`");
+		$this->db->query("ALTER TABLE `card_1` ADD `experience_certificate_file_caption` VARCHAR(500) NOT NULL AFTER `experience_certificate_file`");
+		$this->db->query("ALTER TABLE `card_4` ADD `job_offer_1_file_caption` VARCHAR(500) NOT NULL AFTER `job_offer_1_file`");
+		$this->db->query("ALTER TABLE `card_4` ADD `job_offer_2_file_caption` VARCHAR(500) NOT NULL AFTER `job_offer_2_file`");
+		$this->db->query("ALTER TABLE `card_7` ADD `app_form_work_file_caption` VARCHAR(500) NOT NULL AFTER `app_form_work_file`");
+		$this->db->query("ALTER TABLE `card_7` ADD `motivation_file_caption` VARCHAR(500) NOT NULL AFTER `motivation_file`");
+		$this->db->query("ALTER TABLE `card_7` ADD `cv_caption` VARCHAR(500) NOT NULL AFTER `cv`");
+		$this->db->query("ALTER TABLE `card_7` ADD `app_form_another_work_file_1_caption` VARCHAR(500) NOT NULL AFTER `app_form_another_work_file_2`");
+		$this->db->query("ALTER TABLE `card_7` ADD `app_form_another_work_file_2_caption` VARCHAR(500) NOT NULL AFTER `app_form_another_work_file_1_caption`");
 		echo "Done.";
 	}
 }

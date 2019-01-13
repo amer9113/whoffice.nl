@@ -96,10 +96,12 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('certificate_file') )
 		            {
 		            	$input['certificate_name'] = $this->upload->data('file_name');
+		            	$input['certificate_name_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 			}else{
 				$input['certificate_name'] = "";
+				$input['certificate_name_caption'] = "";
 				$input['have_certificate'] = 0;
 			}
 
@@ -119,10 +121,12 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('another_certificate_file') )
 		            {
 		            	$input['another_certificate_name'] = $this->upload->data('file_name');
+		            	$input['another_certificate_name_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 			}else{
 				$input['another_certificate_name'] = "";
+				$input['another_certificate_name_caption'] = "";
 				$input['another_certificate'] = 0;
 			}
 			
@@ -143,10 +147,12 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('ion_certificate_file') )
 		            {
 		            	$input['ion_certificate_file'] = $this->upload->data('file_name');
+		            	$input['ion_certificate_file_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 			}else{
 				$input['ion_certificate_file'] = "";
+				$input['ion_certificate_file_caption'] = "";
 				$input['ion_certificate'] = 0;
 				$input['ion_certificate_name'] = "";
 			}
@@ -167,10 +173,12 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('experience_certificate_file') )
 		            {
 		            	$input['experience_certificate_file'] = $this->upload->data('file_name');
+		            	$input['experience_certificate_file_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 			}else{
 				$input['experience_certificate_file'] = "";
+				$input['experience_certificate_file_caption'] = "";
 				$input['experience_certificate'] = 0;
 			}
 
@@ -440,6 +448,7 @@ class Student extends CI_Controller {
 			    if ($this->upload->do_upload('job_offer_1_file') )
 		        {
 		        	$input['job_offer_1_file'] = $this->upload->data('file_name');
+		        	$input['job_offer_1_file_caption'] = $this->upload->data('orig_name');
 		        }
 			}
 
@@ -458,6 +467,7 @@ class Student extends CI_Controller {
 			    if ($this->upload->do_upload('job_offer_2_file') )
 		        {
 		        	$input['job_offer_2_file'] = $this->upload->data('file_name');
+		        	$input['job_offer_2_file_caption'] = $this->upload->data('orig_name');
 		        }
 			}
 
@@ -821,10 +831,12 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('app_form_work_file') )
 		            {
 		            	$input['app_form_work_file'] = $this->upload->data('file_name');
+		            	$input['app_form_work_file_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 			}else{
 				$input['app_form_work_file'] = "";
+				$input['app_form_work_file_caption'] = "";
 				$input['app_form_work'] = 0;
 			}
 
@@ -844,6 +856,7 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('app_form_another_work_file_1') )
 		            {
 		            	$input['app_form_another_work_file_1'] = $this->upload->data('file_name');
+		            	$input['app_form_another_work_file_1_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 
@@ -862,11 +875,14 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('app_form_another_work_file_2') )
 		            {
 		            	$input['app_form_another_work_file_2'] = $this->upload->data('file_name');
+		            	$input['app_form_another_work_file_2_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 			}else{
 				$input['app_form_another_work_file_1'] = "";
 				$input['app_form_another_work_file_2'] = "";
+				$input['app_form_another_work_file_1_caption'] = "";
+				$input['app_form_another_work_file_2_caption'] = "";
 				$input['app_form_another_work'] = 0;
 			}
 
@@ -886,10 +902,12 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('motivation_file') )
 		            {
 		            	$input['motivation_file'] = $this->upload->data('file_name');
+		            	$input['motivation_file_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 			}else{
 				$input['motivation_file'] = "";
+				$input['motivation_file_caption'] = "";
 				$input['motivation'] = 0;
 			}
 
@@ -909,10 +927,12 @@ class Student extends CI_Controller {
 			        if ($this->upload->do_upload('cv') )
 		            {
 		            	$input['cv'] = $this->upload->data('file_name');
+		            	$input['cv_caption'] = $this->upload->data('orig_name');
 		            }
 				}
 			}else{
 				$input['cv'] = "";
+				$input['cv_caption'] = "";
 				$input['have_cv'] = 0;
 			}
 

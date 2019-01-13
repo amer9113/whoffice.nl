@@ -488,7 +488,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <?php if (isset($data) && $data->app_form_work_file != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->app_form_work_file; ?>" target="_blank">View uploaded file</a>
+    										<a href="<?= base_url().'ext/student_documents/'.$data->app_form_work_file; ?>" target="_blank">View uploaded file <?= $data->app_form_work_file_caption; ?></a>
 
     									<?php endif ?>
 
@@ -546,7 +546,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <?php if (isset($data) && $data->app_form_another_work_file_1 != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->app_form_another_work_file_1; ?>" target="_blank">View uploaded file</a>
+    										<a href="<?= base_url().'ext/student_documents/'.$data->app_form_another_work_file_1; ?>" target="_blank">View uploaded file <?= $data->app_form_another_work_file_1_caption; ?></a>
 
     									<?php endif ?>
 
@@ -566,7 +566,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <?php if (isset($data) && $data->app_form_another_work_file_2 != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->app_form_another_work_file_2; ?>" target="_blank">View uploaded file</a>
+    										<a href="<?= base_url().'ext/student_documents/'.$data->app_form_another_work_file_2; ?>" target="_blank">View uploaded file <?= $data->app_form_another_work_file_2_caption; ?></a>
 
     									<?php endif ?>
 
@@ -630,7 +630,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <?php if (isset($data) && $data->motivation_file != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->motivation_file; ?>" target="_blank">View uploaded file</a>
+    										<a href="<?= base_url().'ext/student_documents/'.$data->motivation_file; ?>" target="_blank">View uploaded file <?= $data->motivation_file_caption; ?></a>
 
     									<?php endif ?>
 
@@ -690,7 +690,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <?php if (isset($data) && $data->cv != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->cv; ?>" target="_blank">View uploaded file</a>
+    										<a href="<?= base_url().'ext/student_documents/'.$data->cv; ?>" target="_blank">View uploaded file <?= $data->cv_caption; ?></a>
 
     									<?php endif ?>
 

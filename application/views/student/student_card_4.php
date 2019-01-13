@@ -400,7 +400,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <?php if (isset($data) && $data->job_offer_1_file != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank">View uploaded file</a>
+    										<a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank">View uploaded file <= $data->job_offer_1_file_caption; ?></a>
 
     									<?php endif ?>
 
@@ -588,7 +588,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                        <?php if (isset($data) && $data->job_offer_2_file != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->job_offer_2_file; ?>" target="_blank">View uploaded file</a>
+    										<a href="<?= base_url().'ext/student_documents/'.$data->job_offer_2_file; ?>" target="_blank">View uploaded file <= $data->job_offer_2_file_caption; ?></a>
 
     									<?php endif ?>
 
