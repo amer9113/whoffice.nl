@@ -78,6 +78,14 @@ $(document).ready(function(){
         });
     }(window, document, jQuery));
 
+    $('input.date').datetimepicker({
+        format: 'DD-MM-YYYY',
+        showTodayButton: true,
+        showClear: true,
+        showClose: true,
+        locale: 'NL',
+    });
+
     $(".nav li.inactive a").click(function() {
         return false;
     });
@@ -239,6 +247,13 @@ $(document).ready(function(){
             alert('The file ' + file.name + ' ' +'is bigger than 1MB, You can only upload files up to 1MB.');
             input.val("");
             _error("File size restriction.");
+        }
+
+        var parent = input.parent().parent()
+        if (parent.find('.choosen_file_label').length > 0) {
+            parent.find('.choosen_file_label').empty().text(file.name);
+        }else{
+            parent.append($('<label class="choosen_file_label">').text(file.name));
         }
     });
 });

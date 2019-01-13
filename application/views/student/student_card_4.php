@@ -316,7 +316,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    <div class="col-sm-8">
 
-	                                        <labelfor="job_offer_1_date"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="date"  name="job_offer_1_date" value="<?= isset($data) ? $data->job_offer_1_date : ''; ?>" required></labelfor>
+	                                        <labelfor="job_offer_1_date"><input class="date w3-input w3-animate-input w3-border w3-hover-border-red" placeholder="dd-mm-yyyy" name="job_offer_1_date" value="<?= isset($data) ? $data->job_offer_1_date : ''; ?>" required></labelfor>
 
 	                                    </div>
 
@@ -397,10 +397,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <?php endif ?>>
 
 	                                    </label>
-
+	                                    <br>
 	                                    <?php if (isset($data) && $data->job_offer_1_file != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank">View uploaded file <= $data->job_offer_1_file_caption; ?></a>
+    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank"><= $data->job_offer_1_file_caption; ?></a></label>
 
     									<?php endif ?>
 
@@ -504,7 +504,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                        <div class="col-sm-8">
 
-	                                            <labelfor="job_offer_2_date"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="date"  name="job_offer_2_date" value="<?= isset($data) ? $data->job_offer_2_date : ''; ?>" required></labelfor>
+	                                            <labelfor="job_offer_2_date"><input class="date w3-input w3-animate-input w3-border w3-hover-border-red" placeholder="dd-mm-yyyy" name="job_offer_2_date" value="<?= isset($data) ? $data->job_offer_2_date : ''; ?>" required></labelfor>
 
 	                                        </div>
 
@@ -585,10 +585,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			                                    <?php endif ?>>
 
 	                                        </label>
-
+	                                        <br>
 	                                        <?php if (isset($data) && $data->job_offer_2_file != ""): ?>
 
-    										<a href="<?= base_url().'ext/student_documents/'.$data->job_offer_2_file; ?>" target="_blank">View uploaded file <= $data->job_offer_2_file_caption; ?></a>
+    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_2_file; ?>" target="_blank"><= $data->job_offer_2_file_caption; ?></a></label>
 
     									<?php endif ?>
 

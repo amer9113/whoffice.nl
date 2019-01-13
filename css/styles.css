@@ -65,6 +65,11 @@ textarea{
     resize: none;
 }
 
+.choosen_file_label{
+    margin-top: 5px;
+    color: #EA4335;
+}
+
 /*By AbdAlrzzaq*/
 /*-------------*/
 
@@ -227,7 +232,7 @@ input[type="password"],
 input[type="email"],
 input[type="number"],
 select,
-textarea{
+textarea,input.date{
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -241,7 +246,7 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus,
 textarea:focus
-select:focus {
+select:focus,input.date:focus {
     background-color: #ddd;
     outline: none;
 }
