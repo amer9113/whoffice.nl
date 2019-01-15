@@ -117,9 +117,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             </div>
                       
-                            <div class="w3-hover-opacity">
+                            <div class="">
 
-                                <h4 name="text3"> [[text2:text]]</h4>
+                                <label class="quline_text w3-mobile" name="text1"> [[text2:text]]</label>
 
                             </div>
                         
