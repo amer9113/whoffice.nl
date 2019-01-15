@@ -237,7 +237,7 @@ class Admin extends CI_Controller {
 	}
 
 
-	public function check_card($student_id,$card_no,$mode=0/*0 for view and 1 for approving*/){
+	public function check_card($student_id,$card_no,$mode=0/*0 for text replacment view and 1 for approving*/){
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && $mode == 1) {
 
 			$lock_card = $this->input->post('lock_card');
@@ -324,10 +324,75 @@ class Admin extends CI_Controller {
 			echo "Sorry, card isn't found.";
 
 		}
-
 	}
 
+	public function remove_file($card_no,$student_id,$file){
+		$this->db->where('user_id',$student_id);
+		if($file == "certificate_file"){
+			$input['certificate_name'] = "";
+			$input['certificate_name_caption'] = "";
+			/*$input['have_certificate'] = 0;*/
+		}
 
+		if($file == "another_certificate_file"){
+			$input['another_certificate_name'] = "";
+			$input['another_certificate_name_caption'] = "";
+			/*$input['another_certificate'] = 0;*/
+		}
+
+		if($file == "ion_certificate_file"){
+			$input['ion_certificate_file'] = "";
+			$input['ion_certificate_file_caption'] = "";
+			/*$input['ion_certificate'] = 0;
+			$input['ion_certificate_name'] = "";*/
+		}
+
+		if($file == "experience_certificate_file"){
+			$input['experience_certificate_file'] = "";
+			$input['experience_certificate_file_caption'] = "";
+			/*$input['experience_certificate'] = 0;*/
+		}
+
+		if($file == "job_offer_1_file"){
+			$input['job_offer_1_file'] = "";
+		    $input['job_offer_1_file_caption'] = "";
+		}
+
+		if($file == "job_offer_2_file"){
+			$input['job_offer_2_file'] = "";
+		    $input['job_offer_2_file_caption'] = "";
+		}
+
+		if($file == "app_form_work_file"){
+			$input['app_form_work_file'] = "";
+			$input['app_form_work_file_caption'] = "";
+		}
+
+		if($file == "app_form_another_work_file_1"){
+			$input['app_form_another_work_file_1'] = "";
+			$input['app_form_another_work_file_1_caption'] = "";
+			
+		}
+
+		if($file == "app_form_another_work_file_2"){
+			$input['app_form_another_work_file_2'] = "";
+			$input['app_form_another_work_file_2_caption'] = "";
+		}
+
+		if($file == "motivation_file"){
+			$input['motivation_file'] = "";
+			$input['motivation_file_caption'] = "";
+		}
+
+		if($file == "cv"){
+			$input['cv'] = "";
+			$input['cv_caption'] = "";
+		}
+
+		$this->db->update("card_$card_no",$input);
+
+		redirect('admin/check_card/'.$student_id.'/'.$card_no.'/1');
+	}
 
 	public function check_students_times(){
 		$data['students_times'] = $this->Teacher_model->get_students_times();
