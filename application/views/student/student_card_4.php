@@ -164,34 +164,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                <div class="w3-cell w3-block w3-mobile">
 
-	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline2">
+	                    <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
 
-	                        <div class="col-sm-4">
+	                        <label class="quline_text w3-mobile section_header" name="text1">
 
-	                            <label class="quline_text w3-mobile section_header" name="text3">
+	                        [[text82:text]]&nbsp;&nbsp;&nbsp;&nbsp;[[text83:text]]
+	                        </label>
 
-	                            [[text82:text]]
+	                    </div>
 
-	                            </label>
+	                    <div class="w3-cell-row w3-block w3-mobile" id="ans1line">
 
+	                        <div class="w3-cell-row w3-block w3-mobile" id="ans1line1">
+	                            <div class="w3-cell w3-mobile">
+	                                <labelfor="num_vacancies_find"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="number" name="num_vacancies_find" value="<?= isset($data) ? $data->num_vacancies_find : ''; ?>" required></labelfor>
+	                            </div>
 	                        </div>
-
-	                        <div class="col-sm-2">
-
-	                            <labelfor="num_vacancies_find"><input class="w3-input w3-animate-input w3-border w3-hover-border-red" type="number" name="num_vacancies_find" value="<?= isset($data) ? $data->num_vacancies_find : ''; ?>" required></labelfor>
-
-	                        </div>
-
-	                        <div class="col-sm-6">
-
-	                            <label class="quline_text w3-mobile" name="text5">
-
-	                            [[text83:text]]
-
-	                            </label> 
-
-	                        </div>
-
 	                    </div>
 
 	                </div>
@@ -400,7 +388,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <br>
 	                                    <?php if (isset($data) && $data->job_offer_1_file != ""): ?>
 
-    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank"><= $data->job_offer_1_file_caption; ?></a></label>
+    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank"><?= $data->job_offer_1_file_caption; ?></a></label>
 
     									<?php endif ?>
 
