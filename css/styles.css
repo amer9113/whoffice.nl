@@ -100,6 +100,7 @@ textarea{
 
 .parallax {
     min-height: 100%;
+    background-color: rgb(216, 216, 216);
 }
 
 .centerpage {
@@ -111,7 +112,7 @@ textarea{
 }
 
 .centerpagecnt2 {
-    padding-top: 10%;
+    padding-top: 6%;
     text-align: center;
 }
 
@@ -125,7 +126,41 @@ textarea{
     padding: 0px;
 }
 
+.examimg{
+    width: 300px;
+    height: 200px;
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    margin: 0px;
+}
+.examimg:hover{
+    color:black;
+    mix-blend-mode:multiply;
+}
+.iconimg{
+    width: 148px;
+    height: 50px;
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+    margin:0px;
+    background-color: black;
+}
+.exambutton{
+    margin: 10px;
+    display: inline-block;
+    box-shadow: 5px 5px 5px #888888;
+}
+
 .imgtext {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(128, 0, 0, 0.71);
+}
+
+.imgtext1{
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;

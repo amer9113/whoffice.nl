@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</ul>
 						</div>
 				  		<div class="panel-footer text-center">
-				  			<a href="<?= base_url().'student'; ?>"><button type="button" class="btn btn-danger">Close</button></a>
+				  			<button type="button" class="btn btn-danger" onclick="window.close();">Close</button>
 				  		<?php if ($already_have_answers == 0): ?>
 				  			<button type="submit" class="submit btn btn-primary">Submit Exam</button>
 				  		<?php else: ?>
