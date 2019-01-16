@@ -514,9 +514,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                        <div class=".divstyle;checkbox">
 
-	                            <label>
-
-	                            <input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_5" data-input_to_toggle='[name="app_form_another_work_file_1"],[name="app_form_another_work_file_2"]' name="app_form_another_work" value="1" <?php if (isset($data) && $data->app_form_another_work == 1): ?>
+	                            <label><input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_5" data-input_to_toggle='[name="app_form_another_work_file_1"],[name="app_form_another_work_file_2"]' name="app_form_another_work" value="1" <?php if (isset($data) && $data->app_form_another_work == 1): ?>
 
 	                            	checked
 
