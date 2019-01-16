@@ -390,9 +390,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank"><?= $data->job_offer_1_file_caption; ?></a></label>
 
-    										<?php if (isset($opened_for_teacher_checking) && $data->job_offer_1_file != ""): ?>
+    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->job_offer_1_file != ""): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/4/'.$data->user_id.'/job_offer_1_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?>
+                                            <?php endif ?> -->
     									<?php endif ?>
 
 	                                </div>
@@ -580,9 +580,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                        <?php if (isset($data) && $data->job_offer_2_file != ""): ?>
 
     										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_2_file; ?>" target="_blank"><= $data->job_offer_2_file_caption; ?></a></label>
-    										<?php if (isset($opened_for_teacher_checking) && $data->job_offer_2_file != ""): ?>
+    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->job_offer_2_file != ""): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/4/'.$data->user_id.'/job_offer_2_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?>
+                                            <?php endif ?> -->
     									<?php endif ?>
 
 	                                    </div>
@@ -825,45 +825,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 
 <?php if (isset($opened_for_teacher_checking)): ?>
-
 <script type="text/javascript">
-
     $(document).ready(function(){
-
         $('.approve_edit').click(function(){
-
             $('[name="lock_card"]').val("no");
-
             $('form').submit();
 
         });
-
-
 
         $('.approve_lock').click(function(){
-
             $('[name="lock_card"]').val("yes");
-
             $('form').submit();
 
         });
-
-
 
         $('.needs_correction').click(function(){
-
             $('[name="lock_card"]').val("no");
-
             $('[name="needs_correction_by_student"]').val("yes");
-
             $('form').submit();
-
         });
 
+        $('.alter_answers').click(function(){
+            $('[name="alter_answers"]').val("yes");
+            $('form').submit();
+        });
     });
-
 </script>
-
 <?php endif ?>
 
 </body>

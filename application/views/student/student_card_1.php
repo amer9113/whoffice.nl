@@ -285,9 +285,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php if (isset($data) && $data->have_certificate == 1): ?>
 
                                             <label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->certificate_name; ?>" target="_blank"><?= $data->certificate_name_caption; ?></a></label>
-                                            <?php if (isset($opened_for_teacher_checking)  && $data->certificate_name != ""): ?>
+                                            <!-- <?php if (isset($opened_for_teacher_checking)  && $data->certificate_name != ""): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/1/'.$data->user_id.'/certificate_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?>
+                                            <?php endif ?> -->
                                         <?php endif ?>
 
                                     </div>
@@ -348,9 +348,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php if (isset($data) && $data->another_certificate == 1): ?>
 
                                             <label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->another_certificate_name; ?>" target="_blank"><?= $data->another_certificate_name_caption; ?></a></label>
-                                            <?php if (isset($opened_for_teacher_checking) && $data->another_certificate_name != ""): ?>
+                                            <!-- <?php if (isset($opened_for_teacher_checking) && $data->another_certificate_name != ""): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/1/'.$data->user_id.'/another_certificate_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?>
+                                            <?php endif ?> -->
                                         <?php endif ?>
 
                                     </div>
@@ -435,9 +435,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php if (isset($data) && $data->ion_certificate == 1): ?>
 
                                             <label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->ion_certificate_file; ?>" target="_blank"><?= $data->ion_certificate_file_caption; ?></a></label>
-                                            <?php if (isset($opened_for_teacher_checking) && $data->ion_certificate_file != ""): ?>
+                                            <!-- <?php if (isset($opened_for_teacher_checking) && $data->ion_certificate_file != ""): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/1/'.$data->user_id.'/ion_certificate_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?>
+                                            <?php endif ?> -->
                                         <?php endif ?>
 
                                     </div>
@@ -568,9 +568,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php if (isset($data) && $data->experience_certificate == 1): ?>
 
                                             <label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->experience_certificate_file; ?>" target="_blank"><?= $data->experience_certificate_file_caption; ?></a></label>
-                                            <?php if (isset($opened_for_teacher_checking) && $data->experience_certificate_file != ""): ?>
+                                            <!-- <?php if (isset($opened_for_teacher_checking) && $data->experience_certificate_file != ""): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/1/'.$data->user_id.'/experience_certificate_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?>
+                                            <?php endif ?> -->
                                         <?php endif ?>
 
                                     </div>
@@ -664,45 +664,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 
 <?php if (isset($opened_for_teacher_checking)): ?>
-
 <script type="text/javascript">
-
     $(document).ready(function(){
-
         $('.approve_edit').click(function(){
-
             $('[name="lock_card"]').val("no");
-
             $('form').submit();
 
         });
-
-
 
         $('.approve_lock').click(function(){
-
             $('[name="lock_card"]').val("yes");
-
             $('form').submit();
 
         });
-
-
 
         $('.needs_correction').click(function(){
-
             $('[name="lock_card"]').val("no");
-
             $('[name="needs_correction_by_student"]').val("yes");
-
             $('form').submit();
-
         });
 
+        $('.alter_answers').click(function(){
+            $('[name="alter_answers"]').val("yes");
+            $('form').submit();
+        });
     });
-
 </script>
-
 <?php endif ?>
 
 <script type="text/javascript">

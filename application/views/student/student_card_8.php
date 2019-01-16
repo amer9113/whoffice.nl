@@ -218,47 +218,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 
 <?php if (isset($opened_for_teacher_checking)): ?>
-
 <script type="text/javascript">
-
     $(document).ready(function(){
-
         $('.approve_edit').click(function(){
-
             $('[name="lock_card"]').val("no");
-
             $('form').submit();
 
         });
-
-
 
         $('.approve_lock').click(function(){
-
             $('[name="lock_card"]').val("yes");
-
             $('form').submit();
 
         });
-
-
 
         $('.needs_correction').click(function(){
-
             $('[name="lock_card"]').val("no");
-
             $('[name="needs_correction_by_student"]').val("yes");
-
             $('form').submit();
-
         });
 
+        $('.alter_answers').click(function(){
+            $('[name="alter_answers"]').val("yes");
+            $('form').submit();
+        });
     });
-
 </script>
-
 <?php endif ?>
-
 </body>
-
 </html>
