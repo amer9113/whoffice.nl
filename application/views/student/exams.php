@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<div class="parallax imgbc centerpagecnt2">
-    <div class="centerpagecnt2 w3-container w3-center w3-mobile">
+    <div class=" w3-container w3-center w3-mobile">
         <div class="exambutton w3-row">
         <div class="examimg w3-card-4 w3-mobile w3-display-container"> 
         <img class="imgbutton" src="<?= base_url().'images/'; ?>hand-writing-on-paper-with-a-pen_1232-602.jpg">
