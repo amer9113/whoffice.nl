@@ -34,11 +34,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</ul>
 						</div>
 				  		<div class="panel-footer text-center">
-				  			<button type="button" class="btn btn-danger" onclick="window.close();">Close</button>
+				  			<button type="button" class="btn btn-danger" onclick="window.close();">Gesloten</button>
 				  		<?php if ($already_have_answers == 0): ?>
-				  			<button type="submit" class="submit btn btn-primary">Submit Exam</button>
+				  			<button type="submit" class="submit btn btn-primary">Vragen repareren</button>
 				  		<?php else: ?>
-				  			<button type="submit" class="submit btn btn-primary" disabled>Submit Exam</button>
+				  			<button type="submit" class="submit btn btn-primary" disabled>Vragen repareren</button>
 				  		<?php endif ?>
 				  		</div>
 					</div>
