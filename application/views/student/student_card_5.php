@@ -191,7 +191,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label class="quline_text w3-mobile" name="text9">
 
-	                            [[text120:text]]
+	                            [[text266:text]]
 
 	                            </label>
 
@@ -211,7 +211,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                            <label class="quline_text w3-mobile" name="text9">
 
-	                            [[text120:text]]
+	                            [[text267:text]]
 
 	                            </label>
 
@@ -579,7 +579,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			                            <?php endif ?>>
 
-	                                    <label class="quline_text w3-mobile" name="text44">[[text138:text]]</label>
+	                                    <label class="quline_text w3-mobile" name="text44">Nee</label>
 
 	                                </p>
 
@@ -906,7 +906,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			                            <?php endif ?>>
 
-	                                    <label class="quline_text w3-mobile" name="text72">[[text155:text]]</label>
+	                                    <label class="quline_text w3-mobile" name="text72">Nee</label>
 
 	                                </p>
 

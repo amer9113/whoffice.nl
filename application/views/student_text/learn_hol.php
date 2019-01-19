@@ -10,7 +10,7 @@
 <body>
     <div class="parallax">
     <div class="mheader w3-container w3-mobile w3-card-4">
-        <img class="imgtext" src="/images/header.png">
+        <img class="imgtext" src="../images/header.png">
         <div class="topcorner">
              <a style="color: white;font-size: 18px" href="<?= base_url().'/'; ?>">Thuis</a>
                 <span> - </span>
@@ -20,7 +20,7 @@
     <div class="cnt_heads w3-container w3-mobile">
     <div class="col-sm-2"></div>
     <div class="col-sm-8 w3-container hollcnt w3-container w3-mobile we-border w3-card-4">
-        <div class="w3-mobile"><img class="imgtext" src="/images/Education.jpg"></div>
+        <div class="w3-mobile"><img class="imgtext" src="../images/Education.jpg"></div>
         <div class="w3-mobile">
         <h2 class="cnt_heads w3-red">Onderwijs</h2>
         <label>In Nederland is onderwijs heel belangrijk. Voor veel beroepen kom je alleen in aanmerking als je bepaalde diploma’s hebt behaald. Op deze pagina wordt het onderwijssysteem in Nederland kort uitgelegd. De Nederlandse overheid wil dat iedereen een diploma (startkwalificatie) haalt. Als je geen werk hebt en een uitkering aanvraagt kun je tot je 27ste verplicht worden om een diploma te halen. Ook zijn er voor asielzoekers verschillende opleidingsmogelijkheden. Kinderen hebben geen keuze: zij moeten naar school, ongeacht hun verblijfsstatus.</label>
@@ -34,7 +34,7 @@
         <div class="w3-mobile">
         <h2 class="cnt_heads w3-red">Basisschool</h2>
         <label>Kinderen van 4 tot en met 12 jaar gaan naar de basisschool. De basisschool heeft acht groepen. Groep 1 en 2 zijn de kleuterklassen. Vanaf groep 3 leren de kinderen lezen, schrijven en rekenen. In groep 8 moeten alle leerlingen een eindtoets maken. De uitslag geeft een indicatie op welk niveau een leerling vervolgonderwijs kan volgen. Ook de leerkracht geeft hierover een advies. Dat advies wordt vaak door de nieuwe school opgevolgd bij de toelating.</label>
-        <div class="w3-mobile"><img class="imgtext" src="/images/Basisonderwijs.jpg"></div>
+        <div class="w3-mobile"><img class="imgtext" src="../images/Basisonderwijs.jpg"></div>
         </div>
         <div class="w3-mobile">
         <h2 class="cnt_heads w3-red">Voortgezet onderwijs</h2>

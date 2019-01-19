@@ -10,7 +10,7 @@
 <body>
     <div class="parallax">
         <div class="mheader w3-container w3-mobile w3-card-4">
-        <img class="imgtext" src="/images/header.png">
+        <img class="imgtext" src="../images/header.png">
         <div class="topcorner">
              <a style="color: white;font-size: 18px" href="<?= base_url().'/'; ?>">الصفحة الرئيسية</a>
 
@@ -21,7 +21,7 @@
     <div class="cnt_heads w3-container w3-mobile">
     <div class="col-sm-2"></div>
     <div class="col-sm-8 w3-container aracnt w3-container w3-mobile we-border w3-card-4">
-        <div class="w3-mobile"><img class="imgtext" src="/images/Education.jpg"></div>
+        <div class="w3-mobile"><img class="imgtext" src="../images/Education.jpg"></div>
         <div class="w3-mobile">
         <h2 class="cnt_heads w3-red">التعليم</h2>
         <label>يعتبر التعليم في هولندا مهما جدا. بالنسبة لكثير من المهن لا يمكنك ممارستها إلا إذا كنت قد حصلت على شهادات معينة. في هذه الصفحة، يتم باختصار شرح نظام التعليم في هولندا. تريد الحكومة الهولندية أن يحصل الجميع على شهادة (بداية التأهيل). إذا لم يكن لديك وظيفة وتقدمت بطلب الحصول على إعانة اجتماعية، يمكن إلزامك حتى بلوغك سن 27 سنة على الحصول على شهادة. هناك أيضا إمكانيات مختلفة للتكوين بالنسبة لطالبي اللجوء. ليس للأطفال أي خيار: ينبغي عليهم الذهاب إلى المدرسة بصرف النظر عن وضع إقامتهم.</label>
@@ -33,7 +33,7 @@
         <div class="w3-mobile">
         <h2 class="cnt_heads w3-red">المدرسة الإبتدائية</h2>
         <label>يذهب الأطفال من ٤ إلى ١٢ سنة إلى المدرسة الابتدائية. تتالف هذه الأخيرة من ثمانية صفوف. الصف ١و٢ هي فصول الأطفال الصغار (kleuterklassen). ابتداء من الصف٣يتعلم الأطفال القراءة، الكتابة والحساب. في الصف ٨، ينبغي على جميع التلاميذ إجراء اختبار نهائي. تعطي النتيجة مؤشرا عن المستوى الذي يمكن للطالب متابعة تعليمه فيه. كما يعطي المعلم توصية في هذا الشأن. غالبا ما تتبع المدرسة الجديدة هذه التوصية عند قبول التلميذ.</label>
-        <div class="w3-mobile"><img class="imgtext" src="/images/Basisonderwijs.jpg"></div>
+        <div class="w3-mobile"><img class="imgtext" src="../images/Basisonderwijs.jpg"></div>
         </div>
         <div class="w3-mobile">
         <h2 class="cnt_heads w3-red">التعليم الثانوي</h2>

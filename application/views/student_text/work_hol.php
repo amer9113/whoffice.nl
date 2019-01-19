@@ -10,7 +10,7 @@
 <body>
     <div class="parallax">
         <div class="mheader w3-container w3-mobile w3-card-4">
-        <img class="imgtext" src="/images/header.png">
+        <img class="imgtext" src="../images/header.png">
         <div class="topcorner">
 <a style="color: white;font-size: 18px" href="<?= base_url().'/'; ?>">Thuis</a>
                 <span> - </span>
@@ -20,7 +20,7 @@
     <div class="cnt_heads w3-container w3-mobile">
     <div class="col-sm-2"></div>
     <div class="col-sm-8 w3-container hollcnt w3-container w3-mobile we-border w3-card-4">
-        <div class="w3-mobile"><img class="imgtext" src="/images/Arbeidsparticipatie.jpg"></div>
+        <div class="w3-mobile"><img class="imgtext" src="../images/Arbeidsparticipatie.jpg"></div>
         <div class="w3-mobile">
         <h2 class="cnt_heads w3-red">Werk & inkomen</h2>
         <label><b>Veel vluchtelingen willen graag snel aan het werk. Werk is een belangrijke stap in het opbouwen van een nieuw leven in Nederland. Je voelt je nuttig en je verdient je eigen brood. Toch is het voor veel vluchtelingen moeilijk om aan werk te komen zolang ze de Nederlandse taal nog niet machtig zijn. Totdat je werk hebt, krijg je in Nederland financiële bijstand van de overheid. Op deze pagina leggen we uit hoe het zit met deze bijstand, het vinden van werk en de inkomstenbelasting.</b></label>
@@ -69,7 +69,7 @@
         <a href="https://youtu.be/TgRF0Jg58BU">Filmpje over toeslagen >></a><br><br>
         <span class="glyphicon glyphicon-chevron-right"></span>
         <a href="https://youtu.be/gfVutPZ2bC8">Filmpje over sociale zekerheid >></a><br><br>
-        <div class="w3-mobile"><img class="imgtext" src="/images/Automonteur.jpg"></div>
+        <div class="w3-mobile"><img class="imgtext" src="../images/Automonteur.jpg"></div>
         </div>
         <br>
         <br>
