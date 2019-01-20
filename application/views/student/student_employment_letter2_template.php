@@ -12,16 +12,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		html,body{
 			background-color: #fff;
 		}
+		.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12,.row {
+			border:0;
+			padding:0;
+			margin-left:-0.00001;
+		}
+
 	</style>
 </head>
 <body>
-	<div class="container" style="border: 1px solid #ccc;margin-top: 25px;margin-bottom: 25px;padding: 15px 50px;">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-6">
 				<h3>Sollicitatieformulier</h3>
 			</div>
 			<div class="col-xs-6">
-				<h3>voor: UBN Utrecht</h3>
+				<h3>voor: <?= $letter_details->for1." & ".$letter_details->for2; ?></h3>
 			</div>
 		</div>
 		<div class="row">
@@ -29,17 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>sollicitatie</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
-					<div class="col-xs-6">
-						<label>Dit formulier wordt ingevuld in verband met:</label>
-					</div>
-					<div class="col-xs-2">
-						<input type="checkbox" checked=""> <label>sollicitatie</label>
-					</div>
-					<div class="col-xs-2">
-						<input type="checkbox"> <label>stage</label>
-					</div>
-					<div class="col-xs-2">
-						<input type="checkbox"> <label>Anders, nl.</label>
+					<div class="col-xs-12">
+						<label>Dit formulier wordt ingevuld in verband met:</label>&nbsp;&nbsp;&nbsp;<label>sollicitatie</label>
 					</div>
 				</div>
 			</div>
@@ -49,85 +46,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>Persoonlijke gegevens</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Naam:</label>
-					</div>
-					<div class="col-xs-4">
-						<label>Razan Tahboob</label>
-					</div>
-					<div class="col-xs-5">
-						<input type="checkbox"> <label>Man</label>&nbsp;&nbsp;
-						<input type="checkbox" checked> <label>Vrouw</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3">
-						<label>Geboortedatum:</label>
-					</div>
-					<div class="col-xs-3">
-						<label>25-07-1983</label>
-					</div>
-					<div class="col-xs-3">
-						<label>Geboorteplaats:</label>
-					</div>
-					<div class="col-xs-3">
-						<label>Syrie</label>
+					<div class="col-xs-12">
+						<label>Naam:</label>&nbsp;&nbsp;&nbsp;
+						<label><?= $this->acc_name; ?></label> / 
+						<?php if ($letter_details->gender == "male"): ?>
+							<label>Man</label>
+						<?php else: ?>
+							<label>Vrouw</label>
+						<?php endif ?>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Nationaliteit:</label>
-					</div>
-					<div class="col-xs-9">
-						<label>Staatloos</label>
+					<div class="col-xs-12">
+						<label>Geboortedatum:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->date_of_birth; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Burgerlijke staat:</label>
-					</div>
-					<div class="col-xs-9">
-						<label>Gehuwd</label>
+					<div class="col-xs-12">
+						<label>Geboorteplaats:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->birthplace; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Burgerservicenummer (BSN):</label>
-					</div>
-					<div class="col-xs-9">
-						<label>565127494</label>
+					<div class="col-xs-12">
+						<label>Nationaliteit:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->nationality; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Straatnaam en huisnummer:</label>
-					</div>
-					<div class="col-xs-9">
-						<label>Voltastraat 128</label>
+					<div class="col-xs-12">
+						<label>Burgerlijke staat:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->marital_status; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Postcode en Woonplaats:</label>
-					</div>
-					<div class="col-xs-9">
-						<label>2871ZR , Schoonhoven</label>
+					<div class="col-xs-12">
+						<label>Burgerservicenummer (BSN):</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->citizen_service_no; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Mobiel:</label>
-					</div>
-					<div class="col-xs-9">
-						<label>0686167325</label>
+					<div class="col-xs-12">
+						<label>Straatnaam en huisnummer:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->street_name_and_house_number; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>E-mailadres:</label>
+					<div class="col-xs-12">
+						<label>Postcode en Woonplaats:</label>&nbsp;&nbsp;&nbsp;<label>2871ZR , <?= $letter_details->address; ?></label>
 					</div>
-					<div class="col-xs-9">
-						<label>razantahbob@gmail.com</label>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label>Mobiel:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->mobile; ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label>E-mailadres:</label>&nbsp;&nbsp;&nbsp;<label><?= $acc_info->email; ?></label>
 					</div>
 				</div>
 			</div>
@@ -137,19 +108,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>Functie1</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Naar welke functie solliciteert u?</label>
-					</div>
-					<div class="col-xs-9">
-						<label>Magazijnmedewerker</label>
+					<div class="col-xs-12">
+						<label>Naar welke functie solliciteert u?</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->applying_for_job1; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Hoeveel uur wilt u werken?</label>
-					</div>
-					<div class="col-xs-9">
-						<label>40	uur per week</label>
+					<div class="col-xs-12">
+						<label>Hoeveel uur wilt u werken?</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->job1_houres; ?></label>
 					</div>
 				</div>
 			</div>
@@ -159,19 +124,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>Functie2</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Naar welke functie solliciteert u?</label>
-					</div>
-					<div class="col-xs-9">
-						<label>Magazijnmedewerker</label>
+					<div class="col-xs-12">
+						<label>Naar welke functie solliciteert u?</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->applying_for_job2; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-3">
-						<label>Hoeveel uur wilt u werken?</label>
-					</div>
-					<div class="col-xs-9">
-						<label>40	uur per week</label>
+					<div class="col-xs-12">
+						<label>Hoeveel uur wilt u werken?</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->job2_houres; ?></label>
 					</div>
 				</div>
 			</div>
@@ -265,25 +224,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>Talenkennis (vul in: goed / voldoende / matig / slecht)</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
-					<div class="col-xs-2">
-						<label>Nederlands</label>
+					<div class="col-xs-6">
+						<label>Nederlands:</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><?= $letter_details->dutch_skill; ?></label>
 					</div>
-					<div class="col-xs-3">
-						<label>goed</label>
-					</div>
-					<div class="col-xs-2">
-						<label>Engels</label>
-					</div>
-					<div class="col-xs-3">
-						<label>voldoende </label>
+					<div class="col-xs-6">
+						<label>Engels:</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><?= $letter_details->english_skill; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-2">
-						<label>Arabische</label>
-					</div>
-					<div class="col-xs-9">
-						<label>slecht</label>
+					<div class="col-xs-6">
+						<label>Arabische:</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><?= $letter_details->arabic_skill; ?></label>
 					</div>
 				</div>
 			</div>
@@ -293,31 +243,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>Vaardigheden (kruis uw vaardigheden aan)</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
+					<?php if ($letter_details->accuracy_skill == "yes"): ?>
 					<div class="col-xs-4">
-						<input type="checkbox" checked> <label>Nauwkeurigheid</label>
+						<label>Nauwkeurigheid</label>
 					</div>
+					<?php endif ?>
+					<?php if ($letter_details->collaborate_skill == "yes"): ?>
 					<div class="col-xs-4">
-						<input type="checkbox" checked> <label>Samenwerken</label>
+						<label>Samenwerken</label>
 					</div>
+					<?php endif ?>
+					<?php if ($letter_details->communication_skill == "yes"): ?>
 					<div class="col-xs-4">
-						<input type="checkbox" checked> <label>Communicatie</label>
+						<label>Communicatie</label>
 					</div>
-				</div>
-				<div class="row">
+					<?php endif ?>
+					<?php if ($letter_details->creativity_skill == "yes"): ?>
 					<div class="col-xs-4">
-						<input type="checkbox" checked> <label>Creativiteit</label>
+						<label>Creativiteit</label>
 					</div>
+					<?php endif ?>
+					<?php if ($letter_details->lead_skill == "yes"): ?>
 					<div class="col-xs-4">
-						<input type="checkbox"> <label>Leidinggeven</label>
+						<label>Leidinggeven</label>
 					</div>
-				</div>
-				<div class="row">
+					<?php endif ?>
+					<?php if ($letter_details->analyze_skill == "yes"): ?>
 					<div class="col-xs-4">
-						<input type="checkbox" checked> <label>Analyseren</label>
+						<label>Analyseren</label>
 					</div>
+					<?php endif ?>
+					<?php if ($letter_details->stress_resistance_skill == "yes"): ?>
 					<div class="col-xs-4">
-						<input type="checkbox"> <label>Stressbestendigheid</label>
+						<label>Stressbestendigheid</label>
 					</div>
+					<?php endif ?>
 				</div>
 			</div>
 		</div><br><br>
@@ -326,25 +286,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>Bedrijfs plaats 1</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
-					<div class="col-xs-2">
-						<label>Utrecht</label>
+					<div class="col-xs-8">
+						<label>Utrecht:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place1; ?></label>
 					</div>
 					<div class="col-xs-4">
-						<label>Utrecht</label>
-					</div>
-					<div class="col-xs-2">
-						<label>Datum</label>
-					</div>
-					<div class="col-xs-4">
-						<label>1-06-2018</label>
+						<label>Datum:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place1_date; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-2">
-						<label>Handtekening</label>
-					</div>
-					<div class="col-xs-10">
-						<label>Name</label>
+					<div class="col-xs-12">
+						<label>Handtekening:</label>&nbsp;&nbsp;&nbsp;<label><?= $this->acc_name; ?></label>
 					</div>
 				</div>
 			</div>
@@ -354,25 +305,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>Bedrijfs plaats 2</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
-					<div class="col-xs-2">
-						<label>Utrecht</label>
+					<div class="col-xs-8">
+						<label>Utrecht:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place2; ?></label>
 					</div>
 					<div class="col-xs-4">
-						<label>Utrecht</label>
-					</div>
-					<div class="col-xs-2">
-						<label>Datum</label>
-					</div>
-					<div class="col-xs-4">
-						<label>1-06-2018</label>
+						<label>Datum:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place2_date; ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-2">
-						<label>Handtekening</label>
-					</div>
-					<div class="col-xs-10">
-						<label>Name</label>
+					<div class="col-xs-12">
+						<label>Handtekening:</label>&nbsp;&nbsp;&nbsp;<label><?= $this->acc_name; ?></label>
 					</div>
 				</div>
 			</div>

@@ -1090,6 +1090,31 @@ class Student extends CI_Controller {
         return $output;
     }
 
+    public function create_pdf_employment_letter2($letter_id)
+    {
+       	//load library
+        $this->load->library('pdf');
+        $pdf = $this->pdf->load();
+        /*Arabic support*/
+        $pdf->allow_charset_conversion = false;  // Set by default to TRUE
+		$pdf->charset_in = 'UTF-8';
+		$pdf->SetDirectionality('ltr');
+		$pdf->autoLangToFont = true;
+		$pdf->autoScriptToLang = true;
+		/*Arabic support*/
+       	// retrieve data from model
+        $data['letter_details'] = $this->db->where('id',$letter_id)->get('employment_letter2_template')->row();
+		$data['acc_info'] = $this->db->where('id',$this->acc_id)->get('students')->row();
+        /*ini_set('memory_limit', '256M');*/
+       	// boost the memory limit if it's low ;)
+        $html = $this->load->view('student/student_employment_letter2_template',$data,true);
+       	// render the view into HTML
+        $pdf->WriteHTML($html); // write the HTML into the PDF
+        $output = $data['acc_info']->username.'_'.$letter_id.'_'. bin2hex(openssl_random_pseudo_bytes(16)) . '_.pdf';
+        $pdf->Output('./ext/employment_letters_pdfs/'.$output,'F'); // save to file because we can
+        return $output;
+    }
+
 	public function employment_letter_form(){
 		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_6')->num_rows();
 
@@ -1118,7 +1143,6 @@ class Student extends CI_Controller {
 						$data = file_get_contents($path);
 		    			$name = 'Whoffice employment letter.pdf';
 		        		force_download($name, $data);
-		        		redirect('student/card_7');
 					}
 
 				}else{
@@ -1141,19 +1165,18 @@ class Student extends CI_Controller {
 			die();
 		}else{
 
-			/*if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$input = $this->input->post();
 				$input['student_id'] = $this->acc_id;
 
-
 				$this->db->trans_start();
-				$this->db->insert('employment_letter_template',$input);
+				$this->db->insert('employment_letter2_template',$input);
 				$letter_id = $this->db->insert_id();
 				$this->db->trans_complete();
 
 				if ($this->db->trans_status() === true) {
 					
-					$pdf_file = $this->create_pdf_employment_letter($letter_id);
+					$pdf_file = $this->create_pdf_employment_letter2($letter_id);
 
 					$path = APPPATH . '../ext/employment_letters_pdfs/'.$pdf_file;
 					if (file_exists($path)) {
@@ -1161,13 +1184,12 @@ class Student extends CI_Controller {
 						$data = file_get_contents($path);
 		    			$name = 'Whoffice employment letter.pdf';
 		        		force_download($name, $data);
-		        		redirect('student/card_7');
 					}
 
 				}else{
 					$data['message'] = 'Error happened, try again later.';
 				}
-			}*/
+			}
 
 			$student = $this->db->where('id',$this->acc_id)->get('students')->row();
 			$data['student'] = $student;

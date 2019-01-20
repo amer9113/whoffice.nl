@@ -79,7 +79,7 @@ $(document).ready(function(){
     }(window, document, jQuery));
 
     $('input.date').datetimepicker({
-        format: 'DD-MM-YYYY',
+        format: 'YYYY-MM-DD',
         showTodayButton: true,
         showClear: true,
         showClose: true,

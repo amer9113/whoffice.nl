@@ -92,13 +92,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>	
 								<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Submit</button>
+									<button type="button" class="btn btn-danger" onclick="window.close();">Close</button>
 									<div class="form-group">
 										<?= validation_errors('<p class="error_msg">', '</p>'); ?>
 										<?php if (isset($message)): ?>
 											<?php if ($message == "Done."): ?>
-												<script type="text/javascript">
-													window.close();
-												</script>
+												
 											<?php else: ?>
 												<p class="error_msg"><b><?= $message; ?></b></p>
 											<?php endif ?>
