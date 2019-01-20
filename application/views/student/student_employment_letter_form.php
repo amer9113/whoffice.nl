@@ -38,6 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<div class="form-group">
 									    <label>Woonplaats</label>
 									    <input type="text" class="form-control" name="city" placeholder="Woonplaats" value="" required>
+									    <input type="hidden" class="form-control" name="future_vocation_city" placeholder="Future vocation city" value="" >
 									</div>
 
 									<hr>
@@ -59,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 									<div class="form-group">
 									    <label>Bedrijfs Postcode</label>
-									    <input type="text" class="form-control" name="company_postal_code" placeholder="Bedrijfs Postcode" value="<?= $student->postal_code; ?>" required>
+									    <input type="text" class="form-control" name="company_postal_code" placeholder="Bedrijfs Postcode" value="" required>
 									</div>
 
 									<div class="form-group">
@@ -73,11 +74,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									    <label>Gewenste beroep (vacature)</label>
 									    <input type="text" class="form-control" name="future_vocation_name" placeholder="Future vocation name" value="" required>
 									</div>
-									<div class="form-group">
-									    <label>Future vocation city</label>
-									    <input type="text" class="form-control" name="future_vocation_city" placeholder="Future vocation city" value="" required>
-									</div>
-
 									<div class="form-group">
 									    <label>Datum</label>
 									    <input type="date" class="form-control" name="future_vocation_date" placeholder="Datum" value="" required>
@@ -132,5 +128,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
+<script type="text/javascript">
+	$('input[name="city"]').change(function() {
+    $('input[name="future_vocation_city"]').val($(this).val());
+});
+</script>
 </body>
 </html>
