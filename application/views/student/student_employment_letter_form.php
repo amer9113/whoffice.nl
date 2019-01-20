@@ -25,50 +25,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="form-group">
 									    <label>Straatnaam</label>
-									    <input type="text" class="form-control" name="street_name" placeholder="Street Name" value="" required>
+									    <input type="text" class="form-control" name="street_name" placeholder="Straatnaam" value="" required>
 									</div>
 									<div class="form-group">
-									    <label>Apartment No.</label>
-									    <input type="text" class="form-control" name="apartment_no" placeholder="Apartment No." value="" required>
+									    <label>Huisnummer</label>
+									    <input type="text" class="form-control" name="apartment_no" placeholder="Huisnummer" value="" required>
 									</div>
 									<div class="form-group">
 									    <label>Postcode</label>
-									    <input type="text" class="form-control" name="postal_code" placeholder="Postal code" value="<?= $student->postal_code; ?>" required>
+									    <input type="text" class="form-control" name="postal_code" placeholder="Postcode" value="<?= $student->postal_code; ?>" required>
 									</div>
 									<div class="form-group">
-									    <label>City</label>
-									    <input type="text" class="form-control" name="city" placeholder="City" value="" required>
+									    <label>Woonplaats</label>
+									    <input type="text" class="form-control" name="city" placeholder="Woonplaats" value="" required>
+									</div>
+
+									<hr>
+
+									<div class="form-group">
+									    <label>Bedrijfsnaam</label>
+									    <input type="text" class="form-control" name="company_name" placeholder="Bedrijfsnaam" value="" required>
 									</div>
 
 									<div class="form-group">
-									    <label>Company Name</label>
-									    <input type="text" class="form-control" name="company_name" placeholder="Company Name" value="" required>
+									    <label>Bedrijfs Straatnaam</label>
+									    <input type="text" class="form-control" name="company_street_name" placeholder="Bedrijfs Straatnaam" value="" required>
 									</div>
 
 									<div class="form-group">
-									    <label>Company Street Name</label>
-									    <input type="text" class="form-control" name="company_street_name" placeholder="Company Street Name" value="" required>
+									    <label>Bedrijfs Huisnummer</label>
+									    <input type="text" class="form-control" name="company_building_no" placeholder="Bedrijfs Huisnummer" value="" required>
 									</div>
 
 									<div class="form-group">
-									    <label>Company Building No.</label>
-									    <input type="text" class="form-control" name="company_building_no" placeholder="Company Building No." value="" required>
+									    <label>Bedrijfs Postcode</label>
+									    <input type="text" class="form-control" name="company_postal_code" placeholder="Bedrijfs Postcode" value="<?= $student->postal_code; ?>" required>
 									</div>
 
 									<div class="form-group">
-									    <label>Company Postal code</label>
-									    <input type="text" class="form-control" name="company_postal_code" placeholder="Company Postal code" value="<?= $student->postal_code; ?>" required>
-									</div>
-
-									<div class="form-group">
-									    <label>Company City</label>
-									    <input type="text" class="form-control" name="company_city" placeholder="Company City" value="" required>
+									    <label>Bedrijfs Plaats</label>
+									    <input type="text" class="form-control" name="company_city" placeholder="Bedrijfs Plaats" value="" required>
 									</div>
 									
 								</div>
 								<div class="col-sm-6">
 								<div class="form-group">
-									    <label>Future vocation name</label>
+									    <label>Gewenste beroep (vacature)</label>
 									    <input type="text" class="form-control" name="future_vocation_name" placeholder="Future vocation name" value="" required>
 									</div>
 									<div class="form-group">
@@ -77,27 +79,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 
 									<div class="form-group">
-									    <label>Future vocation date</label>
-									    <input type="date" class="form-control" name="future_vocation_date" placeholder="Future vocation date" value="" required>
+									    <label>Datum</label>
+									    <input type="date" class="form-control" name="future_vocation_date" placeholder="Datum" value="" required>
 									</div>
 
 									<div class="form-group">
-									    <label>Future vocation company employer</label>
-									    <input type="text" class="form-control" name="future_vocation_company_employer" placeholder="Future vocation company employer" value="" required>
+									    <label>Contactpersoon van de vacature</label>
+									    <input type="text" class="form-control" name="future_vocation_company_employer" placeholder="Contactpersoon" value="" required>
 									</div>
 
 									<div class="form-group">
-									    <label>Future vocation website</label>
-									    <input type="url" class="form-control" name="future_vocation_website" placeholder="Future vocation website" value="" required>
+									    <label>Bedrijfswebsite</label>
+									    <input type="url" class="form-control" name="future_vocation_website" placeholder="Bedrijfswebsite" value="" required>
 									</div>
 
 									<div class="form-group">
-									    <label>Experience acquired from company</label>
-									    <input type="text" class="form-control" name="experience_acquired_from_company" placeholder="Experience acquired from company" value="" required>
+									    <label>Ervaring opgedaan door de bedrijven / winkels /scholen</label>
+									    <input type="text" class="form-control" name="experience_acquired_from_company" placeholder="Ervaring opgedaan" value="" required>
 									</div>
 									<div class="form-group">
-									    <label>Company business field</label>
-									    <input type="text" class="form-control" name="company_business_field" placeholder="Company business field" value="" required>
+									    <label>Werkervaringsplek</label>
+									    <input type="text" class="form-control" name="company_business_field" placeholder="Werkervaringsplek" value="" required>
 									</div>
 									
 									
@@ -108,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									
 								</div>	
 								<div class="col-sm-12">
-									<button type="submit" class="btn btn-success">Submit</button>
+									<button type="submit" class="btn btn-success">Afdruk</button>
 									<div class="form-group">
 										<?= validation_errors('<p class="error_msg">', '</p>'); ?>
 										<?php if (isset($message)): ?>
