@@ -1133,6 +1133,49 @@ class Student extends CI_Controller {
 		}
 	}
 
+	public function employment_letter_form_2(){
+		$check_previous_is_completed = $this->db->where('user_id',$this->acc_id)->where('checked_with_teacher',1)->get('card_6')->num_rows();
+
+		if ($check_previous_is_completed == 0) {
+			echo "Sorry, you can't take this card yet.";
+			die();
+		}else{
+
+			/*if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				$input = $this->input->post();
+				$input['student_id'] = $this->acc_id;
+
+
+				$this->db->trans_start();
+				$this->db->insert('employment_letter_template',$input);
+				$letter_id = $this->db->insert_id();
+				$this->db->trans_complete();
+
+				if ($this->db->trans_status() === true) {
+					
+					$pdf_file = $this->create_pdf_employment_letter($letter_id);
+
+					$path = APPPATH . '../ext/employment_letters_pdfs/'.$pdf_file;
+					if (file_exists($path)) {
+						$this->load->helper('download');
+						$data = file_get_contents($path);
+		    			$name = 'Whoffice employment letter.pdf';
+		        		force_download($name, $data);
+		        		redirect('student/card_7');
+					}
+
+				}else{
+					$data['message'] = 'Error happened, try again later.';
+				}
+			}*/
+
+			$student = $this->db->where('id',$this->acc_id)->get('students')->row();
+			$data['student'] = $student;
+			$view = $this->load->view("student/student_employment_letter2_form",$data,true);
+			$this->page->fix_view_template_text($view);
+		}
+	}
+
 	public function exams(){
 		$data['exams'] = $this->db->get('exams')->result();
 		$view = $this->load->view("student/exams",$data,true);

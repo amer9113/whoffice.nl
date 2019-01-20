@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="form-group">
 									    <label>Datum</label>
-									    <input type="date" class="form-control" name="future_vocation_date" placeholder="Datum" value="" required>
+									    <input type="text" class="form-control date" name="future_vocation_date" placeholder="Datum" value="" required>
 									</div>
 
 									<div class="form-group">
@@ -97,13 +97,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									    <label>Werkervaringsplek</label>
 									    <input type="text" class="form-control" name="company_business_field" placeholder="Werkervaringsplek" value="" required>
 									</div>
-									
-									
-									
-								
-									
-									
-									
 								</div>	
 								<div class="col-sm-12">
 									<button type="submit" class="btn btn-success">Afdruk</button>

@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="form-group">
 									    <label>Future vocation date</label>
-									    <input type="date" class="form-control" name="future_vocation_date" placeholder="Future vocation date" value="" required>
+									    <input type="text" class="form-control date" name="future_vocation_date" placeholder="Future vocation date" value="" required>
 									</div>
 									<div class="form-group">
 									    <label>Future vocation website</label>
