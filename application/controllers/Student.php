@@ -1192,14 +1192,18 @@ class Student extends CI_Controller {
 
 		    			$zip_name = 'Whoffice employment letter'.'_'.$this->acc_id.'_'.time().'.zip';
 		    			$zip_path = APPPATH . '../ext/employment_letters_pdfs/'.$zip_name;
-		    			$zip = new ZipArchive;
+		    			$this->load->library('zip');
+		    			$this->zip->add_data($name2, $data2);
+		    			$this->zip->add_data($name1, $data1);
+		    			$this->zip->archive($zip_path);
+		    			$this->zip->download($zip_name);
+		    			/*$zip = new ZipArchive;
 		    			$zip->open($zip_path, ZipArchive::CREATE);
 		    			$zip->addFile($path1,$name1);
 		    			$zip->addFile($path2,$name2);
 						$zip->close();
-
 						$data = file_get_contents($zip_path);
-		        		force_download($zip_name, $data);
+		        		force_download($zip_name, $data);*/
 					}
 
 				}else{

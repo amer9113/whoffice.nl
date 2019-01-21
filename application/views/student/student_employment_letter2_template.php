@@ -295,7 +295,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<div class="col-xs-8">
-						<label>Utrecht:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place1; ?></label>
+						<label>bedrijfs plaats:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place1; ?></label>
 					</div>
 					<div class="col-xs-4">
 						<label>Datum:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place1_date; ?></label>
@@ -315,7 +315,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<div class="col-xs-8">
-						<label>Utrecht:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place2; ?></label>
+						<label>bedrijfs plaats:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place2; ?></label>
 					</div>
 					<div class="col-xs-4">
 						<label>Datum:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place2_date; ?></label>

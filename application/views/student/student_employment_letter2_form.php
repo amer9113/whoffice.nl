@@ -403,7 +403,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<hr style="margin: 5px 0px;">
 					<div class="row">
 						<div class="col-xs-2">
-							<label>Utrecht</label>
+							<label>bedrijfs plaats</label>
 						</div>
 						<div class="col-xs-4">
 							<input type="text" class="form-control" name="business_place1">
@@ -431,7 +431,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<hr style="margin: 5px 0px;">
 					<div class="row">
 						<div class="col-xs-2">
-							<label>Utrecht</label>
+							<label>bedrijfs plaats</label>
 						</div>
 						<div class="col-xs-4">
 							<input type="text" class="form-control" name="business_place2">
