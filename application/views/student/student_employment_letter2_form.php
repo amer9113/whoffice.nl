@@ -399,7 +399,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div><br><br>
 			<div class="row">
 				<div class="col-sm-12">
-					<h4>Bedrijfs plaats 1</h4>
+					<h4>Bedrijf1</h4>
 					<hr style="margin: 5px 0px;">
 					<div class="row">
 						<div class="col-xs-2">
@@ -427,7 +427,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div><br><br>
 			<div class="row">
 				<div class="col-sm-12">
-					<h4>Bedrijfs plaats 2</h4>
+					<h4>Bedrijf2</h4>
 					<hr style="margin: 5px 0px;">
 					<div class="row">
 						<div class="col-xs-2">

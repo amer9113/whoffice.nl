@@ -291,7 +291,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php if ($type == "voor1"): ?>
 		<div class="row">
 			<div class="col-sm-12">
-				<h4>Bedrijfs plaats</h4>
+				<h4></h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<div class="col-xs-8">
@@ -311,7 +311,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php else: ?>
 		<div class="row">
 			<div class="col-sm-12">
-				<h4>Bedrijfs plaats</h4>
+				<h4></h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<div class="col-xs-8">
