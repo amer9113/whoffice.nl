@@ -19,10 +19,6 @@
             <?php endif ?>
         <?php else: ?>
         <button type="button" class="submit w3-button w3-red">Controleren</button>
-            <?php if ($card_number == 7): ?>
-               <a class="w3-button w3-blue" href="<?= base_url().'student/employment_letter_form' ?>" target="_blank">Sollicitatiebrief</a>
-               <a class="w3-button w3-green" href="<?= base_url().'student/employment_letter_form_2' ?>" target="_blank">طلب توظيف</a>
-            <?php endif ?>   
         <?php endif ?>
     <?php endif ?>
     

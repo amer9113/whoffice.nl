@@ -101,17 +101,7 @@ class Database extends CI_Controller {
 		echo "Updating DB....<br>";
 		ob_end_flush();
 		flush();
-		$this->db->query("ALTER TABLE `card_1` ADD `certificate_name_caption` VARCHAR(500) NOT NULL AFTER `certificate_name`");
-		$this->db->query("ALTER TABLE `card_1` ADD `another_certificate_name_caption` VARCHAR(500) NOT NULL AFTER `another_certificate_name`");
-		$this->db->query("ALTER TABLE `card_1` ADD `ion_certificate_file_caption` VARCHAR(500) NOT NULL AFTER `ion_certificate_file`");
-		$this->db->query("ALTER TABLE `card_1` ADD `experience_certificate_file_caption` VARCHAR(500) NOT NULL AFTER `experience_certificate_file`");
-		$this->db->query("ALTER TABLE `card_4` ADD `job_offer_1_file_caption` VARCHAR(500) NOT NULL AFTER `job_offer_1_file`");
-		$this->db->query("ALTER TABLE `card_4` ADD `job_offer_2_file_caption` VARCHAR(500) NOT NULL AFTER `job_offer_2_file`");
-		$this->db->query("ALTER TABLE `card_7` ADD `app_form_work_file_caption` VARCHAR(500) NOT NULL AFTER `app_form_work_file`");
-		$this->db->query("ALTER TABLE `card_7` ADD `motivation_file_caption` VARCHAR(500) NOT NULL AFTER `motivation_file`");
-		$this->db->query("ALTER TABLE `card_7` ADD `cv_caption` VARCHAR(500) NOT NULL AFTER `cv`");
-		$this->db->query("ALTER TABLE `card_7` ADD `app_form_another_work_file_1_caption` VARCHAR(500) NOT NULL AFTER `app_form_another_work_file_2`");
-		$this->db->query("ALTER TABLE `card_7` ADD `app_form_another_work_file_2_caption` VARCHAR(500) NOT NULL AFTER `app_form_another_work_file_1_caption`");
+		$this->db->query("ALTER TABLE `employment_letter2_template`  ADD `education_course` VARCHAR(500) NOT NULL  AFTER `job2_houres`,  ADD `education_institution` VARCHAR(500) NOT NULL  AFTER `education_course`,  ADD `education_from` DATE NOT NULL  AFTER `education_institution`,  ADD `education_to` DATE NOT NULL  AFTER `education_from`,  ADD `education_diploma` VARCHAR(25) NOT NULL  AFTER `education_to`,  ADD `work_experience_position` VARCHAR(500) NOT NULL  AFTER `education_diploma`,  ADD `work_experience_activities` TEXT NOT NULL  AFTER `work_experience_position`,  ADD `work_experience_company` VARCHAR(500) NOT NULL  AFTER `work_experience_activities`,  ADD `work_experience_from` DATE NOT NULL  AFTER `work_experience_company`,  ADD `work_experience_to` DATE NOT NULL  AFTER `work_experience_from`,  ADD `references_name` VARCHAR(500) NOT NULL  AFTER `work_experience_to`,  ADD `references_position` VARCHAR(500) NOT NULL  AFTER `references_name`,  ADD `references_company` VARCHAR(500) NOT NULL  AFTER `references_position`,  ADD `references_tel_no` VARCHAR(50) NOT NULL  AFTER `references_company`;");
 		echo "Done.";
 	}
 }

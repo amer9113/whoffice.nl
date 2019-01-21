@@ -203,25 +203,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h4>Opleidingen</h4>
 					<hr style="margin: 5px 0px;">
 					<div class="row">
-						<div class="col-xs-12">
-							<table class="table table-condensed table-bordered">
-								<thead>
-									<tr>
-										<th>Opleiding / cursus</th>
-										<th>Instelling</th>
-										<th>Van / tot</th>
-										<th>Diploma</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Middelbare school</td>
-										<td>Alyarmouk School</td>
-										<td>1999-2001</td>
-										<td>ja / nee</td>
-									</tr>
-								</tbody>
-							</table>
+						<div class="col-xs-3">
+							<label>Opleiding / cursus</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="education_course">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Instelling</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="education_institution">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Van / tot</label>
+						</div>
+						<div class="col-xs-3">
+							<input type="text" class="form-control date" name="education_from">
+						</div>
+						<div class="col-xs-3">
+							<input type="text" class="form-control date" name="education_to">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Diploma</label>
+						</div>
+						<div class="col-xs-9">
+							<select class="form-control" name="education_diploma">
+								<option>ja</option>
+								<option>nee</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -231,25 +247,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h4>Werkervaring</h4>
 					<hr style="margin: 5px 0px;">
 					<div class="row">
-						<div class="col-xs-12">
-							<table class="table table-condensed table-bordered">
-								<thead>
-									<tr>
-										<th>Functie</th>
-										<th>Werkzaamheden</th>
-										<th>Bedrijf / organisatie</th>
-										<th>Van / tot</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Vrouwelijke kapper</td>
-										<td>knippen</td>
-										<td>Yarmouk Salon</td>
-										<td>2000-2017</td>
-									</tr>
-								</tbody>
-							</table>
+						<div class="col-xs-3">
+							<label>Functie</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="work_experience_position">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Werkzaamheden</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="work_experience_activities">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Van / tot</label>
+						</div>
+						<div class="col-xs-3">
+							<input type="text" class="form-control date" name="work_experience_from">
+						</div>
+						<div class="col-xs-3">
+							<input type="text" class="form-control date" name="work_experience_to">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Bedrijf / organisatie</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="work_experience_company">
 						</div>
 					</div>
 				</div>
@@ -259,25 +288,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h4>Referenties</h4>
 					<hr style="margin: 5px 0px;">
 					<div class="row">
-						<div class="col-xs-12">
-							<table class="table table-condensed table-bordered">
-								<thead>
-									<tr>
-										<th>Naam</th>
-										<th>Functie</th>
-										<th>Bedrijf / organisatie</th>
-										<th>Tel. Nr.</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>ffffff</td>
-										<td>dddddd</td>
-										<td>asdf</td>
-										<td>6562336</td>
-									</tr>
-								</tbody>
-							</table>
+						<div class="col-xs-3">
+							<label>Naam</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="references_name">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Functie</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="references_position">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Bedrijf / organisatie</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="references_company">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label>Tel. Nr.</label>
+						</div>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" name="references_tel_no">
 						</div>
 					</div>
 				</div>

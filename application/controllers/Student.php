@@ -1090,7 +1090,7 @@ class Student extends CI_Controller {
         return $output;
     }
 
-    public function create_pdf_employment_letter2($letter_id)
+    public function create_pdf_employment_letter2($letter_id,$type)
     {
        	//load library
         $this->load->library('pdf');
@@ -1105,6 +1105,7 @@ class Student extends CI_Controller {
        	// retrieve data from model
         $data['letter_details'] = $this->db->where('id',$letter_id)->get('employment_letter2_template')->row();
 		$data['acc_info'] = $this->db->where('id',$this->acc_id)->get('students')->row();
+		$data['type'] = $type;
         /*ini_set('memory_limit', '256M');*/
        	// boost the memory limit if it's low ;)
         $html = $this->load->view('student/student_employment_letter2_template',$data,true);
@@ -1176,14 +1177,29 @@ class Student extends CI_Controller {
 
 				if ($this->db->trans_status() === true) {
 					
-					$pdf_file = $this->create_pdf_employment_letter2($letter_id);
+					$pdf1_file = $this->create_pdf_employment_letter2($letter_id,"voor1");
+					$pdf2_file = $this->create_pdf_employment_letter2($letter_id,"voor2");
 
-					$path = APPPATH . '../ext/employment_letters_pdfs/'.$pdf_file;
-					if (file_exists($path)) {
+					$path1 = APPPATH . '../ext/employment_letters_pdfs/'.$pdf1_file;
+					$path2 = APPPATH . '../ext/employment_letters_pdfs/'.$pdf2_file;
+					if (file_exists($path1) && file_exists($path2)) {
 						$this->load->helper('download');
-						$data = file_get_contents($path);
-		    			$name = 'Whoffice employment letter.pdf';
-		        		force_download($name, $data);
+						$data1 = file_get_contents($path1);
+		    			$name1 = 'Whoffice employment letter voor1.pdf';
+
+		    			$data2 = file_get_contents($path2);
+		    			$name2 = 'Whoffice employment letter voor2.pdf';
+
+		    			$zip_name = 'Whoffice employment letter'.'_'.$this->acc_id.'_'.time().'.zip';
+		    			$zip_path = APPPATH . '../ext/employment_letters_pdfs/'.$zip_name;
+		    			$zip = new ZipArchive;
+		    			$zip->open($zip_path, ZipArchive::CREATE);
+		    			$zip->addFile($path1,$name1);
+		    			$zip->addFile($path2,$name2);
+						$zip->close();
+
+						$data = file_get_contents($zip_path);
+		        		force_download($zip_name, $data);
 					}
 
 				}else{

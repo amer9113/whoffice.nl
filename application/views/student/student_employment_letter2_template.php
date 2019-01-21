@@ -27,7 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h3>Sollicitatieformulier</h3>
 			</div>
 			<div class="col-xs-6">
-				<h3>voor: <?= $letter_details->for1." & ".$letter_details->for2; ?></h3>
+				<?php if ($type == "voor1"): ?>
+					<h3>voor: <?= $letter_details->for1; ?></h3>
+				<?php else: ?>
+					<h3>voor: <?= $letter_details->for2; ?></h3>
+				<?php endif ?>
 			</div>
 		</div>
 		<div class="row">
@@ -103,9 +107,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div><br><br>
+		<?php if ($type == "voor1"): ?>
 		<div class="row">
 			<div class="col-sm-12">
-				<h4>Functie1</h4>
+				<h4>Functie</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<div class="col-xs-12">
@@ -119,9 +124,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div><br><br>
+		<?php else: ?>
 		<div class="row">
 			<div class="col-sm-12">
-				<h4>Functie2</h4>
+				<h4>Functie</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<div class="col-xs-12">
@@ -135,6 +141,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div><br><br>
+		<?php endif ?>
 		<div class="row">
 			<div class="col-sm-12">
 				<h4>Opleidingen</h4>
@@ -152,10 +159,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</thead>
 							<tbody>
 								<tr>
-									<td>Middelbare school</td>
-									<td>Alyarmouk School</td>
-									<td>1999-2001</td>
-									<td>ja / nee</td>
+									<td><?= $letter_details->education_course; ?></td>
+									<td><?= $letter_details->education_institution; ?></td>
+									<td><?= $letter_details->education_from; ?> - <?= $letter_details->education_to; ?></td>
+									<td><?= $letter_details->education_diploma; ?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -180,10 +187,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</thead>
 							<tbody>
 								<tr>
-									<td>Vrouwelijke kapper</td>
-									<td>knippen</td>
-									<td>Yarmouk Salon</td>
-									<td>2000-2017</td>
+									<td><?= $letter_details->work_experience_position; ?></td>
+									<td><?= $letter_details->work_experience_activities; ?></td>
+									<td><?= $letter_details->work_experience_from; ?> - <?= $letter_details->work_experience_to; ?></td>
+									<td><?= $letter_details->work_experience_company; ?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -208,10 +215,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</thead>
 							<tbody>
 								<tr>
-									<td>ffffff</td>
-									<td>dddddd</td>
-									<td>asdf</td>
-									<td>6562336</td>
+									<td><?= $letter_details->references_name; ?></td>
+									<td><?= $letter_details->references_position; ?></td>
+									<td><?= $letter_details->references_company; ?></td>
+									<td><?= $letter_details->references_tel_no; ?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -281,9 +288,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div><br><br>
+		<?php if ($type == "voor1"): ?>
 		<div class="row">
 			<div class="col-sm-12">
-				<h4>Bedrijfs plaats 1</h4>
+				<h4>Bedrijfs plaats</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<div class="col-xs-8">
@@ -300,9 +308,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div><br><br>
+		<?php else: ?>
 		<div class="row">
 			<div class="col-sm-12">
-				<h4>Bedrijfs plaats 2</h4>
+				<h4>Bedrijfs plaats</h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<div class="col-xs-8">
@@ -319,6 +328,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div>
+		<?php endif ?>
 	</div>
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
 </body>

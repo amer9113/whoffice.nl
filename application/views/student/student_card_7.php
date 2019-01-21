@@ -723,6 +723,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                        </div>
 
+	                        <div class="text-center" style="margin-top: 25px;">
+	                        	<a class="w3-button w3-blue" href="<?= base_url().'student/employment_letter_form' ?>" target="_blank">Sollicitatiebrief</a>
+               					<a class="w3-button w3-green" href="<?= base_url().'student/employment_letter_form_2' ?>" target="_blank">Sollicitatieformulier</a>
+	                        </div>
+
 	                    </div>
 
 	                </div>
