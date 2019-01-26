@@ -456,7 +456,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<br><br>
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<button type="submit" class="btn btn-success">Submit</button>
+					<input type="hidden" name="voor_type">
+					<button type="button" class="btn btn-success submit1">Submit voor1</button>
+					<button type="button" class="btn btn-success submit2">Submit voor2</button>
 					<button type="button" class="btn btn-danger" onclick="window.close();">Close</button>
 					<div class="form-group">
 						<?= validation_errors('<p class="error_msg">', '</p>'); ?>
@@ -473,5 +475,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</form>
 	</div>
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.submit1').click(function(){
+			$('input[name="voor_type"]').val('voor1');
+			$('form').submit();
+		});
+
+		$('.submit2').click(function(){
+			$('input[name="voor_type"]').val('voor2');
+			$('form').submit();
+		});
+	});
+</script>
 </body>
 </html>

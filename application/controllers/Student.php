@@ -1143,6 +1143,7 @@ class Student extends CI_Controller {
 						$this->load->helper('download');
 						$data = file_get_contents($path);
 		    			$name = 'Whoffice employment letter.pdf';
+		    			$this->db->where('id',$letter_id)->delete('employment_letter_template');
 		        		force_download($name, $data);
 					}
 
@@ -1164,58 +1165,77 @@ class Student extends CI_Controller {
 		if ($check_previous_is_completed == 0) {
 			echo "Sorry, you can't take this card yet.";
 			die();
-		}else{
-
-			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-				$input = $this->input->post();
-				$input['student_id'] = $this->acc_id;
-
-				$this->db->trans_start();
-				$this->db->insert('employment_letter2_template',$input);
-				$letter_id = $this->db->insert_id();
-				$this->db->trans_complete();
-
-				if ($this->db->trans_status() === true) {
-					
-					$pdf1_file = $this->create_pdf_employment_letter2($letter_id,"voor1");
-					$pdf2_file = $this->create_pdf_employment_letter2($letter_id,"voor2");
-
-					$path1 = APPPATH . '../ext/employment_letters_pdfs/'.$pdf1_file;
-					$path2 = APPPATH . '../ext/employment_letters_pdfs/'.$pdf2_file;
-					if (file_exists($path1) && file_exists($path2)) {
-						$this->load->helper('download');
-						$data1 = file_get_contents($path1);
-		    			$name1 = 'Whoffice employment letter voor1.pdf';
-
-		    			$data2 = file_get_contents($path2);
-		    			$name2 = 'Whoffice employment letter voor2.pdf';
-
-		    			$zip_name = 'Whoffice employment letter'.'_'.$this->acc_id.'_'.time().'.zip';
-		    			$zip_path = APPPATH . '../ext/employment_letters_pdfs/'.$zip_name;
-		    			$this->load->library('zip');
-		    			$this->zip->add_data($name2, $data2);
-		    			$this->zip->add_data($name1, $data1);
-		    			$this->zip->archive($zip_path);
-		    			$this->zip->download($zip_name);
-		    			/*$zip = new ZipArchive;
-		    			$zip->open($zip_path, ZipArchive::CREATE);
-		    			$zip->addFile($path1,$name1);
-		    			$zip->addFile($path2,$name2);
-						$zip->close();
-						$data = file_get_contents($zip_path);
-		        		force_download($zip_name, $data);*/
-					}
-
-				}else{
-					$data['message'] = 'Error happened, try again later.';
-				}
-			}
-
-			$student = $this->db->where('id',$this->acc_id)->get('students')->row();
-			$data['student'] = $student;
-			$view = $this->load->view("student/student_employment_letter2_form",$data,true);
-			$this->page->fix_view_template_text($view);
 		}
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$input = $this->input->post();
+			$input['student_id'] = $this->acc_id;
+
+			$submit_type = $input['voor_type'];
+			unset($input['voor_type']);
+
+			$this->db->trans_start();
+			$this->db->insert('employment_letter2_template',$input);
+			$letter_id = $this->db->insert_id();
+			$this->db->trans_complete();
+
+			if ($this->db->trans_status() === true) {
+					
+				/*$pdf1_file = $this->create_pdf_employment_letter2($letter_id,"voor1");
+				$pdf2_file = $this->create_pdf_employment_letter2($letter_id,"voor2");
+
+				$path1 = APPPATH . '../ext/employment_letters_pdfs/'.$pdf1_file;
+				$path2 = APPPATH . '../ext/employment_letters_pdfs/'.$pdf2_file;
+				if (file_exists($path1) && file_exists($path2)) {
+					$this->load->helper('download');
+					$data1 = file_get_contents($path1);
+		    		$name1 = 'Whoffice employment letter voor1.pdf';
+
+		    		$data2 = file_get_contents($path2);
+		    		$name2 = 'Whoffice employment letter voor2.pdf';
+
+		    		$zip_name = 'Whoffice employment letter'.'_'.$this->acc_id.'_'.time().'.zip';
+		    		$zip_path = APPPATH . '../ext/employment_letters_pdfs/'.$zip_name;
+		    		$this->load->library('zip');
+		    		$this->zip->add_data($name2, $data2);
+		    		$this->zip->add_data($name1, $data1);
+		    		$this->zip->archive($zip_path);
+		    		$this->zip->download($zip_name);
+				}*/
+
+
+				if ($submit_type == "voor1") {
+					$pdf_file = $this->create_pdf_employment_letter2($letter_id,"voor1");
+					$path = APPPATH . '../ext/employment_letters_pdfs/'.$pdf_file;
+					if (file_exists($path)) {
+						$this->load->helper('download');
+						$data = file_get_contents($path);
+		    			$name = 'Whoffice employment letter.pdf';
+		    			$this->db->where('id',$letter_id)->delete('employment_letter2_template');
+		        		force_download($name, $data);
+					}
+					
+				}else{
+					$pdf_file = $this->create_pdf_employment_letter2($letter_id,"voor2");
+					$path = APPPATH . '../ext/employment_letters_pdfs/'.$pdf_file;
+					if (file_exists($path)) {
+						$this->load->helper('download');
+						$data = file_get_contents($path);
+		    			$name = 'Whoffice employment letter.pdf';
+		    			$this->db->where('id',$letter_id)->delete('employment_letter2_template');
+		        		force_download($name, $data);
+					}
+				}
+
+			}else{
+				$data['message'] = 'Error happened, try again later.';
+			}
+		}
+
+		$student = $this->db->where('id',$this->acc_id)->get('students')->row();
+		$data['student'] = $student;
+		$view = $this->load->view("student/student_employment_letter2_form",$data,true);
+		$this->page->fix_view_template_text($view);
 	}
 
 	public function exams(){

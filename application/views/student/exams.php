@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <img class="imgbutton" src="<?= base_url().'images/'; ?>icon%20les.png">
         &nbsp;Les
         </button></a>
-        <a target="_blank" href="<?= base_url().'student/exam/2'; ?>"><button class="iconimg w3-button w3-card-4 w3-mobile"> 
+        <a target="_blank" href="<?= base_url().'student/exam/1'; ?>"><button class="iconimg w3-button w3-card-4 w3-mobile"> 
         <img class="imgbutton" src="<?= base_url().'images/'; ?>icon%20test.png">
         oefeningen
         </button></a>
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <img class="imgbutton" src="<?= base_url().'images/'; ?>icon%20les.png">
         &nbsp;Les
         </button></a>
-        <a target="_blank" href="<?= base_url().'student/exam/1'; ?>"><button class="iconimg w3-button w3-card-4 w3-mobile"> 
+        <a target="_blank" href="<?= base_url().'student/exam/2'; ?>"><button class="iconimg w3-button w3-card-4 w3-mobile"> 
         <img class="imgbutton" src="<?= base_url().'images/'; ?>icon%20test.png">
         oefeningen
         </button></a>
