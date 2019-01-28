@@ -736,13 +736,6 @@ class Admin extends CI_Controller {
 				            	$input['app_form_work_file_caption'] = $this->upload->data('orig_name');
 				            }
 						}
-					}else{
-						$input['app_form_work_file'] = "";
-						$input['app_form_work_file_caption'] = "";
-						$input['app_form_work'] = 0;
-					}
-
-					if (isset($input['app_form_another_work']) && $input['app_form_another_work'] == 1) {
 						if (isset($_FILES["app_form_another_work_file_1"]["name"]) && !empty($_FILES["app_form_another_work_file_1"]["name"]) )
 						{
 					        $config = array(
@@ -761,6 +754,16 @@ class Admin extends CI_Controller {
 				            	$input['app_form_another_work_file_1_caption'] = $this->upload->data('orig_name');
 				            }
 						}
+					}else{
+						$input['app_form_work_file'] = "";
+						$input['app_form_work_file_caption'] = "";
+						$input['app_form_work'] = 0;
+						$input['app_form_another_work_file_1'] = "";
+						$input['app_form_another_work_file_1_caption'] = "";
+					}
+
+					if (isset($input['app_form_another_work']) && $input['app_form_another_work'] == 1) {
+						
 
 						if (isset($_FILES["app_form_another_work_file_2"]["name"]) && !empty($_FILES["app_form_another_work_file_2"]["name"]) )
 						{
@@ -781,9 +784,9 @@ class Admin extends CI_Controller {
 				            }
 						}
 					}else{
-						$input['app_form_another_work_file_1'] = "";
+						
 						$input['app_form_another_work_file_2'] = "";
-						$input['app_form_another_work_file_1_caption'] = "";
+						
 						$input['app_form_another_work_file_2_caption'] = "";
 						$input['app_form_another_work'] = 0;
 					}

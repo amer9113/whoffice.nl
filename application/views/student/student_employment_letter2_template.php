@@ -161,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 									<td><?= $letter_details->education_course; ?></td>
 									<td><?= $letter_details->education_institution; ?></td>
-									<td><?= $letter_details->education_from; ?> - <?= $letter_details->education_to; ?></td>
+									<td><?= $letter_details->education_from; ?> - <?= ($letter_details->education_to = '0000-00-00')?'Heden':$letter_details->education_to; ?></td>
 									<td><?= $letter_details->education_diploma; ?></td>
 								</tr>
 							</tbody>

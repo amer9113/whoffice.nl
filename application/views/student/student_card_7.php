@@ -49,13 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	    		<div class="cnt w3-cell-row w3-panel w3-border w3-block w3-mobile section_container" id="cnt0">
 
-		            <div class="rightsign w3-container w3-cell w3-mobile">
-
-		                <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-		                <span class="label label-success">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-
-		            </div>
-
+		         
 		            <div class="w3-cell w3-block w3-mobile">
 
 		                <div class="quline; w3-panel w3-bottombar w3-border-gray w3-hover-border-red w3-block w3-mobile" id="quline1">
@@ -81,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;2&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
 	                </div>
 
 	                <div class="w3-cell w3-block w3-mobile">
@@ -173,7 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;3&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;2&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -250,7 +244,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;4&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;3&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -351,7 +345,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;5&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;4&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -428,7 +422,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;6&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;5&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -495,8 +489,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php endif ?> -->
 
     									<?php endif ?>
+ 										
 
 	                                </div>
+
 
 	                                <div class="col-sm-9 w3-block w3-mobile">
 
@@ -508,13 +504,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                </div>
 
+									 
+	                            </div>
+	                            <div class="w3-container w3-block w3-mobile">
+	                            	<div class="col-sm-3 w3-block w3-mobile">
+									 	<br>
+    									<label class="btn btn-default btn-file w3-teal w3-text-white">
+
+	                                    Kies document <input name="app_form_another_work_file_1" type="file"  <?php if (!(isset($data) && $data->app_form_another_work_file_1 == 1)): ?>
+
+			                            	
+
+			                            <?php endif ?>>
+
+	                                    </label>
+
+	                                    <br>
+
+	                                    <?php if (isset($data) && $data->app_form_another_work_file_1 != ""): ?>
+
+    										<label class="choosen_file_label_1"><a href="<?= base_url().'ext/student_documents/'.$data->app_form_another_work_file_1; ?>" target="_blank"><?= $data->app_form_another_work_file_1_caption; ?></a></label>
+
+    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->app_form_another_work_file_1 != ""): ?>
+                                                <label><a href="<?= base_url().'admin/remove_file/7/'.$data->user_id.'/app_form_another_work_file_1'; ?>">Remove this file</a></label>
+                                            <?php endif ?> -->
+
+    									<?php endif ?>
+
+									</div>
+	                            	
 	                            </div>
 
 	                        </div>
 
 	                        <div class=".divstyle;checkbox">
 
-	                            <label><input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_5" data-input_to_toggle='[name="app_form_another_work_file_1"],[name="app_form_another_work_file_2"]' name="app_form_another_work" value="1" <?php if (isset($data) && $data->app_form_another_work == 1): ?>
+	                            <label><input class="w3-check" type="checkbox" data-checkbox_mandatory_group="section_5" data-input_to_toggle='[name="app_form_another_work_file_2"]' name="app_form_another_work" value="1" <?php if (isset($data) && $data->app_form_another_work == 1): ?>
 
 	                            	checked
 
@@ -534,56 +559,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                <div class="col-sm-6 w3-block w3-mobile">
 
-	                                    <label class="btn btn-default btn-file w3-teal w3-text-white">
-
-	                                    Kies document <input name="app_form_another_work_file_1" type="file" style="display: none;" <?php if (!(isset($data) && $data->app_form_another_work == 1)): ?>
-
-			                            	disabled
-
-			                            <?php endif ?>>
-
-	                                    </label>
-
-	                                    <br>
-
-	                                    <?php if (isset($data) && $data->app_form_another_work_file_1 != ""): ?>
-
-    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->app_form_another_work_file_1; ?>" target="_blank"><?= $data->app_form_another_work_file_1_caption; ?></a></label>
-
-    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->app_form_another_work_file_1 != ""): ?>
-                                                <label><a href="<?= base_url().'admin/remove_file/7/'.$data->user_id.'/app_form_another_work_file_1'; ?>">Remove this file</a></label>
-                                            <?php endif ?> -->
-
-    									<?php endif ?>
+	                                    
 
 
 
-	                                    <label class="btn btn-default btn-file w3-teal w3-text-white">
-
-	                                    Kies document <input name="app_form_another_work_file_2" type="file" style="display: none;" <?php if (!(isset($data) && $data->app_form_another_work == 1)): ?>
-
-			                            	disabled
-
-			                            <?php endif ?>>
-
-	                                    </label>
-	                                    <br>
-
-	                                    <?php if (isset($data) && $data->app_form_another_work_file_2 != ""): ?>
-
-    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->app_form_another_work_file_2; ?>" target="_blank"><?= $data->app_form_another_work_file_2_caption; ?></a></label>
-
-    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->app_form_another_work_file_2 != ""): ?>
-                                                <label><a href="<?= base_url().'admin/remove_file/7/'.$data->user_id.'/app_form_another_work_file_2'; ?>">Remove this file</a></label>
-                                            <?php endif ?> -->
-
-    									<?php endif ?>
+	                                   
 
 
 
 	                                </div>
 
-	                                <div class="col-sm-6 w3-block w3-mobile">
+	                               <!--  <div class="col-sm-6 w3-block w3-mobile">
 
 	                                    <label class="quline_text w3-mobile" name="text33">
 
@@ -591,7 +577,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	                                    </label>
 
-	                                </div>
+	                                </div> -->
 
 	                            </div>
 
@@ -739,7 +725,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;7&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;6&nbsp;&nbsp;</span>
 
 	                </div>
 
@@ -770,7 +756,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                <div class="rightsign w3-container w3-cell w3-mobile">
 
 	                    <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-	                    <span class="label label-success">&nbsp;&nbsp;8&nbsp;&nbsp;</span>
+	                    <span class="label label-success">&nbsp;&nbsp;7&nbsp;&nbsp;</span>
 
 	                </div>
 

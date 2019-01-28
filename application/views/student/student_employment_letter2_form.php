@@ -226,7 +226,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<input type="text" class="form-control date" name="education_from">
 						</div>
 						<div class="col-xs-3">
-							<input type="text" class="form-control date" name="education_to">
+							<input type="text" class="form-control " name="education_to">
 						</div>
 					</div>
 					<div class="row">

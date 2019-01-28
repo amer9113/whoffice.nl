@@ -86,16 +86,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 									<div class="form-group">
 									    <label>Bedrijfswebsite</label>
-									    <input type="url" class="form-control" name="future_vocation_website" placeholder="Bedrijfswebsite" value="" required>
+									    <input type="text" class="form-control" name="future_vocation_website" placeholder="Bedrijfswebsite" value="" required>
 									</div>
 
 									<div class="form-group">
 									    <label>Ervaring opgedaan door de bedrijven / winkels /scholen</label>
-									    <input type="text" class="form-control" name="experience_acquired_from_company" placeholder="Ervaring opgedaan" value="" required>
+									    <input type="text" class="form-control" name="company_business_field" placeholder="Ervaring opgedaan" value="" required>
 									</div>
 									<div class="form-group">
 									    <label>Werkervaringsplek</label>
-									    <input type="text" class="form-control" name="company_business_field" placeholder="Werkervaringsplek" value="" required>
+									    <input type="text" class="form-control" name="experience_acquired_from_company"  placeholder="Werkervaringsplek" value="" required>
 									</div>
 								</div>	
 								<div class="col-sm-12">
