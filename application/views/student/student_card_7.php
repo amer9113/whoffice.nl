@@ -483,10 +483,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <?php if (isset($data) && $data->app_form_work_file != ""): ?>
 
     										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->app_form_work_file; ?>" target="_blank"><?= $data->app_form_work_file_caption; ?></a></label>
-
-    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->app_form_work_file != ""): ?>
+    										<br>
+    										<?php if (isset($opened_for_teacher_checking)): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/7/'.$data->user_id.'/app_form_work_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?> -->
+                                            <?php else: ?>
+                                            	<label><a href="<?= base_url().'student/remove_file/7/app_form_work_file'; ?>">Remove this file</a></label>
+                                            <?php endif ?>
 
     									<?php endif ?>
  										
@@ -524,10 +526,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <?php if (isset($data) && $data->app_form_another_work_file_1 != ""): ?>
 
     										<label class="choosen_file_label_1"><a href="<?= base_url().'ext/student_documents/'.$data->app_form_another_work_file_1; ?>" target="_blank"><?= $data->app_form_another_work_file_1_caption; ?></a></label>
-
-    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->app_form_another_work_file_1 != ""): ?>
+    										<br>
+    										<?php if (isset($opened_for_teacher_checking)): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/7/'.$data->user_id.'/app_form_another_work_file_1'; ?>">Remove this file</a></label>
-                                            <?php endif ?> -->
+                                            <?php else: ?>
+                                            	<label><a href="<?= base_url().'student/remove_file/7/app_form_another_work_file_1'; ?>">Remove this file</a></label>
+                                            <?php endif ?>
 
     									<?php endif ?>
 
@@ -626,9 +630,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <?php if (isset($data) && $data->motivation_file != ""): ?>
 
     										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->motivation_file; ?>" target="_blank"><?= $data->motivation_file_caption; ?></a></label>
-    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->motivation_file != ""): ?>
+    										<br>
+    										<?php if (isset($opened_for_teacher_checking) && $data->motivation_file != ""): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/7/'.$data->user_id.'/motivation_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?> -->
+                                            <?php else: ?>
+                                            	<label><a href="<?= base_url().'student/remove_file/7/motivation_file'; ?>">Remove this file</a></label>
+                                            <?php endif ?>
     									<?php endif ?>
 
 	                                </div>
@@ -688,9 +695,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    <?php if (isset($data) && $data->cv != ""): ?>
 
     										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->cv; ?>" target="_blank"><?= $data->cv_caption; ?></a></label>
-    										<!-- <?php if (isset($opened_for_teacher_checking) && $data->cv != ""): ?>
+    										<br>
+    										<?php if (isset($opened_for_teacher_checking) && $data->cv != ""): ?>
                                                 <label><a href="<?= base_url().'admin/remove_file/7/'.$data->user_id.'/cv'; ?>">Remove this file</a></label>
-                                            <?php endif ?> -->
+                                            <?php else: ?>
+                                            	<label><a href="<?= base_url().'student/remove_file/7/cv'; ?>">Remove this file</a></label>
+                                            <?php endif ?>
     									<?php endif ?>
 
 	                                </div>

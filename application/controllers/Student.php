@@ -1022,6 +1022,74 @@ class Student extends CI_Controller {
 		$this->page->fix_view_template_text($view,$page_no=8);
 	}
 
+	public function remove_file($card_no,$file){
+		$this->db->where('user_id',$this->acc_id);
+		if($file == "certificate_file"){
+			$input['certificate_name'] = "";
+			$input['certificate_name_caption'] = "";
+			/*$input['have_certificate'] = 0;*/
+		}
+
+		if($file == "another_certificate_file"){
+			$input['another_certificate_name'] = "";
+			$input['another_certificate_name_caption'] = "";
+			/*$input['another_certificate'] = 0;*/
+		}
+
+		if($file == "ion_certificate_file"){
+			$input['ion_certificate_file'] = "";
+			$input['ion_certificate_file_caption'] = "";
+			/*$input['ion_certificate'] = 0;
+			$input['ion_certificate_name'] = "";*/
+		}
+
+		if($file == "experience_certificate_file"){
+			$input['experience_certificate_file'] = "";
+			$input['experience_certificate_file_caption'] = "";
+			/*$input['experience_certificate'] = 0;*/
+		}
+
+		if($file == "job_offer_1_file"){
+			$input['job_offer_1_file'] = "";
+		    $input['job_offer_1_file_caption'] = "";
+		}
+
+		if($file == "job_offer_2_file"){
+			$input['job_offer_2_file'] = "";
+		    $input['job_offer_2_file_caption'] = "";
+		}
+
+		if($file == "app_form_work_file"){
+			$input['app_form_work_file'] = "";
+			$input['app_form_work_file_caption'] = "";
+		}
+
+		if($file == "app_form_another_work_file_1"){
+			$input['app_form_another_work_file_1'] = "";
+			$input['app_form_another_work_file_1_caption'] = "";
+			
+		}
+
+		if($file == "app_form_another_work_file_2"){
+			$input['app_form_another_work_file_2'] = "";
+			$input['app_form_another_work_file_2_caption'] = "";
+		}
+
+		if($file == "motivation_file"){
+			$input['motivation_file'] = "";
+			$input['motivation_file_caption'] = "";
+		}
+
+		if($file == "cv"){
+			$input['cv'] = "";
+			$input['cv_caption'] = "";
+		}
+
+		$this->db->update("card_$card_no",$input);
+
+		redirect("student/card_$card_no");
+	}
+
 	public function lesson($no){
 		if ($no >= 1 && $no <= 8) {
 			$data = array();
