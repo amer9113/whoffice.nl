@@ -38,69 +38,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="w3-container w3-center w3-mobile">
             <button class="vediosmall" id="vedio1" onclick="changeclass(this)"> 
                 <video width="95% ; max-width:300px" controls id="vedio">
-                    <source src="<?= base_url().'video/cv.wmv'; ?>" id="vedio1" type="video/mp4">
-                    <source src="<?= base_url().'video/cv.wmv'; ?>" type="video/ogg">
+                    <source src="<?= base_url().'video/cv.wmv'; ?>" type="video/x-ms-wmv">
                     Your browser does not support the video tag.
                 </video>
                 <div class="imgtext1 w3-large">CV</div> 
             </button> &nbsp;
             <button class="vediosmall" id="vedio2" onclick="changeclass(this)"> 
                 <video width="95% ; max-width:300px" controls id="vedio">
-                    <source src="<?= base_url().'video/HBO.wmv'; ?>" id="vedio1" type="video/mp4">
-                    <source src="<?= base_url().'video/HBO.wmv'; ?>" type="video/ogg">
+                    <source src="<?= base_url().'video/hbo.wmv'; ?>" type="video/x-ms-wmv">
                     Your browser does not support the video tag.
                 </video>
                 <div class="imgtext1 w3-large">HBO</div> 
             </button> &nbsp;
             <button class="vediosmall" id="vedio3" onclick="changeclass(this)"> 
                 <video width="95% ; max-width:300px" controls id="vedio">
-                    <source src="<?= base_url().'video/MBO.wmv'; ?>" id="vedio1" type="video/mp4">
-                    <source src="<?= base_url().'video/MBO.wmv'; ?>" type="video/ogg">
+                    <source src="<?= base_url().'video/mbo.wmv'; ?>" type="video/x-ms-wmv">
                     Your browser does not support the video tag.
                 </video>
                 <div class="imgtext1 w3-large">MBO</div> 
             </button> &nbsp;
-            <button class="vediosmall" id="vedio6" onclick="changeclass(this)"> 
+            <button class="vediosmall" id="vedio4" onclick="changeclass(this)"> 
                 <video width="95% ; max-width:300px" controls id="vedio">
-                    <source src="<?= base_url().'video/Salaris.wmv'; ?>" id="vedio1" type="video/mp4">
-                    <source src="<?= base_url().'video/Salaris.wmv'; ?>" type="video/ogg">
+                    <source src="<?= base_url().'video/salaris.wmv'; ?>" type="video/x-ms-wmv">
                     Your browser does not support the video tag.
                 </video>
                 <div class="imgtext1 w3-large">Salaris</div> 
             </button> &nbsp;
             <br>
-            <button class="vediosmall" id="vedio4" onclick="changeclass(this)"> 
+            <button class="vediosmall" id="vedio5" onclick="changeclass(this)"> 
                 <video width="95% ; max-width:300px" controls id="vedio">
-                    <source src="<?= base_url().'video/Inkomen.wmv'; ?>" id="vedio1" type="video/mp4">
-                    <source src="<?= base_url().'video/Inkomen.wmv'; ?>" type="video/ogg">
+                    <source src="<?= base_url().'video/inkomen.wmv'; ?>" type="video/x-ms-wmv">
                     Your browser does not support the video tag.
                 </video>
                 <div class="imgtext1 w3-large">Inkomen</div> 
             </button> &nbsp;
-            <button class="vediosmall" id="vedio5" onclick="changeclass(this)"> 
+            <button class="vediosmall" id="vedio6" onclick="changeclass(this)"> 
                 <video width="95% ; max-width:300px" controls id="vedio">
-                    <source src="<?= base_url().'video/Inkomen2.wmv'; ?>" id="vedio1" type="video/mp4">
-                    <source src="<?= base_url().'video/Inkomen2.wmv'; ?>" type="video/ogg">
+                    <source src="<?= base_url().'video/inkomen2.wmv'; ?>" type="video/x-ms-wmv">
                     Your browser does not support the video tag.
                 </video>
                 <div class="imgtext1 w3-large">Inkomen2</div> 
             </button> &nbsp;
-            <button class="vediosmall" id="vedio5" onclick="changeclass(this)"> 
+            <button class="vediosmall" id="vedio7" onclick="changeclass(this)"> 
                 <video width="95% ; max-width:300px" controls id="vedio">
-                    <source src="<?= base_url().'video/نظام التعليم 1.wmv'; ?>" id="vedio1" type="video/mp4">
-                    <source src="<?= base_url().'video/نظام التعليم 1.wmv'; ?>" type="video/ogg">
+                    <source src="<?= base_url().'video/edu_system1.wmv'; ?>" type="video/x-ms-wmv">
                     Your browser does not support the video tag.
                 </video>
                 <div class="imgtext1 w3-large">نظام التعليم 1</div> 
             </button> &nbsp;
-            <button class="vediosmall" id="vedio5" onclick="changeclass(this)"> 
+            <button class="vediosmall" id="vedio8" onclick="changeclass(this)"> 
                 <video width="95% ; max-width:300px" controls id="vedio">
-                    <source src="<?= base_url().'video/edu_system1.wmv'; ?>" id="vedio1" type="video/mp4">
-                    <source src="<?= base_url().'video/edu_system2.wmv'; ?>" type="video/ogg">
+                    <source src="<?= base_url().'video/edu_system2.wmv'; ?>" type="video/x-ms-wmv">
                     Your browser does not support the video tag.
                 </video>
                 <div class="imgtext1 w3-large">نظام التعليم 2</div> 
             </button> &nbsp;
+            <br><br>
+            <video controls>
+                    <source src="<?= base_url().'video/edu_system2.wmv'; ?>" type="video/x-ms-wmv">
+                    Your browser does not support the video tag.
+                </video>
         </div>
     </div>
 <?php require(realpath(dirname(__FILE__) . '/..') . '/inc/scripts.php') ?>
