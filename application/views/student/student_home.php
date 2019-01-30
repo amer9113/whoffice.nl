@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img class="imgbutton" src="<?= base_url().'images/31214.jpg'; ?>">
                 <div class="imgtext w3-display-topmiddle w3-large">ONA-Functies</div> 
             </button></a> &nbsp;
-            <a target="_blank" href="<?= base_url().'suspention/comming_soon'; ?>"><button class="squarebutton w3-button w3-card-4 w3-mobile w3-display-container"> 
+            <a target="_blank" href="<?= base_url().'student/videos'; ?>"><button class="squarebutton w3-button w3-card-4 w3-mobile w3-display-container"> 
                 <img class="imgbutton" src="<?= base_url().'images/989.jpg'; ?>"> 
                 <div class="imgtext w3-display-topmiddle w3-large">ONA-Maatschappij</div>
             </button></a> &nbsp;

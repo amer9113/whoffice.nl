@@ -69,6 +69,11 @@ class Student extends CI_Controller {
 		redirect('site');
 	}
 
+	public function videos()
+	{
+		$this->load->view("student/videos_page");
+	}
+
 
 	public function card_1(){
 		$data = array();
