@@ -55,10 +55,7 @@ function formatSecondsForHours( $seconds ){
     }
     $seconds = $seconds % 3600;
 
-    return str_pad( $hours, 2, '0', STR_PAD_LEFT )
-       . gmdate( '', $seconds )
-       . ($milliseconds ? ".$milliseconds" : '')
-    ;
+    return str_pad( $hours, 2, '0', STR_PAD_LEFT ) . gmdate( '', $seconds ) . ($milliseconds ? ".$milliseconds" : '');
 }
 
 function itsAjaxCall() {

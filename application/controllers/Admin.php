@@ -848,6 +848,34 @@ class Admin extends CI_Controller {
 					$input = $this->input->post();
 					$this->db->where('user_id',$student_id)->update('card_8',$input);
 				}
+
+				$student = $this->db->where('id',$student_id)->get('students')->row();
+				/*Send email here*/
+				$msg = '<html lang="NL">
+				    <head>
+				    <title></title>
+				    </head>
+				     <body>
+				     <div style="text-align: right; direction: rtl;">
+	                    <p>مرحباً</p>
+	        
+	                    <p>لقد تم إصلاح كرتك  رقم '.$card_no.'. يرجى مراجعة الكرت ضمن الموقع وشكراً </p>
+	                    
+	                    <p>مع تحيات إدارة المدرسة  .</p>
+	    
+	                </div>
+
+				        <p>Hallo <b>'.$student->firstname.' '.$student->lastname.'</b></p>
+				      
+				        <p>Uw resultaatkaart '.$card_no.' is gecorrigeerd. U kunt de correctie bij de website zien.</p>
+				        <p>Directie van de school</p>
+				    </body>
+				</html>';
+
+				$subject = "Whoffice Card Informaion.";
+
+				$this->Teacher_model->send_email($student->email,$msg,$subject);
+
 			}else{
 				$lock_card = $this->input->post('lock_card');
 				if ($lock_card == "yes") {
