@@ -427,7 +427,7 @@ class Student extends CI_Controller {
 
 		if ($check_previous_is_completed == 0) {
 			echo "Sorry, you can't take this card yet.";
-			die();
+			//die();
 		}
 
 		$data = array();
@@ -1092,7 +1092,12 @@ class Student extends CI_Controller {
 
 		$this->db->update("card_$card_no",$input);
 
-		redirect("student/card_$card_no");
+		if (itsAjaxCall()) {
+			$res['status'] = 1;
+			echo json_encode($res);
+		}else{
+			redirect("student/card_$card_no");
+		}
 	}
 
 	public function lesson($no){

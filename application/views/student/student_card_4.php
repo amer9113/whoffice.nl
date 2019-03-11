@@ -387,12 +387,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                    </label>
 	                                    <br>
 	                                    <?php if (isset($data) && $data->job_offer_1_file != ""): ?>
-
-    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank"><?= $data->job_offer_1_file_caption; ?></a></label>
-
-    										<?php if (isset($opened_for_teacher_checking) && $data->job_offer_1_file != ""): ?>
-                                                <label><a href="<?= base_url().'admin/remove_file/4/'.$data->user_id.'/job_offer_1_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?>
+	                                    	<div class="parent_box">
+	    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_1_file; ?>" target="_blank"><?= $data->job_offer_1_file_caption; ?></a></label>
+	    										<br>
+	    										<?php if (isset($opened_for_teacher_checking) && $data->job_offer_1_file != ""): ?>
+	                                                <label><a class="remove_file_link" href="<?= base_url().'admin/remove_file/4/'.$data->user_id.'/job_offer_1_file'; ?>">Remove this file</a></label>
+	                                            <?php endif ?>
+	                                    	</div>
     									<?php endif ?>
 
 	                                </div>
@@ -578,12 +579,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                                        </label>
 	                                        <br>
 	                                        <?php if (isset($data) && $data->job_offer_2_file != ""): ?>
-
-    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_2_file; ?>" target="_blank"><?= $data->job_offer_2_file_caption; ?></a></label>
-    										<?php if (isset($opened_for_teacher_checking) && $data->job_offer_2_file != ""): ?>
-                                                <label><a href="<?= base_url().'admin/remove_file/4/'.$data->user_id.'/job_offer_2_file'; ?>">Remove this file</a></label>
-                                            <?php endif ?>
-    									<?php endif ?>
+	                                        	<div class="parent_box">
+		    										<label class="choosen_file_label"><a href="<?= base_url().'ext/student_documents/'.$data->job_offer_2_file; ?>" target="_blank"><?= $data->job_offer_2_file_caption; ?></a></label>
+		    										<br>
+		    										<?php if (isset($opened_for_teacher_checking) && $data->job_offer_2_file != ""): ?>
+		                                            <label><a class="remove_file_link" href="<?= base_url().'admin/remove_file/4/'.$data->user_id.'/job_offer_2_file'; ?>">Remove this file</a></label>
+		                                            <?php endif ?>
+		                                    	</div>
+    										<?php endif ?>
 
 	                                    </div>
 
