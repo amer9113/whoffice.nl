@@ -22,12 +22,23 @@ $(document).ready(function(){
         var href = $(this).attr('href');
         var link = $(this);
         var container = $(link).parents('.parent_box')[0];
-        $.getJSON(href,null,function(data){
-            if (data.status == 1) {
-                $(container).remove();
-            }else{
-                swal('Fail!', data.message, "error",{
-                  button: 'Close',
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover it!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((agreed) => {
+            if (agreed) {
+                $.getJSON(href,null,function(data){
+                    if (data.status == 1) {
+                        $(container).remove();
+                    }else{
+                        swal('Fail!', data.message, "error",{
+                          button: 'Close',
+                        });
+                    }
                 });
             }
         });

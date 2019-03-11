@@ -849,6 +849,9 @@ class Admin extends CI_Controller {
 					$this->db->where('user_id',$student_id)->update('card_8',$input);
 				}
 
+				$correction_notes = $this->input->post('correction_notes');
+				$this->db->set('correction_notes',$correction_notes)->where('user_id',$student_id)->update("card_$card_no");
+
 				$student = $this->db->where('id',$student_id)->get('students')->row();
 				/*Send email here*/
 				$msg = '<html lang="NL">

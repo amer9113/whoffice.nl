@@ -256,4 +256,31 @@ $(document).ready(function(){
             parent.append($('<label class="choosen_file_label">').text(file.name));
         }
     });
+
+    $('.remove_file_link').click(function(e){
+        e.preventDefault();
+        var href = $(this).attr('href');
+        var link = $(this);
+        var container = $(link).parents('.parent_box')[0];
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover it!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((agreed) => {
+            if (agreed) {
+                $.getJSON(href,null,function(data){
+                    if (data.status == 1) {
+                        $(container).remove();
+                    }else{
+                        swal('Fail!', data.message, "error",{
+                          button: 'Close',
+                        });
+                    }
+                });
+            }
+        });
+    });
 });
