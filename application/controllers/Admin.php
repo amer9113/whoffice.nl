@@ -239,10 +239,10 @@ class Admin extends CI_Controller {
 
 	public function check_card($student_id,$card_no,$from){
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$lock_card = $_POST['lock_card'];
-			$needs_correction_by_student = $_POST['needs_correction_by_student'];
-			$alter_answers = $_POST['alter_answers'];
-			$correction_notes = $_POST['correction_notes'];
+			$lock_card = $this->input->post('lock_card');
+			$needs_correction_by_student = $this->input->post('needs_correction_by_student');
+			$alter_answers = $this->input->post('alter_answers');
+			$correction_notes = $this->input->post('correction_notes');
 
 			unset($_POST['lock_card']);
 			unset($_POST['needs_correction_by_student']);
@@ -851,16 +851,22 @@ class Admin extends CI_Controller {
 				$this->db->where('user_id',$student_id)->update('card_8',$input);
 			}
 
-			if ($lock_card == "yes") {
-				$this->db->set('edit_allow',0)->set('checked_with_teacher',1)->set('needs_correction_by_student',0);
+			if ($alter_answers == "yes") {
+
 			}else{
-				if ($needs_correction_by_student == "yes") {
-					$this->db->set('correction_notes',$correction_notes)->set('needs_correction_by_student',1);
+				if ($lock_card == "yes") {
+					$this->db->set('edit_allow',0)->set('checked_with_teacher',1)->set('needs_correction_by_student',0);
 				}else{
-					$this->db->set('checked_with_teacher',1)->set('needs_correction_by_student',0);
+					if ($needs_correction_by_student == "yes") {
+						$this->db->set('correction_notes',$correction_notes)->set('needs_correction_by_student',1);
+					}else{
+						$this->db->set('checked_with_teacher',1)->set('needs_correction_by_student',0);
+					}
+
+					$this->db->set('edit_allow',1);
 				}
 
-				$this->db->set('edit_allow',1);
+				$this->db->where('user_id',$student_id)->update("card_$card_no");
 			}
 			$this->db->trans_complete();
 			if ($this->db->trans_status() === TRUE){
