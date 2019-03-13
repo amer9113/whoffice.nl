@@ -889,8 +889,15 @@ class Admin extends CI_Controller {
 				$subject = "Whoffice Card Informaion.";
 
 				$this->Teacher_model->send_email($student->email,$msg,$subject);
+
+				if ($from == "pending_cards") {
+					redirect('admin/check_students_pending_cards');
+				}else if($from == "statistics"){
+					redirect('admin/check_students_statistics');
+				}
 			}else{
 				echo "Sorry, error.";
+				die();
 			}
 		}
 
