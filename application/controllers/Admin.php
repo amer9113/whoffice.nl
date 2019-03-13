@@ -244,7 +244,7 @@ class Admin extends CI_Controller {
 				unset($_POST['lock_card']);
 				unset($_POST['needs_correction_by_student']);
 				unset($_POST['alter_answers']);
-				unset($_POST['correction_notes']);
+				//unset($_POST['correction_notes']);
 
 				if ($card_no == 1) {
 					$input = $this->input->post();
