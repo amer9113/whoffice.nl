@@ -427,7 +427,7 @@ class Student extends CI_Controller {
 
 		if ($check_previous_is_completed == 0) {
 			echo "Sorry, you can't take this card yet.";
-			//die();
+			die();
 		}
 
 		$data = array();
