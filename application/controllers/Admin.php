@@ -659,7 +659,7 @@ class Admin extends CI_Controller {
 
 			if ($card_no == 6) {
 				$input = $this->input->post();
-				$input['user_id'] = $this->acc_id;
+				/*$input['user_id'] = $this->acc_id;*/
 
 				if (!isset($input['close_friend']) || empty($input['close_friend'])) {
 					$input['close_friend'] = 0;
