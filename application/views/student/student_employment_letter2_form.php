@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<label>Geboortedatum:</label>
 						</div>
 						<div class="col-xs-3">
-							<input type="text" class="date form-control" name="date_of_birth">
+							<input type="text" class="date form-control" id ="date_of_birth" name="date_of_birth">
 						</div>
 						<div class="col-xs-3">
 							<label>Geboorteplaats:</label>
@@ -486,6 +486,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$('input[name="voor_type"]').val('voor2');
 			$('form').submit();
 		});
+		
+	
 	});
 </script>
 </body>

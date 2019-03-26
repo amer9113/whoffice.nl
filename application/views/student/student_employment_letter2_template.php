@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<div class="row">
 			<div class="col-sm-12">
 				<h4>Persoonlijke gegevens</h4>
@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
-						<label>Geboortedatum:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->date_of_birth; ?></label>
+						<label>Geboortedatum:</label>&nbsp;&nbsp;&nbsp;<label><?= date("d-m-Y", strtotime($letter_details->date_of_birth));  ?></label>
 					</div>
 				</div>
 				<div class="row">
@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<?php if ($type == "voor1"): ?>
 		<div class="row">
 			<div class="col-sm-12">
@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<?php else: ?>
 		<div class="row">
 			<div class="col-sm-12">
@@ -140,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<?php endif ?>
 		<div class="row">
 			<div class="col-sm-12">
@@ -161,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 									<td><?= $letter_details->education_course; ?></td>
 									<td><?= $letter_details->education_institution; ?></td>
-									<td><?= $letter_details->education_from; ?> - <?= ($letter_details->education_to = '0000-00-00')?'Heden':$letter_details->education_to; ?></td>
+									<td><?= date("d-m-Y", strtotime($letter_details->education_from)); ?> - <?= ($letter_details->education_to == '0000-00-00')?'Heden':date("d-m-Y", strtotime($letter_details->education_to)); ?></td>
 									<td><?= $letter_details->education_diploma; ?></td>
 								</tr>
 							</tbody>
@@ -181,15 +181,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 									<th>Functie</th>
 									<th>Werkzaamheden</th>
-									<th>Bedrijf / organisatie</th>
+								
 									<th>Van / tot</th>
+										<th>Bedrijf / organisatie</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td><?= $letter_details->work_experience_position; ?></td>
 									<td><?= $letter_details->work_experience_activities; ?></td>
-									<td><?= $letter_details->work_experience_from; ?> - <?= $letter_details->work_experience_to; ?></td>
+									<td><?= date("d-m-Y", strtotime($letter_details->work_experience_from)); ?> - <?= date("d-m-Y", strtotime($letter_details->work_experience_to)); ?></td>
 									<td><?= $letter_details->work_experience_company; ?></td>
 								</tr>
 							</tbody>
@@ -197,7 +198,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<div class="row">
 			<div class="col-sm-12">
 				<h4>Referenties</h4>
@@ -225,7 +226,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<div class="row">
 			<div class="col-sm-12">
 				<h4>Talenkennis (vul in: goed / voldoende / matig / slecht)</h4>
@@ -244,10 +245,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<div class="row">
 			<div class="col-sm-12">
-				<h4>Vaardigheden (kruis uw vaardigheden aan)</h4>
+				<h4>Vaardigheden </h4>
 				<hr style="margin: 5px 0px;">
 				<div class="row">
 					<?php if ($letter_details->accuracy_skill == "yes"): ?>
@@ -287,7 +288,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?php endif ?>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<?php if ($type == "voor1"): ?>
 		<div class="row">
 			<div class="col-sm-12">
@@ -298,7 +299,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<label>bedrijfs plaats:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place1; ?></label>
 					</div>
 					<div class="col-xs-4">
-						<label>Datum:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place1_date; ?></label>
+						<label>Datum:</label>&nbsp;&nbsp;&nbsp;<label><?= date("d-m-Y", strtotime( $letter_details->business_place1_date)); ?></label>
 					</div>
 				</div>
 				<div class="row">
@@ -307,7 +308,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-		</div><br><br>
+		</div><br>
 		<?php else: ?>
 		<div class="row">
 			<div class="col-sm-12">
@@ -318,7 +319,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<label>bedrijfs plaats:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place2; ?></label>
 					</div>
 					<div class="col-xs-4">
-						<label>Datum:</label>&nbsp;&nbsp;&nbsp;<label><?= $letter_details->business_place2_date; ?></label>
+						<label>Datum:</label>&nbsp;&nbsp;&nbsp;<label><?= date("d-m-Y", strtotime($letter_details->business_place2_date)); ?></label>
 					</div>
 				</div>
 				<div class="row">
